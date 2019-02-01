@@ -5,7 +5,9 @@ authors = ["Raphael Theiler <peanut@esheep.ch>"]
 edition = "2018"
 test = false
 bench = false
-lib.test = false
+
+[lib]
+test = false
 
 [dependencies]
 bare-metal = "0.2.0"
