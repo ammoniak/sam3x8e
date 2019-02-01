@@ -2,7 +2,6 @@
 name = "sam3x8e"
 version = "0.1.0"
 authors = ["Raphael Theiler <peanut@esheep.ch>"]
-edition = "2018"
 test = false
 bench = false
 
