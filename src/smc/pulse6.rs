@@ -94,7 +94,7 @@ impl<'a> _NWE_PULSEW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
+        const MASK: u8 = 127;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -109,7 +109,7 @@ impl<'a> _NCS_WR_PULSEW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
+        const MASK: u8 = 127;
         const OFFSET: u8 = 8;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -124,7 +124,7 @@ impl<'a> _NRD_PULSEW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
+        const MASK: u8 = 127;
         const OFFSET: u8 = 16;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -139,7 +139,7 @@ impl<'a> _NCS_RD_PULSEW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
+        const MASK: u8 = 127;
         const OFFSET: u8 = 24;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -152,41 +152,41 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:5 - NWE Pulse Length"]
+    #[doc = "Bits 0:6 - NWE Pulse Length"]
     #[inline]
     pub fn nwe_pulse(&self) -> NWE_PULSER {
         let bits = {
-            const MASK: u8 = 63;
+            const MASK: u8 = 127;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         };
         NWE_PULSER { bits }
     }
-    #[doc = "Bits 8:13 - NCS Pulse Length in WRITE Access"]
+    #[doc = "Bits 8:14 - NCS Pulse Length in WRITE Access"]
     #[inline]
     pub fn ncs_wr_pulse(&self) -> NCS_WR_PULSER {
         let bits = {
-            const MASK: u8 = 63;
+            const MASK: u8 = 127;
             const OFFSET: u8 = 8;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         };
         NCS_WR_PULSER { bits }
     }
-    #[doc = "Bits 16:21 - NRD Pulse Length"]
+    #[doc = "Bits 16:22 - NRD Pulse Length"]
     #[inline]
     pub fn nrd_pulse(&self) -> NRD_PULSER {
         let bits = {
-            const MASK: u8 = 63;
+            const MASK: u8 = 127;
             const OFFSET: u8 = 16;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         };
         NRD_PULSER { bits }
     }
-    #[doc = "Bits 24:29 - NCS Pulse Length in READ Access"]
+    #[doc = "Bits 24:30 - NCS Pulse Length in READ Access"]
     #[inline]
     pub fn ncs_rd_pulse(&self) -> NCS_RD_PULSER {
         let bits = {
-            const MASK: u8 = 63;
+            const MASK: u8 = 127;
             const OFFSET: u8 = 24;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         };
@@ -205,22 +205,22 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:5 - NWE Pulse Length"]
+    #[doc = "Bits 0:6 - NWE Pulse Length"]
     #[inline]
     pub fn nwe_pulse(&mut self) -> _NWE_PULSEW {
         _NWE_PULSEW { w: self }
     }
-    #[doc = "Bits 8:13 - NCS Pulse Length in WRITE Access"]
+    #[doc = "Bits 8:14 - NCS Pulse Length in WRITE Access"]
     #[inline]
     pub fn ncs_wr_pulse(&mut self) -> _NCS_WR_PULSEW {
         _NCS_WR_PULSEW { w: self }
     }
-    #[doc = "Bits 16:21 - NRD Pulse Length"]
+    #[doc = "Bits 16:22 - NRD Pulse Length"]
     #[inline]
     pub fn nrd_pulse(&mut self) -> _NRD_PULSEW {
         _NRD_PULSEW { w: self }
     }
-    #[doc = "Bits 24:29 - NCS Pulse Length in READ Access"]
+    #[doc = "Bits 24:30 - NCS Pulse Length in READ Access"]
     #[inline]
     pub fn ncs_rd_pulse(&mut self) -> _NCS_RD_PULSEW {
         _NCS_RD_PULSEW { w: self }

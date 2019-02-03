@@ -45,15 +45,15 @@ impl super::MR {
 #[doc = "Possible values of the field `PAR`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PARR {
-    #[doc = "Even parity"]
+    #[doc = "Even Parity"]
     EVEN,
-    #[doc = "Odd parity"]
+    #[doc = "Odd Parity"]
     ODD,
     #[doc = "Space: parity forced to 0"]
     SPACE,
     #[doc = "Mark: parity forced to 1"]
     MARK,
-    #[doc = "No parity"]
+    #[doc = "No Parity"]
     NO,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -168,15 +168,15 @@ impl CHMODER {
 }
 #[doc = "Values that can be written to the field `PAR`"]
 pub enum PARW {
-    #[doc = "Even parity"]
+    #[doc = "Even Parity"]
     EVEN,
-    #[doc = "Odd parity"]
+    #[doc = "Odd Parity"]
     ODD,
     #[doc = "Space: parity forced to 0"]
     SPACE,
     #[doc = "Mark: parity forced to 1"]
     MARK,
-    #[doc = "No parity"]
+    #[doc = "No Parity"]
     NO,
 }
 impl PARW {
@@ -203,12 +203,12 @@ impl<'a> _PARW<'a> {
     pub fn variant(self, variant: PARW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "Even parity"]
+    #[doc = "Even Parity"]
     #[inline]
     pub fn even(self) -> &'a mut W {
         self.variant(PARW::EVEN)
     }
-    #[doc = "Odd parity"]
+    #[doc = "Odd Parity"]
     #[inline]
     pub fn odd(self) -> &'a mut W {
         self.variant(PARW::ODD)
@@ -223,7 +223,7 @@ impl<'a> _PARW<'a> {
     pub fn mark(self) -> &'a mut W {
         self.variant(PARW::MARK)
     }
-    #[doc = "No parity"]
+    #[doc = "No Parity"]
     #[inline]
     pub fn no(self) -> &'a mut W {
         self.variant(PARW::NO)

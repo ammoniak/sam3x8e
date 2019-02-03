@@ -131,7 +131,7 @@ impl R {
         };
         QERRR { bits }
     }
-    #[doc = "Bit 8 - Direction"]
+    #[doc = "Bit 8 - DIRection"]
     #[inline]
     pub fn dir(&self) -> DIRR {
         let bits = {

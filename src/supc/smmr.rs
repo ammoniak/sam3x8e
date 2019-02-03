@@ -42,168 +42,15 @@ impl super::SMMR {
         self.write(|w| w)
     }
 }
-#[doc = "Possible values of the field `SMTH`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SMTHR {
-    #[doc = "1.9 V"]
-    _1_9V,
-    #[doc = "2.0 V"]
-    _2_0V,
-    #[doc = "2.1 V"]
-    _2_1V,
-    #[doc = "2.2 V"]
-    _2_2V,
-    #[doc = "2.3 V"]
-    _2_3V,
-    #[doc = "2.4 V"]
-    _2_4V,
-    #[doc = "2.5 V"]
-    _2_5V,
-    #[doc = "2.6 V"]
-    _2_6V,
-    #[doc = "2.7 V"]
-    _2_7V,
-    #[doc = "2.8 V"]
-    _2_8V,
-    #[doc = "2.9 V"]
-    _2_9V,
-    #[doc = "3.0 V"]
-    _3_0V,
-    #[doc = "3.1 V"]
-    _3_1V,
-    #[doc = "3.2 V"]
-    _3_2V,
-    #[doc = "3.3 V"]
-    _3_3V,
-    #[doc = "3.4 V"]
-    _3_4V,
+#[doc = r" Value of the field"]
+pub struct SMTHR {
+    bits: u8,
 }
 impl SMTHR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
-        match *self {
-            SMTHR::_1_9V => 0,
-            SMTHR::_2_0V => 1,
-            SMTHR::_2_1V => 2,
-            SMTHR::_2_2V => 3,
-            SMTHR::_2_3V => 4,
-            SMTHR::_2_4V => 5,
-            SMTHR::_2_5V => 6,
-            SMTHR::_2_6V => 7,
-            SMTHR::_2_7V => 8,
-            SMTHR::_2_8V => 9,
-            SMTHR::_2_9V => 10,
-            SMTHR::_3_0V => 11,
-            SMTHR::_3_1V => 12,
-            SMTHR::_3_2V => 13,
-            SMTHR::_3_3V => 14,
-            SMTHR::_3_4V => 15,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SMTHR {
-        match value {
-            0 => SMTHR::_1_9V,
-            1 => SMTHR::_2_0V,
-            2 => SMTHR::_2_1V,
-            3 => SMTHR::_2_2V,
-            4 => SMTHR::_2_3V,
-            5 => SMTHR::_2_4V,
-            6 => SMTHR::_2_5V,
-            7 => SMTHR::_2_6V,
-            8 => SMTHR::_2_7V,
-            9 => SMTHR::_2_8V,
-            10 => SMTHR::_2_9V,
-            11 => SMTHR::_3_0V,
-            12 => SMTHR::_3_1V,
-            13 => SMTHR::_3_2V,
-            14 => SMTHR::_3_3V,
-            15 => SMTHR::_3_4V,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `_1_9V`"]
-    #[inline]
-    pub fn is_1_9v(&self) -> bool {
-        *self == SMTHR::_1_9V
-    }
-    #[doc = "Checks if the value of the field is `_2_0V`"]
-    #[inline]
-    pub fn is_2_0v(&self) -> bool {
-        *self == SMTHR::_2_0V
-    }
-    #[doc = "Checks if the value of the field is `_2_1V`"]
-    #[inline]
-    pub fn is_2_1v(&self) -> bool {
-        *self == SMTHR::_2_1V
-    }
-    #[doc = "Checks if the value of the field is `_2_2V`"]
-    #[inline]
-    pub fn is_2_2v(&self) -> bool {
-        *self == SMTHR::_2_2V
-    }
-    #[doc = "Checks if the value of the field is `_2_3V`"]
-    #[inline]
-    pub fn is_2_3v(&self) -> bool {
-        *self == SMTHR::_2_3V
-    }
-    #[doc = "Checks if the value of the field is `_2_4V`"]
-    #[inline]
-    pub fn is_2_4v(&self) -> bool {
-        *self == SMTHR::_2_4V
-    }
-    #[doc = "Checks if the value of the field is `_2_5V`"]
-    #[inline]
-    pub fn is_2_5v(&self) -> bool {
-        *self == SMTHR::_2_5V
-    }
-    #[doc = "Checks if the value of the field is `_2_6V`"]
-    #[inline]
-    pub fn is_2_6v(&self) -> bool {
-        *self == SMTHR::_2_6V
-    }
-    #[doc = "Checks if the value of the field is `_2_7V`"]
-    #[inline]
-    pub fn is_2_7v(&self) -> bool {
-        *self == SMTHR::_2_7V
-    }
-    #[doc = "Checks if the value of the field is `_2_8V`"]
-    #[inline]
-    pub fn is_2_8v(&self) -> bool {
-        *self == SMTHR::_2_8V
-    }
-    #[doc = "Checks if the value of the field is `_2_9V`"]
-    #[inline]
-    pub fn is_2_9v(&self) -> bool {
-        *self == SMTHR::_2_9V
-    }
-    #[doc = "Checks if the value of the field is `_3_0V`"]
-    #[inline]
-    pub fn is_3_0v(&self) -> bool {
-        *self == SMTHR::_3_0V
-    }
-    #[doc = "Checks if the value of the field is `_3_1V`"]
-    #[inline]
-    pub fn is_3_1v(&self) -> bool {
-        *self == SMTHR::_3_1V
-    }
-    #[doc = "Checks if the value of the field is `_3_2V`"]
-    #[inline]
-    pub fn is_3_2v(&self) -> bool {
-        *self == SMTHR::_3_2V
-    }
-    #[doc = "Checks if the value of the field is `_3_3V`"]
-    #[inline]
-    pub fn is_3_3v(&self) -> bool {
-        *self == SMTHR::_3_3V
-    }
-    #[doc = "Checks if the value of the field is `_3_4V`"]
-    #[inline]
-    pub fn is_3_4v(&self) -> bool {
-        *self == SMTHR::_3_4V
+        self.bits
     }
 }
 #[doc = "Possible values of the field `SMSMPL`"]
@@ -368,161 +215,14 @@ impl SMIENR {
         *self == SMIENR::ENABLE
     }
 }
-#[doc = "Values that can be written to the field `SMTH`"]
-pub enum SMTHW {
-    #[doc = "1.9 V"]
-    _1_9V,
-    #[doc = "2.0 V"]
-    _2_0V,
-    #[doc = "2.1 V"]
-    _2_1V,
-    #[doc = "2.2 V"]
-    _2_2V,
-    #[doc = "2.3 V"]
-    _2_3V,
-    #[doc = "2.4 V"]
-    _2_4V,
-    #[doc = "2.5 V"]
-    _2_5V,
-    #[doc = "2.6 V"]
-    _2_6V,
-    #[doc = "2.7 V"]
-    _2_7V,
-    #[doc = "2.8 V"]
-    _2_8V,
-    #[doc = "2.9 V"]
-    _2_9V,
-    #[doc = "3.0 V"]
-    _3_0V,
-    #[doc = "3.1 V"]
-    _3_1V,
-    #[doc = "3.2 V"]
-    _3_2V,
-    #[doc = "3.3 V"]
-    _3_3V,
-    #[doc = "3.4 V"]
-    _3_4V,
-}
-impl SMTHW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SMTHW::_1_9V => 0,
-            SMTHW::_2_0V => 1,
-            SMTHW::_2_1V => 2,
-            SMTHW::_2_2V => 3,
-            SMTHW::_2_3V => 4,
-            SMTHW::_2_4V => 5,
-            SMTHW::_2_5V => 6,
-            SMTHW::_2_6V => 7,
-            SMTHW::_2_7V => 8,
-            SMTHW::_2_8V => 9,
-            SMTHW::_2_9V => 10,
-            SMTHW::_3_0V => 11,
-            SMTHW::_3_1V => 12,
-            SMTHW::_3_2V => 13,
-            SMTHW::_3_3V => 14,
-            SMTHW::_3_4V => 15,
-        }
-    }
-}
 #[doc = r" Proxy"]
 pub struct _SMTHW<'a> {
     w: &'a mut W,
 }
 impl<'a> _SMTHW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SMTHW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "1.9 V"]
-    #[inline]
-    pub fn _1_9v(self) -> &'a mut W {
-        self.variant(SMTHW::_1_9V)
-    }
-    #[doc = "2.0 V"]
-    #[inline]
-    pub fn _2_0v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_0V)
-    }
-    #[doc = "2.1 V"]
-    #[inline]
-    pub fn _2_1v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_1V)
-    }
-    #[doc = "2.2 V"]
-    #[inline]
-    pub fn _2_2v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_2V)
-    }
-    #[doc = "2.3 V"]
-    #[inline]
-    pub fn _2_3v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_3V)
-    }
-    #[doc = "2.4 V"]
-    #[inline]
-    pub fn _2_4v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_4V)
-    }
-    #[doc = "2.5 V"]
-    #[inline]
-    pub fn _2_5v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_5V)
-    }
-    #[doc = "2.6 V"]
-    #[inline]
-    pub fn _2_6v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_6V)
-    }
-    #[doc = "2.7 V"]
-    #[inline]
-    pub fn _2_7v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_7V)
-    }
-    #[doc = "2.8 V"]
-    #[inline]
-    pub fn _2_8v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_8V)
-    }
-    #[doc = "2.9 V"]
-    #[inline]
-    pub fn _2_9v(self) -> &'a mut W {
-        self.variant(SMTHW::_2_9V)
-    }
-    #[doc = "3.0 V"]
-    #[inline]
-    pub fn _3_0v(self) -> &'a mut W {
-        self.variant(SMTHW::_3_0V)
-    }
-    #[doc = "3.1 V"]
-    #[inline]
-    pub fn _3_1v(self) -> &'a mut W {
-        self.variant(SMTHW::_3_1V)
-    }
-    #[doc = "3.2 V"]
-    #[inline]
-    pub fn _3_2v(self) -> &'a mut W {
-        self.variant(SMTHW::_3_2V)
-    }
-    #[doc = "3.3 V"]
-    #[inline]
-    pub fn _3_3v(self) -> &'a mut W {
-        self.variant(SMTHW::_3_3V)
-    }
-    #[doc = "3.4 V"]
-    #[inline]
-    pub fn _3_4v(self) -> &'a mut W {
-        self.variant(SMTHW::_3_4V)
-    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
         const MASK: u8 = 15;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
@@ -727,11 +427,12 @@ impl R {
     #[doc = "Bits 0:3 - Supply Monitor Threshold"]
     #[inline]
     pub fn smth(&self) -> SMTHR {
-        SMTHR::_from({
+        let bits = {
             const MASK: u8 = 15;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+        };
+        SMTHR { bits }
     }
     #[doc = "Bits 8:10 - Supply Monitor Sampling Period"]
     #[inline]

@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::OSCUPD {}
+impl super::OSCUPD {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _OSCUPH0W<'a> {
     w: &'a mut W,
@@ -326,10 +338,10 @@ impl<'a> _OSCUPL5W<'a> {
     }
 }
 #[doc = r" Proxy"]
-pub struct _OSCUPDL6W<'a> {
+pub struct _OSCUPL6W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSCUPDL6W<'a> {
+impl<'a> _OSCUPL6W<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -372,12 +384,6 @@ impl<'a> _OSCUPL7W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Output Selection Clear for PWMH output of the channel 0"]
     #[inline]
     pub fn oscuph0(&mut self) -> _OSCUPH0W {
@@ -448,10 +454,10 @@ impl W {
     pub fn oscupl5(&mut self) -> _OSCUPL5W {
         _OSCUPL5W { w: self }
     }
-    #[doc = "Bit 22"]
+    #[doc = "Bit 22 - Output Selection Clear for PWML output of the channel 6"]
     #[inline]
-    pub fn oscupdl6(&mut self) -> _OSCUPDL6W {
-        _OSCUPDL6W { w: self }
+    pub fn oscupl6(&mut self) -> _OSCUPL6W {
+        _OSCUPL6W { w: self }
     }
     #[doc = "Bit 23 - Output Selection Clear for PWML output of the channel 7"]
     #[inline]

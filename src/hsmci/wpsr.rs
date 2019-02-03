@@ -11,70 +11,32 @@ impl super::WPSR {
         }
     }
 }
-#[doc = "Possible values of the field `WP_VS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WP_VSR {
-    #[doc = "No Write Protection Violation occurred since the last read of this register (WP_SR)"]
-    NONE,
-    #[doc = "Write Protection detected unauthorized attempt to write a control register had occurred (since the last read.)"]
-    WRITE,
-    #[doc = "Software reset had been performed while Write Protection was enabled (since the last read)."]
-    RESET,
-    #[doc = "Both Write Protection violation and software reset with Write Protection enabled have occurred since the last read."]
-    BOTH,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = r" Value of the field"]
+pub struct WPVSR {
+    bits: bool,
 }
-impl WP_VSR {
+impl WPVSR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            WP_VSR::NONE => 0,
-            WP_VSR::WRITE => 1,
-            WP_VSR::RESET => 2,
-            WP_VSR::BOTH => 3,
-            WP_VSR::_Reserved(bits) => bits,
-        }
+    pub fn bit(&self) -> bool {
+        self.bits
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
+    #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
-    pub fn _from(value: u8) -> WP_VSR {
-        match value {
-            0 => WP_VSR::NONE,
-            1 => WP_VSR::WRITE,
-            2 => WP_VSR::RESET,
-            3 => WP_VSR::BOTH,
-            i => WP_VSR::_Reserved(i),
-        }
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = r" Returns `true` if the bit is set (1)"]
     #[inline]
-    pub fn is_none(&self) -> bool {
-        *self == WP_VSR::NONE
-    }
-    #[doc = "Checks if the value of the field is `WRITE`"]
-    #[inline]
-    pub fn is_write(&self) -> bool {
-        *self == WP_VSR::WRITE
-    }
-    #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
-    pub fn is_reset(&self) -> bool {
-        *self == WP_VSR::RESET
-    }
-    #[doc = "Checks if the value of the field is `BOTH`"]
-    #[inline]
-    pub fn is_both(&self) -> bool {
-        *self == WP_VSR::BOTH
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 #[doc = r" Value of the field"]
-pub struct WP_VSRCR {
+pub struct WPVSRCR {
     bits: u16,
 }
-impl WP_VSRCR {
+impl WPVSRCR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u16 {
@@ -87,23 +49,24 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:3 - Write Protection Violation Status"]
+    #[doc = "Bit 0 - Write Protection Violation Status"]
     #[inline]
-    pub fn wp_vs(&self) -> WP_VSR {
-        WP_VSR::_from({
-            const MASK: u8 = 15;
+    pub fn wpvs(&self) -> WPVSR {
+        let bits = {
+            const MASK: bool = true;
             const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        WPVSR { bits }
     }
-    #[doc = "Bits 8:23 - Write Protection Violation SouRCe"]
+    #[doc = "Bits 8:23 - Write Protection Violation Source"]
     #[inline]
-    pub fn wp_vsrc(&self) -> WP_VSRCR {
+    pub fn wpvsrc(&self) -> WPVSRCR {
         let bits = {
             const MASK: u16 = 65535;
             const OFFSET: u8 = 8;
             ((self.bits >> OFFSET) & MASK as u32) as u16
         };
-        WP_VSRCR { bits }
+        WPVSRCR { bits }
     }
 }

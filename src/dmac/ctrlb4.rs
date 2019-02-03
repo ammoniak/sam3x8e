@@ -147,8 +147,6 @@ pub enum FCR {
     PER2MEM_DMA_FC,
     #[doc = "Peripheral-to-Peripheral Transfer DMAC is flow controller"]
     PER2PER_DMA_FC,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
 impl FCR {
     #[doc = r" Value of the field as raw bits"]
@@ -159,7 +157,6 @@ impl FCR {
             FCR::MEM2PER_DMA_FC => 1,
             FCR::PER2MEM_DMA_FC => 2,
             FCR::PER2PER_DMA_FC => 3,
-            FCR::_Reserved(bits) => bits,
         }
     }
     #[allow(missing_docs)]
@@ -171,7 +168,7 @@ impl FCR {
             1 => FCR::MEM2PER_DMA_FC,
             2 => FCR::PER2MEM_DMA_FC,
             3 => FCR::PER2PER_DMA_FC,
-            i => FCR::_Reserved(i),
+            _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `MEM2MEM_DMA_FC`"]
@@ -464,7 +461,9 @@ impl<'a> _FCW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
     pub fn variant(self, variant: FCW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+        {
+            self.bits(variant._bits())
+        }
     }
     #[doc = "Memory-to-Memory Transfer DMAC is flow controller"]
     #[inline]
@@ -488,8 +487,8 @@ impl<'a> _FCW<'a> {
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
+    pub fn bits(self, value: u8) -> &'a mut W {
+        const MASK: u8 = 3;
         const OFFSET: u8 = 21;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -655,11 +654,11 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bits 21:23 - Flow Control"]
+    #[doc = "Bits 21:22 - Flow Control"]
     #[inline]
     pub fn fc(&self) -> FCR {
         FCR::_from({
-            const MASK: u8 = 7;
+            const MASK: u8 = 3;
             const OFFSET: u8 = 21;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
@@ -682,7 +681,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bit 30"]
+    #[doc = "Bit 30 - Interrupt Enable Not"]
     #[inline]
     pub fn ien(&self) -> IENR {
         let bits = {
@@ -715,7 +714,7 @@ impl W {
     pub fn dst_dscr(&mut self) -> _DST_DSCRW {
         _DST_DSCRW { w: self }
     }
-    #[doc = "Bits 21:23 - Flow Control"]
+    #[doc = "Bits 21:22 - Flow Control"]
     #[inline]
     pub fn fc(&mut self) -> _FCW {
         _FCW { w: self }
@@ -730,7 +729,7 @@ impl W {
     pub fn dst_incr(&mut self) -> _DST_INCRW {
         _DST_INCRW { w: self }
     }
-    #[doc = "Bit 30"]
+    #[doc = "Bit 30 - Interrupt Enable Not"]
     #[inline]
     pub fn ien(&mut self) -> _IENW {
         _IENW { w: self }

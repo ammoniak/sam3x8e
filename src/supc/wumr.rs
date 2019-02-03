@@ -45,9 +45,9 @@ impl super::WUMR {
 #[doc = "Possible values of the field `FWUPEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FWUPENR {
-    #[doc = "the Force Wake Up pin has no wake up effect."]
+    #[doc = "the Force Wake-up pin has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the Force Wake Up pin low forces the wake up of the core power supply."]
+    #[doc = "the Force Wake-up pin low forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl FWUPENR {
@@ -92,9 +92,9 @@ impl FWUPENR {
 #[doc = "Possible values of the field `SMEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMENR {
-    #[doc = "the supply monitor detection has no wake up effect."]
+    #[doc = "the supply monitor detection has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the supply monitor detection forces the wake up of the core power supply."]
+    #[doc = "the supply monitor detection forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl SMENR {
@@ -139,9 +139,9 @@ impl SMENR {
 #[doc = "Possible values of the field `RTTEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RTTENR {
-    #[doc = "the RTT alarm signal has no wake up effect."]
+    #[doc = "the RTT alarm signal has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the RTT alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTT alarm signal forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl RTTENR {
@@ -186,9 +186,9 @@ impl RTTENR {
 #[doc = "Possible values of the field `RTCEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RTCENR {
-    #[doc = "the RTC alarm signal has no wake up effect."]
+    #[doc = "the RTC alarm signal has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the RTC alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTC alarm signal forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl RTCENR {
@@ -386,9 +386,9 @@ impl WKUPDBCR {
 }
 #[doc = "Values that can be written to the field `FWUPEN`"]
 pub enum FWUPENW {
-    #[doc = "the Force Wake Up pin has no wake up effect."]
+    #[doc = "the Force Wake-up pin has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the Force Wake Up pin low forces the wake up of the core power supply."]
+    #[doc = "the Force Wake-up pin low forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl FWUPENW {
@@ -414,12 +414,12 @@ impl<'a> _FWUPENW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "the Force Wake Up pin has no wake up effect."]
+    #[doc = "the Force Wake-up pin has no wake-up effect."]
     #[inline]
     pub fn not_enable(self) -> &'a mut W {
         self.variant(FWUPENW::NOT_ENABLE)
     }
-    #[doc = "the Force Wake Up pin low forces the wake up of the core power supply."]
+    #[doc = "the Force Wake-up pin low forces the wake-up of the core power supply."]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(FWUPENW::ENABLE)
@@ -444,9 +444,9 @@ impl<'a> _FWUPENW<'a> {
 }
 #[doc = "Values that can be written to the field `SMEN`"]
 pub enum SMENW {
-    #[doc = "the supply monitor detection has no wake up effect."]
+    #[doc = "the supply monitor detection has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the supply monitor detection forces the wake up of the core power supply."]
+    #[doc = "the supply monitor detection forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl SMENW {
@@ -472,12 +472,12 @@ impl<'a> _SMENW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "the supply monitor detection has no wake up effect."]
+    #[doc = "the supply monitor detection has no wake-up effect."]
     #[inline]
     pub fn not_enable(self) -> &'a mut W {
         self.variant(SMENW::NOT_ENABLE)
     }
-    #[doc = "the supply monitor detection forces the wake up of the core power supply."]
+    #[doc = "the supply monitor detection forces the wake-up of the core power supply."]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(SMENW::ENABLE)
@@ -502,9 +502,9 @@ impl<'a> _SMENW<'a> {
 }
 #[doc = "Values that can be written to the field `RTTEN`"]
 pub enum RTTENW {
-    #[doc = "the RTT alarm signal has no wake up effect."]
+    #[doc = "the RTT alarm signal has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the RTT alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTT alarm signal forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl RTTENW {
@@ -530,12 +530,12 @@ impl<'a> _RTTENW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "the RTT alarm signal has no wake up effect."]
+    #[doc = "the RTT alarm signal has no wake-up effect."]
     #[inline]
     pub fn not_enable(self) -> &'a mut W {
         self.variant(RTTENW::NOT_ENABLE)
     }
-    #[doc = "the RTT alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTT alarm signal forces the wake-up of the core power supply."]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(RTTENW::ENABLE)
@@ -560,9 +560,9 @@ impl<'a> _RTTENW<'a> {
 }
 #[doc = "Values that can be written to the field `RTCEN`"]
 pub enum RTCENW {
-    #[doc = "the RTC alarm signal has no wake up effect."]
+    #[doc = "the RTC alarm signal has no wake-up effect."]
     NOT_ENABLE,
-    #[doc = "the RTC alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTC alarm signal forces the wake-up of the core power supply."]
     ENABLE,
 }
 impl RTCENW {
@@ -588,12 +588,12 @@ impl<'a> _RTCENW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "the RTC alarm signal has no wake up effect."]
+    #[doc = "the RTC alarm signal has no wake-up effect."]
     #[inline]
     pub fn not_enable(self) -> &'a mut W {
         self.variant(RTCENW::NOT_ENABLE)
     }
-    #[doc = "the RTC alarm signal forces the wake up of the core power supply."]
+    #[doc = "the RTC alarm signal forces the wake-up of the core power supply."]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(RTCENW::ENABLE)
@@ -782,7 +782,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Force Wake Up Enable"]
+    #[doc = "Bit 0 - Force Wake-up Enable"]
     #[inline]
     pub fn fwupen(&self) -> FWUPENR {
         FWUPENR::_from({
@@ -791,7 +791,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Supply Monitor Wake Up Enable"]
+    #[doc = "Bit 1 - Supply Monitor Wake-up Enable"]
     #[inline]
     pub fn smen(&self) -> SMENR {
         SMENR::_from({
@@ -800,7 +800,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Real Time Timer Wake Up Enable"]
+    #[doc = "Bit 2 - Real Time Timer Wake-up Enable"]
     #[inline]
     pub fn rtten(&self) -> RTTENR {
         RTTENR::_from({
@@ -809,7 +809,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Real Time Clock Wake Up Enable"]
+    #[doc = "Bit 3 - Real Time Clock Wake-up Enable"]
     #[inline]
     pub fn rtcen(&self) -> RTCENR {
         RTCENR::_from({
@@ -818,7 +818,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bits 8:10 - Force Wake Up Debouncer Period"]
+    #[doc = "Bits 8:10 - Force Wake-up Debouncer Period"]
     #[inline]
     pub fn fwupdbc(&self) -> FWUPDBCR {
         FWUPDBCR::_from({
@@ -827,7 +827,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 12:14 - Wake Up Inputs Debouncer Period"]
+    #[doc = "Bits 12:14 - Wake-up Inputs Debouncer Period"]
     #[inline]
     pub fn wkupdbc(&self) -> WKUPDBCR {
         WKUPDBCR::_from({
@@ -849,32 +849,32 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Force Wake Up Enable"]
+    #[doc = "Bit 0 - Force Wake-up Enable"]
     #[inline]
     pub fn fwupen(&mut self) -> _FWUPENW {
         _FWUPENW { w: self }
     }
-    #[doc = "Bit 1 - Supply Monitor Wake Up Enable"]
+    #[doc = "Bit 1 - Supply Monitor Wake-up Enable"]
     #[inline]
     pub fn smen(&mut self) -> _SMENW {
         _SMENW { w: self }
     }
-    #[doc = "Bit 2 - Real Time Timer Wake Up Enable"]
+    #[doc = "Bit 2 - Real Time Timer Wake-up Enable"]
     #[inline]
     pub fn rtten(&mut self) -> _RTTENW {
         _RTTENW { w: self }
     }
-    #[doc = "Bit 3 - Real Time Clock Wake Up Enable"]
+    #[doc = "Bit 3 - Real Time Clock Wake-up Enable"]
     #[inline]
     pub fn rtcen(&mut self) -> _RTCENW {
         _RTCENW { w: self }
     }
-    #[doc = "Bits 8:10 - Force Wake Up Debouncer Period"]
+    #[doc = "Bits 8:10 - Force Wake-up Debouncer Period"]
     #[inline]
     pub fn fwupdbc(&mut self) -> _FWUPDBCW {
         _FWUPDBCW { w: self }
     }
-    #[doc = "Bits 12:14 - Wake Up Inputs Debouncer Period"]
+    #[doc = "Bits 12:14 - Wake-up Inputs Debouncer Period"]
     #[inline]
     pub fn wkupdbc(&mut self) -> _WKUPDBCW {
         _WKUPDBCW { w: self }

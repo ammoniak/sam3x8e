@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::HSTPIPIDR {}
+impl super::HSTPIPIDR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RXINECW<'a> {
     w: &'a mut W,
@@ -54,29 +66,6 @@ pub struct _TXSTPECW<'a> {
     w: &'a mut W,
 }
 impl<'a> _TXSTPECW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _UNDERFIECW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _UNDERFIECW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -169,29 +158,6 @@ pub struct _RXSTALLDECW<'a> {
     w: &'a mut W,
 }
 impl<'a> _RXSTALLDECW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CRCERRECW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CRCERRECW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -326,12 +292,6 @@ impl<'a> _PFREEZECW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Received IN Data Interrupt Disable"]
     #[inline]
     pub fn rxinec(&mut self) -> _RXINECW {
@@ -346,11 +306,6 @@ impl W {
     #[inline]
     pub fn txstpec(&mut self) -> _TXSTPECW {
         _TXSTPECW { w: self }
-    }
-    #[doc = "Bit 2 - Underflow Interrupt Disable"]
-    #[inline]
-    pub fn underfiec(&mut self) -> _UNDERFIECW {
-        _UNDERFIECW { w: self }
     }
     #[doc = "Bit 3 - Pipe Error Interrupt Disable"]
     #[inline]
@@ -371,11 +326,6 @@ impl W {
     #[inline]
     pub fn rxstalldec(&mut self) -> _RXSTALLDECW {
         _RXSTALLDECW { w: self }
-    }
-    #[doc = "Bit 6 - CRC Error Interrupt Disable"]
-    #[inline]
-    pub fn crcerrec(&mut self) -> _CRCERRECW {
-        _CRCERRECW { w: self }
     }
     #[doc = "Bit 7 - Short Packet Interrupt Disable"]
     #[inline]

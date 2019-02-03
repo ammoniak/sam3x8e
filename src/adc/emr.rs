@@ -349,7 +349,7 @@ impl R {
         };
         CMPFILTERR { bits }
     }
-    #[doc = "Bit 24 - TAG of ADC_LDCR register"]
+    #[doc = "Bit 24 - TAG of the ADC_LDCR register"]
     #[inline]
     pub fn tag(&self) -> TAGR {
         let bits = {
@@ -392,7 +392,7 @@ impl W {
     pub fn cmpfilter(&mut self) -> _CMPFILTERW {
         _CMPFILTERW { w: self }
     }
-    #[doc = "Bit 24 - TAG of ADC_LDCR register"]
+    #[doc = "Bit 24 - TAG of the ADC_LDCR register"]
     #[inline]
     pub fn tag(&mut self) -> _TAGW {
         _TAGW { w: self }

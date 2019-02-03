@@ -37,11 +37,36 @@ impl<'a> _WP_ENW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `WP_KEY`"]
+pub enum WP_KEYW {
+    #[doc = "Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
+    PASSWD,
+}
+impl WP_KEYW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> u32 {
+        match *self {
+            WP_KEYW::PASSWD => 5459267,
+        }
+    }
+}
 #[doc = r" Proxy"]
 pub struct _WP_KEYW<'a> {
     w: &'a mut W,
 }
 impl<'a> _WP_KEYW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: WP_KEYW) -> &'a mut W {
+        unsafe { self.bits(variant._bits()) }
+    }
+    #[doc = "Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
+    #[inline]
+    pub fn passwd(self) -> &'a mut W {
+        self.variant(WP_KEYW::PASSWD)
+    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
@@ -69,7 +94,7 @@ impl W {
     pub fn wp_en(&mut self) -> _WP_ENW {
         _WP_ENW { w: self }
     }
-    #[doc = "Bits 8:31 - Write Protection KEY password"]
+    #[doc = "Bits 8:31 - Write Protection KEY Password"]
     #[inline]
     pub fn wp_key(&mut self) -> _WP_KEYW {
         _WP_KEYW { w: self }

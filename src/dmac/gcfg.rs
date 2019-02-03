@@ -45,7 +45,7 @@ impl super::GCFG {
 #[doc = "Possible values of the field `ARB_CFG`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ARB_CFGR {
-    #[doc = "Fixed priority arbiter."]
+    #[doc = "Fixed priority arbiter (see \"Basic Definitions\" )"]
     FIXED,
     #[doc = "Modified round robin arbiter."]
     ROUND_ROBIN,
@@ -91,7 +91,7 @@ impl ARB_CFGR {
 }
 #[doc = "Values that can be written to the field `ARB_CFG`"]
 pub enum ARB_CFGW {
-    #[doc = "Fixed priority arbiter."]
+    #[doc = "Fixed priority arbiter (see \"Basic Definitions\" )"]
     FIXED,
     #[doc = "Modified round robin arbiter."]
     ROUND_ROBIN,
@@ -119,7 +119,7 @@ impl<'a> _ARB_CFGW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Fixed priority arbiter."]
+    #[doc = "Fixed priority arbiter (see \"Basic Definitions\" )"]
     #[inline]
     pub fn fixed(self) -> &'a mut W {
         self.variant(ARB_CFGW::FIXED)

@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Raphael Theiler <peanut@esheep.ch>"]
 test = false
 bench = false
+edition = "2018"
 
 [lib]
 test = false

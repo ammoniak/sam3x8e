@@ -32,15 +32,72 @@ impl URSTSR {
         self.bit()
     }
 }
-#[doc = r" Value of the field"]
-pub struct RSTTYPR {
-    bits: u8,
+#[doc = "Possible values of the field `RSTTYP`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RSTTYPR {
+    #[doc = "First power-up Reset"]
+    GENERALRESET,
+    #[doc = "Return from Backup Mode"]
+    BACKUPRESET,
+    #[doc = "Watchdog fault occurred"]
+    WATCHDOGRESET,
+    #[doc = "Processor reset required by the software"]
+    SOFTWARERESET,
+    #[doc = "NRST pin detected low"]
+    USERRESET,
+    #[doc = r" Reserved"]
+    _Reserved(u8),
 }
 impl RSTTYPR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
-        self.bits
+        match *self {
+            RSTTYPR::GENERALRESET => 0,
+            RSTTYPR::BACKUPRESET => 1,
+            RSTTYPR::WATCHDOGRESET => 2,
+            RSTTYPR::SOFTWARERESET => 3,
+            RSTTYPR::USERRESET => 4,
+            RSTTYPR::_Reserved(bits) => bits,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: u8) -> RSTTYPR {
+        match value {
+            0 => RSTTYPR::GENERALRESET,
+            1 => RSTTYPR::BACKUPRESET,
+            2 => RSTTYPR::WATCHDOGRESET,
+            3 => RSTTYPR::SOFTWARERESET,
+            4 => RSTTYPR::USERRESET,
+            i => RSTTYPR::_Reserved(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `GENERALRESET`"]
+    #[inline]
+    pub fn is_general_reset(&self) -> bool {
+        *self == RSTTYPR::GENERALRESET
+    }
+    #[doc = "Checks if the value of the field is `BACKUPRESET`"]
+    #[inline]
+    pub fn is_backup_reset(&self) -> bool {
+        *self == RSTTYPR::BACKUPRESET
+    }
+    #[doc = "Checks if the value of the field is `WATCHDOGRESET`"]
+    #[inline]
+    pub fn is_watchdog_reset(&self) -> bool {
+        *self == RSTTYPR::WATCHDOGRESET
+    }
+    #[doc = "Checks if the value of the field is `SOFTWARERESET`"]
+    #[inline]
+    pub fn is_software_reset(&self) -> bool {
+        *self == RSTTYPR::SOFTWARERESET
+    }
+    #[doc = "Checks if the value of the field is `USERRESET`"]
+    #[inline]
+    pub fn is_user_reset(&self) -> bool {
+        *self == RSTTYPR::USERRESET
     }
 }
 #[doc = r" Value of the field"]
@@ -104,12 +161,11 @@ impl R {
     #[doc = "Bits 8:10 - Reset Type"]
     #[inline]
     pub fn rsttyp(&self) -> RSTTYPR {
-        let bits = {
+        RSTTYPR::_from({
             const MASK: u8 = 7;
             const OFFSET: u8 = 8;
             ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        RSTTYPR { bits }
+        })
     }
     #[doc = "Bit 16 - NRST Pin Level"]
     #[inline]

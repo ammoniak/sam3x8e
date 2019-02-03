@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::CR {}
+impl super::CR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RSTRXW<'a> {
     w: &'a mut W,
@@ -349,56 +361,10 @@ impl<'a> _RTSENW<'a> {
     }
 }
 #[doc = r" Proxy"]
-pub struct _FCSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _FCSW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
 pub struct _RTSDISW<'a> {
     w: &'a mut W,
 }
 impl<'a> _RTSDISW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RCSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RCSW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -464,12 +430,6 @@ impl<'a> _LINWKUPW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 2 - Reset Receiver"]
     #[inline]
     pub fn rstrx(&mut self) -> _RSTRXW {
@@ -545,20 +505,10 @@ impl W {
     pub fn rtsen(&mut self) -> _RTSENW {
         _RTSENW { w: self }
     }
-    #[doc = "Bit 18 - Force SPI Chip Select"]
-    #[inline]
-    pub fn fcs(&mut self) -> _FCSW {
-        _FCSW { w: self }
-    }
     #[doc = "Bit 19 - Request to Send Disable"]
     #[inline]
     pub fn rtsdis(&mut self) -> _RTSDISW {
         _RTSDISW { w: self }
-    }
-    #[doc = "Bit 19 - Release SPI Chip Select"]
-    #[inline]
-    pub fn rcs(&mut self) -> _RCSW {
-        _RCSW { w: self }
     }
     #[doc = "Bit 20 - Abort LIN Transmission"]
     #[inline]

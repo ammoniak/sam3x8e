@@ -95,11 +95,11 @@ impl CKSR {
 #[doc = "Possible values of the field `CKO`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CKOR {
-    #[doc = "None"]
+    #[doc = "None, RK pin is an input"]
     NONE,
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Receive Clock, RK pin is an output"]
     CONTINUOUS,
-    #[doc = "Receive Clock only during data transfers"]
+    #[doc = "Receive Clock only during data transfers, RK pin is an output"]
     TRANSFER,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -167,11 +167,11 @@ impl CKIR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CKGR {
     #[doc = "None"]
-    NONE,
-    #[doc = "Continuous Receive Clock"]
     CONTINUOUS,
-    #[doc = "Receive Clock only during data transfers"]
-    TRANSFER,
+    #[doc = "Receive Clock enabled only if RF Low"]
+    EN_RF_LOW,
+    #[doc = "Receive Clock enabled only if RF High"]
+    EN_RF_HIGH,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -180,9 +180,9 @@ impl CKGR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            CKGR::NONE => 0,
-            CKGR::CONTINUOUS => 1,
-            CKGR::TRANSFER => 2,
+            CKGR::CONTINUOUS => 0,
+            CKGR::EN_RF_LOW => 1,
+            CKGR::EN_RF_HIGH => 2,
             CKGR::_Reserved(bits) => bits,
         }
     }
@@ -191,26 +191,26 @@ impl CKGR {
     #[inline]
     pub fn _from(value: u8) -> CKGR {
         match value {
-            0 => CKGR::NONE,
-            1 => CKGR::CONTINUOUS,
-            2 => CKGR::TRANSFER,
+            0 => CKGR::CONTINUOUS,
+            1 => CKGR::EN_RF_LOW,
+            2 => CKGR::EN_RF_HIGH,
             i => CKGR::_Reserved(i),
         }
-    }
-    #[doc = "Checks if the value of the field is `NONE`"]
-    #[inline]
-    pub fn is_none(&self) -> bool {
-        *self == CKGR::NONE
     }
     #[doc = "Checks if the value of the field is `CONTINUOUS`"]
     #[inline]
     pub fn is_continuous(&self) -> bool {
         *self == CKGR::CONTINUOUS
     }
-    #[doc = "Checks if the value of the field is `TRANSFER`"]
+    #[doc = "Checks if the value of the field is `EN_RF_LOW`"]
     #[inline]
-    pub fn is_transfer(&self) -> bool {
-        *self == CKGR::TRANSFER
+    pub fn is_en_rf_low(&self) -> bool {
+        *self == CKGR::EN_RF_LOW
+    }
+    #[doc = "Checks if the value of the field is `EN_RF_HIGH`"]
+    #[inline]
+    pub fn is_en_rf_high(&self) -> bool {
+        *self == CKGR::EN_RF_HIGH
     }
 }
 #[doc = "Possible values of the field `START`"]
@@ -418,11 +418,11 @@ impl<'a> _CKSW<'a> {
 }
 #[doc = "Values that can be written to the field `CKO`"]
 pub enum CKOW {
-    #[doc = "None"]
+    #[doc = "None, RK pin is an input"]
     NONE,
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Receive Clock, RK pin is an output"]
     CONTINUOUS,
-    #[doc = "Receive Clock only during data transfers"]
+    #[doc = "Receive Clock only during data transfers, RK pin is an output"]
     TRANSFER,
 }
 impl CKOW {
@@ -447,17 +447,17 @@ impl<'a> _CKOW<'a> {
     pub fn variant(self, variant: CKOW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "None"]
+    #[doc = "None, RK pin is an input"]
     #[inline]
     pub fn none(self) -> &'a mut W {
         self.variant(CKOW::NONE)
     }
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Receive Clock, RK pin is an output"]
     #[inline]
     pub fn continuous(self) -> &'a mut W {
         self.variant(CKOW::CONTINUOUS)
     }
-    #[doc = "Receive Clock only during data transfers"]
+    #[doc = "Receive Clock only during data transfers, RK pin is an output"]
     #[inline]
     pub fn transfer(self) -> &'a mut W {
         self.variant(CKOW::TRANSFER)
@@ -498,11 +498,11 @@ impl<'a> _CKIW<'a> {
 #[doc = "Values that can be written to the field `CKG`"]
 pub enum CKGW {
     #[doc = "None"]
-    NONE,
-    #[doc = "Continuous Receive Clock"]
     CONTINUOUS,
-    #[doc = "Receive Clock only during data transfers"]
-    TRANSFER,
+    #[doc = "Receive Clock enabled only if RF Low"]
+    EN_RF_LOW,
+    #[doc = "Receive Clock enabled only if RF High"]
+    EN_RF_HIGH,
 }
 impl CKGW {
     #[allow(missing_docs)]
@@ -510,9 +510,9 @@ impl CKGW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            CKGW::NONE => 0,
-            CKGW::CONTINUOUS => 1,
-            CKGW::TRANSFER => 2,
+            CKGW::CONTINUOUS => 0,
+            CKGW::EN_RF_LOW => 1,
+            CKGW::EN_RF_HIGH => 2,
         }
     }
 }
@@ -528,18 +528,18 @@ impl<'a> _CKGW<'a> {
     }
     #[doc = "None"]
     #[inline]
-    pub fn none(self) -> &'a mut W {
-        self.variant(CKGW::NONE)
-    }
-    #[doc = "Continuous Receive Clock"]
-    #[inline]
     pub fn continuous(self) -> &'a mut W {
         self.variant(CKGW::CONTINUOUS)
     }
-    #[doc = "Receive Clock only during data transfers"]
+    #[doc = "Receive Clock enabled only if RF Low"]
     #[inline]
-    pub fn transfer(self) -> &'a mut W {
-        self.variant(CKGW::TRANSFER)
+    pub fn en_rf_low(self) -> &'a mut W {
+        self.variant(CKGW::EN_RF_LOW)
+    }
+    #[doc = "Receive Clock enabled only if RF High"]
+    #[inline]
+    pub fn en_rf_high(self) -> &'a mut W {
+        self.variant(CKGW::EN_RF_HIGH)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

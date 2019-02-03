@@ -23,12 +23,12 @@ pub struct RegisterBlock {
     pub tcr: TCR,
     #[doc = "0x28 - Abort Command Register"]
     pub acr: ACR,
-    _reserved0: [u8; 184usize],
+    _reserved11: [u8; 184usize],
     #[doc = "0xe4 - Write Protect Mode Register"]
     pub wpmr: WPMR,
     #[doc = "0xe8 - Write Protect Status Register"]
     pub wpsr: WPSR,
-    _reserved1: [u8; 276usize],
+    _reserved13: [u8; 276usize],
     #[doc = "0x200 - Mailbox Mode Register (MB = 0)"]
     pub mmr0: MMR0,
     #[doc = "0x204 - Mailbox Acceptance Mask Register (MB = 0)"]

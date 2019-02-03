@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::CHDR {}
+impl super::CHDR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _DIS0W<'a> {
     w: &'a mut W,
@@ -280,12 +292,6 @@ impl<'a> _RES5W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Disable \\[5:0\\]"]
     #[inline]
     pub fn dis0(&mut self) -> _DIS0W {

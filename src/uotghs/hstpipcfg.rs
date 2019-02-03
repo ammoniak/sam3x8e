@@ -26,6 +26,22 @@ impl super::HSTPIPCFG {
             bits: self.register.get(),
         }
     }
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+    #[doc = r" Writes the reset value to the register"]
+    #[inline]
+    pub fn reset(&self) {
+        self.write(|w| w)
+    }
 }
 #[doc = r" Value of the field"]
 pub struct ALLOCR {
@@ -329,42 +345,10 @@ impl PEPNUMR {
     }
 }
 #[doc = r" Value of the field"]
-pub struct PINGENR {
-    bits: bool,
-}
-impl PINGENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct INTFRQR {
     bits: u8,
 }
 impl INTFRQR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BINTERVALR {
-    bits: u8,
-}
-impl BINTERVALR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
@@ -709,48 +693,10 @@ impl<'a> _PEPNUMW<'a> {
     }
 }
 #[doc = r" Proxy"]
-pub struct _PINGENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PINGENW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
 pub struct _INTFRQW<'a> {
     w: &'a mut W,
 }
 impl<'a> _INTFRQW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BINTERVALW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _BINTERVALW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
@@ -833,16 +779,6 @@ impl R {
         };
         PEPNUMR { bits }
     }
-    #[doc = "Bit 20 - Ping Enable"]
-    #[inline]
-    pub fn pingen(&self) -> PINGENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PINGENR { bits }
-    }
     #[doc = "Bits 24:31 - Pipe Interrupt Request Frequency"]
     #[inline]
     pub fn intfrq(&self) -> INTFRQR {
@@ -853,24 +789,8 @@ impl R {
         };
         INTFRQR { bits }
     }
-    #[doc = "Bits 24:31 - bInterval parameter for the Bulk-Out/Ping transaction"]
-    #[inline]
-    pub fn binterval(&self) -> BINTERVALR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BINTERVALR { bits }
-    }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 1 - Pipe Memory Allocate"]
     #[inline]
     pub fn alloc(&mut self) -> _ALLOCW {
@@ -906,19 +826,9 @@ impl W {
     pub fn pepnum(&mut self) -> _PEPNUMW {
         _PEPNUMW { w: self }
     }
-    #[doc = "Bit 20 - Ping Enable"]
-    #[inline]
-    pub fn pingen(&mut self) -> _PINGENW {
-        _PINGENW { w: self }
-    }
     #[doc = "Bits 24:31 - Pipe Interrupt Request Frequency"]
     #[inline]
     pub fn intfrq(&mut self) -> _INTFRQW {
         _INTFRQW { w: self }
-    }
-    #[doc = "Bits 24:31 - bInterval parameter for the Bulk-Out/Ping transaction"]
-    #[inline]
-    pub fn binterval(&mut self) -> _BINTERVALW {
-        _BINTERVALW { w: self }
     }
 }

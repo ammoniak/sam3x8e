@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::HSTIDR {}
+impl super::HSTIDR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _DCONNIECW<'a> {
     w: &'a mut W,
@@ -533,12 +545,6 @@ impl<'a> _DMA_6W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Device Connection Interrupt Disable"]
     #[inline]
     pub fn dconniec(&mut self) -> _DCONNIECW {

@@ -75,27 +75,6 @@ impl TXSTPER {
     }
 }
 #[doc = r" Value of the field"]
-pub struct UNDERFIER {
-    bits: bool,
-}
-impl UNDERFIER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct PERRER {
     bits: bool,
 }
@@ -163,27 +142,6 @@ pub struct RXSTALLDER {
     bits: bool,
 }
 impl RXSTALLDER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CRCERRER {
-    bits: bool,
-}
-impl CRCERRER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -362,16 +320,6 @@ impl R {
         };
         TXSTPER { bits }
     }
-    #[doc = "Bit 2 - Underflow Interrupt Enable"]
-    #[inline]
-    pub fn underfie(&self) -> UNDERFIER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNDERFIER { bits }
-    }
     #[doc = "Bit 3 - Pipe Error Interrupt Enable"]
     #[inline]
     pub fn perre(&self) -> PERRER {
@@ -411,16 +359,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         RXSTALLDER { bits }
-    }
-    #[doc = "Bit 6 - CRC Error Interrupt Enable"]
-    #[inline]
-    pub fn crcerre(&self) -> CRCERRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCERRER { bits }
     }
     #[doc = "Bit 7 - Short Packet Interrupt Enable"]
     #[inline]

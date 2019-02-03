@@ -47,10 +47,10 @@ impl super::TCMR {
 pub enum CKSR {
     #[doc = "Divided Clock"]
     MCK,
-    #[doc = "TK Clock signal"]
-    TK,
-    #[doc = "RK pin"]
+    #[doc = "RK Clock signal"]
     RK,
+    #[doc = "TK pin"]
+    TK,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -60,8 +60,8 @@ impl CKSR {
     pub fn bits(&self) -> u8 {
         match *self {
             CKSR::MCK => 0,
-            CKSR::TK => 1,
-            CKSR::RK => 2,
+            CKSR::RK => 1,
+            CKSR::TK => 2,
             CKSR::_Reserved(bits) => bits,
         }
     }
@@ -71,8 +71,8 @@ impl CKSR {
     pub fn _from(value: u8) -> CKSR {
         match value {
             0 => CKSR::MCK,
-            1 => CKSR::TK,
-            2 => CKSR::RK,
+            1 => CKSR::RK,
+            2 => CKSR::TK,
             i => CKSR::_Reserved(i),
         }
     }
@@ -81,25 +81,25 @@ impl CKSR {
     pub fn is_mck(&self) -> bool {
         *self == CKSR::MCK
     }
-    #[doc = "Checks if the value of the field is `TK`"]
-    #[inline]
-    pub fn is_tk(&self) -> bool {
-        *self == CKSR::TK
-    }
     #[doc = "Checks if the value of the field is `RK`"]
     #[inline]
     pub fn is_rk(&self) -> bool {
         *self == CKSR::RK
     }
+    #[doc = "Checks if the value of the field is `TK`"]
+    #[inline]
+    pub fn is_tk(&self) -> bool {
+        *self == CKSR::TK
+    }
 }
 #[doc = "Possible values of the field `CKO`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CKOR {
-    #[doc = "None"]
+    #[doc = "None, TK pin is an input"]
     NONE,
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Transmit Clock, TK pin is an output"]
     CONTINUOUS,
-    #[doc = "Transmit Clock only during data transfers"]
+    #[doc = "Transmit Clock only during data transfers, TK pin is an output"]
     TRANSFER,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -167,11 +167,11 @@ impl CKIR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CKGR {
     #[doc = "None"]
-    NONE,
-    #[doc = "Transmit Clock enabled only if TF Low"]
     CONTINUOUS,
+    #[doc = "Transmit Clock enabled only if TF Low"]
+    EN_TF_LOW,
     #[doc = "Transmit Clock enabled only if TF High"]
-    TRANSFER,
+    EN_TF_HIGH,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -180,9 +180,9 @@ impl CKGR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            CKGR::NONE => 0,
-            CKGR::CONTINUOUS => 1,
-            CKGR::TRANSFER => 2,
+            CKGR::CONTINUOUS => 0,
+            CKGR::EN_TF_LOW => 1,
+            CKGR::EN_TF_HIGH => 2,
             CKGR::_Reserved(bits) => bits,
         }
     }
@@ -191,49 +191,47 @@ impl CKGR {
     #[inline]
     pub fn _from(value: u8) -> CKGR {
         match value {
-            0 => CKGR::NONE,
-            1 => CKGR::CONTINUOUS,
-            2 => CKGR::TRANSFER,
+            0 => CKGR::CONTINUOUS,
+            1 => CKGR::EN_TF_LOW,
+            2 => CKGR::EN_TF_HIGH,
             i => CKGR::_Reserved(i),
         }
-    }
-    #[doc = "Checks if the value of the field is `NONE`"]
-    #[inline]
-    pub fn is_none(&self) -> bool {
-        *self == CKGR::NONE
     }
     #[doc = "Checks if the value of the field is `CONTINUOUS`"]
     #[inline]
     pub fn is_continuous(&self) -> bool {
         *self == CKGR::CONTINUOUS
     }
-    #[doc = "Checks if the value of the field is `TRANSFER`"]
+    #[doc = "Checks if the value of the field is `EN_TF_LOW`"]
     #[inline]
-    pub fn is_transfer(&self) -> bool {
-        *self == CKGR::TRANSFER
+    pub fn is_en_tf_low(&self) -> bool {
+        *self == CKGR::EN_TF_LOW
+    }
+    #[doc = "Checks if the value of the field is `EN_TF_HIGH`"]
+    #[inline]
+    pub fn is_en_tf_high(&self) -> bool {
+        *self == CKGR::EN_TF_HIGH
     }
 }
 #[doc = "Possible values of the field `START`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STARTR {
-    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data."]
+    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data"]
     CONTINUOUS,
     #[doc = "Receive start"]
     RECEIVE,
     #[doc = "Detection of a low level on TF signal"]
-    RF_LOW,
+    TF_LOW,
     #[doc = "Detection of a high level on TF signal"]
-    RF_HIGH,
+    TF_HIGH,
     #[doc = "Detection of a falling edge on TF signal"]
-    RF_FALLING,
+    TF_FALLING,
     #[doc = "Detection of a rising edge on TF signal"]
-    RF_RISING,
+    TF_RISING,
     #[doc = "Detection of any level change on TF signal"]
-    RF_LEVEL,
+    TF_LEVEL,
     #[doc = "Detection of any edge on TF signal"]
-    RF_EDGE,
-    #[doc = "Compare 0"]
-    CMP_0,
+    TF_EDGE,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -244,13 +242,12 @@ impl STARTR {
         match *self {
             STARTR::CONTINUOUS => 0,
             STARTR::RECEIVE => 1,
-            STARTR::RF_LOW => 2,
-            STARTR::RF_HIGH => 3,
-            STARTR::RF_FALLING => 4,
-            STARTR::RF_RISING => 5,
-            STARTR::RF_LEVEL => 6,
-            STARTR::RF_EDGE => 7,
-            STARTR::CMP_0 => 8,
+            STARTR::TF_LOW => 2,
+            STARTR::TF_HIGH => 3,
+            STARTR::TF_FALLING => 4,
+            STARTR::TF_RISING => 5,
+            STARTR::TF_LEVEL => 6,
+            STARTR::TF_EDGE => 7,
             STARTR::_Reserved(bits) => bits,
         }
     }
@@ -261,13 +258,12 @@ impl STARTR {
         match value {
             0 => STARTR::CONTINUOUS,
             1 => STARTR::RECEIVE,
-            2 => STARTR::RF_LOW,
-            3 => STARTR::RF_HIGH,
-            4 => STARTR::RF_FALLING,
-            5 => STARTR::RF_RISING,
-            6 => STARTR::RF_LEVEL,
-            7 => STARTR::RF_EDGE,
-            8 => STARTR::CMP_0,
+            2 => STARTR::TF_LOW,
+            3 => STARTR::TF_HIGH,
+            4 => STARTR::TF_FALLING,
+            5 => STARTR::TF_RISING,
+            6 => STARTR::TF_LEVEL,
+            7 => STARTR::TF_EDGE,
             i => STARTR::_Reserved(i),
         }
     }
@@ -281,40 +277,35 @@ impl STARTR {
     pub fn is_receive(&self) -> bool {
         *self == STARTR::RECEIVE
     }
-    #[doc = "Checks if the value of the field is `RF_LOW`"]
+    #[doc = "Checks if the value of the field is `TF_LOW`"]
     #[inline]
-    pub fn is_rf_low(&self) -> bool {
-        *self == STARTR::RF_LOW
+    pub fn is_tf_low(&self) -> bool {
+        *self == STARTR::TF_LOW
     }
-    #[doc = "Checks if the value of the field is `RF_HIGH`"]
+    #[doc = "Checks if the value of the field is `TF_HIGH`"]
     #[inline]
-    pub fn is_rf_high(&self) -> bool {
-        *self == STARTR::RF_HIGH
+    pub fn is_tf_high(&self) -> bool {
+        *self == STARTR::TF_HIGH
     }
-    #[doc = "Checks if the value of the field is `RF_FALLING`"]
+    #[doc = "Checks if the value of the field is `TF_FALLING`"]
     #[inline]
-    pub fn is_rf_falling(&self) -> bool {
-        *self == STARTR::RF_FALLING
+    pub fn is_tf_falling(&self) -> bool {
+        *self == STARTR::TF_FALLING
     }
-    #[doc = "Checks if the value of the field is `RF_RISING`"]
+    #[doc = "Checks if the value of the field is `TF_RISING`"]
     #[inline]
-    pub fn is_rf_rising(&self) -> bool {
-        *self == STARTR::RF_RISING
+    pub fn is_tf_rising(&self) -> bool {
+        *self == STARTR::TF_RISING
     }
-    #[doc = "Checks if the value of the field is `RF_LEVEL`"]
+    #[doc = "Checks if the value of the field is `TF_LEVEL`"]
     #[inline]
-    pub fn is_rf_level(&self) -> bool {
-        *self == STARTR::RF_LEVEL
+    pub fn is_tf_level(&self) -> bool {
+        *self == STARTR::TF_LEVEL
     }
-    #[doc = "Checks if the value of the field is `RF_EDGE`"]
+    #[doc = "Checks if the value of the field is `TF_EDGE`"]
     #[inline]
-    pub fn is_rf_edge(&self) -> bool {
-        *self == STARTR::RF_EDGE
-    }
-    #[doc = "Checks if the value of the field is `CMP_0`"]
-    #[inline]
-    pub fn is_cmp_0(&self) -> bool {
-        *self == STARTR::CMP_0
+    pub fn is_tf_edge(&self) -> bool {
+        *self == STARTR::TF_EDGE
     }
 }
 #[doc = r" Value of the field"]
@@ -343,10 +334,10 @@ impl PERIODR {
 pub enum CKSW {
     #[doc = "Divided Clock"]
     MCK,
-    #[doc = "TK Clock signal"]
-    TK,
-    #[doc = "RK pin"]
+    #[doc = "RK Clock signal"]
     RK,
+    #[doc = "TK pin"]
+    TK,
 }
 impl CKSW {
     #[allow(missing_docs)]
@@ -355,8 +346,8 @@ impl CKSW {
     pub fn _bits(&self) -> u8 {
         match *self {
             CKSW::MCK => 0,
-            CKSW::TK => 1,
-            CKSW::RK => 2,
+            CKSW::RK => 1,
+            CKSW::TK => 2,
         }
     }
 }
@@ -375,15 +366,15 @@ impl<'a> _CKSW<'a> {
     pub fn mck(self) -> &'a mut W {
         self.variant(CKSW::MCK)
     }
-    #[doc = "TK Clock signal"]
-    #[inline]
-    pub fn tk(self) -> &'a mut W {
-        self.variant(CKSW::TK)
-    }
-    #[doc = "RK pin"]
+    #[doc = "RK Clock signal"]
     #[inline]
     pub fn rk(self) -> &'a mut W {
         self.variant(CKSW::RK)
+    }
+    #[doc = "TK pin"]
+    #[inline]
+    pub fn tk(self) -> &'a mut W {
+        self.variant(CKSW::TK)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -397,11 +388,11 @@ impl<'a> _CKSW<'a> {
 }
 #[doc = "Values that can be written to the field `CKO`"]
 pub enum CKOW {
-    #[doc = "None"]
+    #[doc = "None, TK pin is an input"]
     NONE,
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Transmit Clock, TK pin is an output"]
     CONTINUOUS,
-    #[doc = "Transmit Clock only during data transfers"]
+    #[doc = "Transmit Clock only during data transfers, TK pin is an output"]
     TRANSFER,
 }
 impl CKOW {
@@ -426,17 +417,17 @@ impl<'a> _CKOW<'a> {
     pub fn variant(self, variant: CKOW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "None"]
+    #[doc = "None, TK pin is an input"]
     #[inline]
     pub fn none(self) -> &'a mut W {
         self.variant(CKOW::NONE)
     }
-    #[doc = "Continuous Receive Clock"]
+    #[doc = "Continuous Transmit Clock, TK pin is an output"]
     #[inline]
     pub fn continuous(self) -> &'a mut W {
         self.variant(CKOW::CONTINUOUS)
     }
-    #[doc = "Transmit Clock only during data transfers"]
+    #[doc = "Transmit Clock only during data transfers, TK pin is an output"]
     #[inline]
     pub fn transfer(self) -> &'a mut W {
         self.variant(CKOW::TRANSFER)
@@ -477,11 +468,11 @@ impl<'a> _CKIW<'a> {
 #[doc = "Values that can be written to the field `CKG`"]
 pub enum CKGW {
     #[doc = "None"]
-    NONE,
-    #[doc = "Transmit Clock enabled only if TF Low"]
     CONTINUOUS,
+    #[doc = "Transmit Clock enabled only if TF Low"]
+    EN_TF_LOW,
     #[doc = "Transmit Clock enabled only if TF High"]
-    TRANSFER,
+    EN_TF_HIGH,
 }
 impl CKGW {
     #[allow(missing_docs)]
@@ -489,9 +480,9 @@ impl CKGW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            CKGW::NONE => 0,
-            CKGW::CONTINUOUS => 1,
-            CKGW::TRANSFER => 2,
+            CKGW::CONTINUOUS => 0,
+            CKGW::EN_TF_LOW => 1,
+            CKGW::EN_TF_HIGH => 2,
         }
     }
 }
@@ -507,18 +498,18 @@ impl<'a> _CKGW<'a> {
     }
     #[doc = "None"]
     #[inline]
-    pub fn none(self) -> &'a mut W {
-        self.variant(CKGW::NONE)
-    }
-    #[doc = "Transmit Clock enabled only if TF Low"]
-    #[inline]
     pub fn continuous(self) -> &'a mut W {
         self.variant(CKGW::CONTINUOUS)
     }
+    #[doc = "Transmit Clock enabled only if TF Low"]
+    #[inline]
+    pub fn en_tf_low(self) -> &'a mut W {
+        self.variant(CKGW::EN_TF_LOW)
+    }
     #[doc = "Transmit Clock enabled only if TF High"]
     #[inline]
-    pub fn transfer(self) -> &'a mut W {
-        self.variant(CKGW::TRANSFER)
+    pub fn en_tf_high(self) -> &'a mut W {
+        self.variant(CKGW::EN_TF_HIGH)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -532,24 +523,22 @@ impl<'a> _CKGW<'a> {
 }
 #[doc = "Values that can be written to the field `START`"]
 pub enum STARTW {
-    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data."]
+    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data"]
     CONTINUOUS,
     #[doc = "Receive start"]
     RECEIVE,
     #[doc = "Detection of a low level on TF signal"]
-    RF_LOW,
+    TF_LOW,
     #[doc = "Detection of a high level on TF signal"]
-    RF_HIGH,
+    TF_HIGH,
     #[doc = "Detection of a falling edge on TF signal"]
-    RF_FALLING,
+    TF_FALLING,
     #[doc = "Detection of a rising edge on TF signal"]
-    RF_RISING,
+    TF_RISING,
     #[doc = "Detection of any level change on TF signal"]
-    RF_LEVEL,
+    TF_LEVEL,
     #[doc = "Detection of any edge on TF signal"]
-    RF_EDGE,
-    #[doc = "Compare 0"]
-    CMP_0,
+    TF_EDGE,
 }
 impl STARTW {
     #[allow(missing_docs)]
@@ -559,13 +548,12 @@ impl STARTW {
         match *self {
             STARTW::CONTINUOUS => 0,
             STARTW::RECEIVE => 1,
-            STARTW::RF_LOW => 2,
-            STARTW::RF_HIGH => 3,
-            STARTW::RF_FALLING => 4,
-            STARTW::RF_RISING => 5,
-            STARTW::RF_LEVEL => 6,
-            STARTW::RF_EDGE => 7,
-            STARTW::CMP_0 => 8,
+            STARTW::TF_LOW => 2,
+            STARTW::TF_HIGH => 3,
+            STARTW::TF_FALLING => 4,
+            STARTW::TF_RISING => 5,
+            STARTW::TF_LEVEL => 6,
+            STARTW::TF_EDGE => 7,
         }
     }
 }
@@ -579,7 +567,7 @@ impl<'a> _STARTW<'a> {
     pub fn variant(self, variant: STARTW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data."]
+    #[doc = "Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data"]
     #[inline]
     pub fn continuous(self) -> &'a mut W {
         self.variant(STARTW::CONTINUOUS)
@@ -591,38 +579,33 @@ impl<'a> _STARTW<'a> {
     }
     #[doc = "Detection of a low level on TF signal"]
     #[inline]
-    pub fn rf_low(self) -> &'a mut W {
-        self.variant(STARTW::RF_LOW)
+    pub fn tf_low(self) -> &'a mut W {
+        self.variant(STARTW::TF_LOW)
     }
     #[doc = "Detection of a high level on TF signal"]
     #[inline]
-    pub fn rf_high(self) -> &'a mut W {
-        self.variant(STARTW::RF_HIGH)
+    pub fn tf_high(self) -> &'a mut W {
+        self.variant(STARTW::TF_HIGH)
     }
     #[doc = "Detection of a falling edge on TF signal"]
     #[inline]
-    pub fn rf_falling(self) -> &'a mut W {
-        self.variant(STARTW::RF_FALLING)
+    pub fn tf_falling(self) -> &'a mut W {
+        self.variant(STARTW::TF_FALLING)
     }
     #[doc = "Detection of a rising edge on TF signal"]
     #[inline]
-    pub fn rf_rising(self) -> &'a mut W {
-        self.variant(STARTW::RF_RISING)
+    pub fn tf_rising(self) -> &'a mut W {
+        self.variant(STARTW::TF_RISING)
     }
     #[doc = "Detection of any level change on TF signal"]
     #[inline]
-    pub fn rf_level(self) -> &'a mut W {
-        self.variant(STARTW::RF_LEVEL)
+    pub fn tf_level(self) -> &'a mut W {
+        self.variant(STARTW::TF_LEVEL)
     }
     #[doc = "Detection of any edge on TF signal"]
     #[inline]
-    pub fn rf_edge(self) -> &'a mut W {
-        self.variant(STARTW::RF_EDGE)
-    }
-    #[doc = "Compare 0"]
-    #[inline]
-    pub fn cmp_0(self) -> &'a mut W {
-        self.variant(STARTW::CMP_0)
+    pub fn tf_edge(self) -> &'a mut W {
+        self.variant(STARTW::TF_EDGE)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

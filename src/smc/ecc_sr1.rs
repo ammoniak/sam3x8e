@@ -34,13 +34,44 @@ impl RECERR0R {
 }
 #[doc = r" Value of the field"]
 pub struct ECCERR0R {
-    bits: u8,
+    bits: bool,
 }
 impl ECCERR0R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bit(&self) -> bool {
         self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct MULERR0R {
+    bits: bool,
+}
+impl MULERR0R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 #[doc = r" Value of the field"]
@@ -255,13 +286,44 @@ impl RECERR4R {
 }
 #[doc = r" Value of the field"]
 pub struct ECCERR4R {
-    bits: u8,
+    bits: bool,
 }
 impl ECCERR4R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bit(&self) -> bool {
         self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct MULERR4R {
+    bits: bool,
+}
+impl MULERR4R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 #[doc = r" Value of the field"]
@@ -287,13 +349,44 @@ impl RECERR5R {
 }
 #[doc = r" Value of the field"]
 pub struct ECCERR5R {
-    bits: u8,
+    bits: bool,
 }
 impl ECCERR5R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bit(&self) -> bool {
         self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct MULERR5R {
+    bits: bool,
+}
+impl MULERR5R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 #[doc = r" Value of the field"]
@@ -319,13 +412,44 @@ impl RECERR6R {
 }
 #[doc = r" Value of the field"]
 pub struct ECCERR6R {
-    bits: u8,
+    bits: bool,
 }
 impl ECCERR6R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bit(&self) -> bool {
         self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct MULERR6R {
+    bits: bool,
+}
+impl MULERR6R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 #[doc = r" Value of the field"]
@@ -351,13 +475,44 @@ impl RECERR7R {
 }
 #[doc = r" Value of the field"]
 pub struct ECCERR7R {
-    bits: u8,
+    bits: bool,
 }
 impl ECCERR7R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bit(&self) -> bool {
         self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct MULERR7R {
+    bits: bool,
+}
+impl MULERR7R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
     }
 }
 impl R {
@@ -376,15 +531,25 @@ impl R {
         };
         RECERR0R { bits }
     }
-    #[doc = "Bits 1:2 - ECC Error"]
+    #[doc = "Bit 1 - ECC Error"]
     #[inline]
     pub fn eccerr0(&self) -> ECCERR0R {
         let bits = {
-            const MASK: u8 = 3;
+            const MASK: bool = true;
             const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         ECCERR0R { bits }
+    }
+    #[doc = "Bit 2 - Multiple Error"]
+    #[inline]
+    pub fn mulerr0(&self) -> MULERR0R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 2;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        MULERR0R { bits }
     }
     #[doc = "Bit 4 - Recoverable Error in the page between the 256th and the 511th bytes or the 512nd and the 1023rd bytes"]
     #[inline]
@@ -486,15 +651,25 @@ impl R {
         };
         RECERR4R { bits }
     }
-    #[doc = "Bits 17:18 - ECC Error in the page between the 1024th and the 1279th bytes or between the 2048th and the 2559th bytes"]
+    #[doc = "Bit 17 - ECC Error in the page between the 1024th and the 1279th bytes or between the 2048th and the 2559th bytes"]
     #[inline]
     pub fn eccerr4(&self) -> ECCERR4R {
         let bits = {
-            const MASK: u8 = 3;
+            const MASK: bool = true;
             const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         ECCERR4R { bits }
+    }
+    #[doc = "Bit 18 - Multiple Error in the page between the 1024th and the 1279th bytes or between the 2048th and the 2559th bytes"]
+    #[inline]
+    pub fn mulerr4(&self) -> MULERR4R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 18;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        MULERR4R { bits }
     }
     #[doc = "Bit 20 - Recoverable Error in the page between the 1280th and the 1535th bytes or between the 2560th and the 3071st bytes"]
     #[inline]
@@ -506,15 +681,25 @@ impl R {
         };
         RECERR5R { bits }
     }
-    #[doc = "Bits 21:22 - ECC Error in the page between the 1280th and the 1535th bytes or between the 2560th and the 3071st bytes"]
+    #[doc = "Bit 21 - ECC Error in the page between the 1280th and the 1535th bytes or between the 2560th and the 3071st bytes"]
     #[inline]
     pub fn eccerr5(&self) -> ECCERR5R {
         let bits = {
-            const MASK: u8 = 3;
+            const MASK: bool = true;
             const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         ECCERR5R { bits }
+    }
+    #[doc = "Bit 22 - Multiple Error in the page between the 1280th and the 1535th bytes or between the 2560th and the 3071st bytes"]
+    #[inline]
+    pub fn mulerr5(&self) -> MULERR5R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 22;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        MULERR5R { bits }
     }
     #[doc = "Bit 24 - Recoverable Error in the page between the 1536th and the 1791st bytes or between the 3072nd and the 3583rd bytes"]
     #[inline]
@@ -526,15 +711,25 @@ impl R {
         };
         RECERR6R { bits }
     }
-    #[doc = "Bits 25:26 - ECC Error in the page between the 1536th and the 1791st bytes or between the 3072nd and the 3583rd bytes"]
+    #[doc = "Bit 25 - ECC Error in the page between the 1536th and the 1791st bytes or between the 3072nd and the 3583rd bytes"]
     #[inline]
     pub fn eccerr6(&self) -> ECCERR6R {
         let bits = {
-            const MASK: u8 = 3;
+            const MASK: bool = true;
             const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         ECCERR6R { bits }
+    }
+    #[doc = "Bit 26 - Multiple Error in the page between the 1536th and the 1791st bytes or between the 3072nd and the 3583rd bytes"]
+    #[inline]
+    pub fn mulerr6(&self) -> MULERR6R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 26;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        MULERR6R { bits }
     }
     #[doc = "Bit 28 - Recoverable Error in the page between the 1792nd and the 2047th bytes or between the 3584th and the 4095th bytes"]
     #[inline]
@@ -546,14 +741,24 @@ impl R {
         };
         RECERR7R { bits }
     }
-    #[doc = "Bits 29:30 - ECC Error in the page between the 1792nd and the 2047th bytes or between the 3584th and the 4095th bytes"]
+    #[doc = "Bit 29 - ECC Error in the page between the 1792nd and the 2047th bytes or between the 3584th and the 4095th bytes"]
     #[inline]
     pub fn eccerr7(&self) -> ECCERR7R {
         let bits = {
-            const MASK: u8 = 3;
+            const MASK: bool = true;
             const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         ECCERR7R { bits }
+    }
+    #[doc = "Bit 30 - Multiple Error in the page between the 1792nd and the 2047th bytes or between the 3584th and the 4095th bytes"]
+    #[inline]
+    pub fn mulerr7(&self) -> MULERR7R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 30;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        MULERR7R { bits }
     }
 }

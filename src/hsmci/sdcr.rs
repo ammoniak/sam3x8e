@@ -103,9 +103,9 @@ impl SDCSELR {
 pub enum SDCBUSR {
     #[doc = "1 bit"]
     _1,
-    #[doc = "4 bit"]
+    #[doc = "4 bits"]
     _4,
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     _8,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -218,9 +218,9 @@ impl<'a> _SDCSELW<'a> {
 pub enum SDCBUSW {
     #[doc = "1 bit"]
     _1,
-    #[doc = "4 bit"]
+    #[doc = "4 bits"]
     _4,
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     _8,
 }
 impl SDCBUSW {
@@ -250,12 +250,12 @@ impl<'a> _SDCBUSW<'a> {
     pub fn _1(self) -> &'a mut W {
         self.variant(SDCBUSW::_1)
     }
-    #[doc = "4 bit"]
+    #[doc = "4 bits"]
     #[inline]
     pub fn _4(self) -> &'a mut W {
         self.variant(SDCBUSW::_4)
     }
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     #[inline]
     pub fn _8(self) -> &'a mut W {
         self.variant(SDCBUSW::_8)

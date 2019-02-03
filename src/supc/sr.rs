@@ -14,9 +14,9 @@ impl super::SR {
 #[doc = "Possible values of the field `FWUPS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FWUPSR {
-    #[doc = "no wake up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR."]
+    #[doc = "no wake-up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR."]
     NO,
-    #[doc = "at least one wake up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR."]
+    #[doc = "at least one wake-up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR."]
     PRESENT,
 }
 impl FWUPSR {
@@ -61,9 +61,9 @@ impl FWUPSR {
 #[doc = "Possible values of the field `WKUPS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPSR {
-    #[doc = "no wake up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR."]
+    #[doc = "no wake-up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR."]
     NO,
-    #[doc = "at least one wake up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR."]
+    #[doc = "at least one wake-up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR."]
     PRESENT,
 }
 impl WKUPSR {
@@ -108,9 +108,9 @@ impl WKUPSR {
 #[doc = "Possible values of the field `SMWS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMWSR {
-    #[doc = "no wake up due to a supply monitor detection has occurred since the last read of SUPC_SR."]
+    #[doc = "no wake-up due to a supply monitor detection has occurred since the last read of SUPC_SR."]
     NO,
-    #[doc = "at least one wake up due to a supply monitor detection has occurred since the last read of SUPC_SR."]
+    #[doc = "at least one wake-up due to a supply monitor detection has occurred since the last read of SUPC_SR."]
     PRESENT,
 }
 impl SMWSR {
@@ -437,9 +437,9 @@ impl FWUPISR {
 #[doc = "Possible values of the field `WKUPIS0`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS0R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS0R {
@@ -484,9 +484,9 @@ impl WKUPIS0R {
 #[doc = "Possible values of the field `WKUPIS1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS1R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS1R {
@@ -531,9 +531,9 @@ impl WKUPIS1R {
 #[doc = "Possible values of the field `WKUPIS2`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS2R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS2R {
@@ -578,9 +578,9 @@ impl WKUPIS2R {
 #[doc = "Possible values of the field `WKUPIS3`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS3R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS3R {
@@ -625,9 +625,9 @@ impl WKUPIS3R {
 #[doc = "Possible values of the field `WKUPIS4`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS4R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS4R {
@@ -672,9 +672,9 @@ impl WKUPIS4R {
 #[doc = "Possible values of the field `WKUPIS5`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS5R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS5R {
@@ -719,9 +719,9 @@ impl WKUPIS5R {
 #[doc = "Possible values of the field `WKUPIS6`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS6R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS6R {
@@ -766,9 +766,9 @@ impl WKUPIS6R {
 #[doc = "Possible values of the field `WKUPIS7`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS7R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS7R {
@@ -813,9 +813,9 @@ impl WKUPIS7R {
 #[doc = "Possible values of the field `WKUPIS8`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS8R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS8R {
@@ -860,9 +860,9 @@ impl WKUPIS8R {
 #[doc = "Possible values of the field `WKUPIS9`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS9R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS9R {
@@ -907,9 +907,9 @@ impl WKUPIS9R {
 #[doc = "Possible values of the field `WKUPIS10`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS10R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS10R {
@@ -954,9 +954,9 @@ impl WKUPIS10R {
 #[doc = "Possible values of the field `WKUPIS11`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS11R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS11R {
@@ -1001,9 +1001,9 @@ impl WKUPIS11R {
 #[doc = "Possible values of the field `WKUPIS12`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS12R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS12R {
@@ -1048,9 +1048,9 @@ impl WKUPIS12R {
 #[doc = "Possible values of the field `WKUPIS13`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS13R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS13R {
@@ -1095,9 +1095,9 @@ impl WKUPIS13R {
 #[doc = "Possible values of the field `WKUPIS14`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS14R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS14R {
@@ -1142,9 +1142,9 @@ impl WKUPIS14R {
 #[doc = "Possible values of the field `WKUPIS15`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPIS15R {
-    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event."]
     DIS,
-    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake up event."]
+    #[doc = "the corresponding wake-up input was active at the time the debouncer triggered a wake-up event."]
     EN,
 }
 impl WKUPIS15R {
@@ -1192,7 +1192,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - FWUP Wake Up Status"]
+    #[doc = "Bit 0 - FWUP Wake-up Status"]
     #[inline]
     pub fn fwups(&self) -> FWUPSR {
         FWUPSR::_from({
@@ -1201,7 +1201,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - WKUP Wake Up Status"]
+    #[doc = "Bit 1 - WKUP Wake-up Status"]
     #[inline]
     pub fn wkups(&self) -> WKUPSR {
         WKUPSR::_from({
@@ -1210,7 +1210,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Supply Monitor Detection Wake Up Status"]
+    #[doc = "Bit 2 - Supply Monitor Detection Wake-up Status"]
     #[inline]
     pub fn smws(&self) -> SMWSR {
         SMWSR::_from({

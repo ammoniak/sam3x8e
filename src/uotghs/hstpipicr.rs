@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::HSTPIPICR {}
+impl super::HSTPIPICR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RXINICW<'a> {
     w: &'a mut W,
@@ -54,29 +66,6 @@ pub struct _TXSTPICW<'a> {
     w: &'a mut W,
 }
 impl<'a> _TXSTPICW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _UNDERFICW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _UNDERFICW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -165,29 +154,6 @@ impl<'a> _RXSTALLDICW<'a> {
     }
 }
 #[doc = r" Proxy"]
-pub struct _CRCERRICW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CRCERRICW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
 pub struct _SHORTPACKETICW<'a> {
     w: &'a mut W,
 }
@@ -211,12 +177,6 @@ impl<'a> _SHORTPACKETICW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Received IN Data Interrupt Clear"]
     #[inline]
     pub fn rxinic(&mut self) -> _RXINICW {
@@ -232,11 +192,6 @@ impl W {
     pub fn txstpic(&mut self) -> _TXSTPICW {
         _TXSTPICW { w: self }
     }
-    #[doc = "Bit 2 - Underflow Interrupt Clear"]
-    #[inline]
-    pub fn underfic(&mut self) -> _UNDERFICW {
-        _UNDERFICW { w: self }
-    }
     #[doc = "Bit 4 - NAKed Interrupt Clear"]
     #[inline]
     pub fn nakedic(&mut self) -> _NAKEDICW {
@@ -251,11 +206,6 @@ impl W {
     #[inline]
     pub fn rxstalldic(&mut self) -> _RXSTALLDICW {
         _RXSTALLDICW { w: self }
-    }
-    #[doc = "Bit 6 - CRC Error Interrupt Clear"]
-    #[inline]
-    pub fn crcerric(&mut self) -> _CRCERRICW {
-        _CRCERRICW { w: self }
     }
     #[doc = "Bit 7 - Short Packet Interrupt Clear"]
     #[inline]

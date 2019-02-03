@@ -3,11 +3,11 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Channel Control Register (channel = 0)"]
     pub ccr0: CCR0,
-    #[doc = "0x04 - Channel Mode Register (channel = 0)"]
-    pub cmr0: CMR0,
+    #[doc = "Channel Mode Register (channel = 0)"]
+    pub cmr0: CMR0_UNION,
     #[doc = "0x08 - Stepper Motor Mode Register (channel = 0)"]
     pub smmr0: SMMR0,
-    _reserved0: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x10 - Counter Value (channel = 0)"]
     pub cv0: CV0,
     #[doc = "0x14 - Register A (channel = 0)"]
@@ -24,14 +24,14 @@ pub struct RegisterBlock {
     pub idr0: IDR0,
     #[doc = "0x2c - Interrupt Mask Register (channel = 0)"]
     pub imr0: IMR0,
-    _reserved1: [u8; 16usize],
+    _reserved11: [u8; 16usize],
     #[doc = "0x40 - Channel Control Register (channel = 1)"]
     pub ccr1: CCR1,
-    #[doc = "0x44 - Channel Mode Register (channel = 1)"]
-    pub cmr1: CMR1,
+    #[doc = "Channel Mode Register (channel = 1)"]
+    pub cmr1: CMR1_UNION,
     #[doc = "0x48 - Stepper Motor Mode Register (channel = 1)"]
     pub smmr1: SMMR1,
-    _reserved2: [u8; 4usize],
+    _reserved14: [u8; 4usize],
     #[doc = "0x50 - Counter Value (channel = 1)"]
     pub cv1: CV1,
     #[doc = "0x54 - Register A (channel = 1)"]
@@ -48,14 +48,14 @@ pub struct RegisterBlock {
     pub idr1: IDR1,
     #[doc = "0x6c - Interrupt Mask Register (channel = 1)"]
     pub imr1: IMR1,
-    _reserved3: [u8; 16usize],
+    _reserved22: [u8; 16usize],
     #[doc = "0x80 - Channel Control Register (channel = 2)"]
     pub ccr2: CCR2,
-    #[doc = "0x84 - Channel Mode Register (channel = 2)"]
-    pub cmr2: CMR2,
+    #[doc = "Channel Mode Register (channel = 2)"]
+    pub cmr2: CMR2_UNION,
     #[doc = "0x88 - Stepper Motor Mode Register (channel = 2)"]
     pub smmr2: SMMR2,
-    _reserved4: [u8; 4usize],
+    _reserved25: [u8; 4usize],
     #[doc = "0x90 - Counter Value (channel = 2)"]
     pub cv2: CV2,
     #[doc = "0x94 - Register A (channel = 2)"]
@@ -72,7 +72,7 @@ pub struct RegisterBlock {
     pub idr2: IDR2,
     #[doc = "0xac - Interrupt Mask Register (channel = 2)"]
     pub imr2: IMR2,
-    _reserved5: [u8; 16usize],
+    _reserved33: [u8; 16usize],
     #[doc = "0xc0 - Block Control Register"]
     pub bcr: BCR,
     #[doc = "0xc4 - Block Mode Register"]
@@ -87,9 +87,33 @@ pub struct RegisterBlock {
     pub qisr: QISR,
     #[doc = "0xd8 - Fault Mode Register"]
     pub fmr: FMR,
-    _reserved6: [u8; 8usize],
+    _reserved40: [u8; 8usize],
     #[doc = "0xe4 - Write Protect Mode Register"]
     pub wpmr: WPMR,
+}
+#[doc = "Channel Mode Register (channel = 0)"]
+#[repr(C)]
+pub union CMR0_UNION {
+    #[doc = "0x04 - Channel Mode Register (channel = 0)"]
+    pub cmr0_wave_eq_1: CMR0_WAVE_EQ_1,
+    #[doc = "0x04 - Channel Mode Register (channel = 0)"]
+    pub cmr0: CMR0,
+}
+#[doc = "Channel Mode Register (channel = 1)"]
+#[repr(C)]
+pub union CMR1_UNION {
+    #[doc = "0x44 - Channel Mode Register (channel = 1)"]
+    pub cmr1_wave_eq_1: CMR1_WAVE_EQ_1,
+    #[doc = "0x44 - Channel Mode Register (channel = 1)"]
+    pub cmr1: CMR1,
+}
+#[doc = "Channel Mode Register (channel = 2)"]
+#[repr(C)]
+pub union CMR2_UNION {
+    #[doc = "0x84 - Channel Mode Register (channel = 2)"]
+    pub cmr2_wave_eq_1: CMR2_WAVE_EQ_1,
+    #[doc = "0x84 - Channel Mode Register (channel = 2)"]
+    pub cmr2: CMR2,
 }
 #[doc = "Channel Control Register (channel = 0)"]
 pub struct CCR0 {

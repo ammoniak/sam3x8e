@@ -11,16 +11,15 @@ impl super::SR {
         }
     }
 }
-#[doc = r" Value of the field"]
-pub struct ACKUPDR {
-    bits: bool,
+#[doc = "Possible values of the field `ACKUPD`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ACKUPDR {
+    #[doc = "Time and calendar registers cannot be updated."]
+    FREERUN,
+    #[doc = "Time and calendar registers can be updated."]
+    UPDATE,
 }
 impl ACKUPDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -31,17 +30,43 @@ impl ACKUPDR {
     pub fn bit_is_set(&self) -> bool {
         self.bit()
     }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            ACKUPDR::FREERUN => false,
+            ACKUPDR::UPDATE => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> ACKUPDR {
+        match value {
+            false => ACKUPDR::FREERUN,
+            true => ACKUPDR::UPDATE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `FREERUN`"]
+    #[inline]
+    pub fn is_freerun(&self) -> bool {
+        *self == ACKUPDR::FREERUN
+    }
+    #[doc = "Checks if the value of the field is `UPDATE`"]
+    #[inline]
+    pub fn is_update(&self) -> bool {
+        *self == ACKUPDR::UPDATE
+    }
 }
-#[doc = r" Value of the field"]
-pub struct ALARMR {
-    bits: bool,
+#[doc = "Possible values of the field `ALARM`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ALARMR {
+    #[doc = "No alarm matching condition occurred."]
+    NO_ALARMEVENT,
+    #[doc = "An alarm matching condition has occurred."]
+    ALARMEVENT,
 }
 impl ALARMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -52,17 +77,43 @@ impl ALARMR {
     pub fn bit_is_set(&self) -> bool {
         self.bit()
     }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            ALARMR::NO_ALARMEVENT => false,
+            ALARMR::ALARMEVENT => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> ALARMR {
+        match value {
+            false => ALARMR::NO_ALARMEVENT,
+            true => ALARMR::ALARMEVENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_ALARMEVENT`"]
+    #[inline]
+    pub fn is_no_alarmevent(&self) -> bool {
+        *self == ALARMR::NO_ALARMEVENT
+    }
+    #[doc = "Checks if the value of the field is `ALARMEVENT`"]
+    #[inline]
+    pub fn is_alarmevent(&self) -> bool {
+        *self == ALARMR::ALARMEVENT
+    }
 }
-#[doc = r" Value of the field"]
-pub struct SECR {
-    bits: bool,
+#[doc = "Possible values of the field `SEC`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SECR {
+    #[doc = "No second event has occurred since the last clear."]
+    NO_SECEVENT,
+    #[doc = "At least one second event has occurred since the last clear."]
+    SECEVENT,
 }
 impl SECR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -73,17 +124,43 @@ impl SECR {
     pub fn bit_is_set(&self) -> bool {
         self.bit()
     }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            SECR::NO_SECEVENT => false,
+            SECR::SECEVENT => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> SECR {
+        match value {
+            false => SECR::NO_SECEVENT,
+            true => SECR::SECEVENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_SECEVENT`"]
+    #[inline]
+    pub fn is_no_secevent(&self) -> bool {
+        *self == SECR::NO_SECEVENT
+    }
+    #[doc = "Checks if the value of the field is `SECEVENT`"]
+    #[inline]
+    pub fn is_secevent(&self) -> bool {
+        *self == SECR::SECEVENT
+    }
 }
-#[doc = r" Value of the field"]
-pub struct TIMEVR {
-    bits: bool,
+#[doc = "Possible values of the field `TIMEV`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TIMEVR {
+    #[doc = "No time event has occurred since the last clear."]
+    NO_TIMEVENT,
+    #[doc = "At least one time event has occurred since the last clear."]
+    TIMEVENT,
 }
 impl TIMEVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -94,17 +171,43 @@ impl TIMEVR {
     pub fn bit_is_set(&self) -> bool {
         self.bit()
     }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            TIMEVR::NO_TIMEVENT => false,
+            TIMEVR::TIMEVENT => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> TIMEVR {
+        match value {
+            false => TIMEVR::NO_TIMEVENT,
+            true => TIMEVR::TIMEVENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_TIMEVENT`"]
+    #[inline]
+    pub fn is_no_timevent(&self) -> bool {
+        *self == TIMEVR::NO_TIMEVENT
+    }
+    #[doc = "Checks if the value of the field is `TIMEVENT`"]
+    #[inline]
+    pub fn is_timevent(&self) -> bool {
+        *self == TIMEVR::TIMEVENT
+    }
 }
-#[doc = r" Value of the field"]
-pub struct CALEVR {
-    bits: bool,
+#[doc = "Possible values of the field `CALEV`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CALEVR {
+    #[doc = "No calendar event has occurred since the last clear."]
+    NO_CALEVENT,
+    #[doc = "At least one calendar event has occurred since the last clear."]
+    CALEVENT,
 }
 impl CALEVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -114,6 +217,33 @@ impl CALEVR {
     #[inline]
     pub fn bit_is_set(&self) -> bool {
         self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            CALEVR::NO_CALEVENT => false,
+            CALEVR::CALEVENT => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> CALEVR {
+        match value {
+            false => CALEVR::NO_CALEVENT,
+            true => CALEVR::CALEVENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CALEVENT`"]
+    #[inline]
+    pub fn is_no_calevent(&self) -> bool {
+        *self == CALEVR::NO_CALEVENT
+    }
+    #[doc = "Checks if the value of the field is `CALEVENT`"]
+    #[inline]
+    pub fn is_calevent(&self) -> bool {
+        *self == CALEVR::CALEVENT
     }
 }
 impl R {
@@ -125,51 +255,46 @@ impl R {
     #[doc = "Bit 0 - Acknowledge for Update"]
     #[inline]
     pub fn ackupd(&self) -> ACKUPDR {
-        let bits = {
+        ACKUPDR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ACKUPDR { bits }
+        })
     }
     #[doc = "Bit 1 - Alarm Flag"]
     #[inline]
     pub fn alarm(&self) -> ALARMR {
-        let bits = {
+        ALARMR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 1;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ALARMR { bits }
+        })
     }
     #[doc = "Bit 2 - Second Event"]
     #[inline]
     pub fn sec(&self) -> SECR {
-        let bits = {
+        SECR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 2;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SECR { bits }
+        })
     }
     #[doc = "Bit 3 - Time Event"]
     #[inline]
     pub fn timev(&self) -> TIMEVR {
-        let bits = {
+        TIMEVR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 3;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TIMEVR { bits }
+        })
     }
     #[doc = "Bit 4 - Calendar Event"]
     #[inline]
     pub fn calev(&self) -> CALEVR {
-        let bits = {
+        CALEVR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 4;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CALEVR { bits }
+        })
     }
 }

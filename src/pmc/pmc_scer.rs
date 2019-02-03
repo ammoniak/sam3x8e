@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::PMC_SCER {}
+impl super::PMC_SCER {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _UOTGCLKW<'a> {
     w: &'a mut W,
@@ -96,12 +108,6 @@ impl<'a> _PCK2W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 5 - Enable USB OTG Clock (48 MHz, USB_48M) for UTMI"]
     #[inline]
     pub fn uotgclk(&mut self) -> _UOTGCLKW {

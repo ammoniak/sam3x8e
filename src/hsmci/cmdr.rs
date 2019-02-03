@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::CMDR {}
+impl super::CMDR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _CMDNBW<'a> {
     w: &'a mut W,
@@ -20,11 +32,11 @@ impl<'a> _CMDNBW<'a> {
 }
 #[doc = "Values that can be written to the field `RSPTYP`"]
 pub enum RSPTYPW {
-    #[doc = "No response."]
+    #[doc = "No response"]
     NORESP,
-    #[doc = "48-bit response."]
+    #[doc = "48-bit response"]
     _48_BIT,
-    #[doc = "136-bit response."]
+    #[doc = "136-bit response"]
     _136_BIT,
     #[doc = "R1b response type"]
     R1B,
@@ -54,17 +66,17 @@ impl<'a> _RSPTYPW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "No response."]
+    #[doc = "No response"]
     #[inline]
     pub fn noresp(self) -> &'a mut W {
         self.variant(RSPTYPW::NORESP)
     }
-    #[doc = "48-bit response."]
+    #[doc = "48-bit response"]
     #[inline]
     pub fn _48_bit(self) -> &'a mut W {
         self.variant(RSPTYPW::_48_BIT)
     }
-    #[doc = "136-bit response."]
+    #[doc = "136-bit response"]
     #[inline]
     pub fn _136_bit(self) -> &'a mut W {
         self.variant(RSPTYPW::_136_BIT)
@@ -414,9 +426,9 @@ impl<'a> _TRDIRW<'a> {
 }
 #[doc = "Values that can be written to the field `TRTYP`"]
 pub enum TRTYPW {
-    #[doc = "MMC/SDCard Single Block"]
+    #[doc = "MMC/SD Card Single Block"]
     SINGLE,
-    #[doc = "MMC/SDCard Multiple Block"]
+    #[doc = "MMC/SD Card Multiple Block"]
     MULTIPLE,
     #[doc = "MMC Stream"]
     STREAM,
@@ -449,12 +461,12 @@ impl<'a> _TRTYPW<'a> {
     pub fn variant(self, variant: TRTYPW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "MMC/SDCard Single Block"]
+    #[doc = "MMC/SD Card Single Block"]
     #[inline]
     pub fn single(self) -> &'a mut W {
         self.variant(TRTYPW::SINGLE)
     }
-    #[doc = "MMC/SDCard Multiple Block"]
+    #[doc = "MMC/SD Card Multiple Block"]
     #[inline]
     pub fn multiple(self) -> &'a mut W {
         self.variant(TRTYPW::MULTIPLE)
@@ -622,12 +634,6 @@ impl<'a> _BOOT_ACKW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:5 - Command Number"]
     #[inline]
     pub fn cmdnb(&mut self) -> _CMDNBW {
@@ -678,7 +684,7 @@ impl W {
     pub fn atacs(&mut self) -> _ATACSW {
         _ATACSW { w: self }
     }
-    #[doc = "Bit 27 - Boot Operation Acknowledge."]
+    #[doc = "Bit 27 - Boot Operation Acknowledge"]
     #[inline]
     pub fn boot_ack(&mut self) -> _BOOT_ACKW {
         _BOOT_ACKW { w: self }

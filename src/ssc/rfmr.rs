@@ -120,17 +120,17 @@ impl FSLENR {
 #[doc = "Possible values of the field `FSOS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FSOSR {
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     NONE,
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     NEGATIVE,
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     POSITIVE,
-    #[doc = "Driven Low during data transfer"]
+    #[doc = "Driven Low during data transfer, RF pin is an output"]
     LOW,
-    #[doc = "Driven High during data transfer"]
+    #[doc = "Driven High during data transfer, RF pin is an output"]
     HIGH,
-    #[doc = "Toggling at each start of data transfer"]
+    #[doc = "Toggling at each start of data transfer, RF pin is an output"]
     TOGGLING,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -345,17 +345,17 @@ impl<'a> _FSLENW<'a> {
 }
 #[doc = "Values that can be written to the field `FSOS`"]
 pub enum FSOSW {
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     NONE,
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     NEGATIVE,
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     POSITIVE,
-    #[doc = "Driven Low during data transfer"]
+    #[doc = "Driven Low during data transfer, RF pin is an output"]
     LOW,
-    #[doc = "Driven High during data transfer"]
+    #[doc = "Driven High during data transfer, RF pin is an output"]
     HIGH,
-    #[doc = "Toggling at each start of data transfer"]
+    #[doc = "Toggling at each start of data transfer, RF pin is an output"]
     TOGGLING,
 }
 impl FSOSW {
@@ -383,32 +383,32 @@ impl<'a> _FSOSW<'a> {
     pub fn variant(self, variant: FSOSW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     #[inline]
     pub fn none(self) -> &'a mut W {
         self.variant(FSOSW::NONE)
     }
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     #[inline]
     pub fn negative(self) -> &'a mut W {
         self.variant(FSOSW::NEGATIVE)
     }
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     #[inline]
     pub fn positive(self) -> &'a mut W {
         self.variant(FSOSW::POSITIVE)
     }
-    #[doc = "Driven Low during data transfer"]
+    #[doc = "Driven Low during data transfer, RF pin is an output"]
     #[inline]
     pub fn low(self) -> &'a mut W {
         self.variant(FSOSW::LOW)
     }
-    #[doc = "Driven High during data transfer"]
+    #[doc = "Driven High during data transfer, RF pin is an output"]
     #[inline]
     pub fn high(self) -> &'a mut W {
         self.variant(FSOSW::HIGH)
     }
-    #[doc = "Toggling at each start of data transfer"]
+    #[doc = "Toggling at each start of data transfer, RF pin is an output"]
     #[inline]
     pub fn toggling(self) -> &'a mut W {
         self.variant(FSOSW::TOGGLING)

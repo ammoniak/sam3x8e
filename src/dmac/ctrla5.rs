@@ -64,14 +64,8 @@ pub enum SCSIZER {
     CHK_8,
     #[doc = "16 data transferred"]
     CHK_16,
-    #[doc = "32 data transferred"]
-    CHK_32,
-    #[doc = "64 data transferred"]
-    CHK_64,
-    #[doc = "128 data transferred"]
-    CHK_128,
-    #[doc = "256 data transferred"]
-    CHK_256,
+    #[doc = r" Reserved"]
+    _Reserved(u8),
 }
 impl SCSIZER {
     #[doc = r" Value of the field as raw bits"]
@@ -82,10 +76,7 @@ impl SCSIZER {
             SCSIZER::CHK_4 => 1,
             SCSIZER::CHK_8 => 2,
             SCSIZER::CHK_16 => 3,
-            SCSIZER::CHK_32 => 4,
-            SCSIZER::CHK_64 => 5,
-            SCSIZER::CHK_128 => 6,
-            SCSIZER::CHK_256 => 7,
+            SCSIZER::_Reserved(bits) => bits,
         }
     }
     #[allow(missing_docs)]
@@ -97,11 +88,7 @@ impl SCSIZER {
             1 => SCSIZER::CHK_4,
             2 => SCSIZER::CHK_8,
             3 => SCSIZER::CHK_16,
-            4 => SCSIZER::CHK_32,
-            5 => SCSIZER::CHK_64,
-            6 => SCSIZER::CHK_128,
-            7 => SCSIZER::CHK_256,
-            _ => unreachable!(),
+            i => SCSIZER::_Reserved(i),
         }
     }
     #[doc = "Checks if the value of the field is `CHK_1`"]
@@ -124,26 +111,6 @@ impl SCSIZER {
     pub fn is_chk_16(&self) -> bool {
         *self == SCSIZER::CHK_16
     }
-    #[doc = "Checks if the value of the field is `CHK_32`"]
-    #[inline]
-    pub fn is_chk_32(&self) -> bool {
-        *self == SCSIZER::CHK_32
-    }
-    #[doc = "Checks if the value of the field is `CHK_64`"]
-    #[inline]
-    pub fn is_chk_64(&self) -> bool {
-        *self == SCSIZER::CHK_64
-    }
-    #[doc = "Checks if the value of the field is `CHK_128`"]
-    #[inline]
-    pub fn is_chk_128(&self) -> bool {
-        *self == SCSIZER::CHK_128
-    }
-    #[doc = "Checks if the value of the field is `CHK_256`"]
-    #[inline]
-    pub fn is_chk_256(&self) -> bool {
-        *self == SCSIZER::CHK_256
-    }
 }
 #[doc = "Possible values of the field `DCSIZE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -156,14 +123,8 @@ pub enum DCSIZER {
     CHK_8,
     #[doc = "16 data transferred"]
     CHK_16,
-    #[doc = "32 data transferred"]
-    CHK_32,
-    #[doc = "64 data transferred"]
-    CHK_64,
-    #[doc = "128 data transferred"]
-    CHK_128,
-    #[doc = "256 data transferred"]
-    CHK_256,
+    #[doc = r" Reserved"]
+    _Reserved(u8),
 }
 impl DCSIZER {
     #[doc = r" Value of the field as raw bits"]
@@ -174,10 +135,7 @@ impl DCSIZER {
             DCSIZER::CHK_4 => 1,
             DCSIZER::CHK_8 => 2,
             DCSIZER::CHK_16 => 3,
-            DCSIZER::CHK_32 => 4,
-            DCSIZER::CHK_64 => 5,
-            DCSIZER::CHK_128 => 6,
-            DCSIZER::CHK_256 => 7,
+            DCSIZER::_Reserved(bits) => bits,
         }
     }
     #[allow(missing_docs)]
@@ -189,11 +147,7 @@ impl DCSIZER {
             1 => DCSIZER::CHK_4,
             2 => DCSIZER::CHK_8,
             3 => DCSIZER::CHK_16,
-            4 => DCSIZER::CHK_32,
-            5 => DCSIZER::CHK_64,
-            6 => DCSIZER::CHK_128,
-            7 => DCSIZER::CHK_256,
-            _ => unreachable!(),
+            i => DCSIZER::_Reserved(i),
         }
     }
     #[doc = "Checks if the value of the field is `CHK_1`"]
@@ -215,26 +169,6 @@ impl DCSIZER {
     #[inline]
     pub fn is_chk_16(&self) -> bool {
         *self == DCSIZER::CHK_16
-    }
-    #[doc = "Checks if the value of the field is `CHK_32`"]
-    #[inline]
-    pub fn is_chk_32(&self) -> bool {
-        *self == DCSIZER::CHK_32
-    }
-    #[doc = "Checks if the value of the field is `CHK_64`"]
-    #[inline]
-    pub fn is_chk_64(&self) -> bool {
-        *self == DCSIZER::CHK_64
-    }
-    #[doc = "Checks if the value of the field is `CHK_128`"]
-    #[inline]
-    pub fn is_chk_128(&self) -> bool {
-        *self == DCSIZER::CHK_128
-    }
-    #[doc = "Checks if the value of the field is `CHK_256`"]
-    #[inline]
-    pub fn is_chk_256(&self) -> bool {
-        *self == DCSIZER::CHK_256
     }
 }
 #[doc = "Possible values of the field `SRC_WIDTH`"]
@@ -383,14 +317,6 @@ pub enum SCSIZEW {
     CHK_8,
     #[doc = "16 data transferred"]
     CHK_16,
-    #[doc = "32 data transferred"]
-    CHK_32,
-    #[doc = "64 data transferred"]
-    CHK_64,
-    #[doc = "128 data transferred"]
-    CHK_128,
-    #[doc = "256 data transferred"]
-    CHK_256,
 }
 impl SCSIZEW {
     #[allow(missing_docs)]
@@ -402,10 +328,6 @@ impl SCSIZEW {
             SCSIZEW::CHK_4 => 1,
             SCSIZEW::CHK_8 => 2,
             SCSIZEW::CHK_16 => 3,
-            SCSIZEW::CHK_32 => 4,
-            SCSIZEW::CHK_64 => 5,
-            SCSIZEW::CHK_128 => 6,
-            SCSIZEW::CHK_256 => 7,
         }
     }
 }
@@ -417,9 +339,7 @@ impl<'a> _SCSIZEW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
     pub fn variant(self, variant: SCSIZEW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
+        unsafe { self.bits(variant._bits()) }
     }
     #[doc = "1 data transferred"]
     #[inline]
@@ -441,29 +361,9 @@ impl<'a> _SCSIZEW<'a> {
     pub fn chk_16(self) -> &'a mut W {
         self.variant(SCSIZEW::CHK_16)
     }
-    #[doc = "32 data transferred"]
-    #[inline]
-    pub fn chk_32(self) -> &'a mut W {
-        self.variant(SCSIZEW::CHK_32)
-    }
-    #[doc = "64 data transferred"]
-    #[inline]
-    pub fn chk_64(self) -> &'a mut W {
-        self.variant(SCSIZEW::CHK_64)
-    }
-    #[doc = "128 data transferred"]
-    #[inline]
-    pub fn chk_128(self) -> &'a mut W {
-        self.variant(SCSIZEW::CHK_128)
-    }
-    #[doc = "256 data transferred"]
-    #[inline]
-    pub fn chk_256(self) -> &'a mut W {
-        self.variant(SCSIZEW::CHK_256)
-    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
         const MASK: u8 = 7;
         const OFFSET: u8 = 16;
         self.w.bits &= !((MASK as u32) << OFFSET);
@@ -481,14 +381,6 @@ pub enum DCSIZEW {
     CHK_8,
     #[doc = "16 data transferred"]
     CHK_16,
-    #[doc = "32 data transferred"]
-    CHK_32,
-    #[doc = "64 data transferred"]
-    CHK_64,
-    #[doc = "128 data transferred"]
-    CHK_128,
-    #[doc = "256 data transferred"]
-    CHK_256,
 }
 impl DCSIZEW {
     #[allow(missing_docs)]
@@ -500,10 +392,6 @@ impl DCSIZEW {
             DCSIZEW::CHK_4 => 1,
             DCSIZEW::CHK_8 => 2,
             DCSIZEW::CHK_16 => 3,
-            DCSIZEW::CHK_32 => 4,
-            DCSIZEW::CHK_64 => 5,
-            DCSIZEW::CHK_128 => 6,
-            DCSIZEW::CHK_256 => 7,
         }
     }
 }
@@ -515,9 +403,7 @@ impl<'a> _DCSIZEW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
     pub fn variant(self, variant: DCSIZEW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
+        unsafe { self.bits(variant._bits()) }
     }
     #[doc = "1 data transferred"]
     #[inline]
@@ -539,29 +425,9 @@ impl<'a> _DCSIZEW<'a> {
     pub fn chk_16(self) -> &'a mut W {
         self.variant(DCSIZEW::CHK_16)
     }
-    #[doc = "32 data transferred"]
-    #[inline]
-    pub fn chk_32(self) -> &'a mut W {
-        self.variant(DCSIZEW::CHK_32)
-    }
-    #[doc = "64 data transferred"]
-    #[inline]
-    pub fn chk_64(self) -> &'a mut W {
-        self.variant(DCSIZEW::CHK_64)
-    }
-    #[doc = "128 data transferred"]
-    #[inline]
-    pub fn chk_128(self) -> &'a mut W {
-        self.variant(DCSIZEW::CHK_128)
-    }
-    #[doc = "256 data transferred"]
-    #[inline]
-    pub fn chk_256(self) -> &'a mut W {
-        self.variant(DCSIZEW::CHK_256)
-    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
         const MASK: u8 = 7;
         const OFFSET: u8 = 20;
         self.w.bits &= !((MASK as u32) << OFFSET);
@@ -756,7 +622,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - Current Descriptor Stop Command and Transfer Completed Memory Indicator"]
     #[inline]
     pub fn done(&self) -> DONER {
         let bits = {
@@ -804,7 +670,7 @@ impl W {
     pub fn dst_width(&mut self) -> _DST_WIDTHW {
         _DST_WIDTHW { w: self }
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - Current Descriptor Stop Command and Transfer Completed Memory Indicator"]
     #[inline]
     pub fn done(&mut self) -> _DONEW {
         _DONEW { w: self }

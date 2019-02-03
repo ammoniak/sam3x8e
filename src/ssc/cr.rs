@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::CR {}
+impl super::CR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RXENW<'a> {
     w: &'a mut W,
@@ -119,12 +131,6 @@ impl<'a> _SWRSTW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Receive Enable"]
     #[inline]
     pub fn rxen(&mut self) -> _RXENW {

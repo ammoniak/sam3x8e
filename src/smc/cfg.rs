@@ -45,24 +45,24 @@ impl super::CFG {
 #[doc = "Possible values of the field `PAGESIZE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PAGESIZER {
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
-    PS512_16,
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
-    PS1024_32,
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
-    PS2048_64,
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
-    PS4096_128,
+    #[doc = "Main area 512 Bytes"]
+    PS512,
+    #[doc = "Main area 1024 Bytes"]
+    PS1024,
+    #[doc = "Main area 2048 Bytes"]
+    PS2048,
+    #[doc = "Main area 4096 Bytes"]
+    PS4096,
 }
 impl PAGESIZER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            PAGESIZER::PS512_16 => 0,
-            PAGESIZER::PS1024_32 => 1,
-            PAGESIZER::PS2048_64 => 2,
-            PAGESIZER::PS4096_128 => 3,
+            PAGESIZER::PS512 => 0,
+            PAGESIZER::PS1024 => 1,
+            PAGESIZER::PS2048 => 2,
+            PAGESIZER::PS4096 => 3,
         }
     }
     #[allow(missing_docs)]
@@ -70,32 +70,32 @@ impl PAGESIZER {
     #[inline]
     pub fn _from(value: u8) -> PAGESIZER {
         match value {
-            0 => PAGESIZER::PS512_16,
-            1 => PAGESIZER::PS1024_32,
-            2 => PAGESIZER::PS2048_64,
-            3 => PAGESIZER::PS4096_128,
+            0 => PAGESIZER::PS512,
+            1 => PAGESIZER::PS1024,
+            2 => PAGESIZER::PS2048,
+            3 => PAGESIZER::PS4096,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `PS512_16`"]
+    #[doc = "Checks if the value of the field is `PS512`"]
     #[inline]
-    pub fn is_ps512_16(&self) -> bool {
-        *self == PAGESIZER::PS512_16
+    pub fn is_ps512(&self) -> bool {
+        *self == PAGESIZER::PS512
     }
-    #[doc = "Checks if the value of the field is `PS1024_32`"]
+    #[doc = "Checks if the value of the field is `PS1024`"]
     #[inline]
-    pub fn is_ps1024_32(&self) -> bool {
-        *self == PAGESIZER::PS1024_32
+    pub fn is_ps1024(&self) -> bool {
+        *self == PAGESIZER::PS1024
     }
-    #[doc = "Checks if the value of the field is `PS2048_64`"]
+    #[doc = "Checks if the value of the field is `PS2048`"]
     #[inline]
-    pub fn is_ps2048_64(&self) -> bool {
-        *self == PAGESIZER::PS2048_64
+    pub fn is_ps2048(&self) -> bool {
+        *self == PAGESIZER::PS2048
     }
-    #[doc = "Checks if the value of the field is `PS4096_128`"]
+    #[doc = "Checks if the value of the field is `PS4096`"]
     #[inline]
-    pub fn is_ps4096_128(&self) -> bool {
-        *self == PAGESIZER::PS4096_128
+    pub fn is_ps4096(&self) -> bool {
+        *self == PAGESIZER::PS4096
     }
 }
 #[doc = r" Value of the field"]
@@ -287,14 +287,14 @@ impl DTOMULR {
 }
 #[doc = "Values that can be written to the field `PAGESIZE`"]
 pub enum PAGESIZEW {
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
-    PS512_16,
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
-    PS1024_32,
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
-    PS2048_64,
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
-    PS4096_128,
+    #[doc = "Main area 512 Bytes"]
+    PS512,
+    #[doc = "Main area 1024 Bytes"]
+    PS1024,
+    #[doc = "Main area 2048 Bytes"]
+    PS2048,
+    #[doc = "Main area 4096 Bytes"]
+    PS4096,
 }
 impl PAGESIZEW {
     #[allow(missing_docs)]
@@ -302,10 +302,10 @@ impl PAGESIZEW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            PAGESIZEW::PS512_16 => 0,
-            PAGESIZEW::PS1024_32 => 1,
-            PAGESIZEW::PS2048_64 => 2,
-            PAGESIZEW::PS4096_128 => 3,
+            PAGESIZEW::PS512 => 0,
+            PAGESIZEW::PS1024 => 1,
+            PAGESIZEW::PS2048 => 2,
+            PAGESIZEW::PS4096 => 3,
         }
     }
 }
@@ -321,25 +321,25 @@ impl<'a> _PAGESIZEW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
+    #[doc = "Main area 512 Bytes"]
     #[inline]
-    pub fn ps512_16(self) -> &'a mut W {
-        self.variant(PAGESIZEW::PS512_16)
+    pub fn ps512(self) -> &'a mut W {
+        self.variant(PAGESIZEW::PS512)
     }
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
+    #[doc = "Main area 1024 Bytes"]
     #[inline]
-    pub fn ps1024_32(self) -> &'a mut W {
-        self.variant(PAGESIZEW::PS1024_32)
+    pub fn ps1024(self) -> &'a mut W {
+        self.variant(PAGESIZEW::PS1024)
     }
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
+    #[doc = "Main area 2048 Bytes"]
     #[inline]
-    pub fn ps2048_64(self) -> &'a mut W {
-        self.variant(PAGESIZEW::PS2048_64)
+    pub fn ps2048(self) -> &'a mut W {
+        self.variant(PAGESIZEW::PS2048)
     }
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
+    #[doc = "Main area 4096 Bytes"]
     #[inline]
-    pub fn ps4096_128(self) -> &'a mut W {
-        self.variant(PAGESIZEW::PS4096_128)
+    pub fn ps4096(self) -> &'a mut W {
+        self.variant(PAGESIZEW::PS4096)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -562,7 +562,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:1"]
+    #[doc = "Bits 0:1 - Page Size of the NAND Flash Device"]
     #[inline]
     pub fn pagesize(&self) -> PAGESIZER {
         PAGESIZER::_from({
@@ -643,7 +643,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:1"]
+    #[doc = "Bits 0:1 - Page Size of the NAND Flash Device"]
     #[inline]
     pub fn pagesize(&mut self) -> _PAGESIZEW {
         _PAGESIZEW { w: self }

@@ -752,7 +752,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 0 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp0(&self) -> FSTP0R {
         let bits = {
@@ -762,7 +762,7 @@ impl R {
         };
         FSTP0R { bits }
     }
-    #[doc = "Bit 1 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 1 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp1(&self) -> FSTP1R {
         let bits = {
@@ -772,7 +772,7 @@ impl R {
         };
         FSTP1R { bits }
     }
-    #[doc = "Bit 2 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 2 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp2(&self) -> FSTP2R {
         let bits = {
@@ -782,7 +782,7 @@ impl R {
         };
         FSTP2R { bits }
     }
-    #[doc = "Bit 3 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 3 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp3(&self) -> FSTP3R {
         let bits = {
@@ -792,7 +792,7 @@ impl R {
         };
         FSTP3R { bits }
     }
-    #[doc = "Bit 4 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 4 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp4(&self) -> FSTP4R {
         let bits = {
@@ -802,7 +802,7 @@ impl R {
         };
         FSTP4R { bits }
     }
-    #[doc = "Bit 5 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 5 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp5(&self) -> FSTP5R {
         let bits = {
@@ -812,7 +812,7 @@ impl R {
         };
         FSTP5R { bits }
     }
-    #[doc = "Bit 6 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 6 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp6(&self) -> FSTP6R {
         let bits = {
@@ -822,7 +822,7 @@ impl R {
         };
         FSTP6R { bits }
     }
-    #[doc = "Bit 7 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 7 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp7(&self) -> FSTP7R {
         let bits = {
@@ -832,7 +832,7 @@ impl R {
         };
         FSTP7R { bits }
     }
-    #[doc = "Bit 8 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 8 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp8(&self) -> FSTP8R {
         let bits = {
@@ -842,7 +842,7 @@ impl R {
         };
         FSTP8R { bits }
     }
-    #[doc = "Bit 9 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 9 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp9(&self) -> FSTP9R {
         let bits = {
@@ -852,7 +852,7 @@ impl R {
         };
         FSTP9R { bits }
     }
-    #[doc = "Bit 10 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 10 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp10(&self) -> FSTP10R {
         let bits = {
@@ -862,7 +862,7 @@ impl R {
         };
         FSTP10R { bits }
     }
-    #[doc = "Bit 11 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 11 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp11(&self) -> FSTP11R {
         let bits = {
@@ -872,7 +872,7 @@ impl R {
         };
         FSTP11R { bits }
     }
-    #[doc = "Bit 12 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 12 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp12(&self) -> FSTP12R {
         let bits = {
@@ -882,7 +882,7 @@ impl R {
         };
         FSTP12R { bits }
     }
-    #[doc = "Bit 13 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 13 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp13(&self) -> FSTP13R {
         let bits = {
@@ -892,7 +892,7 @@ impl R {
         };
         FSTP13R { bits }
     }
-    #[doc = "Bit 14 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 14 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp14(&self) -> FSTP14R {
         let bits = {
@@ -902,7 +902,7 @@ impl R {
         };
         FSTP14R { bits }
     }
-    #[doc = "Bit 15 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 15 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp15(&self) -> FSTP15R {
         let bits = {
@@ -925,82 +925,82 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 0 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp0(&mut self) -> _FSTP0W {
         _FSTP0W { w: self }
     }
-    #[doc = "Bit 1 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 1 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp1(&mut self) -> _FSTP1W {
         _FSTP1W { w: self }
     }
-    #[doc = "Bit 2 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 2 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp2(&mut self) -> _FSTP2W {
         _FSTP2W { w: self }
     }
-    #[doc = "Bit 3 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 3 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp3(&mut self) -> _FSTP3W {
         _FSTP3W { w: self }
     }
-    #[doc = "Bit 4 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 4 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp4(&mut self) -> _FSTP4W {
         _FSTP4W { w: self }
     }
-    #[doc = "Bit 5 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 5 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp5(&mut self) -> _FSTP5W {
         _FSTP5W { w: self }
     }
-    #[doc = "Bit 6 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 6 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp6(&mut self) -> _FSTP6W {
         _FSTP6W { w: self }
     }
-    #[doc = "Bit 7 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 7 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp7(&mut self) -> _FSTP7W {
         _FSTP7W { w: self }
     }
-    #[doc = "Bit 8 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 8 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp8(&mut self) -> _FSTP8W {
         _FSTP8W { w: self }
     }
-    #[doc = "Bit 9 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 9 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp9(&mut self) -> _FSTP9W {
         _FSTP9W { w: self }
     }
-    #[doc = "Bit 10 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 10 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp10(&mut self) -> _FSTP10W {
         _FSTP10W { w: self }
     }
-    #[doc = "Bit 11 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 11 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp11(&mut self) -> _FSTP11W {
         _FSTP11W { w: self }
     }
-    #[doc = "Bit 12 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 12 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp12(&mut self) -> _FSTP12W {
         _FSTP12W { w: self }
     }
-    #[doc = "Bit 13 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 13 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp13(&mut self) -> _FSTP13W {
         _FSTP13W { w: self }
     }
-    #[doc = "Bit 14 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 14 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp14(&mut self) -> _FSTP14W {
         _FSTP14W { w: self }
     }
-    #[doc = "Bit 15 - Fast Startup Input Polarityx"]
+    #[doc = "Bit 15 - Fast Start-up Input Polarityx"]
     #[inline]
     pub fn fstp15(&mut self) -> _FSTP15W {
         _FSTP15W { w: self }

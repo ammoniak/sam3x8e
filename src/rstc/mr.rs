@@ -95,15 +95,36 @@ impl ERSTLR {
         self.bits
     }
 }
-#[doc = r" Value of the field"]
-pub struct KEYR {
-    bits: u8,
+#[doc = "Possible values of the field `KEY`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum KEYR {
+    #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
+    PASSWD,
+    #[doc = r" Reserved"]
+    _Reserved(u8),
 }
 impl KEYR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
-        self.bits
+        match *self {
+            KEYR::PASSWD => 165,
+            KEYR::_Reserved(bits) => bits,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: u8) -> KEYR {
+        match value {
+            165 => KEYR::PASSWD,
+            i => KEYR::_Reserved(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `PASSWD`"]
+    #[inline]
+    pub fn is_passwd(&self) -> bool {
+        *self == KEYR::PASSWD
     }
 }
 #[doc = r" Proxy"]
@@ -167,11 +188,36 @@ impl<'a> _ERSTLW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `KEY`"]
+pub enum KEYW {
+    #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
+    PASSWD,
+}
+impl KEYW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> u8 {
+        match *self {
+            KEYW::PASSWD => 165,
+        }
+    }
+}
 #[doc = r" Proxy"]
 pub struct _KEYW<'a> {
     w: &'a mut W,
 }
 impl<'a> _KEYW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: KEYW) -> &'a mut W {
+        unsafe { self.bits(variant._bits()) }
+    }
+    #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
+    #[inline]
+    pub fn passwd(self) -> &'a mut W {
+        self.variant(KEYW::PASSWD)
+    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
@@ -218,15 +264,14 @@ impl R {
         };
         ERSTLR { bits }
     }
-    #[doc = "Bits 24:31 - Password"]
+    #[doc = "Bits 24:31 - Write Access Password"]
     #[inline]
     pub fn key(&self) -> KEYR {
-        let bits = {
+        KEYR::_from({
             const MASK: u8 = 255;
             const OFFSET: u8 = 24;
             ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        KEYR { bits }
+        })
     }
 }
 impl W {
@@ -256,7 +301,7 @@ impl W {
     pub fn erstl(&mut self) -> _ERSTLW {
         _ERSTLW { w: self }
     }
-    #[doc = "Bits 24:31 - Password"]
+    #[doc = "Bits 24:31 - Write Access Password"]
     #[inline]
     pub fn key(&mut self) -> _KEYW {
         _KEYW { w: self }

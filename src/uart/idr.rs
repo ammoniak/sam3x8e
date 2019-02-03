@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::IDR {}
+impl super::IDR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RXRDYW<'a> {
     w: &'a mut W,
@@ -234,12 +246,6 @@ impl<'a> _RXBUFFW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Disable RXRDY Interrupt"]
     #[inline]
     pub fn rxrdy(&mut self) -> _RXRDYW {

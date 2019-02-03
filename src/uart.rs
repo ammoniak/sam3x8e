@@ -19,7 +19,7 @@ pub struct RegisterBlock {
     pub thr: THR,
     #[doc = "0x20 - Baud Rate Generator Register"]
     pub brgr: BRGR,
-    _reserved0: [u8; 220usize],
+    _reserved9: [u8; 220usize],
     #[doc = "0x100 - Receive Pointer Register"]
     pub rpr: RPR,
     #[doc = "0x104 - Receive Counter Register"]

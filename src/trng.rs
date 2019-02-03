@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Control Register"]
     pub cr: CR,
-    _reserved0: [u8; 12usize],
+    _reserved1: [u8; 12usize],
     #[doc = "0x10 - Interrupt Enable Register"]
     pub ier: IER,
     #[doc = "0x14 - Interrupt Disable Register"]
@@ -12,7 +12,7 @@ pub struct RegisterBlock {
     pub imr: IMR,
     #[doc = "0x1c - Interrupt Status Register"]
     pub isr: ISR,
-    _reserved1: [u8; 48usize],
+    _reserved5: [u8; 48usize],
     #[doc = "0x50 - Output Data Register"]
     pub odata: ODATA,
 }

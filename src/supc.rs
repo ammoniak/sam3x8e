@@ -7,9 +7,9 @@ pub struct RegisterBlock {
     pub smmr: SMMR,
     #[doc = "0x08 - Supply Controller Mode Register"]
     pub mr: MR,
-    #[doc = "0x0c - Supply Controller Wake Up Mode Register"]
+    #[doc = "0x0c - Supply Controller Wake-up Mode Register"]
     pub wumr: WUMR,
-    #[doc = "0x10 - Supply Controller Wake Up Inputs Register"]
+    #[doc = "0x10 - Supply Controller Wake-up Inputs Register"]
     pub wuir: WUIR,
     #[doc = "0x14 - Supply Controller Status Register"]
     pub sr: SR,
@@ -32,17 +32,17 @@ pub struct MR {
 }
 #[doc = "Supply Controller Mode Register"]
 pub mod mr;
-#[doc = "Supply Controller Wake Up Mode Register"]
+#[doc = "Supply Controller Wake-up Mode Register"]
 pub struct WUMR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Supply Controller Wake Up Mode Register"]
+#[doc = "Supply Controller Wake-up Mode Register"]
 pub mod wumr;
-#[doc = "Supply Controller Wake Up Inputs Register"]
+#[doc = "Supply Controller Wake-up Inputs Register"]
 pub struct WUIR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Supply Controller Wake Up Inputs Register"]
+#[doc = "Supply Controller Wake-up Inputs Register"]
 pub mod wuir;
 #[doc = "Supply Controller Status Register"]
 pub struct SR {

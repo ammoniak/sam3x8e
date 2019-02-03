@@ -11,7 +11,7 @@ pub struct RegisterBlock {
     pub creq: CREQ,
     #[doc = "0x10 - DMAC Software Last Transfer Flag Register"]
     pub last: LAST,
-    _reserved0: [u8; 4usize],
+    _reserved5: [u8; 4usize],
     #[doc = "0x18 - DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer Transfer Completed Interrupt Enable register."]
     pub ebcier: EBCIER,
     #[doc = "0x1c - DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer Transfer Completed Interrupt Disable register."]
@@ -26,7 +26,7 @@ pub struct RegisterBlock {
     pub chdr: CHDR,
     #[doc = "0x30 - DMAC Channel Handler Status Register"]
     pub chsr: CHSR,
-    _reserved1: [u8; 8usize],
+    _reserved12: [u8; 8usize],
     #[doc = "0x3c - DMAC Channel Source Address Register (ch_num = 0)"]
     pub saddr0: SADDR0,
     #[doc = "0x40 - DMAC Channel Destination Address Register (ch_num = 0)"]
@@ -39,7 +39,7 @@ pub struct RegisterBlock {
     pub ctrlb0: CTRLB0,
     #[doc = "0x50 - DMAC Channel Configuration Register (ch_num = 0)"]
     pub cfg0: CFG0,
-    _reserved2: [u8; 16usize],
+    _reserved18: [u8; 16usize],
     #[doc = "0x64 - DMAC Channel Source Address Register (ch_num = 1)"]
     pub saddr1: SADDR1,
     #[doc = "0x68 - DMAC Channel Destination Address Register (ch_num = 1)"]
@@ -52,7 +52,7 @@ pub struct RegisterBlock {
     pub ctrlb1: CTRLB1,
     #[doc = "0x78 - DMAC Channel Configuration Register (ch_num = 1)"]
     pub cfg1: CFG1,
-    _reserved3: [u8; 16usize],
+    _reserved24: [u8; 16usize],
     #[doc = "0x8c - DMAC Channel Source Address Register (ch_num = 2)"]
     pub saddr2: SADDR2,
     #[doc = "0x90 - DMAC Channel Destination Address Register (ch_num = 2)"]
@@ -65,7 +65,7 @@ pub struct RegisterBlock {
     pub ctrlb2: CTRLB2,
     #[doc = "0xa0 - DMAC Channel Configuration Register (ch_num = 2)"]
     pub cfg2: CFG2,
-    _reserved4: [u8; 16usize],
+    _reserved30: [u8; 16usize],
     #[doc = "0xb4 - DMAC Channel Source Address Register (ch_num = 3)"]
     pub saddr3: SADDR3,
     #[doc = "0xb8 - DMAC Channel Destination Address Register (ch_num = 3)"]
@@ -78,7 +78,7 @@ pub struct RegisterBlock {
     pub ctrlb3: CTRLB3,
     #[doc = "0xc8 - DMAC Channel Configuration Register (ch_num = 3)"]
     pub cfg3: CFG3,
-    _reserved5: [u8; 16usize],
+    _reserved36: [u8; 16usize],
     #[doc = "0xdc - DMAC Channel Source Address Register (ch_num = 4)"]
     pub saddr4: SADDR4,
     #[doc = "0xe0 - DMAC Channel Destination Address Register (ch_num = 4)"]
@@ -91,7 +91,7 @@ pub struct RegisterBlock {
     pub ctrlb4: CTRLB4,
     #[doc = "0xf0 - DMAC Channel Configuration Register (ch_num = 4)"]
     pub cfg4: CFG4,
-    _reserved6: [u8; 16usize],
+    _reserved42: [u8; 16usize],
     #[doc = "0x104 - DMAC Channel Source Address Register (ch_num = 5)"]
     pub saddr5: SADDR5,
     #[doc = "0x108 - DMAC Channel Destination Address Register (ch_num = 5)"]
@@ -104,7 +104,7 @@ pub struct RegisterBlock {
     pub ctrlb5: CTRLB5,
     #[doc = "0x118 - DMAC Channel Configuration Register (ch_num = 5)"]
     pub cfg5: CFG5,
-    _reserved7: [u8; 200usize],
+    _reserved48: [u8; 200usize],
     #[doc = "0x1e4 - DMAC Write Protect Mode Register"]
     pub wpmr: WPMR,
     #[doc = "0x1e8 - DMAC Write Protect Status Register"]

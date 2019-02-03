@@ -119,17 +119,6 @@ impl USCH15R {
         self.bits
     }
 }
-#[doc = r" Value of the field"]
-pub struct USCH16R {
-    bits: u8,
-}
-impl USCH16R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
 #[doc = r" Proxy"]
 pub struct _USCH9W<'a> {
     w: &'a mut W,
@@ -235,21 +224,6 @@ impl<'a> _USCH15W<'a> {
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH16W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _USCH16W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -326,16 +300,6 @@ impl R {
         };
         USCH15R { bits }
     }
-    #[doc = "Bits 28:31 - User Sequence Number 16"]
-    #[inline]
-    pub fn usch16(&self) -> USCH16R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH16R { bits }
-    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -383,10 +347,5 @@ impl W {
     #[inline]
     pub fn usch15(&mut self) -> _USCH15W {
         _USCH15W { w: self }
-    }
-    #[doc = "Bits 28:31 - User Sequence Number 16"]
-    #[inline]
-    pub fn usch16(&mut self) -> _USCH16W {
-        _USCH16W { w: self }
     }
 }

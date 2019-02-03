@@ -26,6 +26,22 @@ impl super::MR {
             bits: self.register.get(),
         }
     }
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+    #[doc = r" Writes the reset value to the register"]
+    #[inline]
+    pub fn reset(&self) {
+        self.write(|w| w)
+    }
 }
 #[doc = "Possible values of the field `USART_MODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -42,11 +58,11 @@ pub enum USART_MODER {
     IS07816_T_1,
     #[doc = "IrDA"]
     IRDA,
-    #[doc = "LIN Master"]
+    #[doc = "LIN master"]
     LIN_MASTER,
     #[doc = "LIN Slave"]
     LIN_SLAVE,
-    #[doc = "SPI Master"]
+    #[doc = "SPI master"]
     SPI_MASTER,
     #[doc = "SPI Slave"]
     SPI_SLAVE,
@@ -143,7 +159,7 @@ impl USART_MODER {
 #[doc = "Possible values of the field `USCLKS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USCLKSR {
-    #[doc = "Master Clock MCK is selected"]
+    #[doc = "master Clock MCK is selected"]
     MCK,
     #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
     DIV,
@@ -251,27 +267,6 @@ pub struct SYNCR {
     bits: bool,
 }
 impl SYNCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPHAR {
-    bits: bool,
-}
-impl CPHAR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -418,7 +413,7 @@ impl NBSTOPR {
 #[doc = "Possible values of the field `CHMODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHMODER {
-    #[doc = "Normal Mode"]
+    #[doc = "Normal mode"]
     NORMAL,
     #[doc = "Automatic Echo. Receiver input is connected to the TXD pin."]
     AUTOMATIC,
@@ -476,27 +471,6 @@ pub struct MSBFR {
     bits: bool,
 }
 impl MSBFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPOLR {
-    bits: bool,
-}
-impl CPOLR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -769,11 +743,11 @@ pub enum USART_MODEW {
     IS07816_T_1,
     #[doc = "IrDA"]
     IRDA,
-    #[doc = "LIN Master"]
+    #[doc = "LIN master"]
     LIN_MASTER,
     #[doc = "LIN Slave"]
     LIN_SLAVE,
-    #[doc = "SPI Master"]
+    #[doc = "SPI master"]
     SPI_MASTER,
     #[doc = "SPI Slave"]
     SPI_SLAVE,
@@ -837,7 +811,7 @@ impl<'a> _USART_MODEW<'a> {
     pub fn irda(self) -> &'a mut W {
         self.variant(USART_MODEW::IRDA)
     }
-    #[doc = "LIN Master"]
+    #[doc = "LIN master"]
     #[inline]
     pub fn lin_master(self) -> &'a mut W {
         self.variant(USART_MODEW::LIN_MASTER)
@@ -847,7 +821,7 @@ impl<'a> _USART_MODEW<'a> {
     pub fn lin_slave(self) -> &'a mut W {
         self.variant(USART_MODEW::LIN_SLAVE)
     }
-    #[doc = "SPI Master"]
+    #[doc = "SPI master"]
     #[inline]
     pub fn spi_master(self) -> &'a mut W {
         self.variant(USART_MODEW::SPI_MASTER)
@@ -869,7 +843,7 @@ impl<'a> _USART_MODEW<'a> {
 }
 #[doc = "Values that can be written to the field `USCLKS`"]
 pub enum USCLKSW {
-    #[doc = "Master Clock MCK is selected"]
+    #[doc = "master Clock MCK is selected"]
     MCK,
     #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
     DIV,
@@ -898,7 +872,7 @@ impl<'a> _USCLKSW<'a> {
     pub fn variant(self, variant: USCLKSW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "Master Clock MCK is selected"]
+    #[doc = "master Clock MCK is selected"]
     #[inline]
     pub fn mck(self) -> &'a mut W {
         self.variant(USCLKSW::MCK)
@@ -994,29 +968,6 @@ pub struct _SYNCW<'a> {
     w: &'a mut W,
 }
 impl<'a> _SYNCW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CPHAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CPHAW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -1173,7 +1124,7 @@ impl<'a> _NBSTOPW<'a> {
 }
 #[doc = "Values that can be written to the field `CHMODE`"]
 pub enum CHMODEW {
-    #[doc = "Normal Mode"]
+    #[doc = "Normal mode"]
     NORMAL,
     #[doc = "Automatic Echo. Receiver input is connected to the TXD pin."]
     AUTOMATIC,
@@ -1207,7 +1158,7 @@ impl<'a> _CHMODEW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "Normal Mode"]
+    #[doc = "Normal mode"]
     #[inline]
     pub fn normal(self) -> &'a mut W {
         self.variant(CHMODEW::NORMAL)
@@ -1242,29 +1193,6 @@ pub struct _MSBFW<'a> {
     w: &'a mut W,
 }
 impl<'a> _MSBFW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CPOLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CPOLW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -1557,7 +1485,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - USART Mode of Operation"]
     #[inline]
     pub fn usart_mode(&self) -> USART_MODER {
         USART_MODER::_from({
@@ -1575,7 +1503,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 6:7 - Character Length."]
+    #[doc = "Bits 6:7 - Character Length"]
     #[inline]
     pub fn chrl(&self) -> CHRLR {
         CHRLR::_from({
@@ -1593,16 +1521,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         SYNCR { bits }
-    }
-    #[doc = "Bit 8 - SPI Clock Phase"]
-    #[inline]
-    pub fn cpha(&self) -> CPHAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPHAR { bits }
     }
     #[doc = "Bits 9:11 - Parity Type"]
     #[inline]
@@ -1640,16 +1558,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         MSBFR { bits }
-    }
-    #[doc = "Bit 16 - SPI Clock Polarity"]
-    #[inline]
-    pub fn cpol(&self) -> CPOLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPOLR { bits }
     }
     #[doc = "Bit 17 - 9-bit Character Length"]
     #[inline]
@@ -1711,7 +1619,7 @@ impl R {
         };
         VAR_SYNCR { bits }
     }
-    #[doc = "Bit 23 - INverted Data"]
+    #[doc = "Bit 23 - Inverted Data"]
     #[inline]
     pub fn invdata(&self) -> INVDATAR {
         let bits = {
@@ -1721,7 +1629,7 @@ impl R {
         };
         INVDATAR { bits }
     }
-    #[doc = "Bits 24:26"]
+    #[doc = "Bits 24:26 - Maximum Number of Automatic Iteration"]
     #[inline]
     pub fn max_iteration(&self) -> MAX_ITERATIONR {
         let bits = {
@@ -1773,13 +1681,7 @@ impl R {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - USART Mode of Operation"]
     #[inline]
     pub fn usart_mode(&mut self) -> _USART_MODEW {
         _USART_MODEW { w: self }
@@ -1789,7 +1691,7 @@ impl W {
     pub fn usclks(&mut self) -> _USCLKSW {
         _USCLKSW { w: self }
     }
-    #[doc = "Bits 6:7 - Character Length."]
+    #[doc = "Bits 6:7 - Character Length"]
     #[inline]
     pub fn chrl(&mut self) -> _CHRLW {
         _CHRLW { w: self }
@@ -1798,11 +1700,6 @@ impl W {
     #[inline]
     pub fn sync(&mut self) -> _SYNCW {
         _SYNCW { w: self }
-    }
-    #[doc = "Bit 8 - SPI Clock Phase"]
-    #[inline]
-    pub fn cpha(&mut self) -> _CPHAW {
-        _CPHAW { w: self }
     }
     #[doc = "Bits 9:11 - Parity Type"]
     #[inline]
@@ -1823,11 +1720,6 @@ impl W {
     #[inline]
     pub fn msbf(&mut self) -> _MSBFW {
         _MSBFW { w: self }
-    }
-    #[doc = "Bit 16 - SPI Clock Polarity"]
-    #[inline]
-    pub fn cpol(&mut self) -> _CPOLW {
-        _CPOLW { w: self }
     }
     #[doc = "Bit 17 - 9-bit Character Length"]
     #[inline]
@@ -1859,12 +1751,12 @@ impl W {
     pub fn var_sync(&mut self) -> _VAR_SYNCW {
         _VAR_SYNCW { w: self }
     }
-    #[doc = "Bit 23 - INverted Data"]
+    #[doc = "Bit 23 - Inverted Data"]
     #[inline]
     pub fn invdata(&mut self) -> _INVDATAW {
         _INVDATAW { w: self }
     }
-    #[doc = "Bits 24:26"]
+    #[doc = "Bits 24:26 - Maximum Number of Automatic Iteration"]
     #[inline]
     pub fn max_iteration(&mut self) -> _MAX_ITERATIONW {
         _MAX_ITERATIONW { w: self }

@@ -136,16 +136,15 @@ impl BODDISR {
         *self == BODDISR::DISABLE
     }
 }
-#[doc = r" Value of the field"]
-pub struct VDDIORDYONREGR {
-    bits: bool,
+#[doc = "Possible values of the field `VDDIORDY`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum VDDIORDYR {
+    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
+    VDDIO_REMOVED,
+    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
+    VDDIO_PRESENT,
 }
-impl VDDIORDYONREGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
+impl VDDIORDYR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -155,6 +154,33 @@ impl VDDIORDYONREGR {
     #[inline]
     pub fn bit_is_set(&self) -> bool {
         self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            VDDIORDYR::VDDIO_REMOVED => false,
+            VDDIORDYR::VDDIO_PRESENT => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> VDDIORDYR {
+        match value {
+            false => VDDIORDYR::VDDIO_REMOVED,
+            true => VDDIORDYR::VDDIO_PRESENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `VDDIO_REMOVED`"]
+    #[inline]
+    pub fn is_vddio_removed(&self) -> bool {
+        *self == VDDIORDYR::VDDIO_REMOVED
+    }
+    #[doc = "Checks if the value of the field is `VDDIO_PRESENT`"]
+    #[inline]
+    pub fn is_vddio_present(&self) -> bool {
+        *self == VDDIORDYR::VDDIO_PRESENT
     }
 }
 #[doc = "Possible values of the field `OSCBYPASS`"]
@@ -204,15 +230,36 @@ impl OSCBYPASSR {
         *self == OSCBYPASSR::BYPASS
     }
 }
-#[doc = r" Value of the field"]
-pub struct KEYR {
-    bits: u8,
+#[doc = "Possible values of the field `KEY`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum KEYR {
+    #[doc = "Writing any other value in this field aborts the write operation."]
+    PASSWD,
+    #[doc = r" Reserved"]
+    _Reserved(u8),
 }
 impl KEYR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
-        self.bits
+        match *self {
+            KEYR::PASSWD => 165,
+            KEYR::_Reserved(bits) => bits,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: u8) -> KEYR {
+        match value {
+            165 => KEYR::PASSWD,
+            i => KEYR::_Reserved(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `PASSWD`"]
+    #[inline]
+    pub fn is_passwd(&self) -> bool {
+        *self == KEYR::PASSWD
     }
 }
 #[doc = "Values that can be written to the field `BODRSTEN`"]
@@ -331,11 +378,46 @@ impl<'a> _BODDISW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `VDDIORDY`"]
+pub enum VDDIORDYW {
+    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
+    VDDIO_REMOVED,
+    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
+    VDDIO_PRESENT,
+}
+impl VDDIORDYW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            VDDIORDYW::VDDIO_REMOVED => false,
+            VDDIORDYW::VDDIO_PRESENT => true,
+        }
+    }
+}
 #[doc = r" Proxy"]
-pub struct _VDDIORDYONREGW<'a> {
+pub struct _VDDIORDYW<'a> {
     w: &'a mut W,
 }
-impl<'a> _VDDIORDYONREGW<'a> {
+impl<'a> _VDDIORDYW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: VDDIORDYW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
+    #[inline]
+    pub fn vddio_removed(self) -> &'a mut W {
+        self.variant(VDDIORDYW::VDDIO_REMOVED)
+    }
+    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
+    #[inline]
+    pub fn vddio_present(self) -> &'a mut W {
+        self.variant(VDDIORDYW::VDDIO_PRESENT)
+    }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -412,11 +494,36 @@ impl<'a> _OSCBYPASSW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `KEY`"]
+pub enum KEYW {
+    #[doc = "Writing any other value in this field aborts the write operation."]
+    PASSWD,
+}
+impl KEYW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> u8 {
+        match *self {
+            KEYW::PASSWD => 165,
+        }
+    }
+}
 #[doc = r" Proxy"]
 pub struct _KEYW<'a> {
     w: &'a mut W,
 }
 impl<'a> _KEYW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: KEYW) -> &'a mut W {
+        unsafe { self.bits(variant._bits()) }
+    }
+    #[doc = "Writing any other value in this field aborts the write operation."]
+    #[inline]
+    pub fn passwd(self) -> &'a mut W {
+        self.variant(KEYW::PASSWD)
+    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
@@ -451,15 +558,14 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14"]
+    #[doc = "Bit 14 - VDDIO Ready"]
     #[inline]
-    pub fn vddiordyonreg(&self) -> VDDIORDYONREGR {
-        let bits = {
+    pub fn vddiordy(&self) -> VDDIORDYR {
+        VDDIORDYR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 14;
             ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        VDDIORDYONREGR { bits }
+        })
     }
     #[doc = "Bit 20 - Oscillator Bypass"]
     #[inline]
@@ -473,12 +579,11 @@ impl R {
     #[doc = "Bits 24:31 - Password Key"]
     #[inline]
     pub fn key(&self) -> KEYR {
-        let bits = {
+        KEYR::_from({
             const MASK: u8 = 255;
             const OFFSET: u8 = 24;
             ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        KEYR { bits }
+        })
     }
 }
 impl W {
@@ -503,10 +608,10 @@ impl W {
     pub fn boddis(&mut self) -> _BODDISW {
         _BODDISW { w: self }
     }
-    #[doc = "Bit 14"]
+    #[doc = "Bit 14 - VDDIO Ready"]
     #[inline]
-    pub fn vddiordyonreg(&mut self) -> _VDDIORDYONREGW {
-        _VDDIORDYONREGW { w: self }
+    pub fn vddiordy(&mut self) -> _VDDIORDYW {
+        _VDDIORDYW { w: self }
     }
     #[doc = "Bit 20 - Oscillator Bypass"]
     #[inline]

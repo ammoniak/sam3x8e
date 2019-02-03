@@ -464,7 +464,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:1 - Gain for channel 0"]
+    #[doc = "Bits 0:1 - Gain for Channel 0"]
     #[inline]
     pub fn gain0(&self) -> GAIN0R {
         let bits = {
@@ -474,7 +474,7 @@ impl R {
         };
         GAIN0R { bits }
     }
-    #[doc = "Bits 2:3 - Gain for channel 1"]
+    #[doc = "Bits 2:3 - Gain for Channel 1"]
     #[inline]
     pub fn gain1(&self) -> GAIN1R {
         let bits = {
@@ -484,7 +484,7 @@ impl R {
         };
         GAIN1R { bits }
     }
-    #[doc = "Bits 4:5 - Gain for channel 2"]
+    #[doc = "Bits 4:5 - Gain for Channel 2"]
     #[inline]
     pub fn gain2(&self) -> GAIN2R {
         let bits = {
@@ -494,7 +494,7 @@ impl R {
         };
         GAIN2R { bits }
     }
-    #[doc = "Bits 6:7 - Gain for channel 3"]
+    #[doc = "Bits 6:7 - Gain for Channel 3"]
     #[inline]
     pub fn gain3(&self) -> GAIN3R {
         let bits = {
@@ -504,7 +504,7 @@ impl R {
         };
         GAIN3R { bits }
     }
-    #[doc = "Bits 8:9 - Gain for channel 4"]
+    #[doc = "Bits 8:9 - Gain for Channel 4"]
     #[inline]
     pub fn gain4(&self) -> GAIN4R {
         let bits = {
@@ -514,7 +514,7 @@ impl R {
         };
         GAIN4R { bits }
     }
-    #[doc = "Bits 10:11 - Gain for channel 5"]
+    #[doc = "Bits 10:11 - Gain for Channel 5"]
     #[inline]
     pub fn gain5(&self) -> GAIN5R {
         let bits = {
@@ -524,7 +524,7 @@ impl R {
         };
         GAIN5R { bits }
     }
-    #[doc = "Bits 12:13 - Gain for channel 6"]
+    #[doc = "Bits 12:13 - Gain for Channel 6"]
     #[inline]
     pub fn gain6(&self) -> GAIN6R {
         let bits = {
@@ -534,7 +534,7 @@ impl R {
         };
         GAIN6R { bits }
     }
-    #[doc = "Bits 14:15 - Gain for channel 7"]
+    #[doc = "Bits 14:15 - Gain for Channel 7"]
     #[inline]
     pub fn gain7(&self) -> GAIN7R {
         let bits = {
@@ -544,7 +544,7 @@ impl R {
         };
         GAIN7R { bits }
     }
-    #[doc = "Bits 16:17 - Gain for channel 8"]
+    #[doc = "Bits 16:17 - Gain for Channel 8"]
     #[inline]
     pub fn gain8(&self) -> GAIN8R {
         let bits = {
@@ -554,7 +554,7 @@ impl R {
         };
         GAIN8R { bits }
     }
-    #[doc = "Bits 18:19 - Gain for channel 9"]
+    #[doc = "Bits 18:19 - Gain for Channel 9"]
     #[inline]
     pub fn gain9(&self) -> GAIN9R {
         let bits = {
@@ -564,7 +564,7 @@ impl R {
         };
         GAIN9R { bits }
     }
-    #[doc = "Bits 20:21 - Gain for channel 10"]
+    #[doc = "Bits 20:21 - Gain for Channel 10"]
     #[inline]
     pub fn gain10(&self) -> GAIN10R {
         let bits = {
@@ -574,7 +574,7 @@ impl R {
         };
         GAIN10R { bits }
     }
-    #[doc = "Bits 22:23 - Gain for channel 11"]
+    #[doc = "Bits 22:23 - Gain for Channel 11"]
     #[inline]
     pub fn gain11(&self) -> GAIN11R {
         let bits = {
@@ -584,7 +584,7 @@ impl R {
         };
         GAIN11R { bits }
     }
-    #[doc = "Bits 24:25 - Gain for channel 12"]
+    #[doc = "Bits 24:25 - Gain for Channel 12"]
     #[inline]
     pub fn gain12(&self) -> GAIN12R {
         let bits = {
@@ -594,7 +594,7 @@ impl R {
         };
         GAIN12R { bits }
     }
-    #[doc = "Bits 26:27 - Gain for channel 13"]
+    #[doc = "Bits 26:27 - Gain for Channel 13"]
     #[inline]
     pub fn gain13(&self) -> GAIN13R {
         let bits = {
@@ -604,7 +604,7 @@ impl R {
         };
         GAIN13R { bits }
     }
-    #[doc = "Bits 28:29 - Gain for channel 14"]
+    #[doc = "Bits 28:29 - Gain for Channel 14"]
     #[inline]
     pub fn gain14(&self) -> GAIN14R {
         let bits = {
@@ -614,7 +614,7 @@ impl R {
         };
         GAIN14R { bits }
     }
-    #[doc = "Bits 30:31 - Gain for channel 15"]
+    #[doc = "Bits 30:31 - Gain for Channel 15"]
     #[inline]
     pub fn gain15(&self) -> GAIN15R {
         let bits = {
@@ -637,82 +637,82 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:1 - Gain for channel 0"]
+    #[doc = "Bits 0:1 - Gain for Channel 0"]
     #[inline]
     pub fn gain0(&mut self) -> _GAIN0W {
         _GAIN0W { w: self }
     }
-    #[doc = "Bits 2:3 - Gain for channel 1"]
+    #[doc = "Bits 2:3 - Gain for Channel 1"]
     #[inline]
     pub fn gain1(&mut self) -> _GAIN1W {
         _GAIN1W { w: self }
     }
-    #[doc = "Bits 4:5 - Gain for channel 2"]
+    #[doc = "Bits 4:5 - Gain for Channel 2"]
     #[inline]
     pub fn gain2(&mut self) -> _GAIN2W {
         _GAIN2W { w: self }
     }
-    #[doc = "Bits 6:7 - Gain for channel 3"]
+    #[doc = "Bits 6:7 - Gain for Channel 3"]
     #[inline]
     pub fn gain3(&mut self) -> _GAIN3W {
         _GAIN3W { w: self }
     }
-    #[doc = "Bits 8:9 - Gain for channel 4"]
+    #[doc = "Bits 8:9 - Gain for Channel 4"]
     #[inline]
     pub fn gain4(&mut self) -> _GAIN4W {
         _GAIN4W { w: self }
     }
-    #[doc = "Bits 10:11 - Gain for channel 5"]
+    #[doc = "Bits 10:11 - Gain for Channel 5"]
     #[inline]
     pub fn gain5(&mut self) -> _GAIN5W {
         _GAIN5W { w: self }
     }
-    #[doc = "Bits 12:13 - Gain for channel 6"]
+    #[doc = "Bits 12:13 - Gain for Channel 6"]
     #[inline]
     pub fn gain6(&mut self) -> _GAIN6W {
         _GAIN6W { w: self }
     }
-    #[doc = "Bits 14:15 - Gain for channel 7"]
+    #[doc = "Bits 14:15 - Gain for Channel 7"]
     #[inline]
     pub fn gain7(&mut self) -> _GAIN7W {
         _GAIN7W { w: self }
     }
-    #[doc = "Bits 16:17 - Gain for channel 8"]
+    #[doc = "Bits 16:17 - Gain for Channel 8"]
     #[inline]
     pub fn gain8(&mut self) -> _GAIN8W {
         _GAIN8W { w: self }
     }
-    #[doc = "Bits 18:19 - Gain for channel 9"]
+    #[doc = "Bits 18:19 - Gain for Channel 9"]
     #[inline]
     pub fn gain9(&mut self) -> _GAIN9W {
         _GAIN9W { w: self }
     }
-    #[doc = "Bits 20:21 - Gain for channel 10"]
+    #[doc = "Bits 20:21 - Gain for Channel 10"]
     #[inline]
     pub fn gain10(&mut self) -> _GAIN10W {
         _GAIN10W { w: self }
     }
-    #[doc = "Bits 22:23 - Gain for channel 11"]
+    #[doc = "Bits 22:23 - Gain for Channel 11"]
     #[inline]
     pub fn gain11(&mut self) -> _GAIN11W {
         _GAIN11W { w: self }
     }
-    #[doc = "Bits 24:25 - Gain for channel 12"]
+    #[doc = "Bits 24:25 - Gain for Channel 12"]
     #[inline]
     pub fn gain12(&mut self) -> _GAIN12W {
         _GAIN12W { w: self }
     }
-    #[doc = "Bits 26:27 - Gain for channel 13"]
+    #[doc = "Bits 26:27 - Gain for Channel 13"]
     #[inline]
     pub fn gain13(&mut self) -> _GAIN13W {
         _GAIN13W { w: self }
     }
-    #[doc = "Bits 28:29 - Gain for channel 14"]
+    #[doc = "Bits 28:29 - Gain for Channel 14"]
     #[inline]
     pub fn gain14(&mut self) -> _GAIN14W {
         _GAIN14W { w: self }
     }
-    #[doc = "Bits 30:31 - Gain for channel 15"]
+    #[doc = "Bits 30:31 - Gain for Channel 15"]
     #[inline]
     pub fn gain15(&mut self) -> _GAIN15W {
         _GAIN15W { w: self }

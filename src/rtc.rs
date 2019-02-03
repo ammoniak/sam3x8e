@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub imr: IMR,
     #[doc = "0x2c - Valid Entry Register"]
     pub ver: VER,
-    _reserved0: [u8; 180usize],
+    _reserved12: [u8; 180usize],
     #[doc = "0xe4 - Write Protect Mode Register"]
     pub wpmr: WPMR,
 }

@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::FELLSR {}
+impl super::FELLSR {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _P0W<'a> {
     w: &'a mut W,
@@ -740,12 +752,6 @@ impl<'a> _P31W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Falling Edge/Low Level Interrupt Selection."]
     #[inline]
     pub fn p0(&mut self) -> _P0W {

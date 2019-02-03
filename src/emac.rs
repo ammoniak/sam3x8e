@@ -7,7 +7,7 @@ pub struct RegisterBlock {
     pub ncfgr: NCFGR,
     #[doc = "0x08 - Network Status Register"]
     pub nsr: NSR,
-    _reserved0: [u8; 8usize],
+    _reserved3: [u8; 8usize],
     #[doc = "0x14 - Transmit Status Register"]
     pub tsr: TSR,
     #[doc = "0x18 - Receive Buffer Queue Pointer Register"]
@@ -68,7 +68,7 @@ pub struct RegisterBlock {
     pub ste: STE,
     #[doc = "0x88 - Received Length Field Mismatch Register"]
     pub rle: RLE,
-    _reserved1: [u8; 4usize],
+    _reserved33: [u8; 4usize],
     #[doc = "0x90 - Hash Register Bottom \\[31:0\\] Register"]
     pub hrb: HRB,
     #[doc = "0x94 - Hash Register Top \\[63:32\\] Register"]
@@ -91,7 +91,7 @@ pub struct RegisterBlock {
     pub sa4t: SA4T,
     #[doc = "0xb8 - Type ID Checking Register"]
     pub tid: TID,
-    _reserved2: [u8; 4usize],
+    _reserved44: [u8; 4usize],
     #[doc = "0xc0 - User Input/Output Register"]
     pub usrio: USRIO,
 }

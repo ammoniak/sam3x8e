@@ -3,43 +3,43 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Master Configuration Register"]
     pub matrix_mcfg: [MATRIX_MCFG; 6],
-    _reserved0: [u8; 40usize],
+    _reserved1: [u8; 40usize],
     #[doc = "0x40 - Slave Configuration Register"]
     pub matrix_scfg: [MATRIX_SCFG; 9],
-    _reserved1: [u8; 28usize],
+    _reserved2: [u8; 28usize],
     #[doc = "0x80 - Priority Register A for Slave 0"]
     pub matrix_pras0: MATRIX_PRAS0,
-    _reserved2: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x88 - Priority Register A for Slave 1"]
     pub matrix_pras1: MATRIX_PRAS1,
-    _reserved3: [u8; 4usize],
+    _reserved4: [u8; 4usize],
     #[doc = "0x90 - Priority Register A for Slave 2"]
     pub matrix_pras2: MATRIX_PRAS2,
-    _reserved4: [u8; 4usize],
+    _reserved5: [u8; 4usize],
     #[doc = "0x98 - Priority Register A for Slave 3"]
     pub matrix_pras3: MATRIX_PRAS3,
-    _reserved5: [u8; 4usize],
+    _reserved6: [u8; 4usize],
     #[doc = "0xa0 - Priority Register A for Slave 4"]
     pub matrix_pras4: MATRIX_PRAS4,
-    _reserved6: [u8; 4usize],
+    _reserved7: [u8; 4usize],
     #[doc = "0xa8 - Priority Register A for Slave 5"]
     pub matrix_pras5: MATRIX_PRAS5,
-    _reserved7: [u8; 4usize],
+    _reserved8: [u8; 4usize],
     #[doc = "0xb0 - Priority Register A for Slave 6"]
     pub matrix_pras6: MATRIX_PRAS6,
-    _reserved8: [u8; 4usize],
+    _reserved9: [u8; 4usize],
     #[doc = "0xb8 - Priority Register A for Slave 7"]
     pub matrix_pras7: MATRIX_PRAS7,
-    _reserved9: [u8; 4usize],
+    _reserved10: [u8; 4usize],
     #[doc = "0xc0 - Priority Register A for Slave 8"]
     pub matrix_pras8: MATRIX_PRAS8,
-    _reserved10: [u8; 60usize],
+    _reserved11: [u8; 60usize],
     #[doc = "0x100 - Master Remap Control Register"]
     pub matrix_mrcr: MATRIX_MRCR,
-    _reserved11: [u8; 16usize],
+    _reserved12: [u8; 16usize],
     #[doc = "0x114 - System I/O Configuration register"]
     pub ccfg_sysio: CCFG_SYSIO,
-    _reserved12: [u8; 204usize],
+    _reserved13: [u8; 204usize],
     #[doc = "0x1e4 - Write Protect Mode Register"]
     pub matrix_wpmr: MATRIX_WPMR,
     #[doc = "0x1e8 - Write Protect Status Register"]

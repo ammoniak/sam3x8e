@@ -2,7 +2,19 @@
 pub struct W {
     bits: u32,
 }
-impl super::IER {}
+impl super::IER {
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+}
 #[doc = r" Proxy"]
 pub struct _ACKENW<'a> {
     w: &'a mut W,
@@ -119,12 +131,6 @@ impl<'a> _CALENW<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Acknowledge Update Interrupt Enable"]
     #[inline]
     pub fn acken(&mut self) -> _ACKENW {

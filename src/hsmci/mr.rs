@@ -296,7 +296,7 @@ impl R {
         };
         PWSDIVR { bits }
     }
-    #[doc = "Bit 11"]
+    #[doc = "Bit 11 - Read Proof Enable"]
     #[inline]
     pub fn rdproof(&self) -> RDPROOFR {
         let bits = {
@@ -306,7 +306,7 @@ impl R {
         };
         RDPROOFR { bits }
     }
-    #[doc = "Bit 12"]
+    #[doc = "Bit 12 - Write Proof Enable"]
     #[inline]
     pub fn wrproof(&self) -> WRPROOFR {
         let bits = {
@@ -359,12 +359,12 @@ impl W {
     pub fn pwsdiv(&mut self) -> _PWSDIVW {
         _PWSDIVW { w: self }
     }
-    #[doc = "Bit 11"]
+    #[doc = "Bit 11 - Read Proof Enable"]
     #[inline]
     pub fn rdproof(&mut self) -> _RDPROOFW {
         _RDPROOFW { w: self }
     }
-    #[doc = "Bit 12"]
+    #[doc = "Bit 12 - Write Proof Enable"]
     #[inline]
     pub fn wrproof(&mut self) -> _WRPROOFW {
         _WRPROOFW { w: self }

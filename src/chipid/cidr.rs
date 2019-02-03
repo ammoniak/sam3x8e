@@ -113,23 +113,23 @@ impl EPROCR {
 pub enum NVPSIZR {
     #[doc = "None"]
     NONE,
-    #[doc = "8K bytes"]
+    #[doc = "8 Kbytes"]
     _8K,
-    #[doc = "16K bytes"]
+    #[doc = "16 Kbytes"]
     _16K,
-    #[doc = "32K bytes"]
+    #[doc = "32 Kbytes"]
     _32K,
-    #[doc = "64K bytes"]
+    #[doc = "64 Kbytes"]
     _64K,
-    #[doc = "128K bytes"]
+    #[doc = "128 Kbytes"]
     _128K,
-    #[doc = "256K bytes"]
+    #[doc = "256 Kbytes"]
     _256K,
-    #[doc = "512K bytes"]
+    #[doc = "512 Kbytes"]
     _512K,
-    #[doc = "1024K bytes"]
+    #[doc = "1024 Kbytes"]
     _1024K,
-    #[doc = "2048K bytes"]
+    #[doc = "2048 Kbytes"]
     _2048K,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -226,23 +226,23 @@ impl NVPSIZR {
 pub enum NVPSIZ2R {
     #[doc = "None"]
     NONE,
-    #[doc = "8K bytes"]
+    #[doc = "8 Kbytes"]
     _8K,
-    #[doc = "16K bytes"]
+    #[doc = "16 Kbytes"]
     _16K,
-    #[doc = "32K bytes"]
+    #[doc = "32 Kbytes"]
     _32K,
-    #[doc = "64K bytes"]
+    #[doc = "64 Kbytes"]
     _64K,
-    #[doc = "128K bytes"]
+    #[doc = "128 Kbytes"]
     _128K,
-    #[doc = "256K bytes"]
+    #[doc = "256 Kbytes"]
     _256K,
-    #[doc = "512K bytes"]
+    #[doc = "512 Kbytes"]
     _512K,
-    #[doc = "1024K bytes"]
+    #[doc = "1024 Kbytes"]
     _1024K,
-    #[doc = "2048K bytes"]
+    #[doc = "2048 Kbytes"]
     _2048K,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -337,37 +337,37 @@ impl NVPSIZ2R {
 #[doc = "Possible values of the field `SRAMSIZ`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRAMSIZR {
-    #[doc = "48K bytes"]
+    #[doc = "48 Kbytes"]
     _48K,
-    #[doc = "1K bytes"]
-    _1K,
-    #[doc = "2K bytes"]
+    #[doc = "192 Kbytes"]
+    _192K,
+    #[doc = "2 Kbytes"]
     _2K,
-    #[doc = "6K bytes"]
+    #[doc = "6 Kbytes"]
     _6K,
-    #[doc = "24K bytes"]
+    #[doc = "24 Kbytes"]
     _24K,
-    #[doc = "4K bytes"]
+    #[doc = "4 Kbytes"]
     _4K,
-    #[doc = "80K bytes"]
+    #[doc = "80 Kbytes"]
     _80K,
-    #[doc = "160K bytes"]
+    #[doc = "160 Kbytes"]
     _160K,
-    #[doc = "8K bytes"]
+    #[doc = "8 Kbytes"]
     _8K,
-    #[doc = "16K bytes"]
+    #[doc = "16 Kbytes"]
     _16K,
-    #[doc = "32K bytes"]
+    #[doc = "32 Kbytes"]
     _32K,
-    #[doc = "64K bytes"]
+    #[doc = "64 Kbytes"]
     _64K,
-    #[doc = "128K bytes"]
+    #[doc = "128 Kbytes"]
     _128K,
-    #[doc = "256K bytes"]
+    #[doc = "256 Kbytes"]
     _256K,
-    #[doc = "96K bytes"]
+    #[doc = "96 Kbytes"]
     _96K,
-    #[doc = "512K bytes"]
+    #[doc = "512 Kbytes"]
     _512K,
 }
 impl SRAMSIZR {
@@ -376,7 +376,7 @@ impl SRAMSIZR {
     pub fn bits(&self) -> u8 {
         match *self {
             SRAMSIZR::_48K => 0,
-            SRAMSIZR::_1K => 1,
+            SRAMSIZR::_192K => 1,
             SRAMSIZR::_2K => 2,
             SRAMSIZR::_6K => 3,
             SRAMSIZR::_24K => 4,
@@ -399,7 +399,7 @@ impl SRAMSIZR {
     pub fn _from(value: u8) -> SRAMSIZR {
         match value {
             0 => SRAMSIZR::_48K,
-            1 => SRAMSIZR::_1K,
+            1 => SRAMSIZR::_192K,
             2 => SRAMSIZR::_2K,
             3 => SRAMSIZR::_6K,
             4 => SRAMSIZR::_24K,
@@ -422,10 +422,10 @@ impl SRAMSIZR {
     pub fn is_48k(&self) -> bool {
         *self == SRAMSIZR::_48K
     }
-    #[doc = "Checks if the value of the field is `_1K`"]
+    #[doc = "Checks if the value of the field is `_192K`"]
     #[inline]
-    pub fn is_1k(&self) -> bool {
-        *self == SRAMSIZR::_1K
+    pub fn is_192k(&self) -> bool {
+        *self == SRAMSIZR::_192K
     }
     #[doc = "Checks if the value of the field is `_2K`"]
     #[inline]
@@ -501,90 +501,14 @@ impl SRAMSIZR {
 #[doc = "Possible values of the field `ARCH`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ARCHR {
-    #[doc = "AT91SAM9xx Series"]
-    AT91SAM9XX,
-    #[doc = "AT91SAM9XExx Series"]
-    AT91SAM9XEXX,
-    #[doc = "AT91x34 Series"]
-    AT91X34,
-    #[doc = "CAP7 Series"]
-    CAP7,
-    #[doc = "CAP9 Series"]
-    CAP9,
-    #[doc = "CAP11 Series"]
-    CAP11,
-    #[doc = "AT91x40 Series"]
-    AT91X40,
-    #[doc = "AT91x42 Series"]
-    AT91X42,
-    #[doc = "AT91x55 Series"]
-    AT91X55,
-    #[doc = "AT91SAM7Axx Series"]
-    AT91SAM7AXX,
-    #[doc = "AT91SAM7AQxx Series"]
-    AT91SAM7AQXX,
-    #[doc = "AT91x63 Series"]
-    AT91X63,
-    #[doc = "AT91SAM7Sxx Series"]
-    AT91SAM7SXX,
-    #[doc = "AT91SAM7XCxx Series"]
-    AT91SAM7XCXX,
-    #[doc = "AT91SAM7SExx Series"]
-    AT91SAM7SEXX,
-    #[doc = "AT91SAM7Lxx Series"]
-    AT91SAM7LXX,
-    #[doc = "AT91SAM7Xxx Series"]
-    AT91SAM7XXX,
-    #[doc = "AT91SAM7SLxx Series"]
-    AT91SAM7SLXX,
-    #[doc = "SAM3UxC Series (100-pin version)"]
-    SAM3UXC,
-    #[doc = "SAM3UxE Series (144-pin version)"]
-    SAM3UXE,
-    #[doc = "SAM3AxC Series (100-pin version)"]
+    #[doc = "SAM3AxC (100-pin version)"]
     SAM3AXC,
-    #[doc = "SAM4AxC Series (100-pin version)"]
-    SAM4AXC,
-    #[doc = "SAM3XxC Series (100-pin version)"]
+    #[doc = "SAM3XxC (100-pin version)"]
     SAM3XXC,
-    #[doc = "SAM4XxC Series (100-pin version)"]
-    SAM4XXC,
-    #[doc = "SAM3XxE Series (144-pin version)"]
+    #[doc = "SAM3XxE (144-pin version)"]
     SAM3XXE,
-    #[doc = "SAM4XxE Series (144-pin version)"]
-    SAM4XXE,
-    #[doc = "SAM3XxG Series (208/217-pin version)"]
+    #[doc = "SAM3XxG (208/217-pin version)"]
     SAM3XXG,
-    #[doc = "SAM4XxG Series (208/217-pin version)"]
-    SAM4XXG,
-    #[doc = "SAM3SxASeries (48-pin version)"]
-    SAM3SXA,
-    #[doc = "SAM4SxA Series (48-pin version)"]
-    SAM4SXA,
-    #[doc = "SAM3SxB Series (64-pin version)"]
-    SAM3SXB,
-    #[doc = "SAM4SxB Series (64-pin version)"]
-    SAM4SXB,
-    #[doc = "SAM3SxC Series (100-pin version)"]
-    SAM3SXC,
-    #[doc = "SAM4SxC Series (100-pin version)"]
-    SAM4SXC,
-    #[doc = "AT91x92 Series"]
-    AT91X92,
-    #[doc = "SAM3NxA Series (48-pin version)"]
-    SAM3NXA,
-    #[doc = "SAM3NxB Series (64-pin version)"]
-    SAM3NXB,
-    #[doc = "SAM3NxC Series (100-pin version)"]
-    SAM3NXC,
-    #[doc = "SAM3SDxB Series (64-pin version)"]
-    SAM3SDXB,
-    #[doc = "SAM3SDxC Series (100-pin version)"]
-    SAM3SDXC,
-    #[doc = "SAM5A"]
-    SAM5A,
-    #[doc = "AT75Cxx Series"]
-    AT75CXX,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -593,48 +517,10 @@ impl ARCHR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            ARCHR::AT91SAM9XX => 25,
-            ARCHR::AT91SAM9XEXX => 41,
-            ARCHR::AT91X34 => 52,
-            ARCHR::CAP7 => 55,
-            ARCHR::CAP9 => 57,
-            ARCHR::CAP11 => 59,
-            ARCHR::AT91X40 => 64,
-            ARCHR::AT91X42 => 66,
-            ARCHR::AT91X55 => 85,
-            ARCHR::AT91SAM7AXX => 96,
-            ARCHR::AT91SAM7AQXX => 97,
-            ARCHR::AT91X63 => 99,
-            ARCHR::AT91SAM7SXX => 112,
-            ARCHR::AT91SAM7XCXX => 113,
-            ARCHR::AT91SAM7SEXX => 114,
-            ARCHR::AT91SAM7LXX => 115,
-            ARCHR::AT91SAM7XXX => 117,
-            ARCHR::AT91SAM7SLXX => 118,
-            ARCHR::SAM3UXC => 128,
-            ARCHR::SAM3UXE => 129,
             ARCHR::SAM3AXC => 131,
-            ARCHR::SAM4AXC => 131,
             ARCHR::SAM3XXC => 132,
-            ARCHR::SAM4XXC => 132,
             ARCHR::SAM3XXE => 133,
-            ARCHR::SAM4XXE => 133,
             ARCHR::SAM3XXG => 134,
-            ARCHR::SAM4XXG => 134,
-            ARCHR::SAM3SXA => 136,
-            ARCHR::SAM4SXA => 136,
-            ARCHR::SAM3SXB => 137,
-            ARCHR::SAM4SXB => 137,
-            ARCHR::SAM3SXC => 138,
-            ARCHR::SAM4SXC => 138,
-            ARCHR::AT91X92 => 146,
-            ARCHR::SAM3NXA => 147,
-            ARCHR::SAM3NXB => 148,
-            ARCHR::SAM3NXC => 149,
-            ARCHR::SAM3SDXB => 153,
-            ARCHR::SAM3SDXC => 154,
-            ARCHR::SAM5A => 165,
-            ARCHR::AT75CXX => 240,
             ARCHR::_Reserved(bits) => bits,
         }
     }
@@ -643,260 +529,32 @@ impl ARCHR {
     #[inline]
     pub fn _from(value: u8) -> ARCHR {
         match value {
-            25 => ARCHR::AT91SAM9XX,
-            41 => ARCHR::AT91SAM9XEXX,
-            52 => ARCHR::AT91X34,
-            55 => ARCHR::CAP7,
-            57 => ARCHR::CAP9,
-            59 => ARCHR::CAP11,
-            64 => ARCHR::AT91X40,
-            66 => ARCHR::AT91X42,
-            85 => ARCHR::AT91X55,
-            96 => ARCHR::AT91SAM7AXX,
-            97 => ARCHR::AT91SAM7AQXX,
-            99 => ARCHR::AT91X63,
-            112 => ARCHR::AT91SAM7SXX,
-            113 => ARCHR::AT91SAM7XCXX,
-            114 => ARCHR::AT91SAM7SEXX,
-            115 => ARCHR::AT91SAM7LXX,
-            117 => ARCHR::AT91SAM7XXX,
-            118 => ARCHR::AT91SAM7SLXX,
-            128 => ARCHR::SAM3UXC,
-            129 => ARCHR::SAM3UXE,
             131 => ARCHR::SAM3AXC,
-            131 => ARCHR::SAM4AXC,
             132 => ARCHR::SAM3XXC,
-            132 => ARCHR::SAM4XXC,
             133 => ARCHR::SAM3XXE,
-            133 => ARCHR::SAM4XXE,
             134 => ARCHR::SAM3XXG,
-            134 => ARCHR::SAM4XXG,
-            136 => ARCHR::SAM3SXA,
-            136 => ARCHR::SAM4SXA,
-            137 => ARCHR::SAM3SXB,
-            137 => ARCHR::SAM4SXB,
-            138 => ARCHR::SAM3SXC,
-            138 => ARCHR::SAM4SXC,
-            146 => ARCHR::AT91X92,
-            147 => ARCHR::SAM3NXA,
-            148 => ARCHR::SAM3NXB,
-            149 => ARCHR::SAM3NXC,
-            153 => ARCHR::SAM3SDXB,
-            154 => ARCHR::SAM3SDXC,
-            165 => ARCHR::SAM5A,
-            240 => ARCHR::AT75CXX,
             i => ARCHR::_Reserved(i),
         }
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM9XX`"]
-    #[inline]
-    pub fn is_at91sam9xx(&self) -> bool {
-        *self == ARCHR::AT91SAM9XX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM9XEXX`"]
-    #[inline]
-    pub fn is_at91sam9xexx(&self) -> bool {
-        *self == ARCHR::AT91SAM9XEXX
-    }
-    #[doc = "Checks if the value of the field is `AT91X34`"]
-    #[inline]
-    pub fn is_at91x34(&self) -> bool {
-        *self == ARCHR::AT91X34
-    }
-    #[doc = "Checks if the value of the field is `CAP7`"]
-    #[inline]
-    pub fn is_cap7(&self) -> bool {
-        *self == ARCHR::CAP7
-    }
-    #[doc = "Checks if the value of the field is `CAP9`"]
-    #[inline]
-    pub fn is_cap9(&self) -> bool {
-        *self == ARCHR::CAP9
-    }
-    #[doc = "Checks if the value of the field is `CAP11`"]
-    #[inline]
-    pub fn is_cap11(&self) -> bool {
-        *self == ARCHR::CAP11
-    }
-    #[doc = "Checks if the value of the field is `AT91X40`"]
-    #[inline]
-    pub fn is_at91x40(&self) -> bool {
-        *self == ARCHR::AT91X40
-    }
-    #[doc = "Checks if the value of the field is `AT91X42`"]
-    #[inline]
-    pub fn is_at91x42(&self) -> bool {
-        *self == ARCHR::AT91X42
-    }
-    #[doc = "Checks if the value of the field is `AT91X55`"]
-    #[inline]
-    pub fn is_at91x55(&self) -> bool {
-        *self == ARCHR::AT91X55
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7AXX`"]
-    #[inline]
-    pub fn is_at91sam7axx(&self) -> bool {
-        *self == ARCHR::AT91SAM7AXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7AQXX`"]
-    #[inline]
-    pub fn is_at91sam7aqxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7AQXX
-    }
-    #[doc = "Checks if the value of the field is `AT91X63`"]
-    #[inline]
-    pub fn is_at91x63(&self) -> bool {
-        *self == ARCHR::AT91X63
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7SXX`"]
-    #[inline]
-    pub fn is_at91sam7sxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7SXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7XCXX`"]
-    #[inline]
-    pub fn is_at91sam7xcxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7XCXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7SEXX`"]
-    #[inline]
-    pub fn is_at91sam7sexx(&self) -> bool {
-        *self == ARCHR::AT91SAM7SEXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7LXX`"]
-    #[inline]
-    pub fn is_at91sam7lxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7LXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7XXX`"]
-    #[inline]
-    pub fn is_at91sam7xxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7XXX
-    }
-    #[doc = "Checks if the value of the field is `AT91SAM7SLXX`"]
-    #[inline]
-    pub fn is_at91sam7slxx(&self) -> bool {
-        *self == ARCHR::AT91SAM7SLXX
-    }
-    #[doc = "Checks if the value of the field is `SAM3UXC`"]
-    #[inline]
-    pub fn is_sam3ux_c(&self) -> bool {
-        *self == ARCHR::SAM3UXC
-    }
-    #[doc = "Checks if the value of the field is `SAM3UXE`"]
-    #[inline]
-    pub fn is_sam3ux_e(&self) -> bool {
-        *self == ARCHR::SAM3UXE
     }
     #[doc = "Checks if the value of the field is `SAM3AXC`"]
     #[inline]
     pub fn is_sam3ax_c(&self) -> bool {
         *self == ARCHR::SAM3AXC
     }
-    #[doc = "Checks if the value of the field is `SAM4AXC`"]
-    #[inline]
-    pub fn is_sam4ax_c(&self) -> bool {
-        *self == ARCHR::SAM4AXC
-    }
     #[doc = "Checks if the value of the field is `SAM3XXC`"]
     #[inline]
     pub fn is_sam3xx_c(&self) -> bool {
         *self == ARCHR::SAM3XXC
-    }
-    #[doc = "Checks if the value of the field is `SAM4XXC`"]
-    #[inline]
-    pub fn is_sam4xx_c(&self) -> bool {
-        *self == ARCHR::SAM4XXC
     }
     #[doc = "Checks if the value of the field is `SAM3XXE`"]
     #[inline]
     pub fn is_sam3xx_e(&self) -> bool {
         *self == ARCHR::SAM3XXE
     }
-    #[doc = "Checks if the value of the field is `SAM4XXE`"]
-    #[inline]
-    pub fn is_sam4xx_e(&self) -> bool {
-        *self == ARCHR::SAM4XXE
-    }
     #[doc = "Checks if the value of the field is `SAM3XXG`"]
     #[inline]
     pub fn is_sam3xx_g(&self) -> bool {
         *self == ARCHR::SAM3XXG
-    }
-    #[doc = "Checks if the value of the field is `SAM4XXG`"]
-    #[inline]
-    pub fn is_sam4xx_g(&self) -> bool {
-        *self == ARCHR::SAM4XXG
-    }
-    #[doc = "Checks if the value of the field is `SAM3SXA`"]
-    #[inline]
-    pub fn is_sam3sx_a(&self) -> bool {
-        *self == ARCHR::SAM3SXA
-    }
-    #[doc = "Checks if the value of the field is `SAM4SXA`"]
-    #[inline]
-    pub fn is_sam4sx_a(&self) -> bool {
-        *self == ARCHR::SAM4SXA
-    }
-    #[doc = "Checks if the value of the field is `SAM3SXB`"]
-    #[inline]
-    pub fn is_sam3sx_b(&self) -> bool {
-        *self == ARCHR::SAM3SXB
-    }
-    #[doc = "Checks if the value of the field is `SAM4SXB`"]
-    #[inline]
-    pub fn is_sam4sx_b(&self) -> bool {
-        *self == ARCHR::SAM4SXB
-    }
-    #[doc = "Checks if the value of the field is `SAM3SXC`"]
-    #[inline]
-    pub fn is_sam3sx_c(&self) -> bool {
-        *self == ARCHR::SAM3SXC
-    }
-    #[doc = "Checks if the value of the field is `SAM4SXC`"]
-    #[inline]
-    pub fn is_sam4sx_c(&self) -> bool {
-        *self == ARCHR::SAM4SXC
-    }
-    #[doc = "Checks if the value of the field is `AT91X92`"]
-    #[inline]
-    pub fn is_at91x92(&self) -> bool {
-        *self == ARCHR::AT91X92
-    }
-    #[doc = "Checks if the value of the field is `SAM3NXA`"]
-    #[inline]
-    pub fn is_sam3nx_a(&self) -> bool {
-        *self == ARCHR::SAM3NXA
-    }
-    #[doc = "Checks if the value of the field is `SAM3NXB`"]
-    #[inline]
-    pub fn is_sam3nx_b(&self) -> bool {
-        *self == ARCHR::SAM3NXB
-    }
-    #[doc = "Checks if the value of the field is `SAM3NXC`"]
-    #[inline]
-    pub fn is_sam3nx_c(&self) -> bool {
-        *self == ARCHR::SAM3NXC
-    }
-    #[doc = "Checks if the value of the field is `SAM3SDXB`"]
-    #[inline]
-    pub fn is_sam3sdx_b(&self) -> bool {
-        *self == ARCHR::SAM3SDXB
-    }
-    #[doc = "Checks if the value of the field is `SAM3SDXC`"]
-    #[inline]
-    pub fn is_sam3sdx_c(&self) -> bool {
-        *self == ARCHR::SAM3SDXC
-    }
-    #[doc = "Checks if the value of the field is `SAM5A`"]
-    #[inline]
-    pub fn is_sam5a(&self) -> bool {
-        *self == ARCHR::SAM5A
-    }
-    #[doc = "Checks if the value of the field is `AT75CXX`"]
-    #[inline]
-    pub fn is_at75cxx(&self) -> bool {
-        *self == ARCHR::AT75CXX
     }
 }
 #[doc = "Possible values of the field `NVPTYP`"]
@@ -908,7 +566,7 @@ pub enum NVPTYPR {
     ROMLESS,
     #[doc = "Embedded Flash Memory"]
     FLASH,
-    #[doc = "ROM and Embedded Flash MemoryNVPSIZ is ROM size      NVPSIZ2 is Flash size"]
+    #[doc = "ROM and Embedded Flash Memory- NVPSIZ is ROM size- NVPSIZ2 is Flash size"]
     ROM_FLASH,
     #[doc = "SRAM emulating ROM"]
     SRAM,

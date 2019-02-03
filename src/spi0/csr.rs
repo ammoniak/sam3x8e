@@ -26,6 +26,22 @@ impl super::CSR {
             bits: self.register.get(),
         }
     }
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+    #[doc = r" Writes the reset value to the register"]
+    #[inline]
+    pub fn reset(&self) {
+        self.write(|w| w)
+    }
 }
 #[doc = r" Value of the field"]
 pub struct CPOLR {
@@ -525,7 +541,7 @@ impl R {
         };
         CSNAATR { bits }
     }
-    #[doc = "Bit 3 - Chip Select Not Active After Transfer (Ignored if CSAAT = 1)"]
+    #[doc = "Bit 3 - Chip Select Active After Transfer"]
     #[inline]
     pub fn csaat(&self) -> CSAATR {
         let bits = {
@@ -576,12 +592,6 @@ impl R {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Clock Polarity"]
     #[inline]
     pub fn cpol(&mut self) -> _CPOLW {
@@ -597,7 +607,7 @@ impl W {
     pub fn csnaat(&mut self) -> _CSNAATW {
         _CSNAATW { w: self }
     }
-    #[doc = "Bit 3 - Chip Select Not Active After Transfer (Ignored if CSAAT = 1)"]
+    #[doc = "Bit 3 - Chip Select Active After Transfer"]
     #[inline]
     pub fn csaat(&mut self) -> _CSAATW {
         _CSAATW { w: self }

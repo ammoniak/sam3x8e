@@ -219,10 +219,10 @@ impl RX_MPOLR {
     }
 }
 #[doc = r" Value of the field"]
-pub struct STUCKTO1R {
+pub struct ONER {
     bits: bool,
 }
-impl STUCKTO1R {
+impl ONER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -469,10 +469,10 @@ impl<'a> _RX_MPOLW<'a> {
     }
 }
 #[doc = r" Proxy"]
-pub struct _STUCKTO1W<'a> {
+pub struct _ONEW<'a> {
     w: &'a mut W,
 }
-impl<'a> _STUCKTO1W<'a> {
+impl<'a> _ONEW<'a> {
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
@@ -578,17 +578,17 @@ impl R {
         };
         RX_MPOLR { bits }
     }
-    #[doc = "Bit 29"]
+    #[doc = "Bit 29 - Must Be Set to 1"]
     #[inline]
-    pub fn stuckto1(&self) -> STUCKTO1R {
+    pub fn one(&self) -> ONER {
         let bits = {
             const MASK: bool = true;
             const OFFSET: u8 = 29;
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
-        STUCKTO1R { bits }
+        ONER { bits }
     }
-    #[doc = "Bit 30 - Drift compensation"]
+    #[doc = "Bit 30 - Drift Compensation"]
     #[inline]
     pub fn drift(&self) -> DRIFTR {
         let bits = {
@@ -603,7 +603,7 @@ impl W {
     #[doc = r" Reset value of the register"]
     #[inline]
     pub fn reset_value() -> W {
-        W { bits: 805376004 }
+        W { bits: 2952859652 }
     }
     #[doc = r" Writes raw bits to the register"]
     #[inline]
@@ -641,12 +641,12 @@ impl W {
     pub fn rx_mpol(&mut self) -> _RX_MPOLW {
         _RX_MPOLW { w: self }
     }
-    #[doc = "Bit 29"]
+    #[doc = "Bit 29 - Must Be Set to 1"]
     #[inline]
-    pub fn stuckto1(&mut self) -> _STUCKTO1W {
-        _STUCKTO1W { w: self }
+    pub fn one(&mut self) -> _ONEW {
+        _ONEW { w: self }
     }
-    #[doc = "Bit 30 - Drift compensation"]
+    #[doc = "Bit 30 - Drift Compensation"]
     #[inline]
     pub fn drift(&mut self) -> _DRIFTW {
         _DRIFTW { w: self }

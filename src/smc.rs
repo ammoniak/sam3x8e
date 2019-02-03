@@ -23,24 +23,24 @@ pub struct RegisterBlock {
     pub ecc_md: ECC_MD,
     #[doc = "0x28 - SMC ECC Status 1 Register"]
     pub ecc_sr1: ECC_SR1,
-    #[doc = "0x2c - SMC ECC Parity 0 Register"]
-    pub ecc_pr0: ECC_PR0,
-    #[doc = "0x30 - SMC ECC parity 1 Register"]
-    pub ecc_pr1: ECC_PR1,
+    #[doc = "SMC ECC Parity 0 Register"]
+    pub ecc_pr0: ECC_PR0_UNION,
+    #[doc = "SMC ECC parity 1 Register"]
+    pub ecc_pr1: ECC_PR1_UNION,
     #[doc = "0x34 - SMC ECC status 2 Register"]
     pub ecc_sr2: ECC_SR2,
-    #[doc = "0x38 - SMC ECC parity 2 Register"]
-    pub ecc_pr2: ECC_PR2,
-    #[doc = "0x3c - SMC ECC parity 3 Register"]
-    pub ecc_pr3: ECC_PR3,
-    #[doc = "0x40 - SMC ECC parity 4 Register"]
-    pub ecc_pr4: ECC_PR4,
-    #[doc = "0x44 - SMC ECC parity 5 Register"]
-    pub ecc_pr5: ECC_PR5,
-    #[doc = "0x48 - SMC ECC parity 6 Register"]
-    pub ecc_pr6: ECC_PR6,
-    #[doc = "0x4c - SMC ECC parity 7 Register"]
-    pub ecc_pr7: ECC_PR7,
+    #[doc = "SMC ECC parity 2 Register"]
+    pub ecc_pr2: ECC_PR2_UNION,
+    #[doc = "SMC ECC parity 3 Register"]
+    pub ecc_pr3: ECC_PR3_UNION,
+    #[doc = "SMC ECC parity 4 Register"]
+    pub ecc_pr4: ECC_PR4_UNION,
+    #[doc = "SMC ECC parity 5 Register"]
+    pub ecc_pr5: ECC_PR5_UNION,
+    #[doc = "SMC ECC parity 6 Register"]
+    pub ecc_pr6: ECC_PR6_UNION,
+    #[doc = "SMC ECC parity 7 Register"]
+    pub ecc_pr7: ECC_PR7_UNION,
     #[doc = "0x50 - SMC ECC parity 8 Register"]
     pub ecc_pr8: ECC_PR8,
     #[doc = "0x54 - SMC ECC parity 9 Register"]
@@ -143,11 +143,79 @@ pub struct RegisterBlock {
     pub key1: KEY1,
     #[doc = "0x118 - SMC OCMS KEY2 Register"]
     pub key2: KEY2,
-    _reserved0: [u8; 200usize],
+    _reserved71: [u8; 200usize],
     #[doc = "0x1e4 - Write Protection Control Register"]
     pub wpcr: WPCR,
     #[doc = "0x1e8 - Write Protection Status Register"]
     pub wpsr: WPSR,
+}
+#[doc = "SMC ECC Parity 0 Register"]
+#[repr(C)]
+pub union ECC_PR0_UNION {
+    #[doc = "0x2c - SMC ECC Parity 0 Register"]
+    pub ecc_pr0_w8bit: ECC_PR0_W8BIT,
+    #[doc = "0x2c - SMC ECC Parity 0 Register"]
+    pub ecc_pr0_w9bit: ECC_PR0_W9BIT,
+    #[doc = "0x2c - SMC ECC Parity 0 Register"]
+    pub ecc_pr0: ECC_PR0,
+}
+#[doc = "SMC ECC parity 1 Register"]
+#[repr(C)]
+pub union ECC_PR1_UNION {
+    #[doc = "0x30 - SMC ECC parity 1 Register"]
+    pub ecc_pr1_w8bit: ECC_PR1_W8BIT,
+    #[doc = "0x30 - SMC ECC parity 1 Register"]
+    pub ecc_pr1_w9bit: ECC_PR1_W9BIT,
+    #[doc = "0x30 - SMC ECC parity 1 Register"]
+    pub ecc_pr1: ECC_PR1,
+}
+#[doc = "SMC ECC parity 2 Register"]
+#[repr(C)]
+pub union ECC_PR2_UNION {
+    #[doc = "0x38 - SMC ECC parity 2 Register"]
+    pub ecc_pr2_w8bit: ECC_PR2_W8BIT,
+    #[doc = "0x38 - SMC ECC parity 2 Register"]
+    pub ecc_pr2: ECC_PR2,
+}
+#[doc = "SMC ECC parity 3 Register"]
+#[repr(C)]
+pub union ECC_PR3_UNION {
+    #[doc = "0x3c - SMC ECC parity 3 Register"]
+    pub ecc_pr3_w8bit: ECC_PR3_W8BIT,
+    #[doc = "0x3c - SMC ECC parity 3 Register"]
+    pub ecc_pr3: ECC_PR3,
+}
+#[doc = "SMC ECC parity 4 Register"]
+#[repr(C)]
+pub union ECC_PR4_UNION {
+    #[doc = "0x40 - SMC ECC parity 4 Register"]
+    pub ecc_pr4_w8bit: ECC_PR4_W8BIT,
+    #[doc = "0x40 - SMC ECC parity 4 Register"]
+    pub ecc_pr4: ECC_PR4,
+}
+#[doc = "SMC ECC parity 5 Register"]
+#[repr(C)]
+pub union ECC_PR5_UNION {
+    #[doc = "0x44 - SMC ECC parity 5 Register"]
+    pub ecc_pr5_w8bit: ECC_PR5_W8BIT,
+    #[doc = "0x44 - SMC ECC parity 5 Register"]
+    pub ecc_pr5: ECC_PR5,
+}
+#[doc = "SMC ECC parity 6 Register"]
+#[repr(C)]
+pub union ECC_PR6_UNION {
+    #[doc = "0x48 - SMC ECC parity 6 Register"]
+    pub ecc_pr6_w8bit: ECC_PR6_W8BIT,
+    #[doc = "0x48 - SMC ECC parity 6 Register"]
+    pub ecc_pr6: ECC_PR6,
+}
+#[doc = "SMC ECC parity 7 Register"]
+#[repr(C)]
+pub union ECC_PR7_UNION {
+    #[doc = "0x4c - SMC ECC parity 7 Register"]
+    pub ecc_pr7_w8bit: ECC_PR7_W8BIT,
+    #[doc = "0x4c - SMC ECC parity 7 Register"]
+    pub ecc_pr7: ECC_PR7,
 }
 #[doc = "SMC NFC Configuration Register"]
 pub struct CFG {

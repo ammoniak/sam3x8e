@@ -120,11 +120,11 @@ impl FSLENR {
 #[doc = "Possible values of the field `FSOS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FSOSR {
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     NONE,
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     NEGATIVE,
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     POSITIVE,
     #[doc = "Driven Low during data transfer"]
     LOW,
@@ -366,11 +366,11 @@ impl<'a> _FSLENW<'a> {
 }
 #[doc = "Values that can be written to the field `FSOS`"]
 pub enum FSOSW {
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     NONE,
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     NEGATIVE,
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     POSITIVE,
     #[doc = "Driven Low during data transfer"]
     LOW,
@@ -404,17 +404,17 @@ impl<'a> _FSOSW<'a> {
     pub fn variant(self, variant: FSOSW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "None"]
+    #[doc = "None, RF pin is an input"]
     #[inline]
     pub fn none(self) -> &'a mut W {
         self.variant(FSOSW::NONE)
     }
-    #[doc = "Negative Pulse"]
+    #[doc = "Negative Pulse, RF pin is an output"]
     #[inline]
     pub fn negative(self) -> &'a mut W {
         self.variant(FSOSW::NEGATIVE)
     }
-    #[doc = "Positive Pulse"]
+    #[doc = "Positive Pulse, RF pin is an output"]
     #[inline]
     pub fn positive(self) -> &'a mut W {
         self.variant(FSOSW::POSITIVE)

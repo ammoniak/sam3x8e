@@ -7,21 +7,21 @@ pub struct RegisterBlock {
     pub pdr: PDR,
     #[doc = "0x08 - PIO Status Register"]
     pub psr: PSR,
-    _reserved0: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x10 - Output Enable Register"]
     pub oer: OER,
     #[doc = "0x14 - Output Disable Register"]
     pub odr: ODR,
     #[doc = "0x18 - Output Status Register"]
     pub osr: OSR,
-    _reserved1: [u8; 4usize],
+    _reserved6: [u8; 4usize],
     #[doc = "0x20 - Glitch Input Filter Enable Register"]
     pub ifer: IFER,
     #[doc = "0x24 - Glitch Input Filter Disable Register"]
     pub ifdr: IFDR,
     #[doc = "0x28 - Glitch Input Filter Status Register"]
     pub ifsr: IFSR,
-    _reserved2: [u8; 4usize],
+    _reserved9: [u8; 4usize],
     #[doc = "0x30 - Set Output Data Register"]
     pub sodr: SODR,
     #[doc = "0x34 - Clear Output Data Register"]
@@ -44,17 +44,17 @@ pub struct RegisterBlock {
     pub mddr: MDDR,
     #[doc = "0x58 - Multi-driver Status Register"]
     pub mdsr: MDSR,
-    _reserved3: [u8; 4usize],
+    _reserved20: [u8; 4usize],
     #[doc = "0x60 - Pull-up Disable Register"]
     pub pudr: PUDR,
     #[doc = "0x64 - Pull-up Enable Register"]
     pub puer: PUER,
     #[doc = "0x68 - Pad Pull-up Status Register"]
     pub pusr: PUSR,
-    _reserved4: [u8; 4usize],
+    _reserved23: [u8; 4usize],
     #[doc = "0x70 - Peripheral AB Select Register"]
     pub absr: ABSR,
-    _reserved5: [u8; 12usize],
+    _reserved24: [u8; 12usize],
     #[doc = "0x80 - System Clock Glitch Input Filter Select Register"]
     pub scifsr: SCIFSR,
     #[doc = "0x84 - Debouncing Input Filter Select Register"]
@@ -63,35 +63,35 @@ pub struct RegisterBlock {
     pub ifdgsr: IFDGSR,
     #[doc = "0x8c - Slow Clock Divider Debouncing Register"]
     pub scdr: SCDR,
-    _reserved6: [u8; 16usize],
+    _reserved28: [u8; 16usize],
     #[doc = "0xa0 - Output Write Enable"]
     pub ower: OWER,
     #[doc = "0xa4 - Output Write Disable"]
     pub owdr: OWDR,
     #[doc = "0xa8 - Output Write Status Register"]
     pub owsr: OWSR,
-    _reserved7: [u8; 4usize],
+    _reserved31: [u8; 4usize],
     #[doc = "0xb0 - Additional Interrupt Modes Enable Register"]
     pub aimer: AIMER,
     #[doc = "0xb4 - Additional Interrupt Modes Disables Register"]
     pub aimdr: AIMDR,
     #[doc = "0xb8 - Additional Interrupt Modes Mask Register"]
     pub aimmr: AIMMR,
-    _reserved8: [u8; 4usize],
+    _reserved34: [u8; 4usize],
     #[doc = "0xc0 - Edge Select Register"]
     pub esr: ESR,
     #[doc = "0xc4 - Level Select Register"]
     pub lsr: LSR,
     #[doc = "0xc8 - Edge/Level Status Register"]
     pub elsr: ELSR,
-    _reserved9: [u8; 4usize],
+    _reserved37: [u8; 4usize],
     #[doc = "0xd0 - Falling Edge/Low Level Select Register"]
     pub fellsr: FELLSR,
     #[doc = "0xd4 - Rising Edge/ High Level Select Register"]
     pub rehlsr: REHLSR,
     #[doc = "0xd8 - Fall/Rise - Low/High Status Register"]
     pub frlhsr: FRLHSR,
-    _reserved10: [u8; 4usize],
+    _reserved40: [u8; 4usize],
     #[doc = "0xe0 - Lock Status"]
     pub locksr: LOCKSR,
     #[doc = "0xe4 - Write Protect Mode Register"]

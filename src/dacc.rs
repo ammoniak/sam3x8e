@@ -5,14 +5,14 @@ pub struct RegisterBlock {
     pub cr: CR,
     #[doc = "0x04 - Mode Register"]
     pub mr: MR,
-    _reserved0: [u8; 8usize],
+    _reserved2: [u8; 8usize],
     #[doc = "0x10 - Channel Enable Register"]
     pub cher: CHER,
     #[doc = "0x14 - Channel Disable Register"]
     pub chdr: CHDR,
     #[doc = "0x18 - Channel Status Register"]
     pub chsr: CHSR,
-    _reserved1: [u8; 4usize],
+    _reserved5: [u8; 4usize],
     #[doc = "0x20 - Conversion Data Register"]
     pub cdr: CDR,
     #[doc = "0x24 - Interrupt Enable Register"]
@@ -23,20 +23,20 @@ pub struct RegisterBlock {
     pub imr: IMR,
     #[doc = "0x30 - Interrupt Status Register"]
     pub isr: ISR,
-    _reserved2: [u8; 96usize],
+    _reserved10: [u8; 96usize],
     #[doc = "0x94 - Analog Current Register"]
     pub acr: ACR,
-    _reserved3: [u8; 76usize],
+    _reserved11: [u8; 76usize],
     #[doc = "0xe4 - Write Protect Mode register"]
     pub wpmr: WPMR,
     #[doc = "0xe8 - Write Protect Status register"]
     pub wpsr: WPSR,
-    _reserved4: [u8; 28usize],
+    _reserved13: [u8; 28usize],
     #[doc = "0x108 - Transmit Pointer Register"]
     pub tpr: TPR,
     #[doc = "0x10c - Transmit Counter Register"]
     pub tcr: TCR,
-    _reserved5: [u8; 8usize],
+    _reserved15: [u8; 8usize],
     #[doc = "0x118 - Transmit Next Pointer Register"]
     pub tnpr: TNPR,
     #[doc = "0x11c - Transmit Next Counter Register"]

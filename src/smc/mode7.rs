@@ -583,7 +583,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - Selection of the Control Signal for Read Operation"]
     #[inline]
     pub fn read_mode(&self) -> READ_MODER {
         READ_MODER::_from({
@@ -592,7 +592,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - Selection of the Control Signal for Write Operation"]
     #[inline]
     pub fn write_mode(&self) -> WRITE_MODER {
         WRITE_MODER::_from({
@@ -662,12 +662,12 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - Selection of the Control Signal for Read Operation"]
     #[inline]
     pub fn read_mode(&mut self) -> _READ_MODEW {
         _READ_MODEW { w: self }
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - Selection of the Control Signal for Write Operation"]
     #[inline]
     pub fn write_mode(&mut self) -> _WRITE_MODEW {
         _WRITE_MODEW { w: self }

@@ -11,7 +11,7 @@ pub struct RegisterBlock {
     pub iadr: IADR,
     #[doc = "0x10 - Clock Waveform Generator Register"]
     pub cwgr: CWGR,
-    _reserved0: [u8; 12usize],
+    _reserved5: [u8; 12usize],
     #[doc = "0x20 - Status Register"]
     pub sr: SR,
     #[doc = "0x24 - Interrupt Enable Register"]
@@ -24,7 +24,7 @@ pub struct RegisterBlock {
     pub rhr: RHR,
     #[doc = "0x34 - Transmit Holding Register"]
     pub thr: THR,
-    _reserved1: [u8; 200usize],
+    _reserved11: [u8; 200usize],
     #[doc = "0x100 - Receive Pointer Register"]
     pub rpr: RPR,
     #[doc = "0x104 - Receive Counter Register"]

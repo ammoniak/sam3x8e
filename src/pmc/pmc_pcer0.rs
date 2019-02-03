@@ -2,143 +2,17 @@
 pub struct W {
     bits: u32,
 }
-impl super::PMC_PCER0 {}
-#[doc = r" Proxy"]
-pub struct _PID2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID2W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
+impl super::PMC_PCER0 {
+    #[doc = r" Writes to the register"]
     #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PID3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID3W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PID4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID4W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PID5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID5W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PID6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID6W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PID7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PID7W<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
     }
 }
 #[doc = r" Proxy"]
@@ -694,42 +568,6 @@ impl<'a> _PID31W<'a> {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-    #[doc = "Bit 2 - Peripheral Clock 2 Enable"]
-    #[inline]
-    pub fn pid2(&mut self) -> _PID2W {
-        _PID2W { w: self }
-    }
-    #[doc = "Bit 3 - Peripheral Clock 3 Enable"]
-    #[inline]
-    pub fn pid3(&mut self) -> _PID3W {
-        _PID3W { w: self }
-    }
-    #[doc = "Bit 4 - Peripheral Clock 4 Enable"]
-    #[inline]
-    pub fn pid4(&mut self) -> _PID4W {
-        _PID4W { w: self }
-    }
-    #[doc = "Bit 5 - Peripheral Clock 5 Enable"]
-    #[inline]
-    pub fn pid5(&mut self) -> _PID5W {
-        _PID5W { w: self }
-    }
-    #[doc = "Bit 6 - Peripheral Clock 6 Enable"]
-    #[inline]
-    pub fn pid6(&mut self) -> _PID6W {
-        _PID6W { w: self }
-    }
-    #[doc = "Bit 7 - Peripheral Clock 7 Enable"]
-    #[inline]
-    pub fn pid7(&mut self) -> _PID7W {
-        _PID7W { w: self }
-    }
     #[doc = "Bit 8 - Peripheral Clock 8 Enable"]
     #[inline]
     pub fn pid8(&mut self) -> _PID8W {

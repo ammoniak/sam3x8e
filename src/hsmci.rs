@@ -23,7 +23,7 @@ pub struct RegisterBlock {
     pub rdr: RDR,
     #[doc = "0x34 - Transmit Data Register"]
     pub tdr: TDR,
-    _reserved0: [u8; 8usize],
+    _reserved11: [u8; 8usize],
     #[doc = "0x40 - Status Register"]
     pub sr: SR,
     #[doc = "0x44 - Interrupt Enable Register"]
@@ -36,12 +36,12 @@ pub struct RegisterBlock {
     pub dma: DMA,
     #[doc = "0x54 - Configuration Register"]
     pub cfg: CFG,
-    _reserved1: [u8; 140usize],
+    _reserved17: [u8; 140usize],
     #[doc = "0xe4 - Write Protection Mode Register"]
     pub wpmr: WPMR,
     #[doc = "0xe8 - Write Protection Status Register"]
     pub wpsr: WPSR,
-    _reserved2: [u8; 276usize],
+    _reserved19: [u8; 276usize],
     #[doc = "0x200 - FIFO Memory Aperture0"]
     pub fifo: [FIFO; 256],
 }

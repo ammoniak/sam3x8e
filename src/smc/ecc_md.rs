@@ -45,24 +45,24 @@ impl super::ECC_MD {
 #[doc = "Possible values of the field `ECC_PAGESIZE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ECC_PAGESIZER {
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
-    PS512_16,
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
-    PS1024_32,
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
-    PS2048_64,
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
-    PS4096_128,
+    #[doc = "Main area 512 Words"]
+    PS512,
+    #[doc = "Main area 1024 Words"]
+    PS1024,
+    #[doc = "Main area 2048 Words"]
+    PS2048,
+    #[doc = "Main area 4096 Words"]
+    PS4096,
 }
 impl ECC_PAGESIZER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            ECC_PAGESIZER::PS512_16 => 0,
-            ECC_PAGESIZER::PS1024_32 => 1,
-            ECC_PAGESIZER::PS2048_64 => 2,
-            ECC_PAGESIZER::PS4096_128 => 3,
+            ECC_PAGESIZER::PS512 => 0,
+            ECC_PAGESIZER::PS1024 => 1,
+            ECC_PAGESIZER::PS2048 => 2,
+            ECC_PAGESIZER::PS4096 => 3,
         }
     }
     #[allow(missing_docs)]
@@ -70,32 +70,32 @@ impl ECC_PAGESIZER {
     #[inline]
     pub fn _from(value: u8) -> ECC_PAGESIZER {
         match value {
-            0 => ECC_PAGESIZER::PS512_16,
-            1 => ECC_PAGESIZER::PS1024_32,
-            2 => ECC_PAGESIZER::PS2048_64,
-            3 => ECC_PAGESIZER::PS4096_128,
+            0 => ECC_PAGESIZER::PS512,
+            1 => ECC_PAGESIZER::PS1024,
+            2 => ECC_PAGESIZER::PS2048,
+            3 => ECC_PAGESIZER::PS4096,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `PS512_16`"]
+    #[doc = "Checks if the value of the field is `PS512`"]
     #[inline]
-    pub fn is_ps512_16(&self) -> bool {
-        *self == ECC_PAGESIZER::PS512_16
+    pub fn is_ps512(&self) -> bool {
+        *self == ECC_PAGESIZER::PS512
     }
-    #[doc = "Checks if the value of the field is `PS1024_32`"]
+    #[doc = "Checks if the value of the field is `PS1024`"]
     #[inline]
-    pub fn is_ps1024_32(&self) -> bool {
-        *self == ECC_PAGESIZER::PS1024_32
+    pub fn is_ps1024(&self) -> bool {
+        *self == ECC_PAGESIZER::PS1024
     }
-    #[doc = "Checks if the value of the field is `PS2048_64`"]
+    #[doc = "Checks if the value of the field is `PS2048`"]
     #[inline]
-    pub fn is_ps2048_64(&self) -> bool {
-        *self == ECC_PAGESIZER::PS2048_64
+    pub fn is_ps2048(&self) -> bool {
+        *self == ECC_PAGESIZER::PS2048
     }
-    #[doc = "Checks if the value of the field is `PS4096_128`"]
+    #[doc = "Checks if the value of the field is `PS4096`"]
     #[inline]
-    pub fn is_ps4096_128(&self) -> bool {
-        *self == ECC_PAGESIZER::PS4096_128
+    pub fn is_ps4096(&self) -> bool {
+        *self == ECC_PAGESIZER::PS4096
     }
 }
 #[doc = "Possible values of the field `TYPCORREC`"]
@@ -150,14 +150,14 @@ impl TYPCORRECR {
 }
 #[doc = "Values that can be written to the field `ECC_PAGESIZE`"]
 pub enum ECC_PAGESIZEW {
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
-    PS512_16,
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
-    PS1024_32,
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
-    PS2048_64,
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
-    PS4096_128,
+    #[doc = "Main area 512 Words"]
+    PS512,
+    #[doc = "Main area 1024 Words"]
+    PS1024,
+    #[doc = "Main area 2048 Words"]
+    PS2048,
+    #[doc = "Main area 4096 Words"]
+    PS4096,
 }
 impl ECC_PAGESIZEW {
     #[allow(missing_docs)]
@@ -165,10 +165,10 @@ impl ECC_PAGESIZEW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            ECC_PAGESIZEW::PS512_16 => 0,
-            ECC_PAGESIZEW::PS1024_32 => 1,
-            ECC_PAGESIZEW::PS2048_64 => 2,
-            ECC_PAGESIZEW::PS4096_128 => 3,
+            ECC_PAGESIZEW::PS512 => 0,
+            ECC_PAGESIZEW::PS1024 => 1,
+            ECC_PAGESIZEW::PS2048 => 2,
+            ECC_PAGESIZEW::PS4096 => 3,
         }
     }
 }
@@ -184,25 +184,25 @@ impl<'a> _ECC_PAGESIZEW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "Main area 512 Bytes + Spare area 16 Bytes = 528 Bytes"]
+    #[doc = "Main area 512 Words"]
     #[inline]
-    pub fn ps512_16(self) -> &'a mut W {
-        self.variant(ECC_PAGESIZEW::PS512_16)
+    pub fn ps512(self) -> &'a mut W {
+        self.variant(ECC_PAGESIZEW::PS512)
     }
-    #[doc = "Main area 1024 Bytes + Spare area 32 Bytes = 1056 Bytes"]
+    #[doc = "Main area 1024 Words"]
     #[inline]
-    pub fn ps1024_32(self) -> &'a mut W {
-        self.variant(ECC_PAGESIZEW::PS1024_32)
+    pub fn ps1024(self) -> &'a mut W {
+        self.variant(ECC_PAGESIZEW::PS1024)
     }
-    #[doc = "Main area 2048 Bytes + Spare area 64 Bytes = 2112 Bytes"]
+    #[doc = "Main area 2048 Words"]
     #[inline]
-    pub fn ps2048_64(self) -> &'a mut W {
-        self.variant(ECC_PAGESIZEW::PS2048_64)
+    pub fn ps2048(self) -> &'a mut W {
+        self.variant(ECC_PAGESIZEW::PS2048)
     }
-    #[doc = "Main area 4096 Bytes + Spare area 128 Bytes = 4224 Bytes"]
+    #[doc = "Main area 4096 Words"]
     #[inline]
-    pub fn ps4096_128(self) -> &'a mut W {
-        self.variant(ECC_PAGESIZEW::PS4096_128)
+    pub fn ps4096(self) -> &'a mut W {
+        self.variant(ECC_PAGESIZEW::PS4096)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

@@ -75,27 +75,6 @@ impl RXSTPER {
     }
 }
 #[doc = r" Value of the field"]
-pub struct UNDERFER {
-    bits: bool,
-}
-impl UNDERFER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct NAKOUTER {
     bits: bool,
 }
@@ -117,52 +96,10 @@ impl NAKOUTER {
     }
 }
 #[doc = r" Value of the field"]
-pub struct HBISOINERRER {
-    bits: bool,
-}
-impl HBISOINERRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct NAKINER {
     bits: bool,
 }
 impl NAKINER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HBISOFLUSHER {
-    bits: bool,
-}
-impl HBISOFLUSHER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -222,94 +159,10 @@ impl STALLEDER {
     }
 }
 #[doc = r" Value of the field"]
-pub struct CRCERRER {
-    bits: bool,
-}
-impl CRCERRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct SHORTPACKETER {
     bits: bool,
 }
 impl SHORTPACKETER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MDATAER {
-    bits: bool,
-}
-impl MDATAER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DATAXER {
-    bits: bool,
-}
-impl DATAXER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ERRORTRANSER {
-    bits: bool,
-}
-impl ERRORTRANSER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -509,16 +362,6 @@ impl R {
         };
         RXSTPER { bits }
     }
-    #[doc = "Bit 2 - Underflow Interrupt"]
-    #[inline]
-    pub fn underfe(&self) -> UNDERFER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNDERFER { bits }
-    }
     #[doc = "Bit 3 - NAKed OUT Interrupt"]
     #[inline]
     pub fn nakoute(&self) -> NAKOUTER {
@@ -529,16 +372,6 @@ impl R {
         };
         NAKOUTER { bits }
     }
-    #[doc = "Bit 3 - High Bandwidth Isochronous IN Error Interrupt"]
-    #[inline]
-    pub fn hbisoinerre(&self) -> HBISOINERRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HBISOINERRER { bits }
-    }
     #[doc = "Bit 4 - NAKed IN Interrupt"]
     #[inline]
     pub fn nakine(&self) -> NAKINER {
@@ -548,16 +381,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         NAKINER { bits }
-    }
-    #[doc = "Bit 4 - High Bandwidth Isochronous IN Flush Interrupt"]
-    #[inline]
-    pub fn hbisoflushe(&self) -> HBISOFLUSHER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HBISOFLUSHER { bits }
     }
     #[doc = "Bit 5 - Overflow Interrupt"]
     #[inline]
@@ -579,16 +402,6 @@ impl R {
         };
         STALLEDER { bits }
     }
-    #[doc = "Bit 6 - CRC Error Interrupt"]
-    #[inline]
-    pub fn crcerre(&self) -> CRCERRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCERRER { bits }
-    }
     #[doc = "Bit 7 - Short Packet Interrupt"]
     #[inline]
     pub fn shortpackete(&self) -> SHORTPACKETER {
@@ -598,36 +411,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         SHORTPACKETER { bits }
-    }
-    #[doc = "Bit 8 - MData Interrupt"]
-    #[inline]
-    pub fn mdatae(&self) -> MDATAER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MDATAER { bits }
-    }
-    #[doc = "Bit 9 - DataX Interrupt"]
-    #[inline]
-    pub fn dataxe(&self) -> DATAXER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DATAXER { bits }
-    }
-    #[doc = "Bit 10 - Transaction Error Interrupt"]
-    #[inline]
-    pub fn errortranse(&self) -> ERRORTRANSER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ERRORTRANSER { bits }
     }
     #[doc = "Bit 12 - Number of Busy Banks Interrupt"]
     #[inline]

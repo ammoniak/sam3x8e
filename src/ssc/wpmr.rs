@@ -63,15 +63,36 @@ impl WPENR {
         self.bit()
     }
 }
-#[doc = r" Value of the field"]
-pub struct WPKEYR {
-    bits: u32,
+#[doc = "Possible values of the field `WPKEY`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WPKEYR {
+    #[doc = "Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0."]
+    PASSWD,
+    #[doc = r" Reserved"]
+    _Reserved(u32),
 }
 impl WPKEYR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
-        self.bits
+        match *self {
+            WPKEYR::PASSWD => 5460803,
+            WPKEYR::_Reserved(bits) => bits,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: u32) -> WPKEYR {
+        match value {
+            5460803 => WPKEYR::PASSWD,
+            i => WPKEYR::_Reserved(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `PASSWD`"]
+    #[inline]
+    pub fn is_passwd(&self) -> bool {
+        *self == WPKEYR::PASSWD
     }
 }
 #[doc = r" Proxy"]
@@ -97,11 +118,36 @@ impl<'a> _WPENW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `WPKEY`"]
+pub enum WPKEYW {
+    #[doc = "Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0."]
+    PASSWD,
+}
+impl WPKEYW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> u32 {
+        match *self {
+            WPKEYW::PASSWD => 5460803,
+        }
+    }
+}
 #[doc = r" Proxy"]
 pub struct _WPKEYW<'a> {
     w: &'a mut W,
 }
 impl<'a> _WPKEYW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: WPKEYW) -> &'a mut W {
+        unsafe { self.bits(variant._bits()) }
+    }
+    #[doc = "Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0."]
+    #[inline]
+    pub fn passwd(self) -> &'a mut W {
+        self.variant(WPKEYW::PASSWD)
+    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
@@ -131,12 +177,11 @@ impl R {
     #[doc = "Bits 8:31 - Write Protect KEY"]
     #[inline]
     pub fn wpkey(&self) -> WPKEYR {
-        let bits = {
+        WPKEYR::_from({
             const MASK: u32 = 16777215;
             const OFFSET: u8 = 8;
             ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        WPKEYR { bits }
+        })
     }
 }
 impl W {

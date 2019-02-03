@@ -19,7 +19,7 @@ pub struct RegisterBlock {
     pub isr1: ISR1,
     #[doc = "0x20 - PWM Sync Channels Mode Register"]
     pub scm: SCM,
-    _reserved0: [u8; 4usize],
+    _reserved9: [u8; 4usize],
     #[doc = "0x28 - PWM Sync Channels Update Control Register"]
     pub scuc: SCUC,
     #[doc = "0x2c - PWM Sync Channels Update Period Register"]
@@ -58,23 +58,23 @@ pub struct RegisterBlock {
     pub fpe1: FPE1,
     #[doc = "0x70 - PWM Fault Protection Enable Register 2"]
     pub fpe2: FPE2,
-    _reserved1: [u8; 8usize],
+    _reserved28: [u8; 8usize],
     #[doc = "0x7c - PWM Event Line 0 Mode Register"]
     pub elmr: [ELMR; 2],
-    _reserved2: [u8; 44usize],
+    _reserved29: [u8; 44usize],
     #[doc = "0xb0 - PWM Stepper Motor Mode Register"]
     pub smmr: SMMR,
-    _reserved3: [u8; 48usize],
+    _reserved30: [u8; 48usize],
     #[doc = "0xe4 - PWM Write Protect Control Register"]
     pub wpcr: WPCR,
     #[doc = "0xe8 - PWM Write Protect Status Register"]
     pub wpsr: WPSR,
-    _reserved4: [u8; 28usize],
+    _reserved32: [u8; 28usize],
     #[doc = "0x108 - Transmit Pointer Register"]
     pub tpr: TPR,
     #[doc = "0x10c - Transmit Counter Register"]
     pub tcr: TCR,
-    _reserved5: [u8; 8usize],
+    _reserved34: [u8; 8usize],
     #[doc = "0x118 - Transmit Next Pointer Register"]
     pub tnpr: TNPR,
     #[doc = "0x11c - Transmit Next Counter Register"]
@@ -83,7 +83,7 @@ pub struct RegisterBlock {
     pub ptcr: PTCR,
     #[doc = "0x124 - Transfer Status Register"]
     pub ptsr: PTSR,
-    _reserved6: [u8; 8usize],
+    _reserved38: [u8; 8usize],
     #[doc = "0x130 - PWM Comparison 0 Value Register"]
     pub cmpv0: CMPV0,
     #[doc = "0x134 - PWM Comparison 0 Value Update Register"]
@@ -148,7 +148,7 @@ pub struct RegisterBlock {
     pub cmpm7: CMPM7,
     #[doc = "0x1ac - PWM Comparison 7 Mode Update Register"]
     pub cmpmupd7: CMPMUPD7,
-    _reserved7: [u8; 80usize],
+    _reserved70: [u8; 80usize],
     #[doc = "0x200 - PWM Channel Mode Register (ch_num = 0)"]
     pub cmr0: CMR0,
     #[doc = "0x204 - PWM Channel Duty Cycle Register (ch_num = 0)"]

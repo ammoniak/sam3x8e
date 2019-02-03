@@ -7,7 +7,7 @@ pub struct RegisterBlock {
     pub pmc_scdr: PMC_SCDR,
     #[doc = "0x08 - System Clock Status Register"]
     pub pmc_scsr: PMC_SCSR,
-    _reserved0: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x10 - Peripheral Clock Enable Register 0"]
     pub pmc_pcer0: PMC_PCER0,
     #[doc = "0x14 - Peripheral Clock Disable Register 0"]
@@ -22,16 +22,16 @@ pub struct RegisterBlock {
     pub ckgr_mcfr: CKGR_MCFR,
     #[doc = "0x28 - PLLA Register"]
     pub ckgr_pllar: CKGR_PLLAR,
-    _reserved1: [u8; 4usize],
+    _reserved10: [u8; 4usize],
     #[doc = "0x30 - Master Clock Register"]
     pub pmc_mckr: PMC_MCKR,
-    _reserved2: [u8; 4usize],
+    _reserved11: [u8; 4usize],
     #[doc = "0x38 - USB Clock Register"]
     pub pmc_usb: PMC_USB,
-    _reserved3: [u8; 4usize],
+    _reserved12: [u8; 4usize],
     #[doc = "0x40 - Programmable Clock 0 Register"]
     pub pmc_pck: [PMC_PCK; 3],
-    _reserved4: [u8; 20usize],
+    _reserved13: [u8; 20usize],
     #[doc = "0x60 - Interrupt Enable Register"]
     pub pmc_ier: PMC_IER,
     #[doc = "0x64 - Interrupt Disable Register"]
@@ -40,18 +40,18 @@ pub struct RegisterBlock {
     pub pmc_sr: PMC_SR,
     #[doc = "0x6c - Interrupt Mask Register"]
     pub pmc_imr: PMC_IMR,
-    #[doc = "0x70 - Fast Startup Mode Register"]
+    #[doc = "0x70 - Fast Start-up Mode Register"]
     pub pmc_fsmr: PMC_FSMR,
-    #[doc = "0x74 - Fast Startup Polarity Register"]
+    #[doc = "0x74 - Fast Start-up Polarity Register"]
     pub pmc_fspr: PMC_FSPR,
     #[doc = "0x78 - Fault Output Clear Register"]
     pub pmc_focr: PMC_FOCR,
-    _reserved5: [u8; 104usize],
+    _reserved20: [u8; 104usize],
     #[doc = "0xe4 - Write Protect Mode Register"]
     pub pmc_wpmr: PMC_WPMR,
     #[doc = "0xe8 - Write Protect Status Register"]
     pub pmc_wpsr: PMC_WPSR,
-    _reserved6: [u8; 20usize],
+    _reserved22: [u8; 20usize],
     #[doc = "0x100 - Peripheral Clock Enable Register 1"]
     pub pmc_pcer1: PMC_PCER1,
     #[doc = "0x104 - Peripheral Clock Disable Register 1"]
@@ -163,17 +163,17 @@ pub struct PMC_IMR {
 }
 #[doc = "Interrupt Mask Register"]
 pub mod pmc_imr;
-#[doc = "Fast Startup Mode Register"]
+#[doc = "Fast Start-up Mode Register"]
 pub struct PMC_FSMR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Fast Startup Mode Register"]
+#[doc = "Fast Start-up Mode Register"]
 pub mod pmc_fsmr;
-#[doc = "Fast Startup Polarity Register"]
+#[doc = "Fast Start-up Polarity Register"]
 pub struct PMC_FSPR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Fast Startup Polarity Register"]
+#[doc = "Fast Start-up Polarity Register"]
 pub mod pmc_fspr;
 #[doc = "Fault Output Clear Register"]
 pub struct PMC_FOCR {

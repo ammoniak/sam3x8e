@@ -75,27 +75,6 @@ impl RXSTPIR {
     }
 }
 #[doc = r" Value of the field"]
-pub struct UNDERFIR {
-    bits: bool,
-}
-impl UNDERFIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct NAKOUTIR {
     bits: bool,
 }
@@ -117,52 +96,10 @@ impl NAKOUTIR {
     }
 }
 #[doc = r" Value of the field"]
-pub struct HBISOINERRIR {
-    bits: bool,
-}
-impl HBISOINERRIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct NAKINIR {
     bits: bool,
 }
 impl NAKINIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HBISOFLUSHIR {
-    bits: bool,
-}
-impl HBISOFLUSHIR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bit(&self) -> bool {
@@ -222,27 +159,6 @@ impl STALLEDIR {
     }
 }
 #[doc = r" Value of the field"]
-pub struct CRCERRIR {
-    bits: bool,
-}
-impl CRCERRIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
 pub struct SHORTPACKETR {
     bits: bool,
 }
@@ -270,9 +186,9 @@ pub enum DTSEQR {
     DATA0,
     #[doc = "Data1 toggle sequence"]
     DATA1,
-    #[doc = "Data2 toggle sequence (for high-bandwidth isochronous endpoint)"]
+    #[doc = "Reserved for high-bandwidth isochronous endpoint"]
     DATA2,
-    #[doc = "MData toggle sequence (for high-bandwidth isochronous endpoint)"]
+    #[doc = "Reserved for high-bandwidth isochronous endpoint"]
     MDATA,
 }
 impl DTSEQR {
@@ -317,27 +233,6 @@ impl DTSEQR {
     #[inline]
     pub fn is_mdata(&self) -> bool {
         *self == DTSEQR::MDATA
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ERRORTRANSR {
-    bits: bool,
-}
-impl ERRORTRANSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
     }
 }
 #[doc = "Possible values of the field `NBUSYBK`"]
@@ -556,16 +451,6 @@ impl R {
         };
         RXSTPIR { bits }
     }
-    #[doc = "Bit 2 - Underflow Interrupt"]
-    #[inline]
-    pub fn underfi(&self) -> UNDERFIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNDERFIR { bits }
-    }
     #[doc = "Bit 3 - NAKed OUT Interrupt"]
     #[inline]
     pub fn nakouti(&self) -> NAKOUTIR {
@@ -576,16 +461,6 @@ impl R {
         };
         NAKOUTIR { bits }
     }
-    #[doc = "Bit 3 - High bandwidth isochronous IN Underflow Error Interrupt"]
-    #[inline]
-    pub fn hbisoinerri(&self) -> HBISOINERRIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HBISOINERRIR { bits }
-    }
     #[doc = "Bit 4 - NAKed IN Interrupt"]
     #[inline]
     pub fn nakini(&self) -> NAKINIR {
@@ -595,16 +470,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         };
         NAKINIR { bits }
-    }
-    #[doc = "Bit 4 - High Bandwidth Isochronous IN Flush Interrupt"]
-    #[inline]
-    pub fn hbisoflushi(&self) -> HBISOFLUSHIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HBISOFLUSHIR { bits }
     }
     #[doc = "Bit 5 - Overflow Interrupt"]
     #[inline]
@@ -626,16 +491,6 @@ impl R {
         };
         STALLEDIR { bits }
     }
-    #[doc = "Bit 6 - CRC Error Interrupt"]
-    #[inline]
-    pub fn crcerri(&self) -> CRCERRIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCERRIR { bits }
-    }
     #[doc = "Bit 7 - Short Packet Interrupt"]
     #[inline]
     pub fn shortpacket(&self) -> SHORTPACKETR {
@@ -654,16 +509,6 @@ impl R {
             const OFFSET: u8 = 8;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
-    }
-    #[doc = "Bit 10 - High-bandwidth isochronous OUT endpoint transaction error Interrupt"]
-    #[inline]
-    pub fn errortrans(&self) -> ERRORTRANSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ERRORTRANSR { bits }
     }
     #[doc = "Bits 12:13 - Number of Busy Banks"]
     #[inline]

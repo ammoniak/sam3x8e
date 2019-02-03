@@ -181,7 +181,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - Dual Role Device State"]
     #[inline]
     pub fn drdstate(&self) -> DRDSTATER {
         DRDSTATER::_from({

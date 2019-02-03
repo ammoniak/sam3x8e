@@ -49,7 +49,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write Protect Violation Status"]
+    #[doc = "Bit 0 - Write Protection Violation Status"]
     #[inline]
     pub fn wpvs(&self) -> WPVSR {
         let bits = {
@@ -59,7 +59,7 @@ impl R {
         };
         WPVSR { bits }
     }
-    #[doc = "Bits 8:23 - Write Protect Violation Source"]
+    #[doc = "Bits 8:23 - Write Protection Violation Source"]
     #[inline]
     pub fn wpvsrc(&self) -> WPVSRCR {
         let bits = {

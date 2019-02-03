@@ -5,7 +5,7 @@ pub struct RegisterBlock {
     pub cr: CR,
     #[doc = "0x04 - Clock Mode Register"]
     pub cmr: CMR,
-    _reserved0: [u8; 8usize],
+    _reserved2: [u8; 8usize],
     #[doc = "0x10 - Receive Clock Mode Register"]
     pub rcmr: RCMR,
     #[doc = "0x14 - Receive Frame Mode Register"]
@@ -18,7 +18,7 @@ pub struct RegisterBlock {
     pub rhr: RHR,
     #[doc = "0x24 - Transmit Holding Register"]
     pub thr: THR,
-    _reserved1: [u8; 8usize],
+    _reserved8: [u8; 8usize],
     #[doc = "0x30 - Receive Sync. Holding Register"]
     pub rshr: RSHR,
     #[doc = "0x34 - Transmit Sync. Holding Register"]
@@ -35,7 +35,7 @@ pub struct RegisterBlock {
     pub idr: IDR,
     #[doc = "0x4c - Interrupt Mask Register"]
     pub imr: IMR,
-    _reserved2: [u8; 148usize],
+    _reserved16: [u8; 148usize],
     #[doc = "0xe4 - Write Protect Mode Register"]
     pub wpmr: WPMR,
     #[doc = "0xe8 - Write Protect Status Register"]

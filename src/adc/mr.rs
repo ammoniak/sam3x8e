@@ -166,59 +166,12 @@ impl TRGSELR {
         *self == TRGSELR::ADC_TRIG5
     }
 }
-#[doc = "Possible values of the field `LOWRES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOWRESR {
-    #[doc = "12-bit resolution"]
-    BITS_12,
-    #[doc = "10-bit resolution"]
-    BITS_10,
-}
-impl LOWRESR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOWRESR::BITS_12 => false,
-            LOWRESR::BITS_10 => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOWRESR {
-        match value {
-            false => LOWRESR::BITS_12,
-            true => LOWRESR::BITS_10,
-        }
-    }
-    #[doc = "Checks if the value of the field is `BITS_12`"]
-    #[inline]
-    pub fn is_bits_12(&self) -> bool {
-        *self == LOWRESR::BITS_12
-    }
-    #[doc = "Checks if the value of the field is `BITS_10`"]
-    #[inline]
-    pub fn is_bits_10(&self) -> bool {
-        *self == LOWRESR::BITS_10
-    }
-}
 #[doc = "Possible values of the field `SLEEP`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPR {
     #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
     NORMAL,
-    #[doc = "Sleep Mode: The ADC Core and reference voltage circuitry are OFF between conversions"]
+    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
     SLEEP,
 }
 impl SLEEPR {
@@ -263,9 +216,9 @@ impl SLEEPR {
 #[doc = "Possible values of the field `FWUP`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FWUPR {
-    #[doc = "Normal Sleep Mode: The sleep mode is defined by the SLEEP bit"]
+    #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
     OFF,
-    #[doc = "Fast Wake Up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
+    #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
     ON,
 }
 impl FWUPR {
@@ -657,9 +610,9 @@ impl TRANSFERR {
 #[doc = "Possible values of the field `USEQ`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USEQR {
-    #[doc = "Normal Mode: The controller converts channels in a simple numeric order."]
+    #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
     NUM_ORDER,
-    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers."]
+    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
     REG_ORDER,
 }
 impl USEQR {
@@ -839,69 +792,11 @@ impl<'a> _TRGSELW<'a> {
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LOWRES`"]
-pub enum LOWRESW {
-    #[doc = "12-bit resolution"]
-    BITS_12,
-    #[doc = "10-bit resolution"]
-    BITS_10,
-}
-impl LOWRESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOWRESW::BITS_12 => false,
-            LOWRESW::BITS_10 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOWRESW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LOWRESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOWRESW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "12-bit resolution"]
-    #[inline]
-    pub fn bits_12(self) -> &'a mut W {
-        self.variant(LOWRESW::BITS_12)
-    }
-    #[doc = "10-bit resolution"]
-    #[inline]
-    pub fn bits_10(self) -> &'a mut W {
-        self.variant(LOWRESW::BITS_10)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
 #[doc = "Values that can be written to the field `SLEEP`"]
 pub enum SLEEPW {
     #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
     NORMAL,
-    #[doc = "Sleep Mode: The ADC Core and reference voltage circuitry are OFF between conversions"]
+    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
     SLEEP,
 }
 impl SLEEPW {
@@ -932,7 +827,7 @@ impl<'a> _SLEEPW<'a> {
     pub fn normal(self) -> &'a mut W {
         self.variant(SLEEPW::NORMAL)
     }
-    #[doc = "Sleep Mode: The ADC Core and reference voltage circuitry are OFF between conversions"]
+    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
     #[inline]
     pub fn sleep(self) -> &'a mut W {
         self.variant(SLEEPW::SLEEP)
@@ -957,9 +852,9 @@ impl<'a> _SLEEPW<'a> {
 }
 #[doc = "Values that can be written to the field `FWUP`"]
 pub enum FWUPW {
-    #[doc = "Normal Sleep Mode: The sleep mode is defined by the SLEEP bit"]
+    #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
     OFF,
-    #[doc = "Fast Wake Up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
+    #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
     ON,
 }
 impl FWUPW {
@@ -985,12 +880,12 @@ impl<'a> _FWUPW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Normal Sleep Mode: The sleep mode is defined by the SLEEP bit"]
+    #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
     #[inline]
     pub fn off(self) -> &'a mut W {
         self.variant(FWUPW::OFF)
     }
-    #[doc = "Fast Wake Up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
+    #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
     #[inline]
     pub fn on(self) -> &'a mut W {
         self.variant(FWUPW::ON)
@@ -1404,9 +1299,9 @@ impl<'a> _TRANSFERW<'a> {
 }
 #[doc = "Values that can be written to the field `USEQ`"]
 pub enum USEQW {
-    #[doc = "Normal Mode: The controller converts channels in a simple numeric order."]
+    #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
     NUM_ORDER,
-    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers."]
+    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
     REG_ORDER,
 }
 impl USEQW {
@@ -1432,12 +1327,12 @@ impl<'a> _USEQW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Normal Mode: The controller converts channels in a simple numeric order."]
+    #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
     #[inline]
     pub fn num_order(self) -> &'a mut W {
         self.variant(USEQW::NUM_ORDER)
     }
-    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers."]
+    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
     #[inline]
     pub fn reg_order(self) -> &'a mut W {
         self.variant(USEQW::REG_ORDER)
@@ -1482,15 +1377,6 @@ impl R {
             const MASK: u8 = 7;
             const OFFSET: u8 = 1;
             ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
-    }
-    #[doc = "Bit 4 - Resolution"]
-    #[inline]
-    pub fn lowres(&self) -> LOWRESR {
-        LOWRESR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
     #[doc = "Bit 5 - Sleep Mode"]
@@ -1608,11 +1494,6 @@ impl W {
     #[inline]
     pub fn trgsel(&mut self) -> _TRGSELW {
         _TRGSELW { w: self }
-    }
-    #[doc = "Bit 4 - Resolution"]
-    #[inline]
-    pub fn lowres(&mut self) -> _LOWRESW {
-        _LOWRESW { w: self }
     }
     #[doc = "Bit 5 - Sleep Mode"]
     #[inline]

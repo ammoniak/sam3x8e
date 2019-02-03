@@ -928,7 +928,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Fast Startup Input Enable 0"]
+    #[doc = "Bit 0 - Fast Start-up Input Enable 0"]
     #[inline]
     pub fn fstt0(&self) -> FSTT0R {
         let bits = {
@@ -938,7 +938,7 @@ impl R {
         };
         FSTT0R { bits }
     }
-    #[doc = "Bit 1 - Fast Startup Input Enable 1"]
+    #[doc = "Bit 1 - Fast Start-up Input Enable 1"]
     #[inline]
     pub fn fstt1(&self) -> FSTT1R {
         let bits = {
@@ -948,7 +948,7 @@ impl R {
         };
         FSTT1R { bits }
     }
-    #[doc = "Bit 2 - Fast Startup Input Enable 2"]
+    #[doc = "Bit 2 - Fast Start-up Input Enable 2"]
     #[inline]
     pub fn fstt2(&self) -> FSTT2R {
         let bits = {
@@ -958,7 +958,7 @@ impl R {
         };
         FSTT2R { bits }
     }
-    #[doc = "Bit 3 - Fast Startup Input Enable 3"]
+    #[doc = "Bit 3 - Fast Start-up Input Enable 3"]
     #[inline]
     pub fn fstt3(&self) -> FSTT3R {
         let bits = {
@@ -968,7 +968,7 @@ impl R {
         };
         FSTT3R { bits }
     }
-    #[doc = "Bit 4 - Fast Startup Input Enable 4"]
+    #[doc = "Bit 4 - Fast Start-up Input Enable 4"]
     #[inline]
     pub fn fstt4(&self) -> FSTT4R {
         let bits = {
@@ -978,7 +978,7 @@ impl R {
         };
         FSTT4R { bits }
     }
-    #[doc = "Bit 5 - Fast Startup Input Enable 5"]
+    #[doc = "Bit 5 - Fast Start-up Input Enable 5"]
     #[inline]
     pub fn fstt5(&self) -> FSTT5R {
         let bits = {
@@ -988,7 +988,7 @@ impl R {
         };
         FSTT5R { bits }
     }
-    #[doc = "Bit 6 - Fast Startup Input Enable 6"]
+    #[doc = "Bit 6 - Fast Start-up Input Enable 6"]
     #[inline]
     pub fn fstt6(&self) -> FSTT6R {
         let bits = {
@@ -998,7 +998,7 @@ impl R {
         };
         FSTT6R { bits }
     }
-    #[doc = "Bit 7 - Fast Startup Input Enable 7"]
+    #[doc = "Bit 7 - Fast Start-up Input Enable 7"]
     #[inline]
     pub fn fstt7(&self) -> FSTT7R {
         let bits = {
@@ -1008,7 +1008,7 @@ impl R {
         };
         FSTT7R { bits }
     }
-    #[doc = "Bit 8 - Fast Startup Input Enable 8"]
+    #[doc = "Bit 8 - Fast Start-up Input Enable 8"]
     #[inline]
     pub fn fstt8(&self) -> FSTT8R {
         let bits = {
@@ -1018,7 +1018,7 @@ impl R {
         };
         FSTT8R { bits }
     }
-    #[doc = "Bit 9 - Fast Startup Input Enable 9"]
+    #[doc = "Bit 9 - Fast Start-up Input Enable 9"]
     #[inline]
     pub fn fstt9(&self) -> FSTT9R {
         let bits = {
@@ -1028,7 +1028,7 @@ impl R {
         };
         FSTT9R { bits }
     }
-    #[doc = "Bit 10 - Fast Startup Input Enable 10"]
+    #[doc = "Bit 10 - Fast Start-up Input Enable 10"]
     #[inline]
     pub fn fstt10(&self) -> FSTT10R {
         let bits = {
@@ -1038,7 +1038,7 @@ impl R {
         };
         FSTT10R { bits }
     }
-    #[doc = "Bit 11 - Fast Startup Input Enable 11"]
+    #[doc = "Bit 11 - Fast Start-up Input Enable 11"]
     #[inline]
     pub fn fstt11(&self) -> FSTT11R {
         let bits = {
@@ -1048,7 +1048,7 @@ impl R {
         };
         FSTT11R { bits }
     }
-    #[doc = "Bit 12 - Fast Startup Input Enable 12"]
+    #[doc = "Bit 12 - Fast Start-up Input Enable 12"]
     #[inline]
     pub fn fstt12(&self) -> FSTT12R {
         let bits = {
@@ -1058,7 +1058,7 @@ impl R {
         };
         FSTT12R { bits }
     }
-    #[doc = "Bit 13 - Fast Startup Input Enable 13"]
+    #[doc = "Bit 13 - Fast Start-up Input Enable 13"]
     #[inline]
     pub fn fstt13(&self) -> FSTT13R {
         let bits = {
@@ -1068,7 +1068,7 @@ impl R {
         };
         FSTT13R { bits }
     }
-    #[doc = "Bit 14 - Fast Startup Input Enable 14"]
+    #[doc = "Bit 14 - Fast Start-up Input Enable 14"]
     #[inline]
     pub fn fstt14(&self) -> FSTT14R {
         let bits = {
@@ -1078,7 +1078,7 @@ impl R {
         };
         FSTT14R { bits }
     }
-    #[doc = "Bit 15 - Fast Startup Input Enable 15"]
+    #[doc = "Bit 15 - Fast Start-up Input Enable 15"]
     #[inline]
     pub fn fstt15(&self) -> FSTT15R {
         let bits = {
@@ -1141,82 +1141,82 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Fast Startup Input Enable 0"]
+    #[doc = "Bit 0 - Fast Start-up Input Enable 0"]
     #[inline]
     pub fn fstt0(&mut self) -> _FSTT0W {
         _FSTT0W { w: self }
     }
-    #[doc = "Bit 1 - Fast Startup Input Enable 1"]
+    #[doc = "Bit 1 - Fast Start-up Input Enable 1"]
     #[inline]
     pub fn fstt1(&mut self) -> _FSTT1W {
         _FSTT1W { w: self }
     }
-    #[doc = "Bit 2 - Fast Startup Input Enable 2"]
+    #[doc = "Bit 2 - Fast Start-up Input Enable 2"]
     #[inline]
     pub fn fstt2(&mut self) -> _FSTT2W {
         _FSTT2W { w: self }
     }
-    #[doc = "Bit 3 - Fast Startup Input Enable 3"]
+    #[doc = "Bit 3 - Fast Start-up Input Enable 3"]
     #[inline]
     pub fn fstt3(&mut self) -> _FSTT3W {
         _FSTT3W { w: self }
     }
-    #[doc = "Bit 4 - Fast Startup Input Enable 4"]
+    #[doc = "Bit 4 - Fast Start-up Input Enable 4"]
     #[inline]
     pub fn fstt4(&mut self) -> _FSTT4W {
         _FSTT4W { w: self }
     }
-    #[doc = "Bit 5 - Fast Startup Input Enable 5"]
+    #[doc = "Bit 5 - Fast Start-up Input Enable 5"]
     #[inline]
     pub fn fstt5(&mut self) -> _FSTT5W {
         _FSTT5W { w: self }
     }
-    #[doc = "Bit 6 - Fast Startup Input Enable 6"]
+    #[doc = "Bit 6 - Fast Start-up Input Enable 6"]
     #[inline]
     pub fn fstt6(&mut self) -> _FSTT6W {
         _FSTT6W { w: self }
     }
-    #[doc = "Bit 7 - Fast Startup Input Enable 7"]
+    #[doc = "Bit 7 - Fast Start-up Input Enable 7"]
     #[inline]
     pub fn fstt7(&mut self) -> _FSTT7W {
         _FSTT7W { w: self }
     }
-    #[doc = "Bit 8 - Fast Startup Input Enable 8"]
+    #[doc = "Bit 8 - Fast Start-up Input Enable 8"]
     #[inline]
     pub fn fstt8(&mut self) -> _FSTT8W {
         _FSTT8W { w: self }
     }
-    #[doc = "Bit 9 - Fast Startup Input Enable 9"]
+    #[doc = "Bit 9 - Fast Start-up Input Enable 9"]
     #[inline]
     pub fn fstt9(&mut self) -> _FSTT9W {
         _FSTT9W { w: self }
     }
-    #[doc = "Bit 10 - Fast Startup Input Enable 10"]
+    #[doc = "Bit 10 - Fast Start-up Input Enable 10"]
     #[inline]
     pub fn fstt10(&mut self) -> _FSTT10W {
         _FSTT10W { w: self }
     }
-    #[doc = "Bit 11 - Fast Startup Input Enable 11"]
+    #[doc = "Bit 11 - Fast Start-up Input Enable 11"]
     #[inline]
     pub fn fstt11(&mut self) -> _FSTT11W {
         _FSTT11W { w: self }
     }
-    #[doc = "Bit 12 - Fast Startup Input Enable 12"]
+    #[doc = "Bit 12 - Fast Start-up Input Enable 12"]
     #[inline]
     pub fn fstt12(&mut self) -> _FSTT12W {
         _FSTT12W { w: self }
     }
-    #[doc = "Bit 13 - Fast Startup Input Enable 13"]
+    #[doc = "Bit 13 - Fast Start-up Input Enable 13"]
     #[inline]
     pub fn fstt13(&mut self) -> _FSTT13W {
         _FSTT13W { w: self }
     }
-    #[doc = "Bit 14 - Fast Startup Input Enable 14"]
+    #[doc = "Bit 14 - Fast Start-up Input Enable 14"]
     #[inline]
     pub fn fstt14(&mut self) -> _FSTT14W {
         _FSTT14W { w: self }
     }
-    #[doc = "Bit 15 - Fast Startup Input Enable 15"]
+    #[doc = "Bit 15 - Fast Start-up Input Enable 15"]
     #[inline]
     pub fn fstt15(&mut self) -> _FSTT15W {
         _FSTT15W { w: self }

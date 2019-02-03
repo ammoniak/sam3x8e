@@ -19,28 +19,28 @@ pub struct RegisterBlock {
     pub devept: DEVEPT,
     #[doc = "0x20 - Device Frame Number Register"]
     pub devfnum: DEVFNUM,
-    _reserved0: [u8; 220usize],
+    _reserved9: [u8; 220usize],
     #[doc = "0x100 - Device Endpoint Configuration Register (n = 0)"]
     pub deveptcfg: [DEVEPTCFG; 10],
-    _reserved1: [u8; 8usize],
-    #[doc = "0x130 - Device Endpoint Status Register (n = 0)"]
-    pub deveptisr: [DEVEPTISR; 10],
-    _reserved2: [u8; 8usize],
-    #[doc = "0x160 - Device Endpoint Clear Register (n = 0)"]
-    pub devepticr: [DEVEPTICR; 10],
-    _reserved3: [u8; 8usize],
-    #[doc = "0x190 - Device Endpoint Set Register (n = 0)"]
-    pub deveptifr: [DEVEPTIFR; 10],
-    _reserved4: [u8; 8usize],
-    #[doc = "0x1c0 - Device Endpoint Mask Register (n = 0)"]
-    pub deveptimr: [DEVEPTIMR; 10],
-    _reserved5: [u8; 8usize],
-    #[doc = "0x1f0 - Device Endpoint Enable Register (n = 0)"]
-    pub deveptier: [DEVEPTIER; 10],
-    _reserved6: [u8; 8usize],
-    #[doc = "0x220 - Device Endpoint Disable Register (n = 0)"]
-    pub deveptidr: [DEVEPTIDR; 10],
-    _reserved7: [u8; 200usize],
+    _reserved10: [u8; 8usize],
+    #[doc = "Device Endpoint Status Register (n = 0)"]
+    pub deveptisr: DEVEPTISR_UNION,
+    _reserved11: [u8; 8usize],
+    #[doc = "Device Endpoint Clear Register (n = 0)"]
+    pub devepticr: DEVEPTICR_UNION,
+    _reserved12: [u8; 8usize],
+    #[doc = "Device Endpoint Set Register (n = 0)"]
+    pub deveptifr: DEVEPTIFR_UNION,
+    _reserved13: [u8; 8usize],
+    #[doc = "Device Endpoint Mask Register (n = 0)"]
+    pub deveptimr: DEVEPTIMR_UNION,
+    _reserved14: [u8; 8usize],
+    #[doc = "Device Endpoint Enable Register (n = 0)"]
+    pub deveptier: DEVEPTIER_UNION,
+    _reserved15: [u8; 8usize],
+    #[doc = "Device Endpoint Disable Register (n = 0)"]
+    pub deveptidr: DEVEPTIDR_UNION,
+    _reserved16: [u8; 200usize],
     #[doc = "0x310 - Device DMA Channel Next Descriptor Address Register (n = 1)"]
     pub devdmanxtdsc1: DEVDMANXTDSC1,
     #[doc = "0x314 - Device DMA Channel Address Register (n = 1)"]
@@ -97,7 +97,7 @@ pub struct RegisterBlock {
     pub devdmacontrol7: DEVDMACONTROL7,
     #[doc = "0x37c - Device DMA Channel Status Register (n = 7)"]
     pub devdmastatus7: DEVDMASTATUS7,
-    _reserved8: [u8; 128usize],
+    _reserved44: [u8; 128usize],
     #[doc = "0x400 - Host General Control Register"]
     pub hstctrl: HSTCTRL,
     #[doc = "0x404 - Host Global Interrupt Status Register"]
@@ -122,34 +122,34 @@ pub struct RegisterBlock {
     pub hstaddr2: HSTADDR2,
     #[doc = "0x42c - Host Address 3 Register"]
     pub hstaddr3: HSTADDR3,
-    _reserved9: [u8; 208usize],
-    #[doc = "0x500 - Host Pipe Configuration Register (n = 0)"]
-    pub hstpipcfg: [HSTPIPCFG; 10],
-    _reserved10: [u8; 8usize],
-    #[doc = "0x530 - Host Pipe Status Register (n = 0)"]
-    pub hstpipisr: [HSTPIPISR; 10],
-    _reserved11: [u8; 8usize],
-    #[doc = "0x560 - Host Pipe Clear Register (n = 0)"]
-    pub hstpipicr: [HSTPIPICR; 10],
-    _reserved12: [u8; 8usize],
-    #[doc = "0x590 - Host Pipe Set Register (n = 0)"]
-    pub hstpipifr: [HSTPIPIFR; 10],
-    _reserved13: [u8; 8usize],
-    #[doc = "0x5c0 - Host Pipe Mask Register (n = 0)"]
-    pub hstpipimr: [HSTPIPIMR; 10],
-    _reserved14: [u8; 8usize],
-    #[doc = "0x5f0 - Host Pipe Enable Register (n = 0)"]
-    pub hstpipier: [HSTPIPIER; 10],
-    _reserved15: [u8; 8usize],
-    #[doc = "0x620 - Host Pipe Disable Register (n = 0)"]
-    pub hstpipidr: [HSTPIPIDR; 10],
-    _reserved16: [u8; 8usize],
+    _reserved56: [u8; 208usize],
+    #[doc = "Host Pipe Configuration Register (n = 0)"]
+    pub hstpipcfg: HSTPIPCFG_UNION,
+    _reserved57: [u8; 8usize],
+    #[doc = "Host Pipe Status Register (n = 0)"]
+    pub hstpipisr: HSTPIPISR_UNION,
+    _reserved58: [u8; 8usize],
+    #[doc = "Host Pipe Clear Register (n = 0)"]
+    pub hstpipicr: HSTPIPICR_UNION,
+    _reserved59: [u8; 8usize],
+    #[doc = "Host Pipe Set Register (n = 0)"]
+    pub hstpipifr: HSTPIPIFR_UNION,
+    _reserved60: [u8; 8usize],
+    #[doc = "Host Pipe Mask Register (n = 0)"]
+    pub hstpipimr: HSTPIPIMR_UNION,
+    _reserved61: [u8; 8usize],
+    #[doc = "Host Pipe Enable Register (n = 0)"]
+    pub hstpipier: HSTPIPIER_UNION,
+    _reserved62: [u8; 8usize],
+    #[doc = "Host Pipe Disable Register (n = 0)"]
+    pub hstpipidr: HSTPIPIDR_UNION,
+    _reserved63: [u8; 8usize],
     #[doc = "0x650 - Host Pipe IN Request Register (n = 0)"]
     pub hstpipinrq: [HSTPIPINRQ; 10],
-    _reserved17: [u8; 8usize],
+    _reserved64: [u8; 8usize],
     #[doc = "0x680 - Host Pipe Error Register (n = 0)"]
     pub hstpiperr: [HSTPIPERR; 10],
-    _reserved18: [u8; 104usize],
+    _reserved65: [u8; 104usize],
     #[doc = "0x710 - Host DMA Channel Next Descriptor Address Register (n = 1)"]
     pub hstdmanxtdsc1: HSTDMANXTDSC1,
     #[doc = "0x714 - Host DMA Channel Address Register (n = 1)"]
@@ -206,7 +206,7 @@ pub struct RegisterBlock {
     pub hstdmacontrol7: HSTDMACONTROL7,
     #[doc = "0x77c - Host DMA Channel Status Register (n = 7)"]
     pub hstdmastatus7: HSTDMASTATUS7,
-    _reserved19: [u8; 128usize],
+    _reserved93: [u8; 128usize],
     #[doc = "0x800 - General Control Register"]
     pub ctrl: CTRL,
     #[doc = "0x804 - General Status Register"]
@@ -215,9 +215,125 @@ pub struct RegisterBlock {
     pub scr: SCR,
     #[doc = "0x80c - General Status Set Register"]
     pub sfr: SFR,
-    _reserved20: [u8; 28usize],
+    _reserved97: [u8; 28usize],
     #[doc = "0x82c - General Finite State Machine Register"]
     pub fsm: FSM,
+}
+#[doc = "Device Endpoint Status Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTISR_UNION {
+    #[doc = "0x130 - Device Endpoint Status Register (n = 0)"]
+    pub deveptisr0_isoenpt: DEVEPTISR0_ISOENPT,
+    #[doc = "0x130 - Device Endpoint Status Register (n = 0)"]
+    pub deveptisr: [DEVEPTISR; 10],
+}
+#[doc = "Device Endpoint Clear Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTICR_UNION {
+    #[doc = "0x160 - Device Endpoint Clear Register (n = 0)"]
+    pub devepticr0_isoenpt: DEVEPTICR0_ISOENPT,
+    #[doc = "0x160 - Device Endpoint Clear Register (n = 0)"]
+    pub devepticr: [DEVEPTICR; 10],
+}
+#[doc = "Device Endpoint Set Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTIFR_UNION {
+    #[doc = "0x190 - Device Endpoint Set Register (n = 0)"]
+    pub deveptifr0_isoenpt: DEVEPTIFR0_ISOENPT,
+    #[doc = "0x190 - Device Endpoint Set Register (n = 0)"]
+    pub deveptifr: [DEVEPTIFR; 10],
+}
+#[doc = "Device Endpoint Mask Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTIMR_UNION {
+    #[doc = "0x1c0 - Device Endpoint Mask Register (n = 0)"]
+    pub deveptimr0_isoenpt: DEVEPTIMR0_ISOENPT,
+    #[doc = "0x1c0 - Device Endpoint Mask Register (n = 0)"]
+    pub deveptimr: [DEVEPTIMR; 10],
+}
+#[doc = "Device Endpoint Enable Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTIER_UNION {
+    #[doc = "0x1f0 - Device Endpoint Enable Register (n = 0)"]
+    pub deveptier0_isoenpt: DEVEPTIER0_ISOENPT,
+    #[doc = "0x1f0 - Device Endpoint Enable Register (n = 0)"]
+    pub deveptier: [DEVEPTIER; 10],
+}
+#[doc = "Device Endpoint Disable Register (n = 0)"]
+#[repr(C)]
+pub union DEVEPTIDR_UNION {
+    #[doc = "0x220 - Device Endpoint Disable Register (n = 0)"]
+    pub deveptidr0_isoenpt: DEVEPTIDR0_ISOENPT,
+    #[doc = "0x220 - Device Endpoint Disable Register (n = 0)"]
+    pub deveptidr: [DEVEPTIDR; 10],
+}
+#[doc = "Host Pipe Configuration Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPCFG_UNION {
+    #[doc = "0x500 - Host Pipe Configuration Register (n = 0)"]
+    pub hstpipcfg0_hsbohscp: HSTPIPCFG0_HSBOHSCP,
+    #[doc = "0x500 - Host Pipe Configuration Register (n = 0)"]
+    pub hstpipcfg: [HSTPIPCFG; 10],
+}
+#[doc = "Host Pipe Status Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPISR_UNION {
+    #[doc = "0x530 - Host Pipe Status Register (n = 0)"]
+    pub hstpipisr0_isopipes: HSTPIPISR0_ISOPIPES,
+    #[doc = "0x530 - Host Pipe Status Register (n = 0)"]
+    pub hstpipisr0_intpipes: HSTPIPISR0_INTPIPES,
+    #[doc = "0x530 - Host Pipe Status Register (n = 0)"]
+    pub hstpipisr: [HSTPIPISR; 10],
+}
+#[doc = "Host Pipe Clear Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPICR_UNION {
+    #[doc = "0x560 - Host Pipe Clear Register (n = 0)"]
+    pub hstpipicr0_isopipes: HSTPIPICR0_ISOPIPES,
+    #[doc = "0x560 - Host Pipe Clear Register (n = 0)"]
+    pub hstpipicr0_intpipes: HSTPIPICR0_INTPIPES,
+    #[doc = "0x560 - Host Pipe Clear Register (n = 0)"]
+    pub hstpipicr: [HSTPIPICR; 10],
+}
+#[doc = "Host Pipe Set Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPIFR_UNION {
+    #[doc = "0x590 - Host Pipe Set Register (n = 0)"]
+    pub hstpipifr0_isopipes: HSTPIPIFR0_ISOPIPES,
+    #[doc = "0x590 - Host Pipe Set Register (n = 0)"]
+    pub hstpipifr0_intpipes: HSTPIPIFR0_INTPIPES,
+    #[doc = "0x590 - Host Pipe Set Register (n = 0)"]
+    pub hstpipifr: [HSTPIPIFR; 10],
+}
+#[doc = "Host Pipe Mask Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPIMR_UNION {
+    #[doc = "0x5c0 - Host Pipe Mask Register (n = 0)"]
+    pub hstpipimr0_isopipes: HSTPIPIMR0_ISOPIPES,
+    #[doc = "0x5c0 - Host Pipe Mask Register (n = 0)"]
+    pub hstpipimr0_intpipes: HSTPIPIMR0_INTPIPES,
+    #[doc = "0x5c0 - Host Pipe Mask Register (n = 0)"]
+    pub hstpipimr: [HSTPIPIMR; 10],
+}
+#[doc = "Host Pipe Enable Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPIER_UNION {
+    #[doc = "0x5f0 - Host Pipe Enable Register (n = 0)"]
+    pub hstpipier0_isopipes: HSTPIPIER0_ISOPIPES,
+    #[doc = "0x5f0 - Host Pipe Enable Register (n = 0)"]
+    pub hstpipier0_intpipes: HSTPIPIER0_INTPIPES,
+    #[doc = "0x5f0 - Host Pipe Enable Register (n = 0)"]
+    pub hstpipier: [HSTPIPIER; 10],
+}
+#[doc = "Host Pipe Disable Register (n = 0)"]
+#[repr(C)]
+pub union HSTPIPIDR_UNION {
+    #[doc = "0x620 - Host Pipe Disable Register (n = 0)"]
+    pub hstpipidr0_isopipes: HSTPIPIDR0_ISOPIPES,
+    #[doc = "0x620 - Host Pipe Disable Register (n = 0)"]
+    pub hstpipidr0_intpipes: HSTPIPIDR0_INTPIPES,
+    #[doc = "0x620 - Host Pipe Disable Register (n = 0)"]
+    pub hstpipidr: [HSTPIPIDR; 10],
 }
 #[doc = "Device General Control Register"]
 pub struct DEVCTRL {
@@ -285,36 +401,72 @@ pub struct DEVEPTISR {
 }
 #[doc = "Device Endpoint Status Register (n = 0)"]
 pub mod deveptisr;
+#[doc = "Device Endpoint Status Register (n = 0)"]
+pub struct DEVEPTISR0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Status Register (n = 0)"]
+pub mod deveptisr0_isoenpt;
 #[doc = "Device Endpoint Clear Register (n = 0)"]
 pub struct DEVEPTICR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Device Endpoint Clear Register (n = 0)"]
 pub mod devepticr;
+#[doc = "Device Endpoint Clear Register (n = 0)"]
+pub struct DEVEPTICR0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Clear Register (n = 0)"]
+pub mod devepticr0_isoenpt;
 #[doc = "Device Endpoint Set Register (n = 0)"]
 pub struct DEVEPTIFR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Device Endpoint Set Register (n = 0)"]
 pub mod deveptifr;
+#[doc = "Device Endpoint Set Register (n = 0)"]
+pub struct DEVEPTIFR0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Set Register (n = 0)"]
+pub mod deveptifr0_isoenpt;
 #[doc = "Device Endpoint Mask Register (n = 0)"]
 pub struct DEVEPTIMR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Device Endpoint Mask Register (n = 0)"]
 pub mod deveptimr;
+#[doc = "Device Endpoint Mask Register (n = 0)"]
+pub struct DEVEPTIMR0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Mask Register (n = 0)"]
+pub mod deveptimr0_isoenpt;
 #[doc = "Device Endpoint Enable Register (n = 0)"]
 pub struct DEVEPTIER {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Device Endpoint Enable Register (n = 0)"]
 pub mod deveptier;
+#[doc = "Device Endpoint Enable Register (n = 0)"]
+pub struct DEVEPTIER0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Enable Register (n = 0)"]
+pub mod deveptier0_isoenpt;
 #[doc = "Device Endpoint Disable Register (n = 0)"]
 pub struct DEVEPTIDR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Device Endpoint Disable Register (n = 0)"]
 pub mod deveptidr;
+#[doc = "Device Endpoint Disable Register (n = 0)"]
+pub struct DEVEPTIDR0_ISOENPT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Device Endpoint Disable Register (n = 0)"]
+pub mod deveptidr0_isoenpt;
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 1)"]
 pub struct DEVDMANXTDSC1 {
     register: ::vcell::VolatileCell<u32>,
@@ -561,42 +713,120 @@ pub struct HSTPIPCFG {
 }
 #[doc = "Host Pipe Configuration Register (n = 0)"]
 pub mod hstpipcfg;
+#[doc = "Host Pipe Configuration Register (n = 0)"]
+pub struct HSTPIPCFG0_HSBOHSCP {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Configuration Register (n = 0)"]
+pub mod hstpipcfg0_hsbohscp;
 #[doc = "Host Pipe Status Register (n = 0)"]
 pub struct HSTPIPISR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Status Register (n = 0)"]
 pub mod hstpipisr;
+#[doc = "Host Pipe Status Register (n = 0)"]
+pub struct HSTPIPISR0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Status Register (n = 0)"]
+pub mod hstpipisr0_intpipes;
+#[doc = "Host Pipe Status Register (n = 0)"]
+pub struct HSTPIPISR0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Status Register (n = 0)"]
+pub mod hstpipisr0_isopipes;
 #[doc = "Host Pipe Clear Register (n = 0)"]
 pub struct HSTPIPICR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Clear Register (n = 0)"]
 pub mod hstpipicr;
+#[doc = "Host Pipe Clear Register (n = 0)"]
+pub struct HSTPIPICR0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Clear Register (n = 0)"]
+pub mod hstpipicr0_intpipes;
+#[doc = "Host Pipe Clear Register (n = 0)"]
+pub struct HSTPIPICR0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Clear Register (n = 0)"]
+pub mod hstpipicr0_isopipes;
 #[doc = "Host Pipe Set Register (n = 0)"]
 pub struct HSTPIPIFR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Set Register (n = 0)"]
 pub mod hstpipifr;
+#[doc = "Host Pipe Set Register (n = 0)"]
+pub struct HSTPIPIFR0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Set Register (n = 0)"]
+pub mod hstpipifr0_intpipes;
+#[doc = "Host Pipe Set Register (n = 0)"]
+pub struct HSTPIPIFR0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Set Register (n = 0)"]
+pub mod hstpipifr0_isopipes;
 #[doc = "Host Pipe Mask Register (n = 0)"]
 pub struct HSTPIPIMR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Mask Register (n = 0)"]
 pub mod hstpipimr;
+#[doc = "Host Pipe Mask Register (n = 0)"]
+pub struct HSTPIPIMR0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Mask Register (n = 0)"]
+pub mod hstpipimr0_intpipes;
+#[doc = "Host Pipe Mask Register (n = 0)"]
+pub struct HSTPIPIMR0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Mask Register (n = 0)"]
+pub mod hstpipimr0_isopipes;
 #[doc = "Host Pipe Enable Register (n = 0)"]
 pub struct HSTPIPIER {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Enable Register (n = 0)"]
 pub mod hstpipier;
+#[doc = "Host Pipe Enable Register (n = 0)"]
+pub struct HSTPIPIER0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Enable Register (n = 0)"]
+pub mod hstpipier0_intpipes;
+#[doc = "Host Pipe Enable Register (n = 0)"]
+pub struct HSTPIPIER0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Enable Register (n = 0)"]
+pub mod hstpipier0_isopipes;
 #[doc = "Host Pipe Disable Register (n = 0)"]
 pub struct HSTPIPIDR {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "Host Pipe Disable Register (n = 0)"]
 pub mod hstpipidr;
+#[doc = "Host Pipe Disable Register (n = 0)"]
+pub struct HSTPIPIDR0_INTPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Disable Register (n = 0)"]
+pub mod hstpipidr0_intpipes;
+#[doc = "Host Pipe Disable Register (n = 0)"]
+pub struct HSTPIPIDR0_ISOPIPES {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Host Pipe Disable Register (n = 0)"]
+pub mod hstpipidr0_isopipes;
 #[doc = "Host Pipe IN Request Register (n = 0)"]
 pub struct HSTPIPINRQ {
     register: ::vcell::VolatileCell<u32>,

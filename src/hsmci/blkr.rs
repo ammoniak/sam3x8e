@@ -42,54 +42,15 @@ impl super::BLKR {
         self.write(|w| w)
     }
 }
-#[doc = "Possible values of the field `BCNT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BCNTR {
-    #[doc = "MMC/SDCARD Multiple BlockFrom 1 to 65635: Value 0 corresponds to an infinite block transfer."]
-    MULTIPLE,
-    #[doc = "SDIO ByteFrom 1 to 512 bytes: Value 0 corresponds to a 512-byte transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    BYTE,
-    #[doc = "SDIO BlockFrom 1 to 511 blocks: Value 0 corresponds to an infinite block transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    BLOCK,
-    #[doc = r" Reserved"]
-    _Reserved(u16),
+#[doc = r" Value of the field"]
+pub struct BCNTR {
+    bits: u16,
 }
 impl BCNTR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u16 {
-        match *self {
-            BCNTR::MULTIPLE => 0,
-            BCNTR::BYTE => 4,
-            BCNTR::BLOCK => 5,
-            BCNTR::_Reserved(bits) => bits,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u16) -> BCNTR {
-        match value {
-            0 => BCNTR::MULTIPLE,
-            4 => BCNTR::BYTE,
-            5 => BCNTR::BLOCK,
-            i => BCNTR::_Reserved(i),
-        }
-    }
-    #[doc = "Checks if the value of the field is `MULTIPLE`"]
-    #[inline]
-    pub fn is_multiple(&self) -> bool {
-        *self == BCNTR::MULTIPLE
-    }
-    #[doc = "Checks if the value of the field is `BYTE`"]
-    #[inline]
-    pub fn is_byte(&self) -> bool {
-        *self == BCNTR::BYTE
-    }
-    #[doc = "Checks if the value of the field is `BLOCK`"]
-    #[inline]
-    pub fn is_block(&self) -> bool {
-        *self == BCNTR::BLOCK
+        self.bits
     }
 }
 #[doc = r" Value of the field"]
@@ -103,52 +64,11 @@ impl BLKLENR {
         self.bits
     }
 }
-#[doc = "Values that can be written to the field `BCNT`"]
-pub enum BCNTW {
-    #[doc = "MMC/SDCARD Multiple BlockFrom 1 to 65635: Value 0 corresponds to an infinite block transfer."]
-    MULTIPLE,
-    #[doc = "SDIO ByteFrom 1 to 512 bytes: Value 0 corresponds to a 512-byte transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    BYTE,
-    #[doc = "SDIO BlockFrom 1 to 511 blocks: Value 0 corresponds to an infinite block transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    BLOCK,
-}
-impl BCNTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u16 {
-        match *self {
-            BCNTW::MULTIPLE => 0,
-            BCNTW::BYTE => 4,
-            BCNTW::BLOCK => 5,
-        }
-    }
-}
 #[doc = r" Proxy"]
 pub struct _BCNTW<'a> {
     w: &'a mut W,
 }
 impl<'a> _BCNTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BCNTW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "MMC/SDCARD Multiple BlockFrom 1 to 65635: Value 0 corresponds to an infinite block transfer."]
-    #[inline]
-    pub fn multiple(self) -> &'a mut W {
-        self.variant(BCNTW::MULTIPLE)
-    }
-    #[doc = "SDIO ByteFrom 1 to 512 bytes: Value 0 corresponds to a 512-byte transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    #[inline]
-    pub fn byte(self) -> &'a mut W {
-        self.variant(BCNTW::BYTE)
-    }
-    #[doc = "SDIO BlockFrom 1 to 511 blocks: Value 0 corresponds to an infinite block transfer.Values from 0x200 to 0xFFFF are forbidden."]
-    #[inline]
-    pub fn block(self) -> &'a mut W {
-        self.variant(BCNTW::BLOCK)
-    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
@@ -183,11 +103,12 @@ impl R {
     #[doc = "Bits 0:15 - MMC/SDIO Block Count - SDIO Byte Count"]
     #[inline]
     pub fn bcnt(&self) -> BCNTR {
-        BCNTR::_from({
+        let bits = {
             const MASK: u16 = 65535;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u16
-        })
+        };
+        BCNTR { bits }
     }
     #[doc = "Bits 16:31 - Data Block Length"]
     #[inline]

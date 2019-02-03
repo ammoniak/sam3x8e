@@ -17,10 +17,10 @@ pub struct RegisterBlock {
     pub idr: IDR,
     #[doc = "0x1c - Interrupt Mask Register"]
     pub imr: IMR,
-    _reserved0: [u8; 16usize],
+    _reserved8: [u8; 16usize],
     #[doc = "0x30 - Chip Select Register"]
     pub csr: [CSR; 4],
-    _reserved1: [u8; 164usize],
+    _reserved9: [u8; 164usize],
     #[doc = "0xe4 - Write Protection Control Register"]
     pub wpmr: WPMR,
     #[doc = "0xe8 - Write Protection Status Register"]

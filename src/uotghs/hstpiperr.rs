@@ -26,6 +26,22 @@ impl super::HSTPIPERR {
             bits: self.register.get(),
         }
     }
+    #[doc = r" Writes to the register"]
+    #[inline]
+    pub fn write<F>(&self, f: F)
+    where
+        F: FnOnce(&mut W) -> &mut W,
+    {
+        let bits = self.register.get();
+        let mut w = W { bits: bits };
+        f(&mut w);
+        self.register.set(w.bits);
+    }
+    #[doc = r" Writes the reset value to the register"]
+    #[inline]
+    pub fn reset(&self) {
+        self.write(|w| w)
+    }
 }
 #[doc = r" Value of the field"]
 pub struct DATATGLR {
@@ -341,12 +357,6 @@ impl R {
     }
 }
 impl W {
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Data Toggle Error"]
     #[inline]
     pub fn datatgl(&mut self) -> _DATATGLW {
