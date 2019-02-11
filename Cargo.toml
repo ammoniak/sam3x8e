@@ -1,13 +1,13 @@
 [package]
 name = "sam3x8e"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Raphael Theiler <peanut@esheep.ch>"]
 test = false
 bench = false
 edition = "2018"
 repository = "https://github.com/ammoniak/sam3x8e"
 license = "MIT/Apache-2.0"
-keywords = ["sam3x", "sam3x8e", "no_std", "embedded"]
+keywords = ["sam3x", "sam3x8e", "no_std", "embedded", "svd2rust"]
 readme = "README.md"
 description =  "Device support crate for sam3x8e devices"
 
