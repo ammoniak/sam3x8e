@@ -1,309 +1,172 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MR"]
+pub type R = crate::R<u32, super::MR>;
+#[doc = "Writer for register MR"]
+pub type W = crate::W<u32, super::MR>;
+#[doc = "Register MR `reset()`'s with value 0x01"]
+impl crate::ResetValue for super::MR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x01
     }
 }
-#[doc = r" Value of the field"]
-pub struct URSTENR {
-    bits: bool,
+#[doc = "Reader of field `URSTEN`"]
+pub type URSTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `URSTEN`"]
+pub struct URSTEN_W<'a> {
+    w: &'a mut W,
 }
-impl URSTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> URSTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct URSTIENR {
-    bits: bool,
-}
-impl URSTIENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct ERSTLR {
-    bits: u8,
+#[doc = "Reader of field `URSTIEN`"]
+pub type URSTIEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `URSTIEN`"]
+pub struct URSTIEN_W<'a> {
+    w: &'a mut W,
 }
-impl ERSTLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> URSTIEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
     }
 }
-#[doc = "Possible values of the field `KEY`"]
+#[doc = "Reader of field `ERSTL`"]
+pub type ERSTL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ERSTL`"]
+pub struct ERSTL_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ERSTL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
+        self.w
+    }
+}
+#[doc = "Write Access Password\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYR {
-    #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
+pub enum KEY_A {
+    #[doc = "165: Writing any other value in this field aborts the write operation.Always reads as 0."]
     PASSWD,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl KEYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            KEYR::PASSWD => 165,
-            KEYR::_Reserved(bits) => bits,
+impl From<KEY_A> for u8 {
+    #[inline(always)]
+    fn from(variant: KEY_A) -> Self {
+        match variant {
+            KEY_A::PASSWD => 165,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> KEYR {
-        match value {
-            165 => KEYR::PASSWD,
-            i => KEYR::_Reserved(i),
+}
+#[doc = "Reader of field `KEY`"]
+pub type KEY_R = crate::R<u8, KEY_A>;
+impl KEY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, KEY_A> {
+        use crate::Variant::*;
+        match self.bits {
+            165 => Val(KEY_A::PASSWD),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `PASSWD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_passwd(&self) -> bool {
-        *self == KEYR::PASSWD
+        *self == KEY_A::PASSWD
     }
 }
-#[doc = r" Proxy"]
-pub struct _URSTENW<'a> {
+#[doc = "Write proxy for field `KEY`"]
+pub struct KEY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _URSTENW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _URSTIENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _URSTIENW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ERSTLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ERSTLW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `KEY`"]
-pub enum KEYW {
-    #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
-    PASSWD,
-}
-impl KEYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            KEYW::PASSWD => 165,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _KEYW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _KEYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: KEYW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> KEY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: KEY_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Writing any other value in this field aborts the write operation.Always reads as 0."]
-    #[inline]
+    #[inline(always)]
     pub fn passwd(self) -> &'a mut W {
-        self.variant(KEYW::PASSWD)
+        self.variant(KEY_A::PASSWD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - User Reset Enable"]
-    #[inline]
-    pub fn ursten(&self) -> URSTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        URSTENR { bits }
+    #[inline(always)]
+    pub fn ursten(&self) -> URSTEN_R {
+        URSTEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 4 - User Reset Interrupt Enable"]
-    #[inline]
-    pub fn urstien(&self) -> URSTIENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        URSTIENR { bits }
+    #[inline(always)]
+    pub fn urstien(&self) -> URSTIEN_R {
+        URSTIEN_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bits 8:11 - External Reset Length"]
-    #[inline]
-    pub fn erstl(&self) -> ERSTLR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ERSTLR { bits }
+    #[inline(always)]
+    pub fn erstl(&self) -> ERSTL_R {
+        ERSTL_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 24:31 - Write Access Password"]
-    #[inline]
-    pub fn key(&self) -> KEYR {
-        KEYR::_from({
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn key(&self) -> KEY_R {
+        KEY_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 1 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - User Reset Enable"]
-    #[inline]
-    pub fn ursten(&mut self) -> _URSTENW {
-        _URSTENW { w: self }
+    #[inline(always)]
+    pub fn ursten(&mut self) -> URSTEN_W {
+        URSTEN_W { w: self }
     }
     #[doc = "Bit 4 - User Reset Interrupt Enable"]
-    #[inline]
-    pub fn urstien(&mut self) -> _URSTIENW {
-        _URSTIENW { w: self }
+    #[inline(always)]
+    pub fn urstien(&mut self) -> URSTIEN_W {
+        URSTIEN_W { w: self }
     }
     #[doc = "Bits 8:11 - External Reset Length"]
-    #[inline]
-    pub fn erstl(&mut self) -> _ERSTLW {
-        _ERSTLW { w: self }
+    #[inline(always)]
+    pub fn erstl(&mut self) -> ERSTL_W {
+        ERSTL_W { w: self }
     }
     #[doc = "Bits 24:31 - Write Access Password"]
-    #[inline]
-    pub fn key(&mut self) -> _KEYW {
-        _KEYW { w: self }
+    #[inline(always)]
+    pub fn key(&mut self) -> KEY_W {
+        KEY_W { w: self }
     }
 }

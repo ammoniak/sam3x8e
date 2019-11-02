@@ -1,47 +1,31 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::IDR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DATRDYW<'a> {
+#[doc = "Writer for register IDR"]
+pub type W = crate::W<u32, super::IDR>;
+#[doc = "Write proxy for field `DATRDY`"]
+pub struct DATRDY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DATRDYW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DATRDY_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Data Ready Interrupt Disable"]
-    #[inline]
-    pub fn datrdy(&mut self) -> _DATRDYW {
-        _DATRDYW { w: self }
+    #[inline(always)]
+    pub fn datrdy(&mut self) -> DATRDY_W {
+        DATRDY_W { w: self }
     }
 }

@@ -1,62 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ECR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RECR {
-    bits: u8,
-}
-impl RECR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TECR {
-    bits: u8,
-}
-impl TECR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register ECR"]
+pub type R = crate::R<u32, super::ECR>;
+#[doc = "Reader of field `REC`"]
+pub type REC_R = crate::R<u8, u8>;
+#[doc = "Reader of field `TEC`"]
+pub type TEC_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Receive Error Counter"]
-    #[inline]
-    pub fn rec(&self) -> RECR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        RECR { bits }
+    #[inline(always)]
+    pub fn rec(&self) -> REC_R {
+        REC_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - Transmit Error Counter"]
-    #[inline]
-    pub fn tec(&self) -> TECR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TECR { bits }
+    #[inline(always)]
+    pub fn tec(&self) -> TEC_R {
+        TEC_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }

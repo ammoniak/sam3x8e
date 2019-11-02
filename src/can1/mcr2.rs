@@ -1,123 +1,102 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MCR2 {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MDLCW<'a> {
+#[doc = "Writer for register MCR2"]
+pub type W = crate::W<u32, super::MCR2>;
+#[doc = "Write proxy for field `MDLC`"]
+pub struct MDLC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MDLCW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> MDLC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MRTRW<'a> {
+#[doc = "Write proxy for field `MRTR`"]
+pub struct MRTR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MRTRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MRTR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MACRW<'a> {
+#[doc = "Write proxy for field `MACR`"]
+pub struct MACR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MACRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MACR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MTCRW<'a> {
+#[doc = "Write proxy for field `MTCR`"]
+pub struct MTCR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MTCRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MTCR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 16:19 - Mailbox Data Length Code"]
-    #[inline]
-    pub fn mdlc(&mut self) -> _MDLCW {
-        _MDLCW { w: self }
+    #[inline(always)]
+    pub fn mdlc(&mut self) -> MDLC_W {
+        MDLC_W { w: self }
     }
     #[doc = "Bit 20 - Mailbox Remote Transmission Request"]
-    #[inline]
-    pub fn mrtr(&mut self) -> _MRTRW {
-        _MRTRW { w: self }
+    #[inline(always)]
+    pub fn mrtr(&mut self) -> MRTR_W {
+        MRTR_W { w: self }
     }
     #[doc = "Bit 22 - Abort Request for Mailbox x"]
-    #[inline]
-    pub fn macr(&mut self) -> _MACRW {
-        _MACRW { w: self }
+    #[inline(always)]
+    pub fn macr(&mut self) -> MACR_W {
+        MACR_W { w: self }
     }
     #[doc = "Bit 23 - Mailbox Transfer Command"]
-    #[inline]
-    pub fn mtcr(&mut self) -> _MTCRW {
-        _MTCRW { w: self }
+    #[inline(always)]
+    pub fn mtcr(&mut self) -> MTCR_W {
+        MTCR_W { w: self }
     }
 }

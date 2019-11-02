@@ -1,299 +1,67 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::IMR_SPI_MODE {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXRDYR {
-    bits: bool,
-}
-impl RXRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXRDYR {
-    bits: bool,
-}
-impl TXRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ENDRXR {
-    bits: bool,
-}
-impl ENDRXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ENDTXR {
-    bits: bool,
-}
-impl ENDTXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVRER {
-    bits: bool,
-}
-impl OVRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXEMPTYR {
-    bits: bool,
-}
-impl TXEMPTYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct UNRER {
-    bits: bool,
-}
-impl UNRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXBUFER {
-    bits: bool,
-}
-impl TXBUFER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXBUFFR {
-    bits: bool,
-}
-impl RXBUFFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register IMR_SPI_MODE"]
+pub type R = crate::R<u32, super::IMR_SPI_MODE>;
+#[doc = "Reader of field `RXRDY`"]
+pub type RXRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXRDY`"]
+pub type TXRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ENDRX`"]
+pub type ENDRX_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ENDTX`"]
+pub type ENDTX_R = crate::R<bool, bool>;
+#[doc = "Reader of field `OVRE`"]
+pub type OVRE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXEMPTY`"]
+pub type TXEMPTY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `UNRE`"]
+pub type UNRE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXBUFE`"]
+pub type TXBUFE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RXBUFF`"]
+pub type RXBUFF_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - RXRDY Interrupt Mask"]
-    #[inline]
-    pub fn rxrdy(&self) -> RXRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXRDYR { bits }
+    #[inline(always)]
+    pub fn rxrdy(&self) -> RXRDY_R {
+        RXRDY_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - TXRDY Interrupt Mask"]
-    #[inline]
-    pub fn txrdy(&self) -> TXRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXRDYR { bits }
+    #[inline(always)]
+    pub fn txrdy(&self) -> TXRDY_R {
+        TXRDY_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 3"]
-    #[inline]
-    pub fn endrx(&self) -> ENDRXR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ENDRXR { bits }
+    #[inline(always)]
+    pub fn endrx(&self) -> ENDRX_R {
+        ENDRX_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4"]
-    #[inline]
-    pub fn endtx(&self) -> ENDTXR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ENDTXR { bits }
+    #[inline(always)]
+    pub fn endtx(&self) -> ENDTX_R {
+        ENDTX_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Overrun Error Interrupt Mask"]
-    #[inline]
-    pub fn ovre(&self) -> OVRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OVRER { bits }
+    #[inline(always)]
+    pub fn ovre(&self) -> OVRE_R {
+        OVRE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 9 - TXEMPTY Interrupt Mask"]
-    #[inline]
-    pub fn txempty(&self) -> TXEMPTYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXEMPTYR { bits }
+    #[inline(always)]
+    pub fn txempty(&self) -> TXEMPTY_R {
+        TXEMPTY_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - SPI Underrun Error Interrupt Mask"]
-    #[inline]
-    pub fn unre(&self) -> UNRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNRER { bits }
+    #[inline(always)]
+    pub fn unre(&self) -> UNRE_R {
+        UNRE_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11"]
-    #[inline]
-    pub fn txbufe(&self) -> TXBUFER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXBUFER { bits }
+    #[inline(always)]
+    pub fn txbufe(&self) -> TXBUFE_R {
+        TXBUFE_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12"]
-    #[inline]
-    pub fn rxbuff(&self) -> RXBUFFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXBUFFR { bits }
+    #[inline(always)]
+    pub fn rxbuff(&self) -> RXBUFF_R {
+        RXBUFF_R::new(((self.bits >> 12) & 0x01) != 0)
     }
 }

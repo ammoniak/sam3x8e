@@ -1,47 +1,31 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PMC_FOCR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FOCLRW<'a> {
+#[doc = "Writer for register PMC_FOCR"]
+pub type W = crate::W<u32, super::PMC_FOCR>;
+#[doc = "Write proxy for field `FOCLR`"]
+pub struct FOCLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FOCLRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FOCLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Fault Output Clear"]
-    #[inline]
-    pub fn foclr(&mut self) -> _FOCLRW {
-        _FOCLRW { w: self }
+    #[inline(always)]
+    pub fn foclr(&mut self) -> FOCLR_W {
+        FOCLR_W { w: self }
     }
 }

@@ -1,343 +1,200 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PMC_PCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PMC_PCR"]
+pub type R = crate::R<u32, super::PMC_PCR>;
+#[doc = "Writer for register PMC_PCR"]
+pub type W = crate::W<u32, super::PMC_PCR>;
+#[doc = "Register PMC_PCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::PMC_PCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct PIDR {
-    bits: u8,
+#[doc = "Reader of field `PID`"]
+pub type PID_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PID`"]
+pub struct PID_W<'a> {
+    w: &'a mut W,
 }
-impl PIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> PID_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x3f) | ((value as u32) & 0x3f);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct CMDR {
-    bits: bool,
+#[doc = "Reader of field `CMD`"]
+pub type CMD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CMD`"]
+pub struct CMD_W<'a> {
+    w: &'a mut W,
 }
-impl CMDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> CMD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w
     }
 }
-#[doc = "Possible values of the field `DIV`"]
+#[doc = "Divisor Value\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DIVR {
-    #[doc = "Peripheral clock is MCK"]
+pub enum DIV_A {
+    #[doc = "0: Peripheral clock is MCK"]
     PERIPH_DIV_MCK,
-    #[doc = "Peripheral clock is MCK/2"]
+    #[doc = "1: Peripheral clock is MCK/2"]
     PERIPH_DIV2_MCK,
-    #[doc = "Peripheral clock is MCK/4"]
+    #[doc = "2: Peripheral clock is MCK/4"]
     PERIPH_DIV4_MCK,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl DIVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            DIVR::PERIPH_DIV_MCK => 0,
-            DIVR::PERIPH_DIV2_MCK => 1,
-            DIVR::PERIPH_DIV4_MCK => 2,
-            DIVR::_Reserved(bits) => bits,
+impl From<DIV_A> for u8 {
+    #[inline(always)]
+    fn from(variant: DIV_A) -> Self {
+        match variant {
+            DIV_A::PERIPH_DIV_MCK => 0,
+            DIV_A::PERIPH_DIV2_MCK => 1,
+            DIV_A::PERIPH_DIV4_MCK => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> DIVR {
-        match value {
-            0 => DIVR::PERIPH_DIV_MCK,
-            1 => DIVR::PERIPH_DIV2_MCK,
-            2 => DIVR::PERIPH_DIV4_MCK,
-            i => DIVR::_Reserved(i),
+}
+#[doc = "Reader of field `DIV`"]
+pub type DIV_R = crate::R<u8, DIV_A>;
+impl DIV_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, DIV_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(DIV_A::PERIPH_DIV_MCK),
+            1 => Val(DIV_A::PERIPH_DIV2_MCK),
+            2 => Val(DIV_A::PERIPH_DIV4_MCK),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `PERIPH_DIV_MCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_periph_div_mck(&self) -> bool {
-        *self == DIVR::PERIPH_DIV_MCK
+        *self == DIV_A::PERIPH_DIV_MCK
     }
     #[doc = "Checks if the value of the field is `PERIPH_DIV2_MCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_periph_div2_mck(&self) -> bool {
-        *self == DIVR::PERIPH_DIV2_MCK
+        *self == DIV_A::PERIPH_DIV2_MCK
     }
     #[doc = "Checks if the value of the field is `PERIPH_DIV4_MCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_periph_div4_mck(&self) -> bool {
-        *self == DIVR::PERIPH_DIV4_MCK
+        *self == DIV_A::PERIPH_DIV4_MCK
     }
 }
-#[doc = r" Value of the field"]
-pub struct ENR {
-    bits: bool,
-}
-impl ENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PIDW<'a> {
+#[doc = "Write proxy for field `DIV`"]
+pub struct DIV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PIDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CMDW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CMDW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `DIV`"]
-pub enum DIVW {
-    #[doc = "Peripheral clock is MCK"]
-    PERIPH_DIV_MCK,
-    #[doc = "Peripheral clock is MCK/2"]
-    PERIPH_DIV2_MCK,
-    #[doc = "Peripheral clock is MCK/4"]
-    PERIPH_DIV4_MCK,
-}
-impl DIVW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            DIVW::PERIPH_DIV_MCK => 0,
-            DIVW::PERIPH_DIV2_MCK => 1,
-            DIVW::PERIPH_DIV4_MCK => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DIVW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DIVW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DIVW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> DIV_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DIV_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Peripheral clock is MCK"]
-    #[inline]
+    #[inline(always)]
     pub fn periph_div_mck(self) -> &'a mut W {
-        self.variant(DIVW::PERIPH_DIV_MCK)
+        self.variant(DIV_A::PERIPH_DIV_MCK)
     }
     #[doc = "Peripheral clock is MCK/2"]
-    #[inline]
+    #[inline(always)]
     pub fn periph_div2_mck(self) -> &'a mut W {
-        self.variant(DIVW::PERIPH_DIV2_MCK)
+        self.variant(DIV_A::PERIPH_DIV2_MCK)
     }
     #[doc = "Peripheral clock is MCK/4"]
-    #[inline]
+    #[inline(always)]
     pub fn periph_div4_mck(self) -> &'a mut W {
-        self.variant(DIVW::PERIPH_DIV4_MCK)
+        self.variant(DIV_A::PERIPH_DIV4_MCK)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ENW<'a> {
+#[doc = "Reader of field `EN`"]
+pub type EN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EN`"]
+pub struct EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:5 - Peripheral ID"]
-    #[inline]
-    pub fn pid(&self) -> PIDR {
-        let bits = {
-            const MASK: u8 = 63;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PIDR { bits }
+    #[inline(always)]
+    pub fn pid(&self) -> PID_R {
+        PID_R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bit 12 - Command"]
-    #[inline]
-    pub fn cmd(&self) -> CMDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CMDR { bits }
+    #[inline(always)]
+    pub fn cmd(&self) -> CMD_R {
+        CMD_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bits 16:17 - Divisor Value"]
-    #[inline]
-    pub fn div(&self) -> DIVR {
-        DIVR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn div(&self) -> DIV_R {
+        DIV_R::new(((self.bits >> 16) & 0x03) as u8)
     }
     #[doc = "Bit 28 - Enable"]
-    #[inline]
-    pub fn en(&self) -> ENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ENR { bits }
+    #[inline(always)]
+    pub fn en(&self) -> EN_R {
+        EN_R::new(((self.bits >> 28) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:5 - Peripheral ID"]
-    #[inline]
-    pub fn pid(&mut self) -> _PIDW {
-        _PIDW { w: self }
+    #[inline(always)]
+    pub fn pid(&mut self) -> PID_W {
+        PID_W { w: self }
     }
     #[doc = "Bit 12 - Command"]
-    #[inline]
-    pub fn cmd(&mut self) -> _CMDW {
-        _CMDW { w: self }
+    #[inline(always)]
+    pub fn cmd(&mut self) -> CMD_W {
+        CMD_W { w: self }
     }
     #[doc = "Bits 16:17 - Divisor Value"]
-    #[inline]
-    pub fn div(&mut self) -> _DIVW {
-        _DIVW { w: self }
+    #[inline(always)]
+    pub fn div(&mut self) -> DIV_W {
+        DIV_W { w: self }
     }
     #[doc = "Bit 28 - Enable"]
-    #[inline]
-    pub fn en(&mut self) -> _ENW {
-        _ENW { w: self }
+    #[inline(always)]
+    pub fn en(&mut self) -> EN_W {
+        EN_W { w: self }
     }
 }

@@ -1,187 +1,88 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CWGR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CWGR"]
+pub type R = crate::R<u32, super::CWGR>;
+#[doc = "Writer for register CWGR"]
+pub type W = crate::W<u32, super::CWGR>;
+#[doc = "Register CWGR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CWGR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct CLDIVR {
-    bits: u8,
-}
-impl CLDIVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHDIVR {
-    bits: u8,
-}
-impl CHDIVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CKDIVR {
-    bits: u8,
-}
-impl CKDIVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLDIVW<'a> {
+#[doc = "Reader of field `CLDIV`"]
+pub type CLDIV_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CLDIV`"]
+pub struct CLDIV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLDIVW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CLDIV_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CHDIVW<'a> {
+#[doc = "Reader of field `CHDIV`"]
+pub type CHDIV_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CHDIV`"]
+pub struct CHDIV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CHDIVW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CHDIV_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CKDIVW<'a> {
+#[doc = "Reader of field `CKDIV`"]
+pub type CKDIV_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CKDIV`"]
+pub struct CKDIV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CKDIVW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CKDIV_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 16)) | (((value as u32) & 0x07) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Clock Low Divider"]
-    #[inline]
-    pub fn cldiv(&self) -> CLDIVR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CLDIVR { bits }
+    #[inline(always)]
+    pub fn cldiv(&self) -> CLDIV_R {
+        CLDIV_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Clock High Divider"]
-    #[inline]
-    pub fn chdiv(&self) -> CHDIVR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CHDIVR { bits }
+    #[inline(always)]
+    pub fn chdiv(&self) -> CHDIV_R {
+        CHDIV_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:18 - Clock Divider"]
-    #[inline]
-    pub fn ckdiv(&self) -> CKDIVR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CKDIVR { bits }
+    #[inline(always)]
+    pub fn ckdiv(&self) -> CKDIV_R {
+        CKDIV_R::new(((self.bits >> 16) & 0x07) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - Clock Low Divider"]
-    #[inline]
-    pub fn cldiv(&mut self) -> _CLDIVW {
-        _CLDIVW { w: self }
+    #[inline(always)]
+    pub fn cldiv(&mut self) -> CLDIV_W {
+        CLDIV_W { w: self }
     }
     #[doc = "Bits 8:15 - Clock High Divider"]
-    #[inline]
-    pub fn chdiv(&mut self) -> _CHDIVW {
-        _CHDIVW { w: self }
+    #[inline(always)]
+    pub fn chdiv(&mut self) -> CHDIV_W {
+        CHDIV_W { w: self }
     }
     #[doc = "Bits 16:18 - Clock Divider"]
-    #[inline]
-    pub fn ckdiv(&mut self) -> _CKDIVW {
-        _CKDIVW { w: self }
+    #[inline(always)]
+    pub fn ckdiv(&mut self) -> CKDIV_W {
+        CKDIV_W { w: self }
     }
 }

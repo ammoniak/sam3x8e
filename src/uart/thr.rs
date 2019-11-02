@@ -1,39 +1,21 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::THR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TXCHRW<'a> {
+#[doc = "Writer for register THR"]
+pub type W = crate::W<u32, super::THR>;
+#[doc = "Write proxy for field `TXCHR`"]
+pub struct TXCHR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXCHRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> TXCHR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:7 - Character to be Transmitted"]
-    #[inline]
-    pub fn txchr(&mut self) -> _TXCHRW {
-        _TXCHRW { w: self }
+    #[inline(always)]
+    pub fn txchr(&mut self) -> TXCHR_W {
+        TXCHR_W { w: self }
     }
 }

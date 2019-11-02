@@ -1,95 +1,32 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MATRIX_MCFG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ULBTR {
-    bits: u8,
-}
-impl ULBTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ULBTW<'a> {
+#[doc = "Reader of register MATRIX_MCFG[%s]"]
+pub type R = crate::R<u32, super::MATRIX_MCFG>;
+#[doc = "Writer for register MATRIX_MCFG[%s]"]
+pub type W = crate::W<u32, super::MATRIX_MCFG>;
+#[doc = "Reader of field `ULBT`"]
+pub type ULBT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ULBT`"]
+pub struct ULBT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ULBTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ULBT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:2 - Undefined Length Burst Type"]
-    #[inline]
-    pub fn ulbt(&self) -> ULBTR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ULBTR { bits }
+    #[inline(always)]
+    pub fn ulbt(&self) -> ULBT_R {
+        ULBT_R::new((self.bits & 0x07) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:2 - Undefined Length Burst Type"]
-    #[inline]
-    pub fn ulbt(&mut self) -> _ULBTW {
-        _ULBTW { w: self }
+    #[inline(always)]
+    pub fn ulbt(&mut self) -> ULBT_W {
+        ULBT_W { w: self }
     }
 }

@@ -1,713 +1,419 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DEVCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DEVCTRL"]
+pub type R = crate::R<u32, super::DEVCTRL>;
+#[doc = "Writer for register DEVCTRL"]
+pub type W = crate::W<u32, super::DEVCTRL>;
+#[doc = "Register DEVCTRL `reset()`'s with value 0x0100"]
+impl crate::ResetValue for super::DEVCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0100
     }
 }
-#[doc = r" Value of the field"]
-pub struct UADDR {
-    bits: u8,
+#[doc = "Reader of field `UADD`"]
+pub type UADD_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `UADD`"]
+pub struct UADD_W<'a> {
+    w: &'a mut W,
 }
-impl UADDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADDENR {
-    bits: bool,
-}
-impl ADDENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+impl<'a> UADD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x7f) | ((value as u32) & 0x7f);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct DETACHR {
-    bits: bool,
+#[doc = "Reader of field `ADDEN`"]
+pub type ADDEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ADDEN`"]
+pub struct ADDEN_W<'a> {
+    w: &'a mut W,
 }
-impl DETACHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> ADDEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RMWKUPR {
-    bits: bool,
-}
-impl RMWKUPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
     }
 }
-#[doc = "Possible values of the field `SPDCONF`"]
+#[doc = "Reader of field `DETACH`"]
+pub type DETACH_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DETACH`"]
+pub struct DETACH_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> DETACH_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w
+    }
+}
+#[doc = "Reader of field `RMWKUP`"]
+pub type RMWKUP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RMWKUP`"]
+pub struct RMWKUP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> RMWKUP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w
+    }
+}
+#[doc = "Mode Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPDCONFR {
-    #[doc = "The peripheral starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the host is high-speed capable."]
+pub enum SPDCONF_A {
+    #[doc = "0: The peripheral starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the host is high-speed capable."]
     NORMAL,
-    #[doc = "For a better consumption, if high-speed is not needed."]
+    #[doc = "1: For a better consumption, if high-speed is not needed."]
     LOW_POWER,
-    #[doc = "Forced high speed."]
+    #[doc = "2: Forced high speed."]
     HIGH_SPEED,
-    #[doc = "The peripheral remains in full-speed mode whatever the host speed capability."]
+    #[doc = "3: The peripheral remains in full-speed mode whatever the host speed capability."]
     FORCED_FS,
 }
-impl SPDCONFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SPDCONFR::NORMAL => 0,
-            SPDCONFR::LOW_POWER => 1,
-            SPDCONFR::HIGH_SPEED => 2,
-            SPDCONFR::FORCED_FS => 3,
+impl From<SPDCONF_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SPDCONF_A) -> Self {
+        match variant {
+            SPDCONF_A::NORMAL => 0,
+            SPDCONF_A::LOW_POWER => 1,
+            SPDCONF_A::HIGH_SPEED => 2,
+            SPDCONF_A::FORCED_FS => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SPDCONFR {
-        match value {
-            0 => SPDCONFR::NORMAL,
-            1 => SPDCONFR::LOW_POWER,
-            2 => SPDCONFR::HIGH_SPEED,
-            3 => SPDCONFR::FORCED_FS,
+}
+#[doc = "Reader of field `SPDCONF`"]
+pub type SPDCONF_R = crate::R<u8, SPDCONF_A>;
+impl SPDCONF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SPDCONF_A {
+        match self.bits {
+            0 => SPDCONF_A::NORMAL,
+            1 => SPDCONF_A::LOW_POWER,
+            2 => SPDCONF_A::HIGH_SPEED,
+            3 => SPDCONF_A::FORCED_FS,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == SPDCONFR::NORMAL
+        *self == SPDCONF_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `LOW_POWER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_power(&self) -> bool {
-        *self == SPDCONFR::LOW_POWER
+        *self == SPDCONF_A::LOW_POWER
     }
     #[doc = "Checks if the value of the field is `HIGH_SPEED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_speed(&self) -> bool {
-        *self == SPDCONFR::HIGH_SPEED
+        *self == SPDCONF_A::HIGH_SPEED
     }
     #[doc = "Checks if the value of the field is `FORCED_FS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_forced_fs(&self) -> bool {
-        *self == SPDCONFR::FORCED_FS
+        *self == SPDCONF_A::FORCED_FS
     }
 }
-#[doc = r" Value of the field"]
-pub struct LSR {
-    bits: bool,
-}
-impl LSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TSTJR {
-    bits: bool,
-}
-impl TSTJR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TSTKR {
-    bits: bool,
-}
-impl TSTKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TSTPCKTR {
-    bits: bool,
-}
-impl TSTPCKTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OPMODE2R {
-    bits: bool,
-}
-impl OPMODE2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _UADDW<'a> {
+#[doc = "Write proxy for field `SPDCONF`"]
+pub struct SPDCONF_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _UADDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADDENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADDENW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DETACHW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DETACHW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RMWKUPW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RMWKUPW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SPDCONF`"]
-pub enum SPDCONFW {
-    #[doc = "The peripheral starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the host is high-speed capable."]
-    NORMAL,
-    #[doc = "For a better consumption, if high-speed is not needed."]
-    LOW_POWER,
-    #[doc = "Forced high speed."]
-    HIGH_SPEED,
-    #[doc = "The peripheral remains in full-speed mode whatever the host speed capability."]
-    FORCED_FS,
-}
-impl SPDCONFW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SPDCONFW::NORMAL => 0,
-            SPDCONFW::LOW_POWER => 1,
-            SPDCONFW::HIGH_SPEED => 2,
-            SPDCONFW::FORCED_FS => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SPDCONFW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SPDCONFW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SPDCONFW) -> &'a mut W {
+impl<'a> SPDCONF_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SPDCONF_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "The peripheral starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the host is high-speed capable."]
-    #[inline]
+    #[inline(always)]
     pub fn normal(self) -> &'a mut W {
-        self.variant(SPDCONFW::NORMAL)
+        self.variant(SPDCONF_A::NORMAL)
     }
     #[doc = "For a better consumption, if high-speed is not needed."]
-    #[inline]
+    #[inline(always)]
     pub fn low_power(self) -> &'a mut W {
-        self.variant(SPDCONFW::LOW_POWER)
+        self.variant(SPDCONF_A::LOW_POWER)
     }
     #[doc = "Forced high speed."]
-    #[inline]
+    #[inline(always)]
     pub fn high_speed(self) -> &'a mut W {
-        self.variant(SPDCONFW::HIGH_SPEED)
+        self.variant(SPDCONF_A::HIGH_SPEED)
     }
     #[doc = "The peripheral remains in full-speed mode whatever the host speed capability."]
-    #[inline]
+    #[inline(always)]
     pub fn forced_fs(self) -> &'a mut W {
-        self.variant(SPDCONFW::FORCED_FS)
+        self.variant(SPDCONF_A::FORCED_FS)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LSW<'a> {
+#[doc = "Reader of field `LS`"]
+pub type LS_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LS`"]
+pub struct LS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LSW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LS_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TSTJW<'a> {
+#[doc = "Reader of field `TSTJ`"]
+pub type TSTJ_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TSTJ`"]
+pub struct TSTJ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TSTJW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TSTJ_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TSTKW<'a> {
+#[doc = "Reader of field `TSTK`"]
+pub type TSTK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TSTK`"]
+pub struct TSTK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TSTKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TSTK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TSTPCKTW<'a> {
+#[doc = "Reader of field `TSTPCKT`"]
+pub type TSTPCKT_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TSTPCKT`"]
+pub struct TSTPCKT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TSTPCKTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TSTPCKT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OPMODE2W<'a> {
+#[doc = "Reader of field `OPMODE2`"]
+pub type OPMODE2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `OPMODE2`"]
+pub struct OPMODE2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OPMODE2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> OPMODE2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:6 - USB Address"]
-    #[inline]
-    pub fn uadd(&self) -> UADDR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        UADDR { bits }
+    #[inline(always)]
+    pub fn uadd(&self) -> UADD_R {
+        UADD_R::new((self.bits & 0x7f) as u8)
     }
     #[doc = "Bit 7 - Address Enable"]
-    #[inline]
-    pub fn adden(&self) -> ADDENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ADDENR { bits }
+    #[inline(always)]
+    pub fn adden(&self) -> ADDEN_R {
+        ADDEN_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Detach"]
-    #[inline]
-    pub fn detach(&self) -> DETACHR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DETACHR { bits }
+    #[inline(always)]
+    pub fn detach(&self) -> DETACH_R {
+        DETACH_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Remote Wake-Up"]
-    #[inline]
-    pub fn rmwkup(&self) -> RMWKUPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RMWKUPR { bits }
+    #[inline(always)]
+    pub fn rmwkup(&self) -> RMWKUP_R {
+        RMWKUP_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bits 10:11 - Mode Configuration"]
-    #[inline]
-    pub fn spdconf(&self) -> SPDCONFR {
-        SPDCONFR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn spdconf(&self) -> SPDCONF_R {
+        SPDCONF_R::new(((self.bits >> 10) & 0x03) as u8)
     }
     #[doc = "Bit 12 - Low-Speed Mode Force"]
-    #[inline]
-    pub fn ls(&self) -> LSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LSR { bits }
+    #[inline(always)]
+    pub fn ls(&self) -> LS_R {
+        LS_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Test mode J"]
-    #[inline]
-    pub fn tstj(&self) -> TSTJR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TSTJR { bits }
+    #[inline(always)]
+    pub fn tstj(&self) -> TSTJ_R {
+        TSTJ_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Test mode K"]
-    #[inline]
-    pub fn tstk(&self) -> TSTKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TSTKR { bits }
+    #[inline(always)]
+    pub fn tstk(&self) -> TSTK_R {
+        TSTK_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Test packet mode"]
-    #[inline]
-    pub fn tstpckt(&self) -> TSTPCKTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TSTPCKTR { bits }
+    #[inline(always)]
+    pub fn tstpckt(&self) -> TSTPCKT_R {
+        TSTPCKT_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Specific Operational mode"]
-    #[inline]
-    pub fn opmode2(&self) -> OPMODE2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OPMODE2R { bits }
+    #[inline(always)]
+    pub fn opmode2(&self) -> OPMODE2_R {
+        OPMODE2_R::new(((self.bits >> 16) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 256 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:6 - USB Address"]
-    #[inline]
-    pub fn uadd(&mut self) -> _UADDW {
-        _UADDW { w: self }
+    #[inline(always)]
+    pub fn uadd(&mut self) -> UADD_W {
+        UADD_W { w: self }
     }
     #[doc = "Bit 7 - Address Enable"]
-    #[inline]
-    pub fn adden(&mut self) -> _ADDENW {
-        _ADDENW { w: self }
+    #[inline(always)]
+    pub fn adden(&mut self) -> ADDEN_W {
+        ADDEN_W { w: self }
     }
     #[doc = "Bit 8 - Detach"]
-    #[inline]
-    pub fn detach(&mut self) -> _DETACHW {
-        _DETACHW { w: self }
+    #[inline(always)]
+    pub fn detach(&mut self) -> DETACH_W {
+        DETACH_W { w: self }
     }
     #[doc = "Bit 9 - Remote Wake-Up"]
-    #[inline]
-    pub fn rmwkup(&mut self) -> _RMWKUPW {
-        _RMWKUPW { w: self }
+    #[inline(always)]
+    pub fn rmwkup(&mut self) -> RMWKUP_W {
+        RMWKUP_W { w: self }
     }
     #[doc = "Bits 10:11 - Mode Configuration"]
-    #[inline]
-    pub fn spdconf(&mut self) -> _SPDCONFW {
-        _SPDCONFW { w: self }
+    #[inline(always)]
+    pub fn spdconf(&mut self) -> SPDCONF_W {
+        SPDCONF_W { w: self }
     }
     #[doc = "Bit 12 - Low-Speed Mode Force"]
-    #[inline]
-    pub fn ls(&mut self) -> _LSW {
-        _LSW { w: self }
+    #[inline(always)]
+    pub fn ls(&mut self) -> LS_W {
+        LS_W { w: self }
     }
     #[doc = "Bit 13 - Test mode J"]
-    #[inline]
-    pub fn tstj(&mut self) -> _TSTJW {
-        _TSTJW { w: self }
+    #[inline(always)]
+    pub fn tstj(&mut self) -> TSTJ_W {
+        TSTJ_W { w: self }
     }
     #[doc = "Bit 14 - Test mode K"]
-    #[inline]
-    pub fn tstk(&mut self) -> _TSTKW {
-        _TSTKW { w: self }
+    #[inline(always)]
+    pub fn tstk(&mut self) -> TSTK_W {
+        TSTK_W { w: self }
     }
     #[doc = "Bit 15 - Test packet mode"]
-    #[inline]
-    pub fn tstpckt(&mut self) -> _TSTPCKTW {
-        _TSTPCKTW { w: self }
+    #[inline(always)]
+    pub fn tstpckt(&mut self) -> TSTPCKT_W {
+        TSTPCKT_W { w: self }
     }
     #[doc = "Bit 16 - Specific Operational mode"]
-    #[inline]
-    pub fn opmode2(&mut self) -> _OPMODE2W {
-        _OPMODE2W { w: self }
+    #[inline(always)]
+    pub fn opmode2(&mut self) -> OPMODE2_W {
+        OPMODE2_W { w: self }
     }
 }

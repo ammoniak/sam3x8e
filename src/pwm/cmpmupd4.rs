@@ -1,107 +1,82 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CMPMUPD4 {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CENUPDW<'a> {
+#[doc = "Writer for register CMPMUPD4"]
+pub type W = crate::W<u32, super::CMPMUPD4>;
+#[doc = "Write proxy for field `CENUPD`"]
+pub struct CENUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CENUPDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CENUPD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CTRUPDW<'a> {
+#[doc = "Write proxy for field `CTRUPD`"]
+pub struct CTRUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CTRUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CTRUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPRUPDW<'a> {
+#[doc = "Write proxy for field `CPRUPD`"]
+pub struct CPRUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPRUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CPRUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CUPRUPDW<'a> {
+#[doc = "Write proxy for field `CUPRUPD`"]
+pub struct CUPRUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CUPRUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CUPRUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Comparison x Enable Update"]
-    #[inline]
-    pub fn cenupd(&mut self) -> _CENUPDW {
-        _CENUPDW { w: self }
+    #[inline(always)]
+    pub fn cenupd(&mut self) -> CENUPD_W {
+        CENUPD_W { w: self }
     }
     #[doc = "Bits 4:7 - Comparison x Trigger Update"]
-    #[inline]
-    pub fn ctrupd(&mut self) -> _CTRUPDW {
-        _CTRUPDW { w: self }
+    #[inline(always)]
+    pub fn ctrupd(&mut self) -> CTRUPD_W {
+        CTRUPD_W { w: self }
     }
     #[doc = "Bits 8:11 - Comparison x Period Update"]
-    #[inline]
-    pub fn cprupd(&mut self) -> _CPRUPDW {
-        _CPRUPDW { w: self }
+    #[inline(always)]
+    pub fn cprupd(&mut self) -> CPRUPD_W {
+        CPRUPD_W { w: self }
     }
     #[doc = "Bits 16:19 - Comparison x Update Period Update"]
-    #[inline]
-    pub fn cuprupd(&mut self) -> _CUPRUPDW {
-        _CUPRUPDW { w: self }
+    #[inline(always)]
+    pub fn cuprupd(&mut self) -> CUPRUPD_W {
+        CUPRUPD_W { w: self }
     }
 }

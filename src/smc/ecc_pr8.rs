@@ -1,83 +1,25 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ECC_PR8 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BITADDRR {
-    bits: u8,
-}
-impl BITADDRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WORDADDRR {
-    bits: u8,
-}
-impl WORDADDRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NPARITYR {
-    bits: u16,
-}
-impl NPARITYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
+#[doc = "Reader of register ECC_PR8"]
+pub type R = crate::R<u32, super::ECC_PR8>;
+#[doc = "Reader of field `BITADDR`"]
+pub type BITADDR_R = crate::R<u8, u8>;
+#[doc = "Reader of field `WORDADDR`"]
+pub type WORDADDR_R = crate::R<u8, u8>;
+#[doc = "Reader of field `NPARITY`"]
+pub type NPARITY_R = crate::R<u16, u16>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:2 - Corrupted Bit Address in the Page between (i x 256) and ((i + 1) x 512) - 1) Bytes"]
-    #[inline]
-    pub fn bitaddr(&self) -> BITADDRR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BITADDRR { bits }
+    #[inline(always)]
+    pub fn bitaddr(&self) -> BITADDR_R {
+        BITADDR_R::new((self.bits & 0x07) as u8)
     }
     #[doc = "Bits 3:10 - Corrupted Word Address in the Page between (i x 256) and ((i + 1) x 512) - 1) Bytes"]
-    #[inline]
-    pub fn wordaddr(&self) -> WORDADDRR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        WORDADDRR { bits }
+    #[inline(always)]
+    pub fn wordaddr(&self) -> WORDADDR_R {
+        WORDADDR_R::new(((self.bits >> 3) & 0xff) as u8)
     }
     #[doc = "Bits 12:22 - Parity N"]
-    #[inline]
-    pub fn nparity(&self) -> NPARITYR {
-        let bits = {
-            const MASK: u16 = 2047;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        NPARITYR { bits }
+    #[inline(always)]
+    pub fn nparity(&self) -> NPARITY_R {
+        NPARITY_R::new(((self.bits >> 12) & 0x07ff) as u16)
     }
 }

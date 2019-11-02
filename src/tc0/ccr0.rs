@@ -1,103 +1,85 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CCR0 {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLKENW<'a> {
+#[doc = "Writer for register CCR0"]
+pub type W = crate::W<u32, super::CCR0>;
+#[doc = "Write proxy for field `CLKEN`"]
+pub struct CLKEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLKENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLKEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLKDISW<'a> {
+#[doc = "Write proxy for field `CLKDIS`"]
+pub struct CLKDIS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLKDISW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLKDIS_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SWTRGW<'a> {
+#[doc = "Write proxy for field `SWTRG`"]
+pub struct SWTRG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SWTRGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SWTRG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Counter Clock Enable Command"]
-    #[inline]
-    pub fn clken(&mut self) -> _CLKENW {
-        _CLKENW { w: self }
+    #[inline(always)]
+    pub fn clken(&mut self) -> CLKEN_W {
+        CLKEN_W { w: self }
     }
     #[doc = "Bit 1 - Counter Clock Disable Command"]
-    #[inline]
-    pub fn clkdis(&mut self) -> _CLKDISW {
-        _CLKDISW { w: self }
+    #[inline(always)]
+    pub fn clkdis(&mut self) -> CLKDIS_W {
+        CLKDIS_W { w: self }
     }
     #[doc = "Bit 2 - Software Trigger Command"]
-    #[inline]
-    pub fn swtrg(&mut self) -> _SWTRGW {
-        _SWTRGW { w: self }
+    #[inline(always)]
+    pub fn swtrg(&mut self) -> SWTRG_W {
+        SWTRG_W { w: self }
     }
 }

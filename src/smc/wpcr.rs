@@ -1,102 +1,80 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::WPCR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register WPCR"]
+pub type W = crate::W<u32, super::WPCR>;
+#[doc = "Register WPCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::WPCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _WP_ENW<'a> {
+#[doc = "Write proxy for field `WP_EN`"]
+pub struct WP_EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WP_ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> WP_EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `WP_KEY`"]
-pub enum WP_KEYW {
-    #[doc = "Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
+#[doc = "Write Protection KEY Password\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WP_KEY_AW {
+    #[doc = "5459267: Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
     PASSWD,
 }
-impl WP_KEYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u32 {
-        match *self {
-            WP_KEYW::PASSWD => 5459267,
+impl From<WP_KEY_AW> for u32 {
+    #[inline(always)]
+    fn from(variant: WP_KEY_AW) -> Self {
+        match variant {
+            WP_KEY_AW::PASSWD => 5459267,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _WP_KEYW<'a> {
+#[doc = "Write proxy for field `WP_KEY`"]
+pub struct WP_KEY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WP_KEYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WP_KEYW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> WP_KEY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WP_KEY_AW) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
-    #[inline]
+    #[inline(always)]
     pub fn passwd(self) -> &'a mut W {
-        self.variant(WP_KEYW::PASSWD)
+        self.variant(WP_KEY_AW::PASSWD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 16777215;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | (((value as u32) & 0x00ff_ffff) << 8);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Write Protection Enable"]
-    #[inline]
-    pub fn wp_en(&mut self) -> _WP_ENW {
-        _WP_ENW { w: self }
+    #[inline(always)]
+    pub fn wp_en(&mut self) -> WP_EN_W {
+        WP_EN_W { w: self }
     }
     #[doc = "Bits 8:31 - Write Protection KEY Password"]
-    #[inline]
-    pub fn wp_key(&mut self) -> _WP_KEYW {
-        _WP_KEYW { w: self }
+    #[inline(always)]
+    pub fn wp_key(&mut self) -> WP_KEY_W {
+        WP_KEY_W { w: self }
     }
 }

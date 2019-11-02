@@ -1,640 +1,144 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::CSR_LIN_MODE {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXRDYR {
-    bits: bool,
-}
-impl RXRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXRDYR {
-    bits: bool,
-}
-impl TXRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ENDRXR {
-    bits: bool,
-}
-impl ENDRXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ENDTXR {
-    bits: bool,
-}
-impl ENDTXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVRER {
-    bits: bool,
-}
-impl OVRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FRAMER {
-    bits: bool,
-}
-impl FRAMER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PARER {
-    bits: bool,
-}
-impl PARER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TIMEOUTR {
-    bits: bool,
-}
-impl TIMEOUTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXEMPTYR {
-    bits: bool,
-}
-impl TXEMPTYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXBUFER {
-    bits: bool,
-}
-impl TXBUFER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXBUFFR {
-    bits: bool,
-}
-impl RXBUFFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINBKR {
-    bits: bool,
-}
-impl LINBKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINIDR {
-    bits: bool,
-}
-impl LINIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINTCR {
-    bits: bool,
-}
-impl LINTCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINBLSR {
-    bits: bool,
-}
-impl LINBLSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINBER {
-    bits: bool,
-}
-impl LINBER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINISFER {
-    bits: bool,
-}
-impl LINISFER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINIPER {
-    bits: bool,
-}
-impl LINIPER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINCER {
-    bits: bool,
-}
-impl LINCER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LINSNRER {
-    bits: bool,
-}
-impl LINSNRER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register CSR_LIN_MODE"]
+pub type R = crate::R<u32, super::CSR_LIN_MODE>;
+#[doc = "Reader of field `RXRDY`"]
+pub type RXRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXRDY`"]
+pub type TXRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ENDRX`"]
+pub type ENDRX_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ENDTX`"]
+pub type ENDTX_R = crate::R<bool, bool>;
+#[doc = "Reader of field `OVRE`"]
+pub type OVRE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FRAME`"]
+pub type FRAME_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PARE`"]
+pub type PARE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TIMEOUT`"]
+pub type TIMEOUT_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXEMPTY`"]
+pub type TXEMPTY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXBUFE`"]
+pub type TXBUFE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RXBUFF`"]
+pub type RXBUFF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINBK`"]
+pub type LINBK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINID`"]
+pub type LINID_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINTC`"]
+pub type LINTC_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINBLS`"]
+pub type LINBLS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINBE`"]
+pub type LINBE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINISFE`"]
+pub type LINISFE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINIPE`"]
+pub type LINIPE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINCE`"]
+pub type LINCE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LINSNRE`"]
+pub type LINSNRE_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Receiver Ready"]
-    #[inline]
-    pub fn rxrdy(&self) -> RXRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXRDYR { bits }
+    #[inline(always)]
+    pub fn rxrdy(&self) -> RXRDY_R {
+        RXRDY_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Transmitter Ready"]
-    #[inline]
-    pub fn txrdy(&self) -> TXRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXRDYR { bits }
+    #[inline(always)]
+    pub fn txrdy(&self) -> TXRDY_R {
+        TXRDY_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 3"]
-    #[inline]
-    pub fn endrx(&self) -> ENDRXR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ENDRXR { bits }
+    #[inline(always)]
+    pub fn endrx(&self) -> ENDRX_R {
+        ENDRX_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4"]
-    #[inline]
-    pub fn endtx(&self) -> ENDTXR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ENDTXR { bits }
+    #[inline(always)]
+    pub fn endtx(&self) -> ENDTX_R {
+        ENDTX_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Overrun Error"]
-    #[inline]
-    pub fn ovre(&self) -> OVRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OVRER { bits }
+    #[inline(always)]
+    pub fn ovre(&self) -> OVRE_R {
+        OVRE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Framing Error"]
-    #[inline]
-    pub fn frame(&self) -> FRAMER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FRAMER { bits }
+    #[inline(always)]
+    pub fn frame(&self) -> FRAME_R {
+        FRAME_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Parity Error"]
-    #[inline]
-    pub fn pare(&self) -> PARER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PARER { bits }
+    #[inline(always)]
+    pub fn pare(&self) -> PARE_R {
+        PARE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Receiver Time-out"]
-    #[inline]
-    pub fn timeout(&self) -> TIMEOUTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TIMEOUTR { bits }
+    #[inline(always)]
+    pub fn timeout(&self) -> TIMEOUT_R {
+        TIMEOUT_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Transmitter Empty"]
-    #[inline]
-    pub fn txempty(&self) -> TXEMPTYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXEMPTYR { bits }
+    #[inline(always)]
+    pub fn txempty(&self) -> TXEMPTY_R {
+        TXEMPTY_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 11"]
-    #[inline]
-    pub fn txbufe(&self) -> TXBUFER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXBUFER { bits }
+    #[inline(always)]
+    pub fn txbufe(&self) -> TXBUFE_R {
+        TXBUFE_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12"]
-    #[inline]
-    pub fn rxbuff(&self) -> RXBUFFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXBUFFR { bits }
+    #[inline(always)]
+    pub fn rxbuff(&self) -> RXBUFF_R {
+        RXBUFF_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - LIN Break Sent or LIN Break Received"]
-    #[inline]
-    pub fn linbk(&self) -> LINBKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINBKR { bits }
+    #[inline(always)]
+    pub fn linbk(&self) -> LINBK_R {
+        LINBK_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - LIN Identifier Sent or LIN Identifier Received"]
-    #[inline]
-    pub fn linid(&self) -> LINIDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINIDR { bits }
+    #[inline(always)]
+    pub fn linid(&self) -> LINID_R {
+        LINID_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - LIN Transfer Completed"]
-    #[inline]
-    pub fn lintc(&self) -> LINTCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINTCR { bits }
+    #[inline(always)]
+    pub fn lintc(&self) -> LINTC_R {
+        LINTC_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 23 - LIN Bus Line Status"]
-    #[inline]
-    pub fn linbls(&self) -> LINBLSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINBLSR { bits }
+    #[inline(always)]
+    pub fn linbls(&self) -> LINBLS_R {
+        LINBLS_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 25 - LIN Bit Error"]
-    #[inline]
-    pub fn linbe(&self) -> LINBER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINBER { bits }
+    #[inline(always)]
+    pub fn linbe(&self) -> LINBE_R {
+        LINBE_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 26 - LIN Inconsistent Synch Field Error"]
-    #[inline]
-    pub fn linisfe(&self) -> LINISFER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINISFER { bits }
+    #[inline(always)]
+    pub fn linisfe(&self) -> LINISFE_R {
+        LINISFE_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - LIN Identifier Parity Error"]
-    #[inline]
-    pub fn linipe(&self) -> LINIPER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINIPER { bits }
+    #[inline(always)]
+    pub fn linipe(&self) -> LINIPE_R {
+        LINIPE_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - LIN Checksum Error"]
-    #[inline]
-    pub fn lince(&self) -> LINCER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINCER { bits }
+    #[inline(always)]
+    pub fn lince(&self) -> LINCE_R {
+        LINCE_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - LIN Slave Not Responding Error"]
-    #[inline]
-    pub fn linsnre(&self) -> LINSNRER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LINSNRER { bits }
+    #[inline(always)]
+    pub fn linsnre(&self) -> LINSNRE_R {
+        LINSNRE_R::new(((self.bits >> 29) & 0x01) != 0)
     }
 }

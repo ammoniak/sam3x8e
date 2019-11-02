@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CLK {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CLK"]
+pub type R = crate::R<u32, super::CLK>;
+#[doc = "Writer for register CLK"]
+pub type W = crate::W<u32, super::CLK>;
+#[doc = "Register CLK `reset()`'s with value 0"]
+impl crate::ResetValue for super::CLK {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct DIVAR {
-    bits: u8,
-}
-impl DIVAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PREAR {
-    bits: u8,
-}
-impl PREAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DIVBR {
-    bits: u8,
-}
-impl DIVBR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PREBR {
-    bits: u8,
-}
-impl PREBR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DIVAW<'a> {
+#[doc = "Reader of field `DIVA`"]
+pub type DIVA_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DIVA`"]
+pub struct DIVA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DIVAW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DIVA_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PREAW<'a> {
+#[doc = "Reader of field `PREA`"]
+pub type PREA_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PREA`"]
+pub struct PREA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PREAW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PREA_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DIVBW<'a> {
+#[doc = "Reader of field `DIVB`"]
+pub type DIVB_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DIVB`"]
+pub struct DIVB_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DIVBW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DIVB_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PREBW<'a> {
+#[doc = "Reader of field `PREB`"]
+pub type PREB_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PREB`"]
+pub struct PREB_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PREBW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PREB_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 24)) | (((value as u32) & 0x0f) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - CLKA, CLKB Divide Factor"]
-    #[inline]
-    pub fn diva(&self) -> DIVAR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DIVAR { bits }
+    #[inline(always)]
+    pub fn diva(&self) -> DIVA_R {
+        DIVA_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:11 - CLKA, CLKB Source Clock Selection"]
-    #[inline]
-    pub fn prea(&self) -> PREAR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PREAR { bits }
+    #[inline(always)]
+    pub fn prea(&self) -> PREA_R {
+        PREA_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 16:23 - CLKA, CLKB Divide Factor"]
-    #[inline]
-    pub fn divb(&self) -> DIVBR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DIVBR { bits }
+    #[inline(always)]
+    pub fn divb(&self) -> DIVB_R {
+        DIVB_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:27 - CLKA, CLKB Source Clock Selection"]
-    #[inline]
-    pub fn preb(&self) -> PREBR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PREBR { bits }
+    #[inline(always)]
+    pub fn preb(&self) -> PREB_R {
+        PREB_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - CLKA, CLKB Divide Factor"]
-    #[inline]
-    pub fn diva(&mut self) -> _DIVAW {
-        _DIVAW { w: self }
+    #[inline(always)]
+    pub fn diva(&mut self) -> DIVA_W {
+        DIVA_W { w: self }
     }
     #[doc = "Bits 8:11 - CLKA, CLKB Source Clock Selection"]
-    #[inline]
-    pub fn prea(&mut self) -> _PREAW {
-        _PREAW { w: self }
+    #[inline(always)]
+    pub fn prea(&mut self) -> PREA_W {
+        PREA_W { w: self }
     }
     #[doc = "Bits 16:23 - CLKA, CLKB Divide Factor"]
-    #[inline]
-    pub fn divb(&mut self) -> _DIVBW {
-        _DIVBW { w: self }
+    #[inline(always)]
+    pub fn divb(&mut self) -> DIVB_W {
+        DIVB_W { w: self }
     }
     #[doc = "Bits 24:27 - CLKA, CLKB Source Clock Selection"]
-    #[inline]
-    pub fn preb(&mut self) -> _PREBW {
-        _PREBW { w: self }
+    #[inline(always)]
+    pub fn preb(&mut self) -> PREB_W {
+        PREB_W { w: self }
     }
 }
