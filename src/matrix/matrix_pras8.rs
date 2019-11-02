@@ -1,310 +1,160 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MATRIX_PRAS8 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MATRIX_PRAS8"]
+pub type R = crate::R<u32, super::MATRIX_PRAS8>;
+#[doc = "Writer for register MATRIX_PRAS8"]
+pub type W = crate::W<u32, super::MATRIX_PRAS8>;
+#[doc = "Register MATRIX_PRAS8 `reset()`'s with value 0"]
+impl crate::ResetValue for super::MATRIX_PRAS8 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct M0PRR {
-    bits: u8,
-}
-impl M0PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct M1PRR {
-    bits: u8,
-}
-impl M1PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct M2PRR {
-    bits: u8,
-}
-impl M2PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct M3PRR {
-    bits: u8,
-}
-impl M3PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct M4PRR {
-    bits: u8,
-}
-impl M4PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct M5PRR {
-    bits: u8,
-}
-impl M5PRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _M0PRW<'a> {
+#[doc = "Reader of field `M0PR`"]
+pub type M0PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M0PR`"]
+pub struct M0PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M0PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M0PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _M1PRW<'a> {
+#[doc = "Reader of field `M1PR`"]
+pub type M1PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M1PR`"]
+pub struct M1PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M1PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M1PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _M2PRW<'a> {
+#[doc = "Reader of field `M2PR`"]
+pub type M2PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M2PR`"]
+pub struct M2PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M2PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M2PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _M3PRW<'a> {
+#[doc = "Reader of field `M3PR`"]
+pub type M3PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M3PR`"]
+pub struct M3PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M3PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M3PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _M4PRW<'a> {
+#[doc = "Reader of field `M4PR`"]
+pub type M4PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M4PR`"]
+pub struct M4PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M4PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M4PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _M5PRW<'a> {
+#[doc = "Reader of field `M5PR`"]
+pub type M5PR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `M5PR`"]
+pub struct M5PR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _M5PRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> M5PR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Master 0 Priority"]
-    #[inline]
-    pub fn m0pr(&self) -> M0PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M0PRR { bits }
+    #[inline(always)]
+    pub fn m0pr(&self) -> M0PR_R {
+        M0PR_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bits 4:5 - Master 1 Priority"]
-    #[inline]
-    pub fn m1pr(&self) -> M1PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M1PRR { bits }
+    #[inline(always)]
+    pub fn m1pr(&self) -> M1PR_R {
+        M1PR_R::new(((self.bits >> 4) & 0x03) as u8)
     }
     #[doc = "Bits 8:9 - Master 2 Priority"]
-    #[inline]
-    pub fn m2pr(&self) -> M2PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M2PRR { bits }
+    #[inline(always)]
+    pub fn m2pr(&self) -> M2PR_R {
+        M2PR_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 12:13 - Master 3 Priority"]
-    #[inline]
-    pub fn m3pr(&self) -> M3PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M3PRR { bits }
+    #[inline(always)]
+    pub fn m3pr(&self) -> M3PR_R {
+        M3PR_R::new(((self.bits >> 12) & 0x03) as u8)
     }
     #[doc = "Bits 16:17 - Master 4 Priority"]
-    #[inline]
-    pub fn m4pr(&self) -> M4PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M4PRR { bits }
+    #[inline(always)]
+    pub fn m4pr(&self) -> M4PR_R {
+        M4PR_R::new(((self.bits >> 16) & 0x03) as u8)
     }
     #[doc = "Bits 20:21 - Master 5 Priority"]
-    #[inline]
-    pub fn m5pr(&self) -> M5PRR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        M5PRR { bits }
+    #[inline(always)]
+    pub fn m5pr(&self) -> M5PR_R {
+        M5PR_R::new(((self.bits >> 20) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Master 0 Priority"]
-    #[inline]
-    pub fn m0pr(&mut self) -> _M0PRW {
-        _M0PRW { w: self }
+    #[inline(always)]
+    pub fn m0pr(&mut self) -> M0PR_W {
+        M0PR_W { w: self }
     }
     #[doc = "Bits 4:5 - Master 1 Priority"]
-    #[inline]
-    pub fn m1pr(&mut self) -> _M1PRW {
-        _M1PRW { w: self }
+    #[inline(always)]
+    pub fn m1pr(&mut self) -> M1PR_W {
+        M1PR_W { w: self }
     }
     #[doc = "Bits 8:9 - Master 2 Priority"]
-    #[inline]
-    pub fn m2pr(&mut self) -> _M2PRW {
-        _M2PRW { w: self }
+    #[inline(always)]
+    pub fn m2pr(&mut self) -> M2PR_W {
+        M2PR_W { w: self }
     }
     #[doc = "Bits 12:13 - Master 3 Priority"]
-    #[inline]
-    pub fn m3pr(&mut self) -> _M3PRW {
-        _M3PRW { w: self }
+    #[inline(always)]
+    pub fn m3pr(&mut self) -> M3PR_W {
+        M3PR_W { w: self }
     }
     #[doc = "Bits 16:17 - Master 4 Priority"]
-    #[inline]
-    pub fn m4pr(&mut self) -> _M4PRW {
-        _M4PRW { w: self }
+    #[inline(always)]
+    pub fn m4pr(&mut self) -> M4PR_W {
+        M4PR_W { w: self }
     }
     #[doc = "Bits 20:21 - Master 5 Priority"]
-    #[inline]
-    pub fn m5pr(&mut self) -> _M5PRW {
-        _M5PRW { w: self }
+    #[inline(always)]
+    pub fn m5pr(&mut self) -> M5PR_W {
+        M5PR_W { w: self }
     }
 }

@@ -1,3872 +1,2832 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::WUIR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register WUIR"]
+pub type R = crate::R<u32, super::WUIR>;
+#[doc = "Writer for register WUIR"]
+pub type W = crate::W<u32, super::WUIR>;
+#[doc = "Register WUIR `reset()`'s with value 0"]
+impl crate::ResetValue for super::WUIR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `WKUPEN0`"]
+#[doc = "Wake-up Input Enable 0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN0R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
+pub enum WKUPEN0_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
     DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
     ENABLE,
 }
-impl WKUPEN0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN0R::DISABLE => false,
-            WKUPEN0R::ENABLE => true,
+impl From<WKUPEN0_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN0_A) -> Self {
+        match variant {
+            WKUPEN0_A::DISABLE => false,
+            WKUPEN0_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN0R {
-        match value {
-            false => WKUPEN0R::DISABLE,
-            true => WKUPEN0R::ENABLE,
+}
+#[doc = "Reader of field `WKUPEN0`"]
+pub type WKUPEN0_R = crate::R<bool, WKUPEN0_A>;
+impl WKUPEN0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN0_A {
+        match self.bits {
+            false => WKUPEN0_A::DISABLE,
+            true => WKUPEN0_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN0R::DISABLE
+        *self == WKUPEN0_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN0R::ENABLE
+        *self == WKUPEN0_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN1R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN0`"]
+pub struct WKUPEN0_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN1R::DISABLE => false,
-            WKUPEN1R::ENABLE => true,
+impl<'a> WKUPEN0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN0_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN1R {
-        match value {
-            false => WKUPEN1R::DISABLE,
-            true => WKUPEN1R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN0_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN0_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 1\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN1_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN1_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN1_A) -> Self {
+        match variant {
+            WKUPEN1_A::DISABLE => false,
+            WKUPEN1_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN1`"]
+pub type WKUPEN1_R = crate::R<bool, WKUPEN1_A>;
+impl WKUPEN1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN1_A {
+        match self.bits {
+            false => WKUPEN1_A::DISABLE,
+            true => WKUPEN1_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN1R::DISABLE
+        *self == WKUPEN1_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN1R::ENABLE
+        *self == WKUPEN1_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN2R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN1`"]
+pub struct WKUPEN1_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN2R::DISABLE => false,
-            WKUPEN2R::ENABLE => true,
+impl<'a> WKUPEN1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN2R {
-        match value {
-            false => WKUPEN2R::DISABLE,
-            true => WKUPEN2R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN1_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN1_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 2\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN2_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN2_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN2_A) -> Self {
+        match variant {
+            WKUPEN2_A::DISABLE => false,
+            WKUPEN2_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN2`"]
+pub type WKUPEN2_R = crate::R<bool, WKUPEN2_A>;
+impl WKUPEN2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN2_A {
+        match self.bits {
+            false => WKUPEN2_A::DISABLE,
+            true => WKUPEN2_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN2R::DISABLE
+        *self == WKUPEN2_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN2R::ENABLE
+        *self == WKUPEN2_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN3R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN2`"]
+pub struct WKUPEN2_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN3R::DISABLE => false,
-            WKUPEN3R::ENABLE => true,
+impl<'a> WKUPEN2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN3R {
-        match value {
-            false => WKUPEN3R::DISABLE,
-            true => WKUPEN3R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN2_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN2_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 3\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN3_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN3_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN3_A) -> Self {
+        match variant {
+            WKUPEN3_A::DISABLE => false,
+            WKUPEN3_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN3`"]
+pub type WKUPEN3_R = crate::R<bool, WKUPEN3_A>;
+impl WKUPEN3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN3_A {
+        match self.bits {
+            false => WKUPEN3_A::DISABLE,
+            true => WKUPEN3_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN3R::DISABLE
+        *self == WKUPEN3_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN3R::ENABLE
+        *self == WKUPEN3_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN4R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN3`"]
+pub struct WKUPEN3_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN4R::DISABLE => false,
-            WKUPEN4R::ENABLE => true,
+impl<'a> WKUPEN3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN4R {
-        match value {
-            false => WKUPEN4R::DISABLE,
-            true => WKUPEN4R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN3_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN3_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 4\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN4_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN4_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN4_A) -> Self {
+        match variant {
+            WKUPEN4_A::DISABLE => false,
+            WKUPEN4_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN4`"]
+pub type WKUPEN4_R = crate::R<bool, WKUPEN4_A>;
+impl WKUPEN4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN4_A {
+        match self.bits {
+            false => WKUPEN4_A::DISABLE,
+            true => WKUPEN4_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN4R::DISABLE
+        *self == WKUPEN4_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN4R::ENABLE
+        *self == WKUPEN4_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN5R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN4`"]
+pub struct WKUPEN4_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN5R::DISABLE => false,
-            WKUPEN5R::ENABLE => true,
+impl<'a> WKUPEN4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN5R {
-        match value {
-            false => WKUPEN5R::DISABLE,
-            true => WKUPEN5R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN4_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN4_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 5\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN5_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN5_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN5_A) -> Self {
+        match variant {
+            WKUPEN5_A::DISABLE => false,
+            WKUPEN5_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN5`"]
+pub type WKUPEN5_R = crate::R<bool, WKUPEN5_A>;
+impl WKUPEN5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN5_A {
+        match self.bits {
+            false => WKUPEN5_A::DISABLE,
+            true => WKUPEN5_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN5R::DISABLE
+        *self == WKUPEN5_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN5R::ENABLE
+        *self == WKUPEN5_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN6R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN5`"]
+pub struct WKUPEN5_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN6R::DISABLE => false,
-            WKUPEN6R::ENABLE => true,
+impl<'a> WKUPEN5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN6R {
-        match value {
-            false => WKUPEN6R::DISABLE,
-            true => WKUPEN6R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN5_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN5_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 6\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN6_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN6_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN6_A) -> Self {
+        match variant {
+            WKUPEN6_A::DISABLE => false,
+            WKUPEN6_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN6`"]
+pub type WKUPEN6_R = crate::R<bool, WKUPEN6_A>;
+impl WKUPEN6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN6_A {
+        match self.bits {
+            false => WKUPEN6_A::DISABLE,
+            true => WKUPEN6_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN6R::DISABLE
+        *self == WKUPEN6_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN6R::ENABLE
+        *self == WKUPEN6_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN7`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN7R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN6`"]
+pub struct WKUPEN6_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN7R::DISABLE => false,
-            WKUPEN7R::ENABLE => true,
+impl<'a> WKUPEN6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN6_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN7R {
-        match value {
-            false => WKUPEN7R::DISABLE,
-            true => WKUPEN7R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN6_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN6_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 7\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN7_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN7_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN7_A) -> Self {
+        match variant {
+            WKUPEN7_A::DISABLE => false,
+            WKUPEN7_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN7`"]
+pub type WKUPEN7_R = crate::R<bool, WKUPEN7_A>;
+impl WKUPEN7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN7_A {
+        match self.bits {
+            false => WKUPEN7_A::DISABLE,
+            true => WKUPEN7_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN7R::DISABLE
+        *self == WKUPEN7_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN7R::ENABLE
+        *self == WKUPEN7_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN8`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN8R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN7`"]
+pub struct WKUPEN7_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN8R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN8R::DISABLE => false,
-            WKUPEN8R::ENABLE => true,
+impl<'a> WKUPEN7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN7_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN8R {
-        match value {
-            false => WKUPEN8R::DISABLE,
-            true => WKUPEN8R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN7_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN7_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 8\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN8_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN8_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN8_A) -> Self {
+        match variant {
+            WKUPEN8_A::DISABLE => false,
+            WKUPEN8_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN8`"]
+pub type WKUPEN8_R = crate::R<bool, WKUPEN8_A>;
+impl WKUPEN8_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN8_A {
+        match self.bits {
+            false => WKUPEN8_A::DISABLE,
+            true => WKUPEN8_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN8R::DISABLE
+        *self == WKUPEN8_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN8R::ENABLE
+        *self == WKUPEN8_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN9`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN9R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN8`"]
+pub struct WKUPEN8_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN9R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN9R::DISABLE => false,
-            WKUPEN9R::ENABLE => true,
+impl<'a> WKUPEN8_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN8_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN9R {
-        match value {
-            false => WKUPEN9R::DISABLE,
-            true => WKUPEN9R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN8_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN8_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 9\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN9_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN9_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN9_A) -> Self {
+        match variant {
+            WKUPEN9_A::DISABLE => false,
+            WKUPEN9_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN9`"]
+pub type WKUPEN9_R = crate::R<bool, WKUPEN9_A>;
+impl WKUPEN9_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN9_A {
+        match self.bits {
+            false => WKUPEN9_A::DISABLE,
+            true => WKUPEN9_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN9R::DISABLE
+        *self == WKUPEN9_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN9R::ENABLE
+        *self == WKUPEN9_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN10`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN10R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN9`"]
+pub struct WKUPEN9_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN10R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN10R::DISABLE => false,
-            WKUPEN10R::ENABLE => true,
+impl<'a> WKUPEN9_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN9_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN10R {
-        match value {
-            false => WKUPEN10R::DISABLE,
-            true => WKUPEN10R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN9_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN9_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 10\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN10_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN10_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN10_A) -> Self {
+        match variant {
+            WKUPEN10_A::DISABLE => false,
+            WKUPEN10_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN10`"]
+pub type WKUPEN10_R = crate::R<bool, WKUPEN10_A>;
+impl WKUPEN10_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN10_A {
+        match self.bits {
+            false => WKUPEN10_A::DISABLE,
+            true => WKUPEN10_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN10R::DISABLE
+        *self == WKUPEN10_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN10R::ENABLE
+        *self == WKUPEN10_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN11`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN11R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN10`"]
+pub struct WKUPEN10_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN11R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN11R::DISABLE => false,
-            WKUPEN11R::ENABLE => true,
+impl<'a> WKUPEN10_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN10_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN11R {
-        match value {
-            false => WKUPEN11R::DISABLE,
-            true => WKUPEN11R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN10_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN10_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 11\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN11_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN11_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN11_A) -> Self {
+        match variant {
+            WKUPEN11_A::DISABLE => false,
+            WKUPEN11_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN11`"]
+pub type WKUPEN11_R = crate::R<bool, WKUPEN11_A>;
+impl WKUPEN11_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN11_A {
+        match self.bits {
+            false => WKUPEN11_A::DISABLE,
+            true => WKUPEN11_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN11R::DISABLE
+        *self == WKUPEN11_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN11R::ENABLE
+        *self == WKUPEN11_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN12`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN12R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN11`"]
+pub struct WKUPEN11_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN12R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN12R::DISABLE => false,
-            WKUPEN12R::ENABLE => true,
+impl<'a> WKUPEN11_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN11_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN12R {
-        match value {
-            false => WKUPEN12R::DISABLE,
-            true => WKUPEN12R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN11_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN11_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 12\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN12_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN12_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN12_A) -> Self {
+        match variant {
+            WKUPEN12_A::DISABLE => false,
+            WKUPEN12_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN12`"]
+pub type WKUPEN12_R = crate::R<bool, WKUPEN12_A>;
+impl WKUPEN12_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN12_A {
+        match self.bits {
+            false => WKUPEN12_A::DISABLE,
+            true => WKUPEN12_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN12R::DISABLE
+        *self == WKUPEN12_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN12R::ENABLE
+        *self == WKUPEN12_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN13`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN13R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN12`"]
+pub struct WKUPEN12_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN13R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN13R::DISABLE => false,
-            WKUPEN13R::ENABLE => true,
+impl<'a> WKUPEN12_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN12_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN13R {
-        match value {
-            false => WKUPEN13R::DISABLE,
-            true => WKUPEN13R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN12_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN12_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 13\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN13_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN13_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN13_A) -> Self {
+        match variant {
+            WKUPEN13_A::DISABLE => false,
+            WKUPEN13_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN13`"]
+pub type WKUPEN13_R = crate::R<bool, WKUPEN13_A>;
+impl WKUPEN13_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN13_A {
+        match self.bits {
+            false => WKUPEN13_A::DISABLE,
+            true => WKUPEN13_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN13R::DISABLE
+        *self == WKUPEN13_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN13R::ENABLE
+        *self == WKUPEN13_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN14`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN14R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN13`"]
+pub struct WKUPEN13_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN14R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN14R::DISABLE => false,
-            WKUPEN14R::ENABLE => true,
+impl<'a> WKUPEN13_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN13_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN14R {
-        match value {
-            false => WKUPEN14R::DISABLE,
-            true => WKUPEN14R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN13_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN13_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 14\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN14_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN14_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN14_A) -> Self {
+        match variant {
+            WKUPEN14_A::DISABLE => false,
+            WKUPEN14_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN14`"]
+pub type WKUPEN14_R = crate::R<bool, WKUPEN14_A>;
+impl WKUPEN14_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN14_A {
+        match self.bits {
+            false => WKUPEN14_A::DISABLE,
+            true => WKUPEN14_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN14R::DISABLE
+        *self == WKUPEN14_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN14R::ENABLE
+        *self == WKUPEN14_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPEN15`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPEN15R {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+#[doc = "Write proxy for field `WKUPEN14`"]
+pub struct WKUPEN14_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPEN15R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPEN15R::DISABLE => false,
-            WKUPEN15R::ENABLE => true,
+impl<'a> WKUPEN14_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN14_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPEN15R {
-        match value {
-            false => WKUPEN15R::DISABLE,
-            true => WKUPEN15R::ENABLE,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN14_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN14_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Enable 15\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPEN15_A {
+    #[doc = "0: the corresponding wake-up input has no wake-up effect."]
+    DISABLE,
+    #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
+    ENABLE,
+}
+impl From<WKUPEN15_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPEN15_A) -> Self {
+        match variant {
+            WKUPEN15_A::DISABLE => false,
+            WKUPEN15_A::ENABLE => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPEN15`"]
+pub type WKUPEN15_R = crate::R<bool, WKUPEN15_A>;
+impl WKUPEN15_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPEN15_A {
+        match self.bits {
+            false => WKUPEN15_A::DISABLE,
+            true => WKUPEN15_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WKUPEN15R::DISABLE
+        *self == WKUPEN15_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WKUPEN15R::ENABLE
+        *self == WKUPEN15_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `WKUPT0`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT0R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPEN15`"]
+pub struct WKUPEN15_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT0R::HIGH_TO_LOW => false,
-            WKUPT0R::LOW_TO_HIGH => true,
+impl<'a> WKUPEN15_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPEN15_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT0R {
-        match value {
-            false => WKUPT0R::HIGH_TO_LOW,
-            true => WKUPT0R::LOW_TO_HIGH,
+    #[doc = "the corresponding wake-up input has no wake-up effect."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WKUPEN15_A::DISABLE)
+    }
+    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WKUPEN15_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 0\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT0_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT0_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT0_A) -> Self {
+        match variant {
+            WKUPT0_A::HIGH_TO_LOW => false,
+            WKUPT0_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT0`"]
+pub type WKUPT0_R = crate::R<bool, WKUPT0_A>;
+impl WKUPT0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT0_A {
+        match self.bits {
+            false => WKUPT0_A::HIGH_TO_LOW,
+            true => WKUPT0_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT0R::HIGH_TO_LOW
+        *self == WKUPT0_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT0R::LOW_TO_HIGH
+        *self == WKUPT0_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT1R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT0`"]
+pub struct WKUPT0_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT1R::HIGH_TO_LOW => false,
-            WKUPT1R::LOW_TO_HIGH => true,
+impl<'a> WKUPT0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT0_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT1R {
-        match value {
-            false => WKUPT1R::HIGH_TO_LOW,
-            true => WKUPT1R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT0_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT0_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 1\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT1_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT1_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT1_A) -> Self {
+        match variant {
+            WKUPT1_A::HIGH_TO_LOW => false,
+            WKUPT1_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT1`"]
+pub type WKUPT1_R = crate::R<bool, WKUPT1_A>;
+impl WKUPT1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT1_A {
+        match self.bits {
+            false => WKUPT1_A::HIGH_TO_LOW,
+            true => WKUPT1_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT1R::HIGH_TO_LOW
+        *self == WKUPT1_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT1R::LOW_TO_HIGH
+        *self == WKUPT1_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT2R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT1`"]
+pub struct WKUPT1_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT2R::HIGH_TO_LOW => false,
-            WKUPT2R::LOW_TO_HIGH => true,
+impl<'a> WKUPT1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT2R {
-        match value {
-            false => WKUPT2R::HIGH_TO_LOW,
-            true => WKUPT2R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT1_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT1_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 2\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT2_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT2_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT2_A) -> Self {
+        match variant {
+            WKUPT2_A::HIGH_TO_LOW => false,
+            WKUPT2_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT2`"]
+pub type WKUPT2_R = crate::R<bool, WKUPT2_A>;
+impl WKUPT2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT2_A {
+        match self.bits {
+            false => WKUPT2_A::HIGH_TO_LOW,
+            true => WKUPT2_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT2R::HIGH_TO_LOW
+        *self == WKUPT2_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT2R::LOW_TO_HIGH
+        *self == WKUPT2_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT3R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT2`"]
+pub struct WKUPT2_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT3R::HIGH_TO_LOW => false,
-            WKUPT3R::LOW_TO_HIGH => true,
+impl<'a> WKUPT2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT3R {
-        match value {
-            false => WKUPT3R::HIGH_TO_LOW,
-            true => WKUPT3R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT2_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT2_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 3\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT3_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT3_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT3_A) -> Self {
+        match variant {
+            WKUPT3_A::HIGH_TO_LOW => false,
+            WKUPT3_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT3`"]
+pub type WKUPT3_R = crate::R<bool, WKUPT3_A>;
+impl WKUPT3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT3_A {
+        match self.bits {
+            false => WKUPT3_A::HIGH_TO_LOW,
+            true => WKUPT3_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT3R::HIGH_TO_LOW
+        *self == WKUPT3_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT3R::LOW_TO_HIGH
+        *self == WKUPT3_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT4R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT3`"]
+pub struct WKUPT3_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT4R::HIGH_TO_LOW => false,
-            WKUPT4R::LOW_TO_HIGH => true,
+impl<'a> WKUPT3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT4R {
-        match value {
-            false => WKUPT4R::HIGH_TO_LOW,
-            true => WKUPT4R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT3_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT3_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 4\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT4_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT4_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT4_A) -> Self {
+        match variant {
+            WKUPT4_A::HIGH_TO_LOW => false,
+            WKUPT4_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT4`"]
+pub type WKUPT4_R = crate::R<bool, WKUPT4_A>;
+impl WKUPT4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT4_A {
+        match self.bits {
+            false => WKUPT4_A::HIGH_TO_LOW,
+            true => WKUPT4_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT4R::HIGH_TO_LOW
+        *self == WKUPT4_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT4R::LOW_TO_HIGH
+        *self == WKUPT4_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT5R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT4`"]
+pub struct WKUPT4_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT5R::HIGH_TO_LOW => false,
-            WKUPT5R::LOW_TO_HIGH => true,
+impl<'a> WKUPT4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT5R {
-        match value {
-            false => WKUPT5R::HIGH_TO_LOW,
-            true => WKUPT5R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT4_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT4_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 5\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT5_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT5_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT5_A) -> Self {
+        match variant {
+            WKUPT5_A::HIGH_TO_LOW => false,
+            WKUPT5_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT5`"]
+pub type WKUPT5_R = crate::R<bool, WKUPT5_A>;
+impl WKUPT5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT5_A {
+        match self.bits {
+            false => WKUPT5_A::HIGH_TO_LOW,
+            true => WKUPT5_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT5R::HIGH_TO_LOW
+        *self == WKUPT5_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT5R::LOW_TO_HIGH
+        *self == WKUPT5_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT6R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT5`"]
+pub struct WKUPT5_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT6R::HIGH_TO_LOW => false,
-            WKUPT6R::LOW_TO_HIGH => true,
+impl<'a> WKUPT5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT6R {
-        match value {
-            false => WKUPT6R::HIGH_TO_LOW,
-            true => WKUPT6R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT5_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT5_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 6\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT6_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT6_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT6_A) -> Self {
+        match variant {
+            WKUPT6_A::HIGH_TO_LOW => false,
+            WKUPT6_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT6`"]
+pub type WKUPT6_R = crate::R<bool, WKUPT6_A>;
+impl WKUPT6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT6_A {
+        match self.bits {
+            false => WKUPT6_A::HIGH_TO_LOW,
+            true => WKUPT6_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT6R::HIGH_TO_LOW
+        *self == WKUPT6_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT6R::LOW_TO_HIGH
+        *self == WKUPT6_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT7`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT7R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT6`"]
+pub struct WKUPT6_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT7R::HIGH_TO_LOW => false,
-            WKUPT7R::LOW_TO_HIGH => true,
+impl<'a> WKUPT6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT6_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT7R {
-        match value {
-            false => WKUPT7R::HIGH_TO_LOW,
-            true => WKUPT7R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT6_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT6_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 7\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT7_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT7_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT7_A) -> Self {
+        match variant {
+            WKUPT7_A::HIGH_TO_LOW => false,
+            WKUPT7_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT7`"]
+pub type WKUPT7_R = crate::R<bool, WKUPT7_A>;
+impl WKUPT7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT7_A {
+        match self.bits {
+            false => WKUPT7_A::HIGH_TO_LOW,
+            true => WKUPT7_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT7R::HIGH_TO_LOW
+        *self == WKUPT7_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT7R::LOW_TO_HIGH
+        *self == WKUPT7_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT8`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT8R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT7`"]
+pub struct WKUPT7_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT8R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT8R::HIGH_TO_LOW => false,
-            WKUPT8R::LOW_TO_HIGH => true,
+impl<'a> WKUPT7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT7_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT8R {
-        match value {
-            false => WKUPT8R::HIGH_TO_LOW,
-            true => WKUPT8R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT7_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT7_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 8\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT8_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT8_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT8_A) -> Self {
+        match variant {
+            WKUPT8_A::HIGH_TO_LOW => false,
+            WKUPT8_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT8`"]
+pub type WKUPT8_R = crate::R<bool, WKUPT8_A>;
+impl WKUPT8_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT8_A {
+        match self.bits {
+            false => WKUPT8_A::HIGH_TO_LOW,
+            true => WKUPT8_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT8R::HIGH_TO_LOW
+        *self == WKUPT8_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT8R::LOW_TO_HIGH
+        *self == WKUPT8_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT9`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT9R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT8`"]
+pub struct WKUPT8_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT9R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT9R::HIGH_TO_LOW => false,
-            WKUPT9R::LOW_TO_HIGH => true,
+impl<'a> WKUPT8_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT8_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT9R {
-        match value {
-            false => WKUPT9R::HIGH_TO_LOW,
-            true => WKUPT9R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT8_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT8_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 9\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT9_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT9_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT9_A) -> Self {
+        match variant {
+            WKUPT9_A::HIGH_TO_LOW => false,
+            WKUPT9_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT9`"]
+pub type WKUPT9_R = crate::R<bool, WKUPT9_A>;
+impl WKUPT9_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT9_A {
+        match self.bits {
+            false => WKUPT9_A::HIGH_TO_LOW,
+            true => WKUPT9_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT9R::HIGH_TO_LOW
+        *self == WKUPT9_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT9R::LOW_TO_HIGH
+        *self == WKUPT9_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT10`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT10R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT9`"]
+pub struct WKUPT9_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT10R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT10R::HIGH_TO_LOW => false,
-            WKUPT10R::LOW_TO_HIGH => true,
+impl<'a> WKUPT9_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT9_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT10R {
-        match value {
-            false => WKUPT10R::HIGH_TO_LOW,
-            true => WKUPT10R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT9_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT9_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 10\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT10_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT10_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT10_A) -> Self {
+        match variant {
+            WKUPT10_A::HIGH_TO_LOW => false,
+            WKUPT10_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT10`"]
+pub type WKUPT10_R = crate::R<bool, WKUPT10_A>;
+impl WKUPT10_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT10_A {
+        match self.bits {
+            false => WKUPT10_A::HIGH_TO_LOW,
+            true => WKUPT10_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT10R::HIGH_TO_LOW
+        *self == WKUPT10_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT10R::LOW_TO_HIGH
+        *self == WKUPT10_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT11`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT11R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT10`"]
+pub struct WKUPT10_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT11R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT11R::HIGH_TO_LOW => false,
-            WKUPT11R::LOW_TO_HIGH => true,
+impl<'a> WKUPT10_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT10_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT11R {
-        match value {
-            false => WKUPT11R::HIGH_TO_LOW,
-            true => WKUPT11R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT10_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT10_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 11\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT11_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT11_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT11_A) -> Self {
+        match variant {
+            WKUPT11_A::HIGH_TO_LOW => false,
+            WKUPT11_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT11`"]
+pub type WKUPT11_R = crate::R<bool, WKUPT11_A>;
+impl WKUPT11_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT11_A {
+        match self.bits {
+            false => WKUPT11_A::HIGH_TO_LOW,
+            true => WKUPT11_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT11R::HIGH_TO_LOW
+        *self == WKUPT11_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT11R::LOW_TO_HIGH
+        *self == WKUPT11_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT12`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT12R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT11`"]
+pub struct WKUPT11_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT12R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT12R::HIGH_TO_LOW => false,
-            WKUPT12R::LOW_TO_HIGH => true,
+impl<'a> WKUPT11_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT11_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT12R {
-        match value {
-            false => WKUPT12R::HIGH_TO_LOW,
-            true => WKUPT12R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT11_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT11_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 12\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT12_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT12_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT12_A) -> Self {
+        match variant {
+            WKUPT12_A::HIGH_TO_LOW => false,
+            WKUPT12_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT12`"]
+pub type WKUPT12_R = crate::R<bool, WKUPT12_A>;
+impl WKUPT12_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT12_A {
+        match self.bits {
+            false => WKUPT12_A::HIGH_TO_LOW,
+            true => WKUPT12_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT12R::HIGH_TO_LOW
+        *self == WKUPT12_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT12R::LOW_TO_HIGH
+        *self == WKUPT12_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT13`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT13R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT12`"]
+pub struct WKUPT12_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT13R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT13R::HIGH_TO_LOW => false,
-            WKUPT13R::LOW_TO_HIGH => true,
+impl<'a> WKUPT12_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT12_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT13R {
-        match value {
-            false => WKUPT13R::HIGH_TO_LOW,
-            true => WKUPT13R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT12_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT12_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 13\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT13_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT13_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT13_A) -> Self {
+        match variant {
+            WKUPT13_A::HIGH_TO_LOW => false,
+            WKUPT13_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT13`"]
+pub type WKUPT13_R = crate::R<bool, WKUPT13_A>;
+impl WKUPT13_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT13_A {
+        match self.bits {
+            false => WKUPT13_A::HIGH_TO_LOW,
+            true => WKUPT13_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT13R::HIGH_TO_LOW
+        *self == WKUPT13_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT13R::LOW_TO_HIGH
+        *self == WKUPT13_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT14`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT14R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT13`"]
+pub struct WKUPT13_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT14R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT14R::HIGH_TO_LOW => false,
-            WKUPT14R::LOW_TO_HIGH => true,
+impl<'a> WKUPT13_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT13_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT14R {
-        match value {
-            false => WKUPT14R::HIGH_TO_LOW,
-            true => WKUPT14R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT13_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT13_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 14\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT14_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT14_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT14_A) -> Self {
+        match variant {
+            WKUPT14_A::HIGH_TO_LOW => false,
+            WKUPT14_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT14`"]
+pub type WKUPT14_R = crate::R<bool, WKUPT14_A>;
+impl WKUPT14_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT14_A {
+        match self.bits {
+            false => WKUPT14_A::HIGH_TO_LOW,
+            true => WKUPT14_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT14R::HIGH_TO_LOW
+        *self == WKUPT14_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT14R::LOW_TO_HIGH
+        *self == WKUPT14_A::LOW_TO_HIGH
     }
 }
-#[doc = "Possible values of the field `WKUPT15`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WKUPT15R {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+#[doc = "Write proxy for field `WKUPT14`"]
+pub struct WKUPT14_W<'a> {
+    w: &'a mut W,
 }
-impl WKUPT15R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WKUPT15R::HIGH_TO_LOW => false,
-            WKUPT15R::LOW_TO_HIGH => true,
+impl<'a> WKUPT14_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT14_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WKUPT15R {
-        match value {
-            false => WKUPT15R::HIGH_TO_LOW,
-            true => WKUPT15R::LOW_TO_HIGH,
+    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn high_to_low(self) -> &'a mut W {
+        self.variant(WKUPT14_A::HIGH_TO_LOW)
+    }
+    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    #[inline(always)]
+    pub fn low_to_high(self) -> &'a mut W {
+        self.variant(WKUPT14_A::LOW_TO_HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w
+    }
+}
+#[doc = "Wake-up Input Type 15\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WKUPT15_A {
+    #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
+    HIGH_TO_LOW,
+    #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
+    LOW_TO_HIGH,
+}
+impl From<WKUPT15_A> for bool {
+    #[inline(always)]
+    fn from(variant: WKUPT15_A) -> Self {
+        match variant {
+            WKUPT15_A::HIGH_TO_LOW => false,
+            WKUPT15_A::LOW_TO_HIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `WKUPT15`"]
+pub type WKUPT15_R = crate::R<bool, WKUPT15_A>;
+impl WKUPT15_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WKUPT15_A {
+        match self.bits {
+            false => WKUPT15_A::HIGH_TO_LOW,
+            true => WKUPT15_A::LOW_TO_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `HIGH_TO_LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_to_low(&self) -> bool {
-        *self == WKUPT15R::HIGH_TO_LOW
+        *self == WKUPT15_A::HIGH_TO_LOW
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_to_high(&self) -> bool {
-        *self == WKUPT15R::LOW_TO_HIGH
+        *self == WKUPT15_A::LOW_TO_HIGH
     }
 }
-#[doc = "Values that can be written to the field `WKUPEN0`"]
-pub enum WKUPEN0W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN0W::DISABLE => false,
-            WKUPEN0W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN0W<'a> {
+#[doc = "Write proxy for field `WKUPT15`"]
+pub struct WKUPT15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WKUPEN0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN0W) -> &'a mut W {
+impl<'a> WKUPT15_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WKUPT15_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN0W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN0W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN1`"]
-pub enum WKUPEN1W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN1W::DISABLE => false,
-            WKUPEN1W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN1W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN1W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN2`"]
-pub enum WKUPEN2W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN2W::DISABLE => false,
-            WKUPEN2W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN2W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN2W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN2W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN3`"]
-pub enum WKUPEN3W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN3W::DISABLE => false,
-            WKUPEN3W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN3W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN3W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN4`"]
-pub enum WKUPEN4W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN4W::DISABLE => false,
-            WKUPEN4W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN4W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN4W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN5`"]
-pub enum WKUPEN5W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN5W::DISABLE => false,
-            WKUPEN5W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN5W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN5W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN6`"]
-pub enum WKUPEN6W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN6W::DISABLE => false,
-            WKUPEN6W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN6W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN6W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN7`"]
-pub enum WKUPEN7W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN7W::DISABLE => false,
-            WKUPEN7W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN7W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN7W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN7W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN8`"]
-pub enum WKUPEN8W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN8W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN8W::DISABLE => false,
-            WKUPEN8W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN8W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN8W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN8W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN8W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN8W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN9`"]
-pub enum WKUPEN9W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN9W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN9W::DISABLE => false,
-            WKUPEN9W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN9W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN9W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN9W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN9W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN9W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN10`"]
-pub enum WKUPEN10W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN10W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN10W::DISABLE => false,
-            WKUPEN10W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN10W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN10W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN10W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN10W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN10W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN11`"]
-pub enum WKUPEN11W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN11W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN11W::DISABLE => false,
-            WKUPEN11W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN11W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN11W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN11W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN11W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN11W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN12`"]
-pub enum WKUPEN12W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN12W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN12W::DISABLE => false,
-            WKUPEN12W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN12W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN12W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN12W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN12W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN12W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN13`"]
-pub enum WKUPEN13W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN13W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN13W::DISABLE => false,
-            WKUPEN13W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN13W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN13W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN13W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN13W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN13W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN14`"]
-pub enum WKUPEN14W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN14W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN14W::DISABLE => false,
-            WKUPEN14W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN14W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN14W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN14W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN14W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN14W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPEN15`"]
-pub enum WKUPEN15W {
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
-}
-impl WKUPEN15W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPEN15W::DISABLE => false,
-            WKUPEN15W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPEN15W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPEN15W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPEN15W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the corresponding wake-up input has no wake-up effect."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WKUPEN15W::DISABLE)
-    }
-    #[doc = "the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WKUPEN15W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT0`"]
-pub enum WKUPT0W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT0W::HIGH_TO_LOW => false,
-            WKUPT0W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT0W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT0W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
+    #[inline(always)]
     pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT0W::HIGH_TO_LOW)
+        self.variant(WKUPT15_A::HIGH_TO_LOW)
     }
     #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
+    #[inline(always)]
     pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT0W::LOW_TO_HIGH)
+        self.variant(WKUPT15_A::LOW_TO_HIGH)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT1`"]
-pub enum WKUPT1W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT1W::HIGH_TO_LOW => false,
-            WKUPT1W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT1W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT1W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT2`"]
-pub enum WKUPT2W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT2W::HIGH_TO_LOW => false,
-            WKUPT2W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT2W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT2W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT2W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT3`"]
-pub enum WKUPT3W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT3W::HIGH_TO_LOW => false,
-            WKUPT3W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT3W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT3W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT4`"]
-pub enum WKUPT4W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT4W::HIGH_TO_LOW => false,
-            WKUPT4W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT4W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT4W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT5`"]
-pub enum WKUPT5W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT5W::HIGH_TO_LOW => false,
-            WKUPT5W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT5W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT5W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT6`"]
-pub enum WKUPT6W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT6W::HIGH_TO_LOW => false,
-            WKUPT6W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT6W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT6W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT7`"]
-pub enum WKUPT7W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT7W::HIGH_TO_LOW => false,
-            WKUPT7W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT7W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT7W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT7W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT8`"]
-pub enum WKUPT8W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT8W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT8W::HIGH_TO_LOW => false,
-            WKUPT8W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT8W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT8W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT8W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT8W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT8W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT9`"]
-pub enum WKUPT9W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT9W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT9W::HIGH_TO_LOW => false,
-            WKUPT9W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT9W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT9W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT9W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT9W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT9W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT10`"]
-pub enum WKUPT10W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT10W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT10W::HIGH_TO_LOW => false,
-            WKUPT10W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT10W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT10W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT10W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT10W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT10W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 26;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT11`"]
-pub enum WKUPT11W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT11W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT11W::HIGH_TO_LOW => false,
-            WKUPT11W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT11W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT11W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT11W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT11W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT11W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 27;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT12`"]
-pub enum WKUPT12W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT12W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT12W::HIGH_TO_LOW => false,
-            WKUPT12W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT12W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT12W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT12W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT12W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT12W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT13`"]
-pub enum WKUPT13W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT13W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT13W::HIGH_TO_LOW => false,
-            WKUPT13W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT13W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT13W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT13W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT13W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT13W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 29;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT14`"]
-pub enum WKUPT14W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT14W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT14W::HIGH_TO_LOW => false,
-            WKUPT14W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT14W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT14W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT14W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT14W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT14W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WKUPT15`"]
-pub enum WKUPT15W {
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
-}
-impl WKUPT15W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WKUPT15W::HIGH_TO_LOW => false,
-            WKUPT15W::LOW_TO_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WKUPT15W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WKUPT15W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WKUPT15W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn high_to_low(self) -> &'a mut W {
-        self.variant(WKUPT15W::HIGH_TO_LOW)
-    }
-    #[doc = "a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    #[inline]
-    pub fn low_to_high(self) -> &'a mut W {
-        self.variant(WKUPT15W::LOW_TO_HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Wake-up Input Enable 0"]
-    #[inline]
-    pub fn wkupen0(&self) -> WKUPEN0R {
-        WKUPEN0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen0(&self) -> WKUPEN0_R {
+        WKUPEN0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Wake-up Input Enable 1"]
-    #[inline]
-    pub fn wkupen1(&self) -> WKUPEN1R {
-        WKUPEN1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen1(&self) -> WKUPEN1_R {
+        WKUPEN1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Wake-up Input Enable 2"]
-    #[inline]
-    pub fn wkupen2(&self) -> WKUPEN2R {
-        WKUPEN2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen2(&self) -> WKUPEN2_R {
+        WKUPEN2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Wake-up Input Enable 3"]
-    #[inline]
-    pub fn wkupen3(&self) -> WKUPEN3R {
-        WKUPEN3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen3(&self) -> WKUPEN3_R {
+        WKUPEN3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Wake-up Input Enable 4"]
-    #[inline]
-    pub fn wkupen4(&self) -> WKUPEN4R {
-        WKUPEN4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen4(&self) -> WKUPEN4_R {
+        WKUPEN4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Wake-up Input Enable 5"]
-    #[inline]
-    pub fn wkupen5(&self) -> WKUPEN5R {
-        WKUPEN5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen5(&self) -> WKUPEN5_R {
+        WKUPEN5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Wake-up Input Enable 6"]
-    #[inline]
-    pub fn wkupen6(&self) -> WKUPEN6R {
-        WKUPEN6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen6(&self) -> WKUPEN6_R {
+        WKUPEN6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Wake-up Input Enable 7"]
-    #[inline]
-    pub fn wkupen7(&self) -> WKUPEN7R {
-        WKUPEN7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen7(&self) -> WKUPEN7_R {
+        WKUPEN7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Wake-up Input Enable 8"]
-    #[inline]
-    pub fn wkupen8(&self) -> WKUPEN8R {
-        WKUPEN8R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen8(&self) -> WKUPEN8_R {
+        WKUPEN8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Wake-up Input Enable 9"]
-    #[inline]
-    pub fn wkupen9(&self) -> WKUPEN9R {
-        WKUPEN9R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen9(&self) -> WKUPEN9_R {
+        WKUPEN9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Wake-up Input Enable 10"]
-    #[inline]
-    pub fn wkupen10(&self) -> WKUPEN10R {
-        WKUPEN10R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen10(&self) -> WKUPEN10_R {
+        WKUPEN10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Wake-up Input Enable 11"]
-    #[inline]
-    pub fn wkupen11(&self) -> WKUPEN11R {
-        WKUPEN11R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen11(&self) -> WKUPEN11_R {
+        WKUPEN11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Wake-up Input Enable 12"]
-    #[inline]
-    pub fn wkupen12(&self) -> WKUPEN12R {
-        WKUPEN12R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen12(&self) -> WKUPEN12_R {
+        WKUPEN12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Wake-up Input Enable 13"]
-    #[inline]
-    pub fn wkupen13(&self) -> WKUPEN13R {
-        WKUPEN13R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen13(&self) -> WKUPEN13_R {
+        WKUPEN13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Wake-up Input Enable 14"]
-    #[inline]
-    pub fn wkupen14(&self) -> WKUPEN14R {
-        WKUPEN14R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen14(&self) -> WKUPEN14_R {
+        WKUPEN14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Wake-up Input Enable 15"]
-    #[inline]
-    pub fn wkupen15(&self) -> WKUPEN15R {
-        WKUPEN15R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupen15(&self) -> WKUPEN15_R {
+        WKUPEN15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Wake-up Input Type 0"]
-    #[inline]
-    pub fn wkupt0(&self) -> WKUPT0R {
-        WKUPT0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt0(&self) -> WKUPT0_R {
+        WKUPT0_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Wake-up Input Type 1"]
-    #[inline]
-    pub fn wkupt1(&self) -> WKUPT1R {
-        WKUPT1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt1(&self) -> WKUPT1_R {
+        WKUPT1_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Wake-up Input Type 2"]
-    #[inline]
-    pub fn wkupt2(&self) -> WKUPT2R {
-        WKUPT2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt2(&self) -> WKUPT2_R {
+        WKUPT2_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Wake-up Input Type 3"]
-    #[inline]
-    pub fn wkupt3(&self) -> WKUPT3R {
-        WKUPT3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt3(&self) -> WKUPT3_R {
+        WKUPT3_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Wake-up Input Type 4"]
-    #[inline]
-    pub fn wkupt4(&self) -> WKUPT4R {
-        WKUPT4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt4(&self) -> WKUPT4_R {
+        WKUPT4_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Wake-up Input Type 5"]
-    #[inline]
-    pub fn wkupt5(&self) -> WKUPT5R {
-        WKUPT5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt5(&self) -> WKUPT5_R {
+        WKUPT5_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Wake-up Input Type 6"]
-    #[inline]
-    pub fn wkupt6(&self) -> WKUPT6R {
-        WKUPT6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt6(&self) -> WKUPT6_R {
+        WKUPT6_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Wake-up Input Type 7"]
-    #[inline]
-    pub fn wkupt7(&self) -> WKUPT7R {
-        WKUPT7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt7(&self) -> WKUPT7_R {
+        WKUPT7_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Wake-up Input Type 8"]
-    #[inline]
-    pub fn wkupt8(&self) -> WKUPT8R {
-        WKUPT8R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt8(&self) -> WKUPT8_R {
+        WKUPT8_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 25 - Wake-up Input Type 9"]
-    #[inline]
-    pub fn wkupt9(&self) -> WKUPT9R {
-        WKUPT9R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt9(&self) -> WKUPT9_R {
+        WKUPT9_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 26 - Wake-up Input Type 10"]
-    #[inline]
-    pub fn wkupt10(&self) -> WKUPT10R {
-        WKUPT10R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt10(&self) -> WKUPT10_R {
+        WKUPT10_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - Wake-up Input Type 11"]
-    #[inline]
-    pub fn wkupt11(&self) -> WKUPT11R {
-        WKUPT11R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt11(&self) -> WKUPT11_R {
+        WKUPT11_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - Wake-up Input Type 12"]
-    #[inline]
-    pub fn wkupt12(&self) -> WKUPT12R {
-        WKUPT12R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt12(&self) -> WKUPT12_R {
+        WKUPT12_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - Wake-up Input Type 13"]
-    #[inline]
-    pub fn wkupt13(&self) -> WKUPT13R {
-        WKUPT13R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt13(&self) -> WKUPT13_R {
+        WKUPT13_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - Wake-up Input Type 14"]
-    #[inline]
-    pub fn wkupt14(&self) -> WKUPT14R {
-        WKUPT14R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt14(&self) -> WKUPT14_R {
+        WKUPT14_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Wake-up Input Type 15"]
-    #[inline]
-    pub fn wkupt15(&self) -> WKUPT15R {
-        WKUPT15R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wkupt15(&self) -> WKUPT15_R {
+        WKUPT15_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Wake-up Input Enable 0"]
-    #[inline]
-    pub fn wkupen0(&mut self) -> _WKUPEN0W {
-        _WKUPEN0W { w: self }
+    #[inline(always)]
+    pub fn wkupen0(&mut self) -> WKUPEN0_W {
+        WKUPEN0_W { w: self }
     }
     #[doc = "Bit 1 - Wake-up Input Enable 1"]
-    #[inline]
-    pub fn wkupen1(&mut self) -> _WKUPEN1W {
-        _WKUPEN1W { w: self }
+    #[inline(always)]
+    pub fn wkupen1(&mut self) -> WKUPEN1_W {
+        WKUPEN1_W { w: self }
     }
     #[doc = "Bit 2 - Wake-up Input Enable 2"]
-    #[inline]
-    pub fn wkupen2(&mut self) -> _WKUPEN2W {
-        _WKUPEN2W { w: self }
+    #[inline(always)]
+    pub fn wkupen2(&mut self) -> WKUPEN2_W {
+        WKUPEN2_W { w: self }
     }
     #[doc = "Bit 3 - Wake-up Input Enable 3"]
-    #[inline]
-    pub fn wkupen3(&mut self) -> _WKUPEN3W {
-        _WKUPEN3W { w: self }
+    #[inline(always)]
+    pub fn wkupen3(&mut self) -> WKUPEN3_W {
+        WKUPEN3_W { w: self }
     }
     #[doc = "Bit 4 - Wake-up Input Enable 4"]
-    #[inline]
-    pub fn wkupen4(&mut self) -> _WKUPEN4W {
-        _WKUPEN4W { w: self }
+    #[inline(always)]
+    pub fn wkupen4(&mut self) -> WKUPEN4_W {
+        WKUPEN4_W { w: self }
     }
     #[doc = "Bit 5 - Wake-up Input Enable 5"]
-    #[inline]
-    pub fn wkupen5(&mut self) -> _WKUPEN5W {
-        _WKUPEN5W { w: self }
+    #[inline(always)]
+    pub fn wkupen5(&mut self) -> WKUPEN5_W {
+        WKUPEN5_W { w: self }
     }
     #[doc = "Bit 6 - Wake-up Input Enable 6"]
-    #[inline]
-    pub fn wkupen6(&mut self) -> _WKUPEN6W {
-        _WKUPEN6W { w: self }
+    #[inline(always)]
+    pub fn wkupen6(&mut self) -> WKUPEN6_W {
+        WKUPEN6_W { w: self }
     }
     #[doc = "Bit 7 - Wake-up Input Enable 7"]
-    #[inline]
-    pub fn wkupen7(&mut self) -> _WKUPEN7W {
-        _WKUPEN7W { w: self }
+    #[inline(always)]
+    pub fn wkupen7(&mut self) -> WKUPEN7_W {
+        WKUPEN7_W { w: self }
     }
     #[doc = "Bit 8 - Wake-up Input Enable 8"]
-    #[inline]
-    pub fn wkupen8(&mut self) -> _WKUPEN8W {
-        _WKUPEN8W { w: self }
+    #[inline(always)]
+    pub fn wkupen8(&mut self) -> WKUPEN8_W {
+        WKUPEN8_W { w: self }
     }
     #[doc = "Bit 9 - Wake-up Input Enable 9"]
-    #[inline]
-    pub fn wkupen9(&mut self) -> _WKUPEN9W {
-        _WKUPEN9W { w: self }
+    #[inline(always)]
+    pub fn wkupen9(&mut self) -> WKUPEN9_W {
+        WKUPEN9_W { w: self }
     }
     #[doc = "Bit 10 - Wake-up Input Enable 10"]
-    #[inline]
-    pub fn wkupen10(&mut self) -> _WKUPEN10W {
-        _WKUPEN10W { w: self }
+    #[inline(always)]
+    pub fn wkupen10(&mut self) -> WKUPEN10_W {
+        WKUPEN10_W { w: self }
     }
     #[doc = "Bit 11 - Wake-up Input Enable 11"]
-    #[inline]
-    pub fn wkupen11(&mut self) -> _WKUPEN11W {
-        _WKUPEN11W { w: self }
+    #[inline(always)]
+    pub fn wkupen11(&mut self) -> WKUPEN11_W {
+        WKUPEN11_W { w: self }
     }
     #[doc = "Bit 12 - Wake-up Input Enable 12"]
-    #[inline]
-    pub fn wkupen12(&mut self) -> _WKUPEN12W {
-        _WKUPEN12W { w: self }
+    #[inline(always)]
+    pub fn wkupen12(&mut self) -> WKUPEN12_W {
+        WKUPEN12_W { w: self }
     }
     #[doc = "Bit 13 - Wake-up Input Enable 13"]
-    #[inline]
-    pub fn wkupen13(&mut self) -> _WKUPEN13W {
-        _WKUPEN13W { w: self }
+    #[inline(always)]
+    pub fn wkupen13(&mut self) -> WKUPEN13_W {
+        WKUPEN13_W { w: self }
     }
     #[doc = "Bit 14 - Wake-up Input Enable 14"]
-    #[inline]
-    pub fn wkupen14(&mut self) -> _WKUPEN14W {
-        _WKUPEN14W { w: self }
+    #[inline(always)]
+    pub fn wkupen14(&mut self) -> WKUPEN14_W {
+        WKUPEN14_W { w: self }
     }
     #[doc = "Bit 15 - Wake-up Input Enable 15"]
-    #[inline]
-    pub fn wkupen15(&mut self) -> _WKUPEN15W {
-        _WKUPEN15W { w: self }
+    #[inline(always)]
+    pub fn wkupen15(&mut self) -> WKUPEN15_W {
+        WKUPEN15_W { w: self }
     }
     #[doc = "Bit 16 - Wake-up Input Type 0"]
-    #[inline]
-    pub fn wkupt0(&mut self) -> _WKUPT0W {
-        _WKUPT0W { w: self }
+    #[inline(always)]
+    pub fn wkupt0(&mut self) -> WKUPT0_W {
+        WKUPT0_W { w: self }
     }
     #[doc = "Bit 17 - Wake-up Input Type 1"]
-    #[inline]
-    pub fn wkupt1(&mut self) -> _WKUPT1W {
-        _WKUPT1W { w: self }
+    #[inline(always)]
+    pub fn wkupt1(&mut self) -> WKUPT1_W {
+        WKUPT1_W { w: self }
     }
     #[doc = "Bit 18 - Wake-up Input Type 2"]
-    #[inline]
-    pub fn wkupt2(&mut self) -> _WKUPT2W {
-        _WKUPT2W { w: self }
+    #[inline(always)]
+    pub fn wkupt2(&mut self) -> WKUPT2_W {
+        WKUPT2_W { w: self }
     }
     #[doc = "Bit 19 - Wake-up Input Type 3"]
-    #[inline]
-    pub fn wkupt3(&mut self) -> _WKUPT3W {
-        _WKUPT3W { w: self }
+    #[inline(always)]
+    pub fn wkupt3(&mut self) -> WKUPT3_W {
+        WKUPT3_W { w: self }
     }
     #[doc = "Bit 20 - Wake-up Input Type 4"]
-    #[inline]
-    pub fn wkupt4(&mut self) -> _WKUPT4W {
-        _WKUPT4W { w: self }
+    #[inline(always)]
+    pub fn wkupt4(&mut self) -> WKUPT4_W {
+        WKUPT4_W { w: self }
     }
     #[doc = "Bit 21 - Wake-up Input Type 5"]
-    #[inline]
-    pub fn wkupt5(&mut self) -> _WKUPT5W {
-        _WKUPT5W { w: self }
+    #[inline(always)]
+    pub fn wkupt5(&mut self) -> WKUPT5_W {
+        WKUPT5_W { w: self }
     }
     #[doc = "Bit 22 - Wake-up Input Type 6"]
-    #[inline]
-    pub fn wkupt6(&mut self) -> _WKUPT6W {
-        _WKUPT6W { w: self }
+    #[inline(always)]
+    pub fn wkupt6(&mut self) -> WKUPT6_W {
+        WKUPT6_W { w: self }
     }
     #[doc = "Bit 23 - Wake-up Input Type 7"]
-    #[inline]
-    pub fn wkupt7(&mut self) -> _WKUPT7W {
-        _WKUPT7W { w: self }
+    #[inline(always)]
+    pub fn wkupt7(&mut self) -> WKUPT7_W {
+        WKUPT7_W { w: self }
     }
     #[doc = "Bit 24 - Wake-up Input Type 8"]
-    #[inline]
-    pub fn wkupt8(&mut self) -> _WKUPT8W {
-        _WKUPT8W { w: self }
+    #[inline(always)]
+    pub fn wkupt8(&mut self) -> WKUPT8_W {
+        WKUPT8_W { w: self }
     }
     #[doc = "Bit 25 - Wake-up Input Type 9"]
-    #[inline]
-    pub fn wkupt9(&mut self) -> _WKUPT9W {
-        _WKUPT9W { w: self }
+    #[inline(always)]
+    pub fn wkupt9(&mut self) -> WKUPT9_W {
+        WKUPT9_W { w: self }
     }
     #[doc = "Bit 26 - Wake-up Input Type 10"]
-    #[inline]
-    pub fn wkupt10(&mut self) -> _WKUPT10W {
-        _WKUPT10W { w: self }
+    #[inline(always)]
+    pub fn wkupt10(&mut self) -> WKUPT10_W {
+        WKUPT10_W { w: self }
     }
     #[doc = "Bit 27 - Wake-up Input Type 11"]
-    #[inline]
-    pub fn wkupt11(&mut self) -> _WKUPT11W {
-        _WKUPT11W { w: self }
+    #[inline(always)]
+    pub fn wkupt11(&mut self) -> WKUPT11_W {
+        WKUPT11_W { w: self }
     }
     #[doc = "Bit 28 - Wake-up Input Type 12"]
-    #[inline]
-    pub fn wkupt12(&mut self) -> _WKUPT12W {
-        _WKUPT12W { w: self }
+    #[inline(always)]
+    pub fn wkupt12(&mut self) -> WKUPT12_W {
+        WKUPT12_W { w: self }
     }
     #[doc = "Bit 29 - Wake-up Input Type 13"]
-    #[inline]
-    pub fn wkupt13(&mut self) -> _WKUPT13W {
-        _WKUPT13W { w: self }
+    #[inline(always)]
+    pub fn wkupt13(&mut self) -> WKUPT13_W {
+        WKUPT13_W { w: self }
     }
     #[doc = "Bit 30 - Wake-up Input Type 14"]
-    #[inline]
-    pub fn wkupt14(&mut self) -> _WKUPT14W {
-        _WKUPT14W { w: self }
+    #[inline(always)]
+    pub fn wkupt14(&mut self) -> WKUPT14_W {
+        WKUPT14_W { w: self }
     }
     #[doc = "Bit 31 - Wake-up Input Type 15"]
-    #[inline]
-    pub fn wkupt15(&mut self) -> _WKUPT15W {
-        _WKUPT15W { w: self }
+    #[inline(always)]
+    pub fn wkupt15(&mut self) -> WKUPT15_W {
+        WKUPT15_W { w: self }
     }
 }

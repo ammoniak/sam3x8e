@@ -1,62 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::LCDR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LDATAR {
-    bits: u16,
-}
-impl LDATAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHNBR {
-    bits: u8,
-}
-impl CHNBR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register LCDR"]
+pub type R = crate::R<u32, super::LCDR>;
+#[doc = "Reader of field `LDATA`"]
+pub type LDATA_R = crate::R<u16, u16>;
+#[doc = "Reader of field `CHNB`"]
+pub type CHNB_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:11 - Last Data Converted"]
-    #[inline]
-    pub fn ldata(&self) -> LDATAR {
-        let bits = {
-            const MASK: u16 = 4095;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        LDATAR { bits }
+    #[inline(always)]
+    pub fn ldata(&self) -> LDATA_R {
+        LDATA_R::new((self.bits & 0x0fff) as u16)
     }
     #[doc = "Bits 12:15 - Channel Number"]
-    #[inline]
-    pub fn chnb(&self) -> CHNBR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CHNBR { bits }
+    #[inline(always)]
+    pub fn chnb(&self) -> CHNB_R {
+        CHNB_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
 }

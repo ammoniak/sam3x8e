@@ -1,218 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MATRIX_SCFG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLOT_CYCLER {
-    bits: u8,
-}
-impl SLOT_CYCLER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DEFMSTR_TYPER {
-    bits: u8,
-}
-impl DEFMSTR_TYPER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FIXED_DEFMSTRR {
-    bits: u8,
-}
-impl FIXED_DEFMSTRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ARBTR {
-    bits: u8,
-}
-impl ARBTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SLOT_CYCLEW<'a> {
+#[doc = "Reader of register MATRIX_SCFG[%s]"]
+pub type R = crate::R<u32, super::MATRIX_SCFG>;
+#[doc = "Writer for register MATRIX_SCFG[%s]"]
+pub type W = crate::W<u32, super::MATRIX_SCFG>;
+#[doc = "Reader of field `SLOT_CYCLE`"]
+pub type SLOT_CYCLE_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SLOT_CYCLE`"]
+pub struct SLOT_CYCLE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SLOT_CYCLEW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SLOT_CYCLE_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DEFMSTR_TYPEW<'a> {
+#[doc = "Reader of field `DEFMSTR_TYPE`"]
+pub type DEFMSTR_TYPE_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DEFMSTR_TYPE`"]
+pub struct DEFMSTR_TYPE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DEFMSTR_TYPEW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DEFMSTR_TYPE_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FIXED_DEFMSTRW<'a> {
+#[doc = "Reader of field `FIXED_DEFMSTR`"]
+pub type FIXED_DEFMSTR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `FIXED_DEFMSTR`"]
+pub struct FIXED_DEFMSTR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FIXED_DEFMSTRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FIXED_DEFMSTR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 18)) | (((value as u32) & 0x07) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ARBTW<'a> {
+#[doc = "Reader of field `ARBT`"]
+pub type ARBT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ARBT`"]
+pub struct ARBT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ARBTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ARBT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 24)) | (((value as u32) & 0x03) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Maximum Number of Allowed Cycles for a Burst"]
-    #[inline]
-    pub fn slot_cycle(&self) -> SLOT_CYCLER {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SLOT_CYCLER { bits }
+    #[inline(always)]
+    pub fn slot_cycle(&self) -> SLOT_CYCLE_R {
+        SLOT_CYCLE_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 16:17 - Default Master Type"]
-    #[inline]
-    pub fn defmstr_type(&self) -> DEFMSTR_TYPER {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DEFMSTR_TYPER { bits }
+    #[inline(always)]
+    pub fn defmstr_type(&self) -> DEFMSTR_TYPE_R {
+        DEFMSTR_TYPE_R::new(((self.bits >> 16) & 0x03) as u8)
     }
     #[doc = "Bits 18:20 - Fixed Default Master"]
-    #[inline]
-    pub fn fixed_defmstr(&self) -> FIXED_DEFMSTRR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FIXED_DEFMSTRR { bits }
+    #[inline(always)]
+    pub fn fixed_defmstr(&self) -> FIXED_DEFMSTR_R {
+        FIXED_DEFMSTR_R::new(((self.bits >> 18) & 0x07) as u8)
     }
     #[doc = "Bits 24:25 - Arbitration Type"]
-    #[inline]
-    pub fn arbt(&self) -> ARBTR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ARBTR { bits }
+    #[inline(always)]
+    pub fn arbt(&self) -> ARBT_R {
+        ARBT_R::new(((self.bits >> 24) & 0x03) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:7 - Maximum Number of Allowed Cycles for a Burst"]
-    #[inline]
-    pub fn slot_cycle(&mut self) -> _SLOT_CYCLEW {
-        _SLOT_CYCLEW { w: self }
+    #[inline(always)]
+    pub fn slot_cycle(&mut self) -> SLOT_CYCLE_W {
+        SLOT_CYCLE_W { w: self }
     }
     #[doc = "Bits 16:17 - Default Master Type"]
-    #[inline]
-    pub fn defmstr_type(&mut self) -> _DEFMSTR_TYPEW {
-        _DEFMSTR_TYPEW { w: self }
+    #[inline(always)]
+    pub fn defmstr_type(&mut self) -> DEFMSTR_TYPE_W {
+        DEFMSTR_TYPE_W { w: self }
     }
     #[doc = "Bits 18:20 - Fixed Default Master"]
-    #[inline]
-    pub fn fixed_defmstr(&mut self) -> _FIXED_DEFMSTRW {
-        _FIXED_DEFMSTRW { w: self }
+    #[inline(always)]
+    pub fn fixed_defmstr(&mut self) -> FIXED_DEFMSTR_W {
+        FIXED_DEFMSTR_W { w: self }
     }
     #[doc = "Bits 24:25 - Arbitration Type"]
-    #[inline]
-    pub fn arbt(&mut self) -> _ARBTW {
-        _ARBTW { w: self }
+    #[inline(always)]
+    pub fn arbt(&mut self) -> ARBT_W {
+        ARBT_W { w: self }
     }
 }

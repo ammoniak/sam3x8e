@@ -1,59 +1,38 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DTUPD7 {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DTHUPDW<'a> {
+#[doc = "Writer for register DTUPD7"]
+pub type W = crate::W<u32, super::DTUPD7>;
+#[doc = "Write proxy for field `DTHUPD`"]
+pub struct DTHUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DTHUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DTHUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DTLUPDW<'a> {
+#[doc = "Write proxy for field `DTLUPD`"]
+pub struct DTLUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DTLUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DTLUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xffff << 16)) | (((value as u32) & 0xffff) << 16);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:15 - Dead-Time Value Update for PWMHx Output"]
-    #[inline]
-    pub fn dthupd(&mut self) -> _DTHUPDW {
-        _DTHUPDW { w: self }
+    #[inline(always)]
+    pub fn dthupd(&mut self) -> DTHUPD_W {
+        DTHUPD_W { w: self }
     }
     #[doc = "Bits 16:31 - Dead-Time Value Update for PWMLx Output"]
-    #[inline]
-    pub fn dtlupd(&mut self) -> _DTLUPDW {
-        _DTLUPDW { w: self }
+    #[inline(always)]
+    pub fn dtlupd(&mut self) -> DTLUPD_W {
+        DTLUPD_W { w: self }
     }
 }

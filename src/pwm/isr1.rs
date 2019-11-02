@@ -1,516 +1,116 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ISR1 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID0R {
-    bits: bool,
-}
-impl CHID0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID1R {
-    bits: bool,
-}
-impl CHID1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID2R {
-    bits: bool,
-}
-impl CHID2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID3R {
-    bits: bool,
-}
-impl CHID3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID4R {
-    bits: bool,
-}
-impl CHID4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID5R {
-    bits: bool,
-}
-impl CHID5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID6R {
-    bits: bool,
-}
-impl CHID6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHID7R {
-    bits: bool,
-}
-impl CHID7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID0R {
-    bits: bool,
-}
-impl FCHID0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID1R {
-    bits: bool,
-}
-impl FCHID1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID2R {
-    bits: bool,
-}
-impl FCHID2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID3R {
-    bits: bool,
-}
-impl FCHID3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID4R {
-    bits: bool,
-}
-impl FCHID4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID5R {
-    bits: bool,
-}
-impl FCHID5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID6R {
-    bits: bool,
-}
-impl FCHID6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCHID7R {
-    bits: bool,
-}
-impl FCHID7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register ISR1"]
+pub type R = crate::R<u32, super::ISR1>;
+#[doc = "Reader of field `CHID0`"]
+pub type CHID0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID1`"]
+pub type CHID1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID2`"]
+pub type CHID2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID3`"]
+pub type CHID3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID4`"]
+pub type CHID4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID5`"]
+pub type CHID5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID6`"]
+pub type CHID6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CHID7`"]
+pub type CHID7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID0`"]
+pub type FCHID0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID1`"]
+pub type FCHID1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID2`"]
+pub type FCHID2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID3`"]
+pub type FCHID3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID4`"]
+pub type FCHID4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID5`"]
+pub type FCHID5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID6`"]
+pub type FCHID6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCHID7`"]
+pub type FCHID7_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Counter Event on Channel 0"]
-    #[inline]
-    pub fn chid0(&self) -> CHID0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID0R { bits }
+    #[inline(always)]
+    pub fn chid0(&self) -> CHID0_R {
+        CHID0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Counter Event on Channel 1"]
-    #[inline]
-    pub fn chid1(&self) -> CHID1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID1R { bits }
+    #[inline(always)]
+    pub fn chid1(&self) -> CHID1_R {
+        CHID1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Counter Event on Channel 2"]
-    #[inline]
-    pub fn chid2(&self) -> CHID2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID2R { bits }
+    #[inline(always)]
+    pub fn chid2(&self) -> CHID2_R {
+        CHID2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Counter Event on Channel 3"]
-    #[inline]
-    pub fn chid3(&self) -> CHID3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID3R { bits }
+    #[inline(always)]
+    pub fn chid3(&self) -> CHID3_R {
+        CHID3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Counter Event on Channel 4"]
-    #[inline]
-    pub fn chid4(&self) -> CHID4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID4R { bits }
+    #[inline(always)]
+    pub fn chid4(&self) -> CHID4_R {
+        CHID4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Counter Event on Channel 5"]
-    #[inline]
-    pub fn chid5(&self) -> CHID5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID5R { bits }
+    #[inline(always)]
+    pub fn chid5(&self) -> CHID5_R {
+        CHID5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Counter Event on Channel 6"]
-    #[inline]
-    pub fn chid6(&self) -> CHID6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID6R { bits }
+    #[inline(always)]
+    pub fn chid6(&self) -> CHID6_R {
+        CHID6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Counter Event on Channel 7"]
-    #[inline]
-    pub fn chid7(&self) -> CHID7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CHID7R { bits }
+    #[inline(always)]
+    pub fn chid7(&self) -> CHID7_R {
+        CHID7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Fault Protection Trigger on Channel 0"]
-    #[inline]
-    pub fn fchid0(&self) -> FCHID0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID0R { bits }
+    #[inline(always)]
+    pub fn fchid0(&self) -> FCHID0_R {
+        FCHID0_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Fault Protection Trigger on Channel 1"]
-    #[inline]
-    pub fn fchid1(&self) -> FCHID1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID1R { bits }
+    #[inline(always)]
+    pub fn fchid1(&self) -> FCHID1_R {
+        FCHID1_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Fault Protection Trigger on Channel 2"]
-    #[inline]
-    pub fn fchid2(&self) -> FCHID2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID2R { bits }
+    #[inline(always)]
+    pub fn fchid2(&self) -> FCHID2_R {
+        FCHID2_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Fault Protection Trigger on Channel 3"]
-    #[inline]
-    pub fn fchid3(&self) -> FCHID3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID3R { bits }
+    #[inline(always)]
+    pub fn fchid3(&self) -> FCHID3_R {
+        FCHID3_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Fault Protection Trigger on Channel 4"]
-    #[inline]
-    pub fn fchid4(&self) -> FCHID4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID4R { bits }
+    #[inline(always)]
+    pub fn fchid4(&self) -> FCHID4_R {
+        FCHID4_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Fault Protection Trigger on Channel 5"]
-    #[inline]
-    pub fn fchid5(&self) -> FCHID5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID5R { bits }
+    #[inline(always)]
+    pub fn fchid5(&self) -> FCHID5_R {
+        FCHID5_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Fault Protection Trigger on Channel 6"]
-    #[inline]
-    pub fn fchid6(&self) -> FCHID6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID6R { bits }
+    #[inline(always)]
+    pub fn fchid6(&self) -> FCHID6_R {
+        FCHID6_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Fault Protection Trigger on Channel 7"]
-    #[inline]
-    pub fn fchid7(&self) -> FCHID7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCHID7R { bits }
+    #[inline(always)]
+    pub fn fchid7(&self) -> FCHID7_R {
+        FCHID7_R::new(((self.bits >> 23) & 0x01) != 0)
     }
 }

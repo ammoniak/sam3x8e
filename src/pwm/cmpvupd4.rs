@@ -1,67 +1,48 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CMPVUPD4 {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CVUPDW<'a> {
+#[doc = "Writer for register CMPVUPD4"]
+pub type W = crate::W<u32, super::CMPVUPD4>;
+#[doc = "Write proxy for field `CVUPD`"]
+pub struct CVUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CVUPDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CVUPD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 16777215;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x00ff_ffff) | ((value as u32) & 0x00ff_ffff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CVMUPDW<'a> {
+#[doc = "Write proxy for field `CVMUPD`"]
+pub struct CVMUPD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CVMUPDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CVMUPD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:23 - Comparison x Value Update"]
-    #[inline]
-    pub fn cvupd(&mut self) -> _CVUPDW {
-        _CVUPDW { w: self }
+    #[inline(always)]
+    pub fn cvupd(&mut self) -> CVUPD_W {
+        CVUPD_W { w: self }
     }
     #[doc = "Bit 24 - Comparison x Value Mode Update"]
-    #[inline]
-    pub fn cvmupd(&mut self) -> _CVMUPDW {
-        _CVMUPDW { w: self }
+    #[inline(always)]
+    pub fn cvmupd(&mut self) -> CVMUPD_W {
+        CVMUPD_W { w: self }
     }
 }

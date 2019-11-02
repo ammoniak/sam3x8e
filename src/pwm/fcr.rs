@@ -1,39 +1,21 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FCR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FCLRW<'a> {
+#[doc = "Writer for register FCR"]
+pub type W = crate::W<u32, super::FCR>;
+#[doc = "Write proxy for field `FCLR`"]
+pub struct FCLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FCLRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FCLR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:7 - Fault Clear (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fclr(&mut self) -> _FCLRW {
-        _FCLRW { w: self }
+    #[inline(always)]
+    pub fn fclr(&mut self) -> FCLR_W {
+        FCLR_W { w: self }
     }
 }

@@ -1,39 +1,21 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::THR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TDATW<'a> {
+#[doc = "Writer for register THR"]
+pub type W = crate::W<u32, super::THR>;
+#[doc = "Write proxy for field `TDAT`"]
+pub struct TDAT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TDATW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> TDAT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 4294967295;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xffff_ffff) | ((value as u32) & 0xffff_ffff);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:31 - Transmit Data"]
-    #[inline]
-    pub fn tdat(&mut self) -> _TDATW {
-        _TDATW { w: self }
+    #[inline(always)]
+    pub fn tdat(&mut self) -> TDAT_W {
+        TDAT_W { w: self }
     }
 }

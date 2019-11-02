@@ -1,540 +1,344 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MR_SPI_MODE {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
-    }
-}
-#[doc = "Possible values of the field `USART_MODE`"]
+#[doc = "Reader of register MR_SPI_MODE"]
+pub type R = crate::R<u32, super::MR_SPI_MODE>;
+#[doc = "Writer for register MR_SPI_MODE"]
+pub type W = crate::W<u32, super::MR_SPI_MODE>;
+#[doc = "USART Mode of Operation"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum USART_MODER {
-    #[doc = "SPI master"]
+pub enum USART_MODE_A {
+    #[doc = "14: SPI master"]
     SPI_MASTER,
-    #[doc = "SPI Slave"]
+    #[doc = "15: SPI Slave"]
     SPI_SLAVE,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl USART_MODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            USART_MODER::SPI_MASTER => 14,
-            USART_MODER::SPI_SLAVE => 15,
-            USART_MODER::_Reserved(bits) => bits,
+impl From<USART_MODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: USART_MODE_A) -> Self {
+        match variant {
+            USART_MODE_A::SPI_MASTER => 14,
+            USART_MODE_A::SPI_SLAVE => 15,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> USART_MODER {
-        match value {
-            14 => USART_MODER::SPI_MASTER,
-            15 => USART_MODER::SPI_SLAVE,
-            i => USART_MODER::_Reserved(i),
+}
+#[doc = "Reader of field `USART_MODE`"]
+pub type USART_MODE_R = crate::R<u8, USART_MODE_A>;
+impl USART_MODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, USART_MODE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            14 => Val(USART_MODE_A::SPI_MASTER),
+            15 => Val(USART_MODE_A::SPI_SLAVE),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `SPI_MASTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_spi_master(&self) -> bool {
-        *self == USART_MODER::SPI_MASTER
+        *self == USART_MODE_A::SPI_MASTER
     }
     #[doc = "Checks if the value of the field is `SPI_SLAVE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_spi_slave(&self) -> bool {
-        *self == USART_MODER::SPI_SLAVE
+        *self == USART_MODE_A::SPI_SLAVE
     }
 }
-#[doc = "Possible values of the field `USCLKS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum USCLKSR {
-    #[doc = "master Clock MCK is selected"]
-    MCK,
-    #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
-    DIV,
-    #[doc = "Serial Clock SLK is selected"]
-    SCK,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `USART_MODE`"]
+pub struct USART_MODE_W<'a> {
+    w: &'a mut W,
 }
-impl USCLKSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            USCLKSR::MCK => 0,
-            USCLKSR::DIV => 1,
-            USCLKSR::SCK => 3,
-            USCLKSR::_Reserved(bits) => bits,
+impl<'a> USART_MODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: USART_MODE_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "SPI master"]
+    #[inline(always)]
+    pub fn spi_master(self) -> &'a mut W {
+        self.variant(USART_MODE_A::SPI_MASTER)
+    }
+    #[doc = "SPI Slave"]
+    #[inline(always)]
+    pub fn spi_slave(self) -> &'a mut W {
+        self.variant(USART_MODE_A::SPI_SLAVE)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w
+    }
+}
+#[doc = "Clock Selection"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum USCLKS_A {
+    #[doc = "0: master Clock MCK is selected"]
+    MCK,
+    #[doc = "1: Internal Clock Divided MCK/DIV (DIV=8) is selected"]
+    DIV,
+    #[doc = "3: Serial Clock SLK is selected"]
+    SCK,
+}
+impl From<USCLKS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: USCLKS_A) -> Self {
+        match variant {
+            USCLKS_A::MCK => 0,
+            USCLKS_A::DIV => 1,
+            USCLKS_A::SCK => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> USCLKSR {
-        match value {
-            0 => USCLKSR::MCK,
-            1 => USCLKSR::DIV,
-            3 => USCLKSR::SCK,
-            i => USCLKSR::_Reserved(i),
+}
+#[doc = "Reader of field `USCLKS`"]
+pub type USCLKS_R = crate::R<u8, USCLKS_A>;
+impl USCLKS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, USCLKS_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(USCLKS_A::MCK),
+            1 => Val(USCLKS_A::DIV),
+            3 => Val(USCLKS_A::SCK),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `MCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_mck(&self) -> bool {
-        *self == USCLKSR::MCK
+        *self == USCLKS_A::MCK
     }
     #[doc = "Checks if the value of the field is `DIV`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_div(&self) -> bool {
-        *self == USCLKSR::DIV
+        *self == USCLKS_A::DIV
     }
     #[doc = "Checks if the value of the field is `SCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sck(&self) -> bool {
-        *self == USCLKSR::SCK
+        *self == USCLKS_A::SCK
     }
 }
-#[doc = "Possible values of the field `CHRL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CHRLR {
-    #[doc = "Character length is 8 bits"]
-    _8_BIT,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `USCLKS`"]
+pub struct USCLKS_W<'a> {
+    w: &'a mut W,
 }
-impl CHRLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CHRLR::_8_BIT => 3,
-            CHRLR::_Reserved(bits) => bits,
+impl<'a> USCLKS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: USCLKS_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "master Clock MCK is selected"]
+    #[inline(always)]
+    pub fn mck(self) -> &'a mut W {
+        self.variant(USCLKS_A::MCK)
+    }
+    #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
+    #[inline(always)]
+    pub fn div(self) -> &'a mut W {
+        self.variant(USCLKS_A::DIV)
+    }
+    #[doc = "Serial Clock SLK is selected"]
+    #[inline(always)]
+    pub fn sck(self) -> &'a mut W {
+        self.variant(USCLKS_A::SCK)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w
+    }
+}
+#[doc = "Character Length"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CHRL_A {
+    #[doc = "3: Character length is 8 bits"]
+    _8_BIT,
+}
+impl From<CHRL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CHRL_A) -> Self {
+        match variant {
+            CHRL_A::_8_BIT => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CHRLR {
-        match value {
-            3 => CHRLR::_8_BIT,
-            i => CHRLR::_Reserved(i),
+}
+#[doc = "Reader of field `CHRL`"]
+pub type CHRL_R = crate::R<u8, CHRL_A>;
+impl CHRL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CHRL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            3 => Val(CHRL_A::_8_BIT),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `_8_BIT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_8_bit(&self) -> bool {
-        *self == CHRLR::_8_BIT
+        *self == CHRL_A::_8_BIT
     }
 }
-#[doc = r" Value of the field"]
-pub struct CPHAR {
-    bits: bool,
-}
-impl CPHAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPOLR {
-    bits: bool,
-}
-impl CPOLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WRDBTR {
-    bits: bool,
-}
-impl WRDBTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Values that can be written to the field `USART_MODE`"]
-pub enum USART_MODEW {
-    #[doc = "SPI master"]
-    SPI_MASTER,
-    #[doc = "SPI Slave"]
-    SPI_SLAVE,
-}
-impl USART_MODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            USART_MODEW::SPI_MASTER => 14,
-            USART_MODEW::SPI_SLAVE => 15,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _USART_MODEW<'a> {
+#[doc = "Write proxy for field `CHRL`"]
+pub struct CHRL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USART_MODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: USART_MODEW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "SPI master"]
-    #[inline]
-    pub fn spi_master(self) -> &'a mut W {
-        self.variant(USART_MODEW::SPI_MASTER)
-    }
-    #[doc = "SPI Slave"]
-    #[inline]
-    pub fn spi_slave(self) -> &'a mut W {
-        self.variant(USART_MODEW::SPI_SLAVE)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `USCLKS`"]
-pub enum USCLKSW {
-    #[doc = "master Clock MCK is selected"]
-    MCK,
-    #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
-    DIV,
-    #[doc = "Serial Clock SLK is selected"]
-    SCK,
-}
-impl USCLKSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            USCLKSW::MCK => 0,
-            USCLKSW::DIV => 1,
-            USCLKSW::SCK => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _USCLKSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _USCLKSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: USCLKSW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "master Clock MCK is selected"]
-    #[inline]
-    pub fn mck(self) -> &'a mut W {
-        self.variant(USCLKSW::MCK)
-    }
-    #[doc = "Internal Clock Divided MCK/DIV (DIV=8) is selected"]
-    #[inline]
-    pub fn div(self) -> &'a mut W {
-        self.variant(USCLKSW::DIV)
-    }
-    #[doc = "Serial Clock SLK is selected"]
-    #[inline]
-    pub fn sck(self) -> &'a mut W {
-        self.variant(USCLKSW::SCK)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CHRL`"]
-pub enum CHRLW {
-    #[doc = "Character length is 8 bits"]
-    _8_BIT,
-}
-impl CHRLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CHRLW::_8_BIT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CHRLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CHRLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CHRLW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CHRL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CHRL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Character length is 8 bits"]
-    #[inline]
+    #[inline(always)]
     pub fn _8_bit(self) -> &'a mut W {
-        self.variant(CHRLW::_8_BIT)
+        self.variant(CHRL_A::_8_BIT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPHAW<'a> {
+#[doc = "Reader of field `CPHA`"]
+pub type CPHA_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CPHA`"]
+pub struct CPHA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPHAW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CPHA_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPOLW<'a> {
+#[doc = "Reader of field `CPOL`"]
+pub type CPOL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CPOL`"]
+pub struct CPOL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPOLW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CPOL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _WRDBTW<'a> {
+#[doc = "Reader of field `WRDBT`"]
+pub type WRDBT_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `WRDBT`"]
+pub struct WRDBT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WRDBTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> WRDBT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:3 - USART Mode of Operation"]
-    #[inline]
-    pub fn usart_mode(&self) -> USART_MODER {
-        USART_MODER::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn usart_mode(&self) -> USART_MODE_R {
+        USART_MODE_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:5 - Clock Selection"]
-    #[inline]
-    pub fn usclks(&self) -> USCLKSR {
-        USCLKSR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn usclks(&self) -> USCLKS_R {
+        USCLKS_R::new(((self.bits >> 4) & 0x03) as u8)
     }
     #[doc = "Bits 6:7 - Character Length"]
-    #[inline]
-    pub fn chrl(&self) -> CHRLR {
-        CHRLR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn chrl(&self) -> CHRL_R {
+        CHRL_R::new(((self.bits >> 6) & 0x03) as u8)
     }
     #[doc = "Bit 8 - SPI Clock Phase"]
-    #[inline]
-    pub fn cpha(&self) -> CPHAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPHAR { bits }
+    #[inline(always)]
+    pub fn cpha(&self) -> CPHA_R {
+        CPHA_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 16 - SPI Clock Polarity"]
-    #[inline]
-    pub fn cpol(&self) -> CPOLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPOLR { bits }
+    #[inline(always)]
+    pub fn cpol(&self) -> CPOL_R {
+        CPOL_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Wait Read Data Before Transfer"]
-    #[inline]
-    pub fn wrdbt(&self) -> WRDBTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WRDBTR { bits }
+    #[inline(always)]
+    pub fn wrdbt(&self) -> WRDBT_R {
+        WRDBT_R::new(((self.bits >> 20) & 0x01) != 0)
     }
 }
 impl W {
     #[doc = "Bits 0:3 - USART Mode of Operation"]
-    #[inline]
-    pub fn usart_mode(&mut self) -> _USART_MODEW {
-        _USART_MODEW { w: self }
+    #[inline(always)]
+    pub fn usart_mode(&mut self) -> USART_MODE_W {
+        USART_MODE_W { w: self }
     }
     #[doc = "Bits 4:5 - Clock Selection"]
-    #[inline]
-    pub fn usclks(&mut self) -> _USCLKSW {
-        _USCLKSW { w: self }
+    #[inline(always)]
+    pub fn usclks(&mut self) -> USCLKS_W {
+        USCLKS_W { w: self }
     }
     #[doc = "Bits 6:7 - Character Length"]
-    #[inline]
-    pub fn chrl(&mut self) -> _CHRLW {
-        _CHRLW { w: self }
+    #[inline(always)]
+    pub fn chrl(&mut self) -> CHRL_W {
+        CHRL_W { w: self }
     }
     #[doc = "Bit 8 - SPI Clock Phase"]
-    #[inline]
-    pub fn cpha(&mut self) -> _CPHAW {
-        _CPHAW { w: self }
+    #[inline(always)]
+    pub fn cpha(&mut self) -> CPHA_W {
+        CPHA_W { w: self }
     }
     #[doc = "Bit 16 - SPI Clock Polarity"]
-    #[inline]
-    pub fn cpol(&mut self) -> _CPOLW {
-        _CPOLW { w: self }
+    #[inline(always)]
+    pub fn cpol(&mut self) -> CPOL_W {
+        CPOL_W { w: self }
     }
     #[doc = "Bit 20 - Wait Read Data Before Transfer"]
-    #[inline]
-    pub fn wrdbt(&mut self) -> _WRDBTW {
-        _WRDBTW { w: self }
+    #[inline(always)]
+    pub fn wrdbt(&mut self) -> WRDBT_W {
+        WRDBT_W { w: self }
     }
 }

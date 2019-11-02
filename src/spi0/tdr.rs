@@ -1,87 +1,65 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TDR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TDW<'a> {
+#[doc = "Writer for register TDR"]
+pub type W = crate::W<u32, super::TDR>;
+#[doc = "Write proxy for field `TD`"]
+pub struct TD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> TD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PCSW<'a> {
+#[doc = "Write proxy for field `PCS`"]
+pub struct PCS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PCSW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PCS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LASTXFERW<'a> {
+#[doc = "Write proxy for field `LASTXFER`"]
+pub struct LASTXFER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LASTXFERW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LASTXFER_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
 impl W {
     #[doc = "Bits 0:15 - Transmit Data"]
-    #[inline]
-    pub fn td(&mut self) -> _TDW {
-        _TDW { w: self }
+    #[inline(always)]
+    pub fn td(&mut self) -> TD_W {
+        TD_W { w: self }
     }
     #[doc = "Bits 16:19 - Peripheral Chip Select"]
-    #[inline]
-    pub fn pcs(&mut self) -> _PCSW {
-        _PCSW { w: self }
+    #[inline(always)]
+    pub fn pcs(&mut self) -> PCS_W {
+        PCS_W { w: self }
     }
     #[doc = "Bit 24 - Last Transfer"]
-    #[inline]
-    pub fn lastxfer(&mut self) -> _LASTXFERW {
-        _LASTXFERW { w: self }
+    #[inline(always)]
+    pub fn lastxfer(&mut self) -> LASTXFER_W {
+        LASTXFER_W { w: self }
     }
 }

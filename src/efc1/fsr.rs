@@ -1,113 +1,25 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::FSR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FRDYR {
-    bits: bool,
-}
-impl FRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FCMDER {
-    bits: bool,
-}
-impl FCMDER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FLOCKER {
-    bits: bool,
-}
-impl FLOCKER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register FSR"]
+pub type R = crate::R<u32, super::FSR>;
+#[doc = "Reader of field `FRDY`"]
+pub type FRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FCMDE`"]
+pub type FCMDE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FLOCKE`"]
+pub type FLOCKE_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Flash Ready Status"]
-    #[inline]
-    pub fn frdy(&self) -> FRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FRDYR { bits }
+    #[inline(always)]
+    pub fn frdy(&self) -> FRDY_R {
+        FRDY_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Flash Command Error Status"]
-    #[inline]
-    pub fn fcmde(&self) -> FCMDER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FCMDER { bits }
+    #[inline(always)]
+    pub fn fcmde(&self) -> FCMDE_R {
+        FCMDE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Flash Lock Error Status"]
-    #[inline]
-    pub fn flocke(&self) -> FLOCKER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FLOCKER { bits }
+    #[inline(always)]
+    pub fn flocke(&self) -> FLOCKE_R {
+        FLOCKE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }

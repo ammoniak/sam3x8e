@@ -1,148 +1,126 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PROCRSTW<'a> {
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Write proxy for field `PROCRST`"]
+pub struct PROCRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PROCRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PROCRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PERRSTW<'a> {
+#[doc = "Write proxy for field `PERRST`"]
+pub struct PERRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PERRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PERRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EXTRSTW<'a> {
+#[doc = "Write proxy for field `EXTRST`"]
+pub struct EXTRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EXTRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `KEY`"]
-pub enum KEYW {
-    #[doc = "Writing any other value in this field aborts the write operation."]
+#[doc = "System Reset Key"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum KEY_AW {
+    #[doc = "165: Writing any other value in this field aborts the write operation."]
     PASSWD,
 }
-impl KEYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            KEYW::PASSWD => 165,
+impl From<KEY_AW> for u8 {
+    #[inline(always)]
+    fn from(variant: KEY_AW) -> Self {
+        match variant {
+            KEY_AW::PASSWD => 165,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _KEYW<'a> {
+#[doc = "Write proxy for field `KEY`"]
+pub struct KEY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _KEYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: KEYW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> KEY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: KEY_AW) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Writing any other value in this field aborts the write operation."]
-    #[inline]
+    #[inline(always)]
     pub fn passwd(self) -> &'a mut W {
-        self.variant(KEYW::PASSWD)
+        self.variant(KEY_AW::PASSWD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Processor Reset"]
-    #[inline]
-    pub fn procrst(&mut self) -> _PROCRSTW {
-        _PROCRSTW { w: self }
+    #[inline(always)]
+    pub fn procrst(&mut self) -> PROCRST_W {
+        PROCRST_W { w: self }
     }
     #[doc = "Bit 2 - Peripheral Reset"]
-    #[inline]
-    pub fn perrst(&mut self) -> _PERRSTW {
-        _PERRSTW { w: self }
+    #[inline(always)]
+    pub fn perrst(&mut self) -> PERRST_W {
+        PERRST_W { w: self }
     }
     #[doc = "Bit 3 - External Reset"]
-    #[inline]
-    pub fn extrst(&mut self) -> _EXTRSTW {
-        _EXTRSTW { w: self }
+    #[inline(always)]
+    pub fn extrst(&mut self) -> EXTRST_W {
+        EXTRST_W { w: self }
     }
     #[doc = "Bits 24:31 - System Reset Key"]
-    #[inline]
-    pub fn key(&mut self) -> _KEYW {
-        _KEYW { w: self }
+    #[inline(always)]
+    pub fn key(&mut self) -> KEY_W {
+        KEY_W { w: self }
     }
 }

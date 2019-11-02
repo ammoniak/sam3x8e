@@ -1,328 +1,170 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CMPM7 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CMPM7"]
+pub type R = crate::R<u32, super::CMPM7>;
+#[doc = "Writer for register CMPM7"]
+pub type W = crate::W<u32, super::CMPM7>;
+#[doc = "Register CMPM7 `reset()`'s with value 0"]
+impl crate::ResetValue for super::CMPM7 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct CENR {
-    bits: bool,
-}
-impl CENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CTRR {
-    bits: u8,
-}
-impl CTRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPRR {
-    bits: u8,
-}
-impl CPRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPRCNTR {
-    bits: u8,
-}
-impl CPRCNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CUPRR {
-    bits: u8,
-}
-impl CUPRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CUPRCNTR {
-    bits: u8,
-}
-impl CUPRCNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CENW<'a> {
+#[doc = "Reader of field `CEN`"]
+pub type CEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CEN`"]
+pub struct CEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CTRW<'a> {
+#[doc = "Reader of field `CTR`"]
+pub type CTR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CTR`"]
+pub struct CTR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CTRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CTR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPRW<'a> {
+#[doc = "Reader of field `CPR`"]
+pub type CPR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CPR`"]
+pub struct CPR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CPR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPRCNTW<'a> {
+#[doc = "Reader of field `CPRCNT`"]
+pub type CPRCNT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CPRCNT`"]
+pub struct CPRCNT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPRCNTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CPRCNT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 12)) | (((value as u32) & 0x0f) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CUPRW<'a> {
+#[doc = "Reader of field `CUPR`"]
+pub type CUPR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CUPR`"]
+pub struct CUPR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CUPRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CUPR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CUPRCNTW<'a> {
+#[doc = "Reader of field `CUPRCNT`"]
+pub type CUPRCNT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CUPRCNT`"]
+pub struct CUPRCNT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CUPRCNTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CUPRCNT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 20)) | (((value as u32) & 0x0f) << 20);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Comparison x Enable"]
-    #[inline]
-    pub fn cen(&self) -> CENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CENR { bits }
+    #[inline(always)]
+    pub fn cen(&self) -> CEN_R {
+        CEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bits 4:7 - Comparison x Trigger"]
-    #[inline]
-    pub fn ctr(&self) -> CTRR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CTRR { bits }
+    #[inline(always)]
+    pub fn ctr(&self) -> CTR_R {
+        CTR_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 8:11 - Comparison x Period"]
-    #[inline]
-    pub fn cpr(&self) -> CPRR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CPRR { bits }
+    #[inline(always)]
+    pub fn cpr(&self) -> CPR_R {
+        CPR_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 12:15 - Comparison x Period Counter"]
-    #[inline]
-    pub fn cprcnt(&self) -> CPRCNTR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CPRCNTR { bits }
+    #[inline(always)]
+    pub fn cprcnt(&self) -> CPRCNT_R {
+        CPRCNT_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:19 - Comparison x Update Period"]
-    #[inline]
-    pub fn cupr(&self) -> CUPRR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CUPRR { bits }
+    #[inline(always)]
+    pub fn cupr(&self) -> CUPR_R {
+        CUPR_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - Comparison x Update Period Counter"]
-    #[inline]
-    pub fn cuprcnt(&self) -> CUPRCNTR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CUPRCNTR { bits }
+    #[inline(always)]
+    pub fn cuprcnt(&self) -> CUPRCNT_R {
+        CUPRCNT_R::new(((self.bits >> 20) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Comparison x Enable"]
-    #[inline]
-    pub fn cen(&mut self) -> _CENW {
-        _CENW { w: self }
+    #[inline(always)]
+    pub fn cen(&mut self) -> CEN_W {
+        CEN_W { w: self }
     }
     #[doc = "Bits 4:7 - Comparison x Trigger"]
-    #[inline]
-    pub fn ctr(&mut self) -> _CTRW {
-        _CTRW { w: self }
+    #[inline(always)]
+    pub fn ctr(&mut self) -> CTR_W {
+        CTR_W { w: self }
     }
     #[doc = "Bits 8:11 - Comparison x Period"]
-    #[inline]
-    pub fn cpr(&mut self) -> _CPRW {
-        _CPRW { w: self }
+    #[inline(always)]
+    pub fn cpr(&mut self) -> CPR_W {
+        CPR_W { w: self }
     }
     #[doc = "Bits 12:15 - Comparison x Period Counter"]
-    #[inline]
-    pub fn cprcnt(&mut self) -> _CPRCNTW {
-        _CPRCNTW { w: self }
+    #[inline(always)]
+    pub fn cprcnt(&mut self) -> CPRCNT_W {
+        CPRCNT_W { w: self }
     }
     #[doc = "Bits 16:19 - Comparison x Update Period"]
-    #[inline]
-    pub fn cupr(&mut self) -> _CUPRW {
-        _CUPRW { w: self }
+    #[inline(always)]
+    pub fn cupr(&mut self) -> CUPR_W {
+        CUPR_W { w: self }
     }
     #[doc = "Bits 20:23 - Comparison x Update Period Counter"]
-    #[inline]
-    pub fn cuprcnt(&mut self) -> _CUPRCNTW {
-        _CUPRCNTW { w: self }
+    #[inline(always)]
+    pub fn cuprcnt(&mut self) -> CUPRCNT_W {
+        CUPRCNT_W { w: self }
     }
 }

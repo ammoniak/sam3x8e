@@ -1,186 +1,46 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::MSR1 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MTIMESTAMPR {
-    bits: u16,
-}
-impl MTIMESTAMPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MDLCR {
-    bits: u8,
-}
-impl MDLCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MRTRR {
-    bits: bool,
-}
-impl MRTRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MABTR {
-    bits: bool,
-}
-impl MABTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MRDYR {
-    bits: bool,
-}
-impl MRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MMIR {
-    bits: bool,
-}
-impl MMIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register MSR1"]
+pub type R = crate::R<u32, super::MSR1>;
+#[doc = "Reader of field `MTIMESTAMP`"]
+pub type MTIMESTAMP_R = crate::R<u16, u16>;
+#[doc = "Reader of field `MDLC`"]
+pub type MDLC_R = crate::R<u8, u8>;
+#[doc = "Reader of field `MRTR`"]
+pub type MRTR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MABT`"]
+pub type MABT_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MRDY`"]
+pub type MRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MMI`"]
+pub type MMI_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:15 - Timer value"]
-    #[inline]
-    pub fn mtimestamp(&self) -> MTIMESTAMPR {
-        let bits = {
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        MTIMESTAMPR { bits }
+    #[inline(always)]
+    pub fn mtimestamp(&self) -> MTIMESTAMP_R {
+        MTIMESTAMP_R::new((self.bits & 0xffff) as u16)
     }
     #[doc = "Bits 16:19 - Mailbox Data Length Code"]
-    #[inline]
-    pub fn mdlc(&self) -> MDLCR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MDLCR { bits }
+    #[inline(always)]
+    pub fn mdlc(&self) -> MDLC_R {
+        MDLC_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bit 20 - Mailbox Remote Transmission Request"]
-    #[inline]
-    pub fn mrtr(&self) -> MRTRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MRTRR { bits }
+    #[inline(always)]
+    pub fn mrtr(&self) -> MRTR_R {
+        MRTR_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Mailbox Message Abort"]
-    #[inline]
-    pub fn mabt(&self) -> MABTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MABTR { bits }
+    #[inline(always)]
+    pub fn mabt(&self) -> MABT_R {
+        MABT_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Mailbox Ready"]
-    #[inline]
-    pub fn mrdy(&self) -> MRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MRDYR { bits }
+    #[inline(always)]
+    pub fn mrdy(&self) -> MRDY_R {
+        MRDY_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Mailbox Message Ignored"]
-    #[inline]
-    pub fn mmi(&self) -> MMIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MMIR { bits }
+    #[inline(always)]
+    pub fn mmi(&self) -> MMI_R {
+        MMI_R::new(((self.bits >> 24) & 0x01) != 0)
     }
 }

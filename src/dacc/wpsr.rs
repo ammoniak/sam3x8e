@@ -1,72 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::WPSR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WPROTERRR {
-    bits: bool,
-}
-impl WPROTERRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WPROTADDRR {
-    bits: u8,
-}
-impl WPROTADDRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register WPSR"]
+pub type R = crate::R<u32, super::WPSR>;
+#[doc = "Reader of field `WPROTERR`"]
+pub type WPROTERR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `WPROTADDR`"]
+pub type WPROTADDR_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Write protection error"]
-    #[inline]
-    pub fn wproterr(&self) -> WPROTERRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WPROTERRR { bits }
+    #[inline(always)]
+    pub fn wproterr(&self) -> WPROTERR_R {
+        WPROTERR_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bits 8:15 - Write protection error address"]
-    #[inline]
-    pub fn wprotaddr(&self) -> WPROTADDRR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        WPROTADDRR { bits }
+    #[inline(always)]
+    pub fn wprotaddr(&self) -> WPROTADDR_R {
+        WPROTADDR_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }

@@ -1,82 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::NSR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MDIOR {
-    bits: bool,
-}
-impl MDIOR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IDLER {
-    bits: bool,
-}
-impl IDLER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register NSR"]
+pub type R = crate::R<u32, super::NSR>;
+#[doc = "Reader of field `MDIO`"]
+pub type MDIO_R = crate::R<bool, bool>;
+#[doc = "Reader of field `IDLE`"]
+pub type IDLE_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 1"]
-    #[inline]
-    pub fn mdio(&self) -> MDIOR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MDIOR { bits }
+    #[inline(always)]
+    pub fn mdio(&self) -> MDIO_R {
+        MDIO_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2"]
-    #[inline]
-    pub fn idle(&self) -> IDLER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IDLER { bits }
+    #[inline(always)]
+    pub fn idle(&self) -> IDLE_R {
+        IDLE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }

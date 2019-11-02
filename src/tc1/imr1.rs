@@ -1,268 +1,60 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::IMR1 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COVFSR {
-    bits: bool,
-}
-impl COVFSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LOVRSR {
-    bits: bool,
-}
-impl LOVRSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPASR {
-    bits: bool,
-}
-impl CPASR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPBSR {
-    bits: bool,
-}
-impl CPBSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPCSR {
-    bits: bool,
-}
-impl CPCSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LDRASR {
-    bits: bool,
-}
-impl LDRASR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LDRBSR {
-    bits: bool,
-}
-impl LDRBSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ETRGSR {
-    bits: bool,
-}
-impl ETRGSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register IMR1"]
+pub type R = crate::R<u32, super::IMR1>;
+#[doc = "Reader of field `COVFS`"]
+pub type COVFS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LOVRS`"]
+pub type LOVRS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CPAS`"]
+pub type CPAS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CPBS`"]
+pub type CPBS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CPCS`"]
+pub type CPCS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LDRAS`"]
+pub type LDRAS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LDRBS`"]
+pub type LDRBS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ETRGS`"]
+pub type ETRGS_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Counter Overflow"]
-    #[inline]
-    pub fn covfs(&self) -> COVFSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COVFSR { bits }
+    #[inline(always)]
+    pub fn covfs(&self) -> COVFS_R {
+        COVFS_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Load Overrun"]
-    #[inline]
-    pub fn lovrs(&self) -> LOVRSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LOVRSR { bits }
+    #[inline(always)]
+    pub fn lovrs(&self) -> LOVRS_R {
+        LOVRS_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - RA Compare"]
-    #[inline]
-    pub fn cpas(&self) -> CPASR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPASR { bits }
+    #[inline(always)]
+    pub fn cpas(&self) -> CPAS_R {
+        CPAS_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - RB Compare"]
-    #[inline]
-    pub fn cpbs(&self) -> CPBSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPBSR { bits }
+    #[inline(always)]
+    pub fn cpbs(&self) -> CPBS_R {
+        CPBS_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - RC Compare"]
-    #[inline]
-    pub fn cpcs(&self) -> CPCSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CPCSR { bits }
+    #[inline(always)]
+    pub fn cpcs(&self) -> CPCS_R {
+        CPCS_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - RA Loading"]
-    #[inline]
-    pub fn ldras(&self) -> LDRASR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LDRASR { bits }
+    #[inline(always)]
+    pub fn ldras(&self) -> LDRAS_R {
+        LDRAS_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - RB Loading"]
-    #[inline]
-    pub fn ldrbs(&self) -> LDRBSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LDRBSR { bits }
+    #[inline(always)]
+    pub fn ldrbs(&self) -> LDRBS_R {
+        LDRBS_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - External Trigger"]
-    #[inline]
-    pub fn etrgs(&self) -> ETRGSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ETRGSR { bits }
+    #[inline(always)]
+    pub fn etrgs(&self) -> ETRGS_R {
+        ETRGS_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }
