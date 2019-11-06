@@ -19,6 +19,13 @@ bare-metal = "0.2.0"
 cortex-m = "0.5.8"
 vcell = "0.1.0"
 
+[dev-dependencies]
+panic-halt = "0.2.0"
+cortex-m = "0.6.0"
+cortex-m-rt = "0.6.10"
+cortex-m-semihosting = "0.3.3"
+embedded-hal = "0.2.0"
+
 [dependencies.cortex-m-rt]
 optional = true
 version = "0.6.5"
