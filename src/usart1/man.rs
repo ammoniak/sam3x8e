@@ -26,25 +26,21 @@ impl<'a> TX_PL_W<'a> {
 }
 #[doc = "Transmitter Preamble Pattern\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TX_PP_A {
     #[doc = "0: The preamble is composed of '1's"]
-    ALL_ONE,
+    ALL_ONE = 0,
     #[doc = "1: The preamble is composed of '0's"]
-    ALL_ZERO,
+    ALL_ZERO = 1,
     #[doc = "2: The preamble is composed of '01's"]
-    ZERO_ONE,
+    ZERO_ONE = 2,
     #[doc = "3: The preamble is composed of '10's"]
-    ONE_ZERO,
+    ONE_ZERO = 3,
 }
 impl From<TX_PP_A> for u8 {
     #[inline(always)]
     fn from(variant: TX_PP_A) -> Self {
-        match variant {
-            TX_PP_A::ALL_ONE => 0,
-            TX_PP_A::ALL_ZERO => 1,
-            TX_PP_A::ZERO_ONE => 2,
-            TX_PP_A::ONE_ZERO => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TX_PP`"]
@@ -161,25 +157,21 @@ impl<'a> RX_PL_W<'a> {
 }
 #[doc = "Receiver Preamble Pattern detected\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RX_PP_A {
     #[doc = "0: The preamble is composed of '1's"]
-    ALL_ONE,
+    ALL_ONE = 0,
     #[doc = "1: The preamble is composed of '0's"]
-    ALL_ZERO,
+    ALL_ZERO = 1,
     #[doc = "2: The preamble is composed of '01's"]
-    ZERO_ONE,
+    ZERO_ONE = 2,
     #[doc = "3: The preamble is composed of '10's"]
-    ONE_ZERO,
+    ONE_ZERO = 3,
 }
 impl From<RX_PP_A> for u8 {
     #[inline(always)]
     fn from(variant: RX_PP_A) -> Self {
-        match variant {
-            RX_PP_A::ALL_ONE => 0,
-            RX_PP_A::ALL_ZERO => 1,
-            RX_PP_A::ZERO_ONE => 2,
-            RX_PP_A::ONE_ZERO => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RX_PP`"]

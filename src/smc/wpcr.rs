@@ -32,16 +32,15 @@ impl<'a> WP_EN_W<'a> {
 }
 #[doc = "Write Protection KEY Password\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum WP_KEY_AW {
     #[doc = "5459267: Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0."]
-    PASSWD,
+    PASSWD = 5459267,
 }
 impl From<WP_KEY_AW> for u32 {
     #[inline(always)]
     fn from(variant: WP_KEY_AW) -> Self {
-        match variant {
-            WP_KEY_AW::PASSWD => 5459267,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `WP_KEY`"]

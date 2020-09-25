@@ -60,25 +60,21 @@ impl<'a> UPDCAL_W<'a> {
 }
 #[doc = "Time Event Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TIMEVSEL_A {
     #[doc = "0: Minute change"]
-    MINUTE,
+    MINUTE = 0,
     #[doc = "1: Hour change"]
-    HOUR,
+    HOUR = 1,
     #[doc = "2: Every day at midnight"]
-    MIDNIGHT,
+    MIDNIGHT = 2,
     #[doc = "3: Every day at noon"]
-    NOON,
+    NOON = 3,
 }
 impl From<TIMEVSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: TIMEVSEL_A) -> Self {
-        match variant {
-            TIMEVSEL_A::MINUTE => 0,
-            TIMEVSEL_A::HOUR => 1,
-            TIMEVSEL_A::MIDNIGHT => 2,
-            TIMEVSEL_A::NOON => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TIMEVSEL`"]
@@ -157,22 +153,19 @@ impl<'a> TIMEVSEL_W<'a> {
 }
 #[doc = "Calendar Event Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CALEVSEL_A {
     #[doc = "0: Week change (every Monday at time 00:00:00)"]
-    WEEK,
+    WEEK = 0,
     #[doc = "1: Month change (every 01 of each month at time 00:00:00)"]
-    MONTH,
+    MONTH = 1,
     #[doc = "2: Year change (every January 1 at time 00:00:00)"]
-    YEAR,
+    YEAR = 2,
 }
 impl From<CALEVSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CALEVSEL_A) -> Self {
-        match variant {
-            CALEVSEL_A::WEEK => 0,
-            CALEVSEL_A::MONTH => 1,
-            CALEVSEL_A::YEAR => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CALEVSEL`"]

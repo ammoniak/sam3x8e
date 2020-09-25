@@ -74,16 +74,15 @@ impl<'a> ERSTL_W<'a> {
 }
 #[doc = "Write Access Password\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_A {
     #[doc = "165: Writing any other value in this field aborts the write operation.Always reads as 0."]
-    PASSWD,
+    PASSWD = 165,
 }
 impl From<KEY_A> for u8 {
     #[inline(always)]
     fn from(variant: KEY_A) -> Self {
-        match variant {
-            KEY_A::PASSWD => 165,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `KEY`"]

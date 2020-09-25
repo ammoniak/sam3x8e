@@ -12,22 +12,19 @@ impl crate::ResetValue for super::RCMR {
 }
 #[doc = "Receive Clock Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CKS_A {
     #[doc = "0: Divided Clock"]
-    MCK,
+    MCK = 0,
     #[doc = "1: TK Clock signal"]
-    TK,
+    TK = 1,
     #[doc = "2: RK pin"]
-    RK,
+    RK = 2,
 }
 impl From<CKS_A> for u8 {
     #[inline(always)]
     fn from(variant: CKS_A) -> Self {
-        match variant {
-            CKS_A::MCK => 0,
-            CKS_A::TK => 1,
-            CKS_A::RK => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CKS`"]
@@ -94,22 +91,19 @@ impl<'a> CKS_W<'a> {
 }
 #[doc = "Receive Clock Output Mode Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CKO_A {
     #[doc = "0: None, RK pin is an input"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Continuous Receive Clock, RK pin is an output"]
-    CONTINUOUS,
+    CONTINUOUS = 1,
     #[doc = "2: Receive Clock only during data transfers, RK pin is an output"]
-    TRANSFER,
+    TRANSFER = 2,
 }
 impl From<CKO_A> for u8 {
     #[inline(always)]
     fn from(variant: CKO_A) -> Self {
-        match variant {
-            CKO_A::NONE => 0,
-            CKO_A::CONTINUOUS => 1,
-            CKO_A::TRANSFER => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CKO`"]
@@ -200,22 +194,19 @@ impl<'a> CKI_W<'a> {
 }
 #[doc = "Receive Clock Gating Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CKG_A {
     #[doc = "0: None"]
-    CONTINUOUS,
+    CONTINUOUS = 0,
     #[doc = "1: Receive Clock enabled only if RF Low"]
-    EN_RF_LOW,
+    EN_RF_LOW = 1,
     #[doc = "2: Receive Clock enabled only if RF High"]
-    EN_RF_HIGH,
+    EN_RF_HIGH = 2,
 }
 impl From<CKG_A> for u8 {
     #[inline(always)]
     fn from(variant: CKG_A) -> Self {
-        match variant {
-            CKG_A::CONTINUOUS => 0,
-            CKG_A::EN_RF_LOW => 1,
-            CKG_A::EN_RF_HIGH => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CKG`"]
@@ -282,40 +273,31 @@ impl<'a> CKG_W<'a> {
 }
 #[doc = "Receive Start Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum START_A {
     #[doc = "0: Continuous, as soon as the receiver is enabled, and immediately after the end of transfer of the previous data."]
-    CONTINUOUS,
+    CONTINUOUS = 0,
     #[doc = "1: Transmit start"]
-    TRANSMIT,
+    TRANSMIT = 1,
     #[doc = "2: Detection of a low level on RF signal"]
-    RF_LOW,
+    RF_LOW = 2,
     #[doc = "3: Detection of a high level on RF signal"]
-    RF_HIGH,
+    RF_HIGH = 3,
     #[doc = "4: Detection of a falling edge on RF signal"]
-    RF_FALLING,
+    RF_FALLING = 4,
     #[doc = "5: Detection of a rising edge on RF signal"]
-    RF_RISING,
+    RF_RISING = 5,
     #[doc = "6: Detection of any level change on RF signal"]
-    RF_LEVEL,
+    RF_LEVEL = 6,
     #[doc = "7: Detection of any edge on RF signal"]
-    RF_EDGE,
+    RF_EDGE = 7,
     #[doc = "8: Compare 0"]
-    CMP_0,
+    CMP_0 = 8,
 }
 impl From<START_A> for u8 {
     #[inline(always)]
     fn from(variant: START_A) -> Self {
-        match variant {
-            START_A::CONTINUOUS => 0,
-            START_A::TRANSMIT => 1,
-            START_A::RF_LOW => 2,
-            START_A::RF_HIGH => 3,
-            START_A::RF_FALLING => 4,
-            START_A::RF_RISING => 5,
-            START_A::RF_LEVEL => 6,
-            START_A::RF_EDGE => 7,
-            START_A::CMP_0 => 8,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `START`"]

@@ -12,52 +12,39 @@ impl crate::ResetValue for super::CMR6 {
 }
 #[doc = "Channel Pre-scaler\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CPRE_A {
     #[doc = "0: Master clock"]
-    MCK,
+    MCK = 0,
     #[doc = "1: Master clock/2"]
-    MCK_DIV_2,
+    MCK_DIV_2 = 1,
     #[doc = "2: Master clock/4"]
-    MCK_DIV_4,
+    MCK_DIV_4 = 2,
     #[doc = "3: Master clock/8"]
-    MCK_DIV_8,
+    MCK_DIV_8 = 3,
     #[doc = "4: Master clock/16"]
-    MCK_DIV_16,
+    MCK_DIV_16 = 4,
     #[doc = "5: Master clock/32"]
-    MCK_DIV_32,
+    MCK_DIV_32 = 5,
     #[doc = "6: Master clock/64"]
-    MCK_DIV_64,
+    MCK_DIV_64 = 6,
     #[doc = "7: Master clock/128"]
-    MCK_DIV_128,
+    MCK_DIV_128 = 7,
     #[doc = "8: Master clock/256"]
-    MCK_DIV_256,
+    MCK_DIV_256 = 8,
     #[doc = "9: Master clock/512"]
-    MCK_DIV_512,
+    MCK_DIV_512 = 9,
     #[doc = "10: Master clock/1024"]
-    MCK_DIV_1024,
+    MCK_DIV_1024 = 10,
     #[doc = "11: Clock A"]
-    CLKA,
+    CLKA = 11,
     #[doc = "12: Clock B"]
-    CLKB,
+    CLKB = 12,
 }
 impl From<CPRE_A> for u8 {
     #[inline(always)]
     fn from(variant: CPRE_A) -> Self {
-        match variant {
-            CPRE_A::MCK => 0,
-            CPRE_A::MCK_DIV_2 => 1,
-            CPRE_A::MCK_DIV_4 => 2,
-            CPRE_A::MCK_DIV_8 => 3,
-            CPRE_A::MCK_DIV_16 => 4,
-            CPRE_A::MCK_DIV_32 => 5,
-            CPRE_A::MCK_DIV_64 => 6,
-            CPRE_A::MCK_DIV_128 => 7,
-            CPRE_A::MCK_DIV_256 => 8,
-            CPRE_A::MCK_DIV_512 => 9,
-            CPRE_A::MCK_DIV_1024 => 10,
-            CPRE_A::CLKA => 11,
-            CPRE_A::CLKB => 12,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CPRE`"]

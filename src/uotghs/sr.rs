@@ -24,22 +24,19 @@ pub type ID_R = crate::R<bool, bool>;
 pub type VBUS_R = crate::R<bool, bool>;
 #[doc = "Speed Status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SPEED_A {
     #[doc = "0: Full-Speed mode"]
-    FULL_SPEED,
+    FULL_SPEED = 0,
     #[doc = "1: High-Speed mode"]
-    HIGH_SPEED,
+    HIGH_SPEED = 1,
     #[doc = "2: Low-Speed mode"]
-    LOW_SPEED,
+    LOW_SPEED = 2,
 }
 impl From<SPEED_A> for u8 {
     #[inline(always)]
     fn from(variant: SPEED_A) -> Self {
-        match variant {
-            SPEED_A::FULL_SPEED => 0,
-            SPEED_A::HIGH_SPEED => 1,
-            SPEED_A::LOW_SPEED => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SPEED`"]

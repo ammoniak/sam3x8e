@@ -604,7 +604,7 @@ impl RegisterBlock {
         unsafe { &mut *(((self as *const Self) as *mut u8).add(1568usize) as *mut [HSTPIPIDR; 10]) }
     }
 }
-#[doc = "Device General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devctrl](devctrl) module"]
+#[doc = "Device General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devctrl](devctrl) module"]
 pub type DEVCTRL = crate::Reg<u32, _DEVCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -615,7 +615,7 @@ impl crate::Readable for DEVCTRL {}
 impl crate::Writable for DEVCTRL {}
 #[doc = "Device General Control Register"]
 pub mod devctrl;
-#[doc = "Device Global Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devisr](devisr) module"]
+#[doc = "Device Global Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devisr](devisr) module"]
 pub type DEVISR = crate::Reg<u32, _DEVISR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -624,7 +624,7 @@ pub struct _DEVISR;
 impl crate::Readable for DEVISR {}
 #[doc = "Device Global Interrupt Status Register"]
 pub mod devisr;
-#[doc = "Device Global Interrupt Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devicr](devicr) module"]
+#[doc = "Device Global Interrupt Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devicr](devicr) module"]
 pub type DEVICR = crate::Reg<u32, _DEVICR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -633,7 +633,7 @@ pub struct _DEVICR;
 impl crate::Writable for DEVICR {}
 #[doc = "Device Global Interrupt Clear Register"]
 pub mod devicr;
-#[doc = "Device Global Interrupt Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devifr](devifr) module"]
+#[doc = "Device Global Interrupt Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devifr](devifr) module"]
 pub type DEVIFR = crate::Reg<u32, _DEVIFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -642,7 +642,7 @@ pub struct _DEVIFR;
 impl crate::Writable for DEVIFR {}
 #[doc = "Device Global Interrupt Set Register"]
 pub mod devifr;
-#[doc = "Device Global Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devimr](devimr) module"]
+#[doc = "Device Global Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devimr](devimr) module"]
 pub type DEVIMR = crate::Reg<u32, _DEVIMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -651,7 +651,7 @@ pub struct _DEVIMR;
 impl crate::Readable for DEVIMR {}
 #[doc = "Device Global Interrupt Mask Register"]
 pub mod devimr;
-#[doc = "Device Global Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devidr](devidr) module"]
+#[doc = "Device Global Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devidr](devidr) module"]
 pub type DEVIDR = crate::Reg<u32, _DEVIDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -660,7 +660,7 @@ pub struct _DEVIDR;
 impl crate::Writable for DEVIDR {}
 #[doc = "Device Global Interrupt Disable Register"]
 pub mod devidr;
-#[doc = "Device Global Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devier](devier) module"]
+#[doc = "Device Global Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devier](devier) module"]
 pub type DEVIER = crate::Reg<u32, _DEVIER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ pub struct _DEVIER;
 impl crate::Writable for DEVIER {}
 #[doc = "Device Global Interrupt Enable Register"]
 pub mod devier;
-#[doc = "Device Endpoint Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devept](devept) module"]
+#[doc = "Device Endpoint Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devept](devept) module"]
 pub type DEVEPT = crate::Reg<u32, _DEVEPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -680,7 +680,7 @@ impl crate::Readable for DEVEPT {}
 impl crate::Writable for DEVEPT {}
 #[doc = "Device Endpoint Register"]
 pub mod devept;
-#[doc = "Device Frame Number Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devfnum](devfnum) module"]
+#[doc = "Device Frame Number Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devfnum](devfnum) module"]
 pub type DEVFNUM = crate::Reg<u32, _DEVFNUM>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -689,7 +689,7 @@ pub struct _DEVFNUM;
 impl crate::Readable for DEVFNUM {}
 #[doc = "Device Frame Number Register"]
 pub mod devfnum;
-#[doc = "Device Endpoint Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptcfg](deveptcfg) module"]
+#[doc = "Device Endpoint Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptcfg](deveptcfg) module"]
 pub type DEVEPTCFG = crate::Reg<u32, _DEVEPTCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -700,7 +700,7 @@ impl crate::Readable for DEVEPTCFG {}
 impl crate::Writable for DEVEPTCFG {}
 #[doc = "Device Endpoint Configuration Register (n = 0)"]
 pub mod deveptcfg;
-#[doc = "Device Endpoint Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptisr](deveptisr) module"]
+#[doc = "Device Endpoint Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptisr](deveptisr) module"]
 pub type DEVEPTISR = crate::Reg<u32, _DEVEPTISR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct _DEVEPTISR;
 impl crate::Readable for DEVEPTISR {}
 #[doc = "Device Endpoint Status Register (n = 0)"]
 pub mod deveptisr;
-#[doc = "Device Endpoint Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptisr0_isoenpt](deveptisr0_isoenpt) module"]
+#[doc = "Device Endpoint Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptisr0_isoenpt](deveptisr0_isoenpt) module"]
 pub type DEVEPTISR0_ISOENPT = crate::Reg<u32, _DEVEPTISR0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -718,7 +718,7 @@ pub struct _DEVEPTISR0_ISOENPT;
 impl crate::Readable for DEVEPTISR0_ISOENPT {}
 #[doc = "Device Endpoint Status Register (n = 0)"]
 pub mod deveptisr0_isoenpt;
-#[doc = "Device Endpoint Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devepticr](devepticr) module"]
+#[doc = "Device Endpoint Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devepticr](devepticr) module"]
 pub type DEVEPTICR = crate::Reg<u32, _DEVEPTICR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -727,7 +727,7 @@ pub struct _DEVEPTICR;
 impl crate::Writable for DEVEPTICR {}
 #[doc = "Device Endpoint Clear Register (n = 0)"]
 pub mod devepticr;
-#[doc = "Device Endpoint Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devepticr0_isoenpt](devepticr0_isoenpt) module"]
+#[doc = "Device Endpoint Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devepticr0_isoenpt](devepticr0_isoenpt) module"]
 pub type DEVEPTICR0_ISOENPT = crate::Reg<u32, _DEVEPTICR0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -736,7 +736,7 @@ pub struct _DEVEPTICR0_ISOENPT;
 impl crate::Writable for DEVEPTICR0_ISOENPT {}
 #[doc = "Device Endpoint Clear Register (n = 0)"]
 pub mod devepticr0_isoenpt;
-#[doc = "Device Endpoint Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptifr](deveptifr) module"]
+#[doc = "Device Endpoint Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptifr](deveptifr) module"]
 pub type DEVEPTIFR = crate::Reg<u32, _DEVEPTIFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -745,7 +745,7 @@ pub struct _DEVEPTIFR;
 impl crate::Writable for DEVEPTIFR {}
 #[doc = "Device Endpoint Set Register (n = 0)"]
 pub mod deveptifr;
-#[doc = "Device Endpoint Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptifr0_isoenpt](deveptifr0_isoenpt) module"]
+#[doc = "Device Endpoint Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptifr0_isoenpt](deveptifr0_isoenpt) module"]
 pub type DEVEPTIFR0_ISOENPT = crate::Reg<u32, _DEVEPTIFR0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -754,7 +754,7 @@ pub struct _DEVEPTIFR0_ISOENPT;
 impl crate::Writable for DEVEPTIFR0_ISOENPT {}
 #[doc = "Device Endpoint Set Register (n = 0)"]
 pub mod deveptifr0_isoenpt;
-#[doc = "Device Endpoint Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptimr](deveptimr) module"]
+#[doc = "Device Endpoint Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptimr](deveptimr) module"]
 pub type DEVEPTIMR = crate::Reg<u32, _DEVEPTIMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -763,7 +763,7 @@ pub struct _DEVEPTIMR;
 impl crate::Readable for DEVEPTIMR {}
 #[doc = "Device Endpoint Mask Register (n = 0)"]
 pub mod deveptimr;
-#[doc = "Device Endpoint Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptimr0_isoenpt](deveptimr0_isoenpt) module"]
+#[doc = "Device Endpoint Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptimr0_isoenpt](deveptimr0_isoenpt) module"]
 pub type DEVEPTIMR0_ISOENPT = crate::Reg<u32, _DEVEPTIMR0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -772,7 +772,7 @@ pub struct _DEVEPTIMR0_ISOENPT;
 impl crate::Readable for DEVEPTIMR0_ISOENPT {}
 #[doc = "Device Endpoint Mask Register (n = 0)"]
 pub mod deveptimr0_isoenpt;
-#[doc = "Device Endpoint Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptier](deveptier) module"]
+#[doc = "Device Endpoint Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptier](deveptier) module"]
 pub type DEVEPTIER = crate::Reg<u32, _DEVEPTIER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -781,7 +781,7 @@ pub struct _DEVEPTIER;
 impl crate::Writable for DEVEPTIER {}
 #[doc = "Device Endpoint Enable Register (n = 0)"]
 pub mod deveptier;
-#[doc = "Device Endpoint Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptier0_isoenpt](deveptier0_isoenpt) module"]
+#[doc = "Device Endpoint Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptier0_isoenpt](deveptier0_isoenpt) module"]
 pub type DEVEPTIER0_ISOENPT = crate::Reg<u32, _DEVEPTIER0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -790,7 +790,7 @@ pub struct _DEVEPTIER0_ISOENPT;
 impl crate::Writable for DEVEPTIER0_ISOENPT {}
 #[doc = "Device Endpoint Enable Register (n = 0)"]
 pub mod deveptier0_isoenpt;
-#[doc = "Device Endpoint Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptidr](deveptidr) module"]
+#[doc = "Device Endpoint Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptidr](deveptidr) module"]
 pub type DEVEPTIDR = crate::Reg<u32, _DEVEPTIDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -799,7 +799,7 @@ pub struct _DEVEPTIDR;
 impl crate::Writable for DEVEPTIDR {}
 #[doc = "Device Endpoint Disable Register (n = 0)"]
 pub mod deveptidr;
-#[doc = "Device Endpoint Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deveptidr0_isoenpt](deveptidr0_isoenpt) module"]
+#[doc = "Device Endpoint Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deveptidr0_isoenpt](deveptidr0_isoenpt) module"]
 pub type DEVEPTIDR0_ISOENPT = crate::Reg<u32, _DEVEPTIDR0_ISOENPT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -808,7 +808,7 @@ pub struct _DEVEPTIDR0_ISOENPT;
 impl crate::Writable for DEVEPTIDR0_ISOENPT {}
 #[doc = "Device Endpoint Disable Register (n = 0)"]
 pub mod deveptidr0_isoenpt;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc1](devdmanxtdsc1) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc1](devdmanxtdsc1) module"]
 pub type DEVDMANXTDSC1 = crate::Reg<u32, _DEVDMANXTDSC1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -819,7 +819,7 @@ impl crate::Readable for DEVDMANXTDSC1 {}
 impl crate::Writable for DEVDMANXTDSC1 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 1)"]
 pub mod devdmanxtdsc1;
-#[doc = "Device DMA Channel Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress1](devdmaaddress1) module"]
+#[doc = "Device DMA Channel Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress1](devdmaaddress1) module"]
 pub type DEVDMAADDRESS1 = crate::Reg<u32, _DEVDMAADDRESS1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -830,7 +830,7 @@ impl crate::Readable for DEVDMAADDRESS1 {}
 impl crate::Writable for DEVDMAADDRESS1 {}
 #[doc = "Device DMA Channel Address Register (n = 1)"]
 pub mod devdmaaddress1;
-#[doc = "Device DMA Channel Control Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol1](devdmacontrol1) module"]
+#[doc = "Device DMA Channel Control Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol1](devdmacontrol1) module"]
 pub type DEVDMACONTROL1 = crate::Reg<u32, _DEVDMACONTROL1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -841,7 +841,7 @@ impl crate::Readable for DEVDMACONTROL1 {}
 impl crate::Writable for DEVDMACONTROL1 {}
 #[doc = "Device DMA Channel Control Register (n = 1)"]
 pub mod devdmacontrol1;
-#[doc = "Device DMA Channel Status Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus1](devdmastatus1) module"]
+#[doc = "Device DMA Channel Status Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus1](devdmastatus1) module"]
 pub type DEVDMASTATUS1 = crate::Reg<u32, _DEVDMASTATUS1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -852,7 +852,7 @@ impl crate::Readable for DEVDMASTATUS1 {}
 impl crate::Writable for DEVDMASTATUS1 {}
 #[doc = "Device DMA Channel Status Register (n = 1)"]
 pub mod devdmastatus1;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc2](devdmanxtdsc2) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc2](devdmanxtdsc2) module"]
 pub type DEVDMANXTDSC2 = crate::Reg<u32, _DEVDMANXTDSC2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -863,7 +863,7 @@ impl crate::Readable for DEVDMANXTDSC2 {}
 impl crate::Writable for DEVDMANXTDSC2 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 2)"]
 pub mod devdmanxtdsc2;
-#[doc = "Device DMA Channel Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress2](devdmaaddress2) module"]
+#[doc = "Device DMA Channel Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress2](devdmaaddress2) module"]
 pub type DEVDMAADDRESS2 = crate::Reg<u32, _DEVDMAADDRESS2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -874,7 +874,7 @@ impl crate::Readable for DEVDMAADDRESS2 {}
 impl crate::Writable for DEVDMAADDRESS2 {}
 #[doc = "Device DMA Channel Address Register (n = 2)"]
 pub mod devdmaaddress2;
-#[doc = "Device DMA Channel Control Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol2](devdmacontrol2) module"]
+#[doc = "Device DMA Channel Control Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol2](devdmacontrol2) module"]
 pub type DEVDMACONTROL2 = crate::Reg<u32, _DEVDMACONTROL2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -885,7 +885,7 @@ impl crate::Readable for DEVDMACONTROL2 {}
 impl crate::Writable for DEVDMACONTROL2 {}
 #[doc = "Device DMA Channel Control Register (n = 2)"]
 pub mod devdmacontrol2;
-#[doc = "Device DMA Channel Status Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus2](devdmastatus2) module"]
+#[doc = "Device DMA Channel Status Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus2](devdmastatus2) module"]
 pub type DEVDMASTATUS2 = crate::Reg<u32, _DEVDMASTATUS2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -896,7 +896,7 @@ impl crate::Readable for DEVDMASTATUS2 {}
 impl crate::Writable for DEVDMASTATUS2 {}
 #[doc = "Device DMA Channel Status Register (n = 2)"]
 pub mod devdmastatus2;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc3](devdmanxtdsc3) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc3](devdmanxtdsc3) module"]
 pub type DEVDMANXTDSC3 = crate::Reg<u32, _DEVDMANXTDSC3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -907,7 +907,7 @@ impl crate::Readable for DEVDMANXTDSC3 {}
 impl crate::Writable for DEVDMANXTDSC3 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 3)"]
 pub mod devdmanxtdsc3;
-#[doc = "Device DMA Channel Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress3](devdmaaddress3) module"]
+#[doc = "Device DMA Channel Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress3](devdmaaddress3) module"]
 pub type DEVDMAADDRESS3 = crate::Reg<u32, _DEVDMAADDRESS3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -918,7 +918,7 @@ impl crate::Readable for DEVDMAADDRESS3 {}
 impl crate::Writable for DEVDMAADDRESS3 {}
 #[doc = "Device DMA Channel Address Register (n = 3)"]
 pub mod devdmaaddress3;
-#[doc = "Device DMA Channel Control Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol3](devdmacontrol3) module"]
+#[doc = "Device DMA Channel Control Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol3](devdmacontrol3) module"]
 pub type DEVDMACONTROL3 = crate::Reg<u32, _DEVDMACONTROL3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -929,7 +929,7 @@ impl crate::Readable for DEVDMACONTROL3 {}
 impl crate::Writable for DEVDMACONTROL3 {}
 #[doc = "Device DMA Channel Control Register (n = 3)"]
 pub mod devdmacontrol3;
-#[doc = "Device DMA Channel Status Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus3](devdmastatus3) module"]
+#[doc = "Device DMA Channel Status Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus3](devdmastatus3) module"]
 pub type DEVDMASTATUS3 = crate::Reg<u32, _DEVDMASTATUS3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -940,7 +940,7 @@ impl crate::Readable for DEVDMASTATUS3 {}
 impl crate::Writable for DEVDMASTATUS3 {}
 #[doc = "Device DMA Channel Status Register (n = 3)"]
 pub mod devdmastatus3;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc4](devdmanxtdsc4) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc4](devdmanxtdsc4) module"]
 pub type DEVDMANXTDSC4 = crate::Reg<u32, _DEVDMANXTDSC4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -951,7 +951,7 @@ impl crate::Readable for DEVDMANXTDSC4 {}
 impl crate::Writable for DEVDMANXTDSC4 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 4)"]
 pub mod devdmanxtdsc4;
-#[doc = "Device DMA Channel Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress4](devdmaaddress4) module"]
+#[doc = "Device DMA Channel Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress4](devdmaaddress4) module"]
 pub type DEVDMAADDRESS4 = crate::Reg<u32, _DEVDMAADDRESS4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -962,7 +962,7 @@ impl crate::Readable for DEVDMAADDRESS4 {}
 impl crate::Writable for DEVDMAADDRESS4 {}
 #[doc = "Device DMA Channel Address Register (n = 4)"]
 pub mod devdmaaddress4;
-#[doc = "Device DMA Channel Control Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol4](devdmacontrol4) module"]
+#[doc = "Device DMA Channel Control Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol4](devdmacontrol4) module"]
 pub type DEVDMACONTROL4 = crate::Reg<u32, _DEVDMACONTROL4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -973,7 +973,7 @@ impl crate::Readable for DEVDMACONTROL4 {}
 impl crate::Writable for DEVDMACONTROL4 {}
 #[doc = "Device DMA Channel Control Register (n = 4)"]
 pub mod devdmacontrol4;
-#[doc = "Device DMA Channel Status Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus4](devdmastatus4) module"]
+#[doc = "Device DMA Channel Status Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus4](devdmastatus4) module"]
 pub type DEVDMASTATUS4 = crate::Reg<u32, _DEVDMASTATUS4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -984,7 +984,7 @@ impl crate::Readable for DEVDMASTATUS4 {}
 impl crate::Writable for DEVDMASTATUS4 {}
 #[doc = "Device DMA Channel Status Register (n = 4)"]
 pub mod devdmastatus4;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc5](devdmanxtdsc5) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc5](devdmanxtdsc5) module"]
 pub type DEVDMANXTDSC5 = crate::Reg<u32, _DEVDMANXTDSC5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -995,7 +995,7 @@ impl crate::Readable for DEVDMANXTDSC5 {}
 impl crate::Writable for DEVDMANXTDSC5 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 5)"]
 pub mod devdmanxtdsc5;
-#[doc = "Device DMA Channel Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress5](devdmaaddress5) module"]
+#[doc = "Device DMA Channel Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress5](devdmaaddress5) module"]
 pub type DEVDMAADDRESS5 = crate::Reg<u32, _DEVDMAADDRESS5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1006,7 +1006,7 @@ impl crate::Readable for DEVDMAADDRESS5 {}
 impl crate::Writable for DEVDMAADDRESS5 {}
 #[doc = "Device DMA Channel Address Register (n = 5)"]
 pub mod devdmaaddress5;
-#[doc = "Device DMA Channel Control Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol5](devdmacontrol5) module"]
+#[doc = "Device DMA Channel Control Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol5](devdmacontrol5) module"]
 pub type DEVDMACONTROL5 = crate::Reg<u32, _DEVDMACONTROL5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1017,7 +1017,7 @@ impl crate::Readable for DEVDMACONTROL5 {}
 impl crate::Writable for DEVDMACONTROL5 {}
 #[doc = "Device DMA Channel Control Register (n = 5)"]
 pub mod devdmacontrol5;
-#[doc = "Device DMA Channel Status Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus5](devdmastatus5) module"]
+#[doc = "Device DMA Channel Status Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus5](devdmastatus5) module"]
 pub type DEVDMASTATUS5 = crate::Reg<u32, _DEVDMASTATUS5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1028,7 +1028,7 @@ impl crate::Readable for DEVDMASTATUS5 {}
 impl crate::Writable for DEVDMASTATUS5 {}
 #[doc = "Device DMA Channel Status Register (n = 5)"]
 pub mod devdmastatus5;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc6](devdmanxtdsc6) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc6](devdmanxtdsc6) module"]
 pub type DEVDMANXTDSC6 = crate::Reg<u32, _DEVDMANXTDSC6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1039,7 +1039,7 @@ impl crate::Readable for DEVDMANXTDSC6 {}
 impl crate::Writable for DEVDMANXTDSC6 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 6)"]
 pub mod devdmanxtdsc6;
-#[doc = "Device DMA Channel Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress6](devdmaaddress6) module"]
+#[doc = "Device DMA Channel Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress6](devdmaaddress6) module"]
 pub type DEVDMAADDRESS6 = crate::Reg<u32, _DEVDMAADDRESS6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1050,7 +1050,7 @@ impl crate::Readable for DEVDMAADDRESS6 {}
 impl crate::Writable for DEVDMAADDRESS6 {}
 #[doc = "Device DMA Channel Address Register (n = 6)"]
 pub mod devdmaaddress6;
-#[doc = "Device DMA Channel Control Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol6](devdmacontrol6) module"]
+#[doc = "Device DMA Channel Control Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol6](devdmacontrol6) module"]
 pub type DEVDMACONTROL6 = crate::Reg<u32, _DEVDMACONTROL6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1061,7 +1061,7 @@ impl crate::Readable for DEVDMACONTROL6 {}
 impl crate::Writable for DEVDMACONTROL6 {}
 #[doc = "Device DMA Channel Control Register (n = 6)"]
 pub mod devdmacontrol6;
-#[doc = "Device DMA Channel Status Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus6](devdmastatus6) module"]
+#[doc = "Device DMA Channel Status Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus6](devdmastatus6) module"]
 pub type DEVDMASTATUS6 = crate::Reg<u32, _DEVDMASTATUS6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1072,7 +1072,7 @@ impl crate::Readable for DEVDMASTATUS6 {}
 impl crate::Writable for DEVDMASTATUS6 {}
 #[doc = "Device DMA Channel Status Register (n = 6)"]
 pub mod devdmastatus6;
-#[doc = "Device DMA Channel Next Descriptor Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmanxtdsc7](devdmanxtdsc7) module"]
+#[doc = "Device DMA Channel Next Descriptor Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmanxtdsc7](devdmanxtdsc7) module"]
 pub type DEVDMANXTDSC7 = crate::Reg<u32, _DEVDMANXTDSC7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1083,7 +1083,7 @@ impl crate::Readable for DEVDMANXTDSC7 {}
 impl crate::Writable for DEVDMANXTDSC7 {}
 #[doc = "Device DMA Channel Next Descriptor Address Register (n = 7)"]
 pub mod devdmanxtdsc7;
-#[doc = "Device DMA Channel Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmaaddress7](devdmaaddress7) module"]
+#[doc = "Device DMA Channel Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmaaddress7](devdmaaddress7) module"]
 pub type DEVDMAADDRESS7 = crate::Reg<u32, _DEVDMAADDRESS7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1094,7 +1094,7 @@ impl crate::Readable for DEVDMAADDRESS7 {}
 impl crate::Writable for DEVDMAADDRESS7 {}
 #[doc = "Device DMA Channel Address Register (n = 7)"]
 pub mod devdmaaddress7;
-#[doc = "Device DMA Channel Control Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmacontrol7](devdmacontrol7) module"]
+#[doc = "Device DMA Channel Control Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmacontrol7](devdmacontrol7) module"]
 pub type DEVDMACONTROL7 = crate::Reg<u32, _DEVDMACONTROL7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1105,7 +1105,7 @@ impl crate::Readable for DEVDMACONTROL7 {}
 impl crate::Writable for DEVDMACONTROL7 {}
 #[doc = "Device DMA Channel Control Register (n = 7)"]
 pub mod devdmacontrol7;
-#[doc = "Device DMA Channel Status Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devdmastatus7](devdmastatus7) module"]
+#[doc = "Device DMA Channel Status Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devdmastatus7](devdmastatus7) module"]
 pub type DEVDMASTATUS7 = crate::Reg<u32, _DEVDMASTATUS7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1116,7 +1116,7 @@ impl crate::Readable for DEVDMASTATUS7 {}
 impl crate::Writable for DEVDMASTATUS7 {}
 #[doc = "Device DMA Channel Status Register (n = 7)"]
 pub mod devdmastatus7;
-#[doc = "Host General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstctrl](hstctrl) module"]
+#[doc = "Host General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstctrl](hstctrl) module"]
 pub type HSTCTRL = crate::Reg<u32, _HSTCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1127,7 +1127,7 @@ impl crate::Readable for HSTCTRL {}
 impl crate::Writable for HSTCTRL {}
 #[doc = "Host General Control Register"]
 pub mod hstctrl;
-#[doc = "Host Global Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstisr](hstisr) module"]
+#[doc = "Host Global Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstisr](hstisr) module"]
 pub type HSTISR = crate::Reg<u32, _HSTISR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1136,7 +1136,7 @@ pub struct _HSTISR;
 impl crate::Readable for HSTISR {}
 #[doc = "Host Global Interrupt Status Register"]
 pub mod hstisr;
-#[doc = "Host Global Interrupt Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hsticr](hsticr) module"]
+#[doc = "Host Global Interrupt Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hsticr](hsticr) module"]
 pub type HSTICR = crate::Reg<u32, _HSTICR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1145,7 +1145,7 @@ pub struct _HSTICR;
 impl crate::Writable for HSTICR {}
 #[doc = "Host Global Interrupt Clear Register"]
 pub mod hsticr;
-#[doc = "Host Global Interrupt Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstifr](hstifr) module"]
+#[doc = "Host Global Interrupt Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstifr](hstifr) module"]
 pub type HSTIFR = crate::Reg<u32, _HSTIFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1154,7 +1154,7 @@ pub struct _HSTIFR;
 impl crate::Writable for HSTIFR {}
 #[doc = "Host Global Interrupt Set Register"]
 pub mod hstifr;
-#[doc = "Host Global Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstimr](hstimr) module"]
+#[doc = "Host Global Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstimr](hstimr) module"]
 pub type HSTIMR = crate::Reg<u32, _HSTIMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1163,7 +1163,7 @@ pub struct _HSTIMR;
 impl crate::Readable for HSTIMR {}
 #[doc = "Host Global Interrupt Mask Register"]
 pub mod hstimr;
-#[doc = "Host Global Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstidr](hstidr) module"]
+#[doc = "Host Global Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstidr](hstidr) module"]
 pub type HSTIDR = crate::Reg<u32, _HSTIDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1172,7 +1172,7 @@ pub struct _HSTIDR;
 impl crate::Writable for HSTIDR {}
 #[doc = "Host Global Interrupt Disable Register"]
 pub mod hstidr;
-#[doc = "Host Global Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstier](hstier) module"]
+#[doc = "Host Global Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstier](hstier) module"]
 pub type HSTIER = crate::Reg<u32, _HSTIER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1181,7 +1181,7 @@ pub struct _HSTIER;
 impl crate::Writable for HSTIER {}
 #[doc = "Host Global Interrupt Enable Register"]
 pub mod hstier;
-#[doc = "Host Pipe Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpip](hstpip) module"]
+#[doc = "Host Pipe Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpip](hstpip) module"]
 pub type HSTPIP = crate::Reg<u32, _HSTPIP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1192,7 +1192,7 @@ impl crate::Readable for HSTPIP {}
 impl crate::Writable for HSTPIP {}
 #[doc = "Host Pipe Register"]
 pub mod hstpip;
-#[doc = "Host Frame Number Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstfnum](hstfnum) module"]
+#[doc = "Host Frame Number Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstfnum](hstfnum) module"]
 pub type HSTFNUM = crate::Reg<u32, _HSTFNUM>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1203,7 +1203,7 @@ impl crate::Readable for HSTFNUM {}
 impl crate::Writable for HSTFNUM {}
 #[doc = "Host Frame Number Register"]
 pub mod hstfnum;
-#[doc = "Host Address 1 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstaddr1](hstaddr1) module"]
+#[doc = "Host Address 1 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstaddr1](hstaddr1) module"]
 pub type HSTADDR1 = crate::Reg<u32, _HSTADDR1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1214,7 +1214,7 @@ impl crate::Readable for HSTADDR1 {}
 impl crate::Writable for HSTADDR1 {}
 #[doc = "Host Address 1 Register"]
 pub mod hstaddr1;
-#[doc = "Host Address 2 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstaddr2](hstaddr2) module"]
+#[doc = "Host Address 2 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstaddr2](hstaddr2) module"]
 pub type HSTADDR2 = crate::Reg<u32, _HSTADDR2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1225,7 +1225,7 @@ impl crate::Readable for HSTADDR2 {}
 impl crate::Writable for HSTADDR2 {}
 #[doc = "Host Address 2 Register"]
 pub mod hstaddr2;
-#[doc = "Host Address 3 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstaddr3](hstaddr3) module"]
+#[doc = "Host Address 3 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstaddr3](hstaddr3) module"]
 pub type HSTADDR3 = crate::Reg<u32, _HSTADDR3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1236,7 +1236,7 @@ impl crate::Readable for HSTADDR3 {}
 impl crate::Writable for HSTADDR3 {}
 #[doc = "Host Address 3 Register"]
 pub mod hstaddr3;
-#[doc = "Host Pipe Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipcfg](hstpipcfg) module"]
+#[doc = "Host Pipe Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipcfg](hstpipcfg) module"]
 pub type HSTPIPCFG = crate::Reg<u32, _HSTPIPCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1247,7 +1247,7 @@ impl crate::Readable for HSTPIPCFG {}
 impl crate::Writable for HSTPIPCFG {}
 #[doc = "Host Pipe Configuration Register (n = 0)"]
 pub mod hstpipcfg;
-#[doc = "Host Pipe Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipcfg0_hsbohscp](hstpipcfg0_hsbohscp) module"]
+#[doc = "Host Pipe Configuration Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipcfg0_hsbohscp](hstpipcfg0_hsbohscp) module"]
 pub type HSTPIPCFG0_HSBOHSCP = crate::Reg<u32, _HSTPIPCFG0_HSBOHSCP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1258,7 +1258,7 @@ impl crate::Readable for HSTPIPCFG0_HSBOHSCP {}
 impl crate::Writable for HSTPIPCFG0_HSBOHSCP {}
 #[doc = "Host Pipe Configuration Register (n = 0)"]
 pub mod hstpipcfg0_hsbohscp;
-#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipisr](hstpipisr) module"]
+#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipisr](hstpipisr) module"]
 pub type HSTPIPISR = crate::Reg<u32, _HSTPIPISR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1267,7 +1267,7 @@ pub struct _HSTPIPISR;
 impl crate::Readable for HSTPIPISR {}
 #[doc = "Host Pipe Status Register (n = 0)"]
 pub mod hstpipisr;
-#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipisr0_intpipes](hstpipisr0_intpipes) module"]
+#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipisr0_intpipes](hstpipisr0_intpipes) module"]
 pub type HSTPIPISR0_INTPIPES = crate::Reg<u32, _HSTPIPISR0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1276,7 +1276,7 @@ pub struct _HSTPIPISR0_INTPIPES;
 impl crate::Readable for HSTPIPISR0_INTPIPES {}
 #[doc = "Host Pipe Status Register (n = 0)"]
 pub mod hstpipisr0_intpipes;
-#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipisr0_isopipes](hstpipisr0_isopipes) module"]
+#[doc = "Host Pipe Status Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipisr0_isopipes](hstpipisr0_isopipes) module"]
 pub type HSTPIPISR0_ISOPIPES = crate::Reg<u32, _HSTPIPISR0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1285,7 +1285,7 @@ pub struct _HSTPIPISR0_ISOPIPES;
 impl crate::Readable for HSTPIPISR0_ISOPIPES {}
 #[doc = "Host Pipe Status Register (n = 0)"]
 pub mod hstpipisr0_isopipes;
-#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipicr](hstpipicr) module"]
+#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipicr](hstpipicr) module"]
 pub type HSTPIPICR = crate::Reg<u32, _HSTPIPICR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1294,7 +1294,7 @@ pub struct _HSTPIPICR;
 impl crate::Writable for HSTPIPICR {}
 #[doc = "Host Pipe Clear Register (n = 0)"]
 pub mod hstpipicr;
-#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipicr0_intpipes](hstpipicr0_intpipes) module"]
+#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipicr0_intpipes](hstpipicr0_intpipes) module"]
 pub type HSTPIPICR0_INTPIPES = crate::Reg<u32, _HSTPIPICR0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1303,7 +1303,7 @@ pub struct _HSTPIPICR0_INTPIPES;
 impl crate::Writable for HSTPIPICR0_INTPIPES {}
 #[doc = "Host Pipe Clear Register (n = 0)"]
 pub mod hstpipicr0_intpipes;
-#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipicr0_isopipes](hstpipicr0_isopipes) module"]
+#[doc = "Host Pipe Clear Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipicr0_isopipes](hstpipicr0_isopipes) module"]
 pub type HSTPIPICR0_ISOPIPES = crate::Reg<u32, _HSTPIPICR0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1312,7 +1312,7 @@ pub struct _HSTPIPICR0_ISOPIPES;
 impl crate::Writable for HSTPIPICR0_ISOPIPES {}
 #[doc = "Host Pipe Clear Register (n = 0)"]
 pub mod hstpipicr0_isopipes;
-#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipifr](hstpipifr) module"]
+#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipifr](hstpipifr) module"]
 pub type HSTPIPIFR = crate::Reg<u32, _HSTPIPIFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1321,7 +1321,7 @@ pub struct _HSTPIPIFR;
 impl crate::Writable for HSTPIPIFR {}
 #[doc = "Host Pipe Set Register (n = 0)"]
 pub mod hstpipifr;
-#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipifr0_intpipes](hstpipifr0_intpipes) module"]
+#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipifr0_intpipes](hstpipifr0_intpipes) module"]
 pub type HSTPIPIFR0_INTPIPES = crate::Reg<u32, _HSTPIPIFR0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1330,7 +1330,7 @@ pub struct _HSTPIPIFR0_INTPIPES;
 impl crate::Writable for HSTPIPIFR0_INTPIPES {}
 #[doc = "Host Pipe Set Register (n = 0)"]
 pub mod hstpipifr0_intpipes;
-#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipifr0_isopipes](hstpipifr0_isopipes) module"]
+#[doc = "Host Pipe Set Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipifr0_isopipes](hstpipifr0_isopipes) module"]
 pub type HSTPIPIFR0_ISOPIPES = crate::Reg<u32, _HSTPIPIFR0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1339,7 +1339,7 @@ pub struct _HSTPIPIFR0_ISOPIPES;
 impl crate::Writable for HSTPIPIFR0_ISOPIPES {}
 #[doc = "Host Pipe Set Register (n = 0)"]
 pub mod hstpipifr0_isopipes;
-#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipimr](hstpipimr) module"]
+#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipimr](hstpipimr) module"]
 pub type HSTPIPIMR = crate::Reg<u32, _HSTPIPIMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1348,7 +1348,7 @@ pub struct _HSTPIPIMR;
 impl crate::Readable for HSTPIPIMR {}
 #[doc = "Host Pipe Mask Register (n = 0)"]
 pub mod hstpipimr;
-#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipimr0_intpipes](hstpipimr0_intpipes) module"]
+#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipimr0_intpipes](hstpipimr0_intpipes) module"]
 pub type HSTPIPIMR0_INTPIPES = crate::Reg<u32, _HSTPIPIMR0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1357,7 +1357,7 @@ pub struct _HSTPIPIMR0_INTPIPES;
 impl crate::Readable for HSTPIPIMR0_INTPIPES {}
 #[doc = "Host Pipe Mask Register (n = 0)"]
 pub mod hstpipimr0_intpipes;
-#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipimr0_isopipes](hstpipimr0_isopipes) module"]
+#[doc = "Host Pipe Mask Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipimr0_isopipes](hstpipimr0_isopipes) module"]
 pub type HSTPIPIMR0_ISOPIPES = crate::Reg<u32, _HSTPIPIMR0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1366,7 +1366,7 @@ pub struct _HSTPIPIMR0_ISOPIPES;
 impl crate::Readable for HSTPIPIMR0_ISOPIPES {}
 #[doc = "Host Pipe Mask Register (n = 0)"]
 pub mod hstpipimr0_isopipes;
-#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipier](hstpipier) module"]
+#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipier](hstpipier) module"]
 pub type HSTPIPIER = crate::Reg<u32, _HSTPIPIER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1375,7 +1375,7 @@ pub struct _HSTPIPIER;
 impl crate::Writable for HSTPIPIER {}
 #[doc = "Host Pipe Enable Register (n = 0)"]
 pub mod hstpipier;
-#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipier0_intpipes](hstpipier0_intpipes) module"]
+#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipier0_intpipes](hstpipier0_intpipes) module"]
 pub type HSTPIPIER0_INTPIPES = crate::Reg<u32, _HSTPIPIER0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1384,7 +1384,7 @@ pub struct _HSTPIPIER0_INTPIPES;
 impl crate::Writable for HSTPIPIER0_INTPIPES {}
 #[doc = "Host Pipe Enable Register (n = 0)"]
 pub mod hstpipier0_intpipes;
-#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipier0_isopipes](hstpipier0_isopipes) module"]
+#[doc = "Host Pipe Enable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipier0_isopipes](hstpipier0_isopipes) module"]
 pub type HSTPIPIER0_ISOPIPES = crate::Reg<u32, _HSTPIPIER0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1393,7 +1393,7 @@ pub struct _HSTPIPIER0_ISOPIPES;
 impl crate::Writable for HSTPIPIER0_ISOPIPES {}
 #[doc = "Host Pipe Enable Register (n = 0)"]
 pub mod hstpipier0_isopipes;
-#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipidr](hstpipidr) module"]
+#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipidr](hstpipidr) module"]
 pub type HSTPIPIDR = crate::Reg<u32, _HSTPIPIDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1402,7 +1402,7 @@ pub struct _HSTPIPIDR;
 impl crate::Writable for HSTPIPIDR {}
 #[doc = "Host Pipe Disable Register (n = 0)"]
 pub mod hstpipidr;
-#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipidr0_intpipes](hstpipidr0_intpipes) module"]
+#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipidr0_intpipes](hstpipidr0_intpipes) module"]
 pub type HSTPIPIDR0_INTPIPES = crate::Reg<u32, _HSTPIPIDR0_INTPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1411,7 +1411,7 @@ pub struct _HSTPIPIDR0_INTPIPES;
 impl crate::Writable for HSTPIPIDR0_INTPIPES {}
 #[doc = "Host Pipe Disable Register (n = 0)"]
 pub mod hstpipidr0_intpipes;
-#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipidr0_isopipes](hstpipidr0_isopipes) module"]
+#[doc = "Host Pipe Disable Register (n = 0)\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipidr0_isopipes](hstpipidr0_isopipes) module"]
 pub type HSTPIPIDR0_ISOPIPES = crate::Reg<u32, _HSTPIPIDR0_ISOPIPES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1420,7 +1420,7 @@ pub struct _HSTPIPIDR0_ISOPIPES;
 impl crate::Writable for HSTPIPIDR0_ISOPIPES {}
 #[doc = "Host Pipe Disable Register (n = 0)"]
 pub mod hstpipidr0_isopipes;
-#[doc = "Host Pipe IN Request Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpipinrq](hstpipinrq) module"]
+#[doc = "Host Pipe IN Request Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpipinrq](hstpipinrq) module"]
 pub type HSTPIPINRQ = crate::Reg<u32, _HSTPIPINRQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1431,7 +1431,7 @@ impl crate::Readable for HSTPIPINRQ {}
 impl crate::Writable for HSTPIPINRQ {}
 #[doc = "Host Pipe IN Request Register (n = 0)"]
 pub mod hstpipinrq;
-#[doc = "Host Pipe Error Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstpiperr](hstpiperr) module"]
+#[doc = "Host Pipe Error Register (n = 0)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstpiperr](hstpiperr) module"]
 pub type HSTPIPERR = crate::Reg<u32, _HSTPIPERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1442,7 +1442,7 @@ impl crate::Readable for HSTPIPERR {}
 impl crate::Writable for HSTPIPERR {}
 #[doc = "Host Pipe Error Register (n = 0)"]
 pub mod hstpiperr;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc1](hstdmanxtdsc1) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc1](hstdmanxtdsc1) module"]
 pub type HSTDMANXTDSC1 = crate::Reg<u32, _HSTDMANXTDSC1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1453,7 +1453,7 @@ impl crate::Readable for HSTDMANXTDSC1 {}
 impl crate::Writable for HSTDMANXTDSC1 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 1)"]
 pub mod hstdmanxtdsc1;
-#[doc = "Host DMA Channel Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress1](hstdmaaddress1) module"]
+#[doc = "Host DMA Channel Address Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress1](hstdmaaddress1) module"]
 pub type HSTDMAADDRESS1 = crate::Reg<u32, _HSTDMAADDRESS1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1464,7 +1464,7 @@ impl crate::Readable for HSTDMAADDRESS1 {}
 impl crate::Writable for HSTDMAADDRESS1 {}
 #[doc = "Host DMA Channel Address Register (n = 1)"]
 pub mod hstdmaaddress1;
-#[doc = "Host DMA Channel Control Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol1](hstdmacontrol1) module"]
+#[doc = "Host DMA Channel Control Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol1](hstdmacontrol1) module"]
 pub type HSTDMACONTROL1 = crate::Reg<u32, _HSTDMACONTROL1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1475,7 +1475,7 @@ impl crate::Readable for HSTDMACONTROL1 {}
 impl crate::Writable for HSTDMACONTROL1 {}
 #[doc = "Host DMA Channel Control Register (n = 1)"]
 pub mod hstdmacontrol1;
-#[doc = "Host DMA Channel Status Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus1](hstdmastatus1) module"]
+#[doc = "Host DMA Channel Status Register (n = 1)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus1](hstdmastatus1) module"]
 pub type HSTDMASTATUS1 = crate::Reg<u32, _HSTDMASTATUS1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1486,7 +1486,7 @@ impl crate::Readable for HSTDMASTATUS1 {}
 impl crate::Writable for HSTDMASTATUS1 {}
 #[doc = "Host DMA Channel Status Register (n = 1)"]
 pub mod hstdmastatus1;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc2](hstdmanxtdsc2) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc2](hstdmanxtdsc2) module"]
 pub type HSTDMANXTDSC2 = crate::Reg<u32, _HSTDMANXTDSC2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1497,7 +1497,7 @@ impl crate::Readable for HSTDMANXTDSC2 {}
 impl crate::Writable for HSTDMANXTDSC2 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 2)"]
 pub mod hstdmanxtdsc2;
-#[doc = "Host DMA Channel Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress2](hstdmaaddress2) module"]
+#[doc = "Host DMA Channel Address Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress2](hstdmaaddress2) module"]
 pub type HSTDMAADDRESS2 = crate::Reg<u32, _HSTDMAADDRESS2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1508,7 +1508,7 @@ impl crate::Readable for HSTDMAADDRESS2 {}
 impl crate::Writable for HSTDMAADDRESS2 {}
 #[doc = "Host DMA Channel Address Register (n = 2)"]
 pub mod hstdmaaddress2;
-#[doc = "Host DMA Channel Control Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol2](hstdmacontrol2) module"]
+#[doc = "Host DMA Channel Control Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol2](hstdmacontrol2) module"]
 pub type HSTDMACONTROL2 = crate::Reg<u32, _HSTDMACONTROL2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1519,7 +1519,7 @@ impl crate::Readable for HSTDMACONTROL2 {}
 impl crate::Writable for HSTDMACONTROL2 {}
 #[doc = "Host DMA Channel Control Register (n = 2)"]
 pub mod hstdmacontrol2;
-#[doc = "Host DMA Channel Status Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus2](hstdmastatus2) module"]
+#[doc = "Host DMA Channel Status Register (n = 2)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus2](hstdmastatus2) module"]
 pub type HSTDMASTATUS2 = crate::Reg<u32, _HSTDMASTATUS2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1530,7 +1530,7 @@ impl crate::Readable for HSTDMASTATUS2 {}
 impl crate::Writable for HSTDMASTATUS2 {}
 #[doc = "Host DMA Channel Status Register (n = 2)"]
 pub mod hstdmastatus2;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc3](hstdmanxtdsc3) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc3](hstdmanxtdsc3) module"]
 pub type HSTDMANXTDSC3 = crate::Reg<u32, _HSTDMANXTDSC3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1541,7 +1541,7 @@ impl crate::Readable for HSTDMANXTDSC3 {}
 impl crate::Writable for HSTDMANXTDSC3 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 3)"]
 pub mod hstdmanxtdsc3;
-#[doc = "Host DMA Channel Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress3](hstdmaaddress3) module"]
+#[doc = "Host DMA Channel Address Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress3](hstdmaaddress3) module"]
 pub type HSTDMAADDRESS3 = crate::Reg<u32, _HSTDMAADDRESS3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1552,7 +1552,7 @@ impl crate::Readable for HSTDMAADDRESS3 {}
 impl crate::Writable for HSTDMAADDRESS3 {}
 #[doc = "Host DMA Channel Address Register (n = 3)"]
 pub mod hstdmaaddress3;
-#[doc = "Host DMA Channel Control Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol3](hstdmacontrol3) module"]
+#[doc = "Host DMA Channel Control Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol3](hstdmacontrol3) module"]
 pub type HSTDMACONTROL3 = crate::Reg<u32, _HSTDMACONTROL3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1563,7 +1563,7 @@ impl crate::Readable for HSTDMACONTROL3 {}
 impl crate::Writable for HSTDMACONTROL3 {}
 #[doc = "Host DMA Channel Control Register (n = 3)"]
 pub mod hstdmacontrol3;
-#[doc = "Host DMA Channel Status Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus3](hstdmastatus3) module"]
+#[doc = "Host DMA Channel Status Register (n = 3)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus3](hstdmastatus3) module"]
 pub type HSTDMASTATUS3 = crate::Reg<u32, _HSTDMASTATUS3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1574,7 +1574,7 @@ impl crate::Readable for HSTDMASTATUS3 {}
 impl crate::Writable for HSTDMASTATUS3 {}
 #[doc = "Host DMA Channel Status Register (n = 3)"]
 pub mod hstdmastatus3;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc4](hstdmanxtdsc4) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc4](hstdmanxtdsc4) module"]
 pub type HSTDMANXTDSC4 = crate::Reg<u32, _HSTDMANXTDSC4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1585,7 +1585,7 @@ impl crate::Readable for HSTDMANXTDSC4 {}
 impl crate::Writable for HSTDMANXTDSC4 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 4)"]
 pub mod hstdmanxtdsc4;
-#[doc = "Host DMA Channel Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress4](hstdmaaddress4) module"]
+#[doc = "Host DMA Channel Address Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress4](hstdmaaddress4) module"]
 pub type HSTDMAADDRESS4 = crate::Reg<u32, _HSTDMAADDRESS4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1596,7 +1596,7 @@ impl crate::Readable for HSTDMAADDRESS4 {}
 impl crate::Writable for HSTDMAADDRESS4 {}
 #[doc = "Host DMA Channel Address Register (n = 4)"]
 pub mod hstdmaaddress4;
-#[doc = "Host DMA Channel Control Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol4](hstdmacontrol4) module"]
+#[doc = "Host DMA Channel Control Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol4](hstdmacontrol4) module"]
 pub type HSTDMACONTROL4 = crate::Reg<u32, _HSTDMACONTROL4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1607,7 +1607,7 @@ impl crate::Readable for HSTDMACONTROL4 {}
 impl crate::Writable for HSTDMACONTROL4 {}
 #[doc = "Host DMA Channel Control Register (n = 4)"]
 pub mod hstdmacontrol4;
-#[doc = "Host DMA Channel Status Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus4](hstdmastatus4) module"]
+#[doc = "Host DMA Channel Status Register (n = 4)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus4](hstdmastatus4) module"]
 pub type HSTDMASTATUS4 = crate::Reg<u32, _HSTDMASTATUS4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1618,7 +1618,7 @@ impl crate::Readable for HSTDMASTATUS4 {}
 impl crate::Writable for HSTDMASTATUS4 {}
 #[doc = "Host DMA Channel Status Register (n = 4)"]
 pub mod hstdmastatus4;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc5](hstdmanxtdsc5) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc5](hstdmanxtdsc5) module"]
 pub type HSTDMANXTDSC5 = crate::Reg<u32, _HSTDMANXTDSC5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1629,7 +1629,7 @@ impl crate::Readable for HSTDMANXTDSC5 {}
 impl crate::Writable for HSTDMANXTDSC5 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 5)"]
 pub mod hstdmanxtdsc5;
-#[doc = "Host DMA Channel Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress5](hstdmaaddress5) module"]
+#[doc = "Host DMA Channel Address Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress5](hstdmaaddress5) module"]
 pub type HSTDMAADDRESS5 = crate::Reg<u32, _HSTDMAADDRESS5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1640,7 +1640,7 @@ impl crate::Readable for HSTDMAADDRESS5 {}
 impl crate::Writable for HSTDMAADDRESS5 {}
 #[doc = "Host DMA Channel Address Register (n = 5)"]
 pub mod hstdmaaddress5;
-#[doc = "Host DMA Channel Control Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol5](hstdmacontrol5) module"]
+#[doc = "Host DMA Channel Control Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol5](hstdmacontrol5) module"]
 pub type HSTDMACONTROL5 = crate::Reg<u32, _HSTDMACONTROL5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1651,7 +1651,7 @@ impl crate::Readable for HSTDMACONTROL5 {}
 impl crate::Writable for HSTDMACONTROL5 {}
 #[doc = "Host DMA Channel Control Register (n = 5)"]
 pub mod hstdmacontrol5;
-#[doc = "Host DMA Channel Status Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus5](hstdmastatus5) module"]
+#[doc = "Host DMA Channel Status Register (n = 5)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus5](hstdmastatus5) module"]
 pub type HSTDMASTATUS5 = crate::Reg<u32, _HSTDMASTATUS5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1662,7 +1662,7 @@ impl crate::Readable for HSTDMASTATUS5 {}
 impl crate::Writable for HSTDMASTATUS5 {}
 #[doc = "Host DMA Channel Status Register (n = 5)"]
 pub mod hstdmastatus5;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc6](hstdmanxtdsc6) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc6](hstdmanxtdsc6) module"]
 pub type HSTDMANXTDSC6 = crate::Reg<u32, _HSTDMANXTDSC6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1673,7 +1673,7 @@ impl crate::Readable for HSTDMANXTDSC6 {}
 impl crate::Writable for HSTDMANXTDSC6 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 6)"]
 pub mod hstdmanxtdsc6;
-#[doc = "Host DMA Channel Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress6](hstdmaaddress6) module"]
+#[doc = "Host DMA Channel Address Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress6](hstdmaaddress6) module"]
 pub type HSTDMAADDRESS6 = crate::Reg<u32, _HSTDMAADDRESS6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1684,7 +1684,7 @@ impl crate::Readable for HSTDMAADDRESS6 {}
 impl crate::Writable for HSTDMAADDRESS6 {}
 #[doc = "Host DMA Channel Address Register (n = 6)"]
 pub mod hstdmaaddress6;
-#[doc = "Host DMA Channel Control Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol6](hstdmacontrol6) module"]
+#[doc = "Host DMA Channel Control Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol6](hstdmacontrol6) module"]
 pub type HSTDMACONTROL6 = crate::Reg<u32, _HSTDMACONTROL6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1695,7 +1695,7 @@ impl crate::Readable for HSTDMACONTROL6 {}
 impl crate::Writable for HSTDMACONTROL6 {}
 #[doc = "Host DMA Channel Control Register (n = 6)"]
 pub mod hstdmacontrol6;
-#[doc = "Host DMA Channel Status Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus6](hstdmastatus6) module"]
+#[doc = "Host DMA Channel Status Register (n = 6)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus6](hstdmastatus6) module"]
 pub type HSTDMASTATUS6 = crate::Reg<u32, _HSTDMASTATUS6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1706,7 +1706,7 @@ impl crate::Readable for HSTDMASTATUS6 {}
 impl crate::Writable for HSTDMASTATUS6 {}
 #[doc = "Host DMA Channel Status Register (n = 6)"]
 pub mod hstdmastatus6;
-#[doc = "Host DMA Channel Next Descriptor Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmanxtdsc7](hstdmanxtdsc7) module"]
+#[doc = "Host DMA Channel Next Descriptor Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmanxtdsc7](hstdmanxtdsc7) module"]
 pub type HSTDMANXTDSC7 = crate::Reg<u32, _HSTDMANXTDSC7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1717,7 +1717,7 @@ impl crate::Readable for HSTDMANXTDSC7 {}
 impl crate::Writable for HSTDMANXTDSC7 {}
 #[doc = "Host DMA Channel Next Descriptor Address Register (n = 7)"]
 pub mod hstdmanxtdsc7;
-#[doc = "Host DMA Channel Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmaaddress7](hstdmaaddress7) module"]
+#[doc = "Host DMA Channel Address Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmaaddress7](hstdmaaddress7) module"]
 pub type HSTDMAADDRESS7 = crate::Reg<u32, _HSTDMAADDRESS7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1728,7 +1728,7 @@ impl crate::Readable for HSTDMAADDRESS7 {}
 impl crate::Writable for HSTDMAADDRESS7 {}
 #[doc = "Host DMA Channel Address Register (n = 7)"]
 pub mod hstdmaaddress7;
-#[doc = "Host DMA Channel Control Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmacontrol7](hstdmacontrol7) module"]
+#[doc = "Host DMA Channel Control Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmacontrol7](hstdmacontrol7) module"]
 pub type HSTDMACONTROL7 = crate::Reg<u32, _HSTDMACONTROL7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1739,7 +1739,7 @@ impl crate::Readable for HSTDMACONTROL7 {}
 impl crate::Writable for HSTDMACONTROL7 {}
 #[doc = "Host DMA Channel Control Register (n = 7)"]
 pub mod hstdmacontrol7;
-#[doc = "Host DMA Channel Status Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hstdmastatus7](hstdmastatus7) module"]
+#[doc = "Host DMA Channel Status Register (n = 7)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstdmastatus7](hstdmastatus7) module"]
 pub type HSTDMASTATUS7 = crate::Reg<u32, _HSTDMASTATUS7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1750,7 +1750,7 @@ impl crate::Readable for HSTDMASTATUS7 {}
 impl crate::Writable for HSTDMASTATUS7 {}
 #[doc = "Host DMA Channel Status Register (n = 7)"]
 pub mod hstdmastatus7;
-#[doc = "General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ctrl](ctrl) module"]
+#[doc = "General Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](ctrl) module"]
 pub type CTRL = crate::Reg<u32, _CTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1761,7 +1761,7 @@ impl crate::Readable for CTRL {}
 impl crate::Writable for CTRL {}
 #[doc = "General Control Register"]
 pub mod ctrl;
-#[doc = "General Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sr](sr) module"]
+#[doc = "General Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sr](sr) module"]
 pub type SR = crate::Reg<u32, _SR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1770,7 +1770,7 @@ pub struct _SR;
 impl crate::Readable for SR {}
 #[doc = "General Status Register"]
 pub mod sr;
-#[doc = "General Status Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [scr](scr) module"]
+#[doc = "General Status Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [scr](scr) module"]
 pub type SCR = crate::Reg<u32, _SCR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1779,7 +1779,7 @@ pub struct _SCR;
 impl crate::Writable for SCR {}
 #[doc = "General Status Clear Register"]
 pub mod scr;
-#[doc = "General Status Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sfr](sfr) module"]
+#[doc = "General Status Set Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sfr](sfr) module"]
 pub type SFR = crate::Reg<u32, _SFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -1788,7 +1788,7 @@ pub struct _SFR;
 impl crate::Writable for SFR {}
 #[doc = "General Status Set Register"]
 pub mod sfr;
-#[doc = "General Finite State Machine Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fsm](fsm) module"]
+#[doc = "General Finite State Machine Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm](fsm) module"]
 pub type FSM = crate::Reg<u32, _FSM>;
 #[allow(missing_docs)]
 #[doc(hidden)]

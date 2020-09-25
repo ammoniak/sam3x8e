@@ -4,19 +4,17 @@ pub type R = crate::R<u32, super::MR_SPI_MODE>;
 pub type W = crate::W<u32, super::MR_SPI_MODE>;
 #[doc = "USART Mode of Operation"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum USART_MODE_A {
     #[doc = "14: SPI master"]
-    SPI_MASTER,
+    SPI_MASTER = 14,
     #[doc = "15: SPI Slave"]
-    SPI_SLAVE,
+    SPI_SLAVE = 15,
 }
 impl From<USART_MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: USART_MODE_A) -> Self {
-        match variant {
-            USART_MODE_A::SPI_MASTER => 14,
-            USART_MODE_A::SPI_SLAVE => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `USART_MODE`"]
@@ -72,22 +70,19 @@ impl<'a> USART_MODE_W<'a> {
 }
 #[doc = "Clock Selection"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum USCLKS_A {
     #[doc = "0: master Clock MCK is selected"]
-    MCK,
+    MCK = 0,
     #[doc = "1: Internal Clock Divided MCK/DIV (DIV=8) is selected"]
-    DIV,
+    DIV = 1,
     #[doc = "3: Serial Clock SLK is selected"]
-    SCK,
+    SCK = 3,
 }
 impl From<USCLKS_A> for u8 {
     #[inline(always)]
     fn from(variant: USCLKS_A) -> Self {
-        match variant {
-            USCLKS_A::MCK => 0,
-            USCLKS_A::DIV => 1,
-            USCLKS_A::SCK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `USCLKS`"]
@@ -154,16 +149,15 @@ impl<'a> USCLKS_W<'a> {
 }
 #[doc = "Character Length"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CHRL_A {
     #[doc = "3: Character length is 8 bits"]
-    _8_BIT,
+    _8_BIT = 3,
 }
 impl From<CHRL_A> for u8 {
     #[inline(always)]
     fn from(variant: CHRL_A) -> Self {
-        match variant {
-            CHRL_A::_8_BIT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CHRL`"]

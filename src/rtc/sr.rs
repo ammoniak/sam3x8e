@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::SR>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACKUPD_A {
     #[doc = "0: Time and calendar registers cannot be updated."]
-    FREERUN,
+    FREERUN = 0,
     #[doc = "1: Time and calendar registers can be updated."]
-    UPDATE,
+    UPDATE = 1,
 }
 impl From<ACKUPD_A> for bool {
     #[inline(always)]
     fn from(variant: ACKUPD_A) -> Self {
-        match variant {
-            ACKUPD_A::FREERUN => false,
-            ACKUPD_A::UPDATE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACKUPD`"]
@@ -43,17 +40,14 @@ impl ACKUPD_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ALARM_A {
     #[doc = "0: No alarm matching condition occurred."]
-    NO_ALARMEVENT,
+    NO_ALARMEVENT = 0,
     #[doc = "1: An alarm matching condition has occurred."]
-    ALARMEVENT,
+    ALARMEVENT = 1,
 }
 impl From<ALARM_A> for bool {
     #[inline(always)]
     fn from(variant: ALARM_A) -> Self {
-        match variant {
-            ALARM_A::NO_ALARMEVENT => false,
-            ALARM_A::ALARMEVENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ALARM`"]
@@ -82,17 +76,14 @@ impl ALARM_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEC_A {
     #[doc = "0: No second event has occurred since the last clear."]
-    NO_SECEVENT,
+    NO_SECEVENT = 0,
     #[doc = "1: At least one second event has occurred since the last clear."]
-    SECEVENT,
+    SECEVENT = 1,
 }
 impl From<SEC_A> for bool {
     #[inline(always)]
     fn from(variant: SEC_A) -> Self {
-        match variant {
-            SEC_A::NO_SECEVENT => false,
-            SEC_A::SECEVENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEC`"]
@@ -121,17 +112,14 @@ impl SEC_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TIMEV_A {
     #[doc = "0: No time event has occurred since the last clear."]
-    NO_TIMEVENT,
+    NO_TIMEVENT = 0,
     #[doc = "1: At least one time event has occurred since the last clear."]
-    TIMEVENT,
+    TIMEVENT = 1,
 }
 impl From<TIMEV_A> for bool {
     #[inline(always)]
     fn from(variant: TIMEV_A) -> Self {
-        match variant {
-            TIMEV_A::NO_TIMEVENT => false,
-            TIMEV_A::TIMEVENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TIMEV`"]
@@ -160,17 +148,14 @@ impl TIMEV_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CALEV_A {
     #[doc = "0: No calendar event has occurred since the last clear."]
-    NO_CALEVENT,
+    NO_CALEVENT = 0,
     #[doc = "1: At least one calendar event has occurred since the last clear."]
-    CALEVENT,
+    CALEVENT = 1,
 }
 impl From<CALEV_A> for bool {
     #[inline(always)]
     fn from(variant: CALEV_A) -> Self {
-        match variant {
-            CALEV_A::NO_CALEVENT => false,
-            CALEV_A::CALEVENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CALEV`"]

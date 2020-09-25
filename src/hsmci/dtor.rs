@@ -26,37 +26,29 @@ impl<'a> DTOCYC_W<'a> {
 }
 #[doc = "Data Timeout Multiplier\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DTOMUL_A {
     #[doc = "0: DTOCYC"]
-    _1,
+    _1 = 0,
     #[doc = "1: DTOCYC x 16"]
-    _16,
+    _16 = 1,
     #[doc = "2: DTOCYC x 128"]
-    _128,
+    _128 = 2,
     #[doc = "3: DTOCYC x 256"]
-    _256,
+    _256 = 3,
     #[doc = "4: DTOCYC x 1024"]
-    _1024,
+    _1024 = 4,
     #[doc = "5: DTOCYC x 4096"]
-    _4096,
+    _4096 = 5,
     #[doc = "6: DTOCYC x 65536"]
-    _65536,
+    _65536 = 6,
     #[doc = "7: DTOCYC x 1048576"]
-    _1048576,
+    _1048576 = 7,
 }
 impl From<DTOMUL_A> for u8 {
     #[inline(always)]
     fn from(variant: DTOMUL_A) -> Self {
-        match variant {
-            DTOMUL_A::_1 => 0,
-            DTOMUL_A::_16 => 1,
-            DTOMUL_A::_128 => 2,
-            DTOMUL_A::_256 => 3,
-            DTOMUL_A::_1024 => 4,
-            DTOMUL_A::_4096 => 5,
-            DTOMUL_A::_65536 => 6,
-            DTOMUL_A::_1048576 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DTOMUL`"]

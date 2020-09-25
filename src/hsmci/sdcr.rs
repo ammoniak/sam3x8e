@@ -12,25 +12,21 @@ impl crate::ResetValue for super::SDCR {
 }
 #[doc = "SDCard/SDIO Slot\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SDCSEL_A {
     #[doc = "0: Slot A is selected."]
-    SLOTA,
+    SLOTA = 0,
     #[doc = "1: SDCARD/SDIO Slot B selected"]
-    SLOTB,
+    SLOTB = 1,
     #[doc = "2: -"]
-    SLOTC,
+    SLOTC = 2,
     #[doc = "3: -"]
-    SLOTD,
+    SLOTD = 3,
 }
 impl From<SDCSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SDCSEL_A) -> Self {
-        match variant {
-            SDCSEL_A::SLOTA => 0,
-            SDCSEL_A::SLOTB => 1,
-            SDCSEL_A::SLOTC => 2,
-            SDCSEL_A::SLOTD => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SDCSEL`"]
@@ -109,22 +105,19 @@ impl<'a> SDCSEL_W<'a> {
 }
 #[doc = "SDCard/SDIO Bus Width\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SDCBUS_A {
     #[doc = "0: 1 bit"]
-    _1,
+    _1 = 0,
     #[doc = "2: 4 bits"]
-    _4,
+    _4 = 2,
     #[doc = "3: 8 bits"]
-    _8,
+    _8 = 3,
 }
 impl From<SDCBUS_A> for u8 {
     #[inline(always)]
     fn from(variant: SDCBUS_A) -> Self {
-        match variant {
-            SDCBUS_A::_1 => 0,
-            SDCBUS_A::_4 => 2,
-            SDCBUS_A::_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SDCBUS`"]

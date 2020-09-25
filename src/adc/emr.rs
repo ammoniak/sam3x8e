@@ -12,25 +12,21 @@ impl crate::ResetValue for super::EMR {
 }
 #[doc = "Comparison Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMPMODE_A {
     #[doc = "0: Generates an event when the converted data is lower than the low threshold of the window."]
-    LOW,
+    LOW = 0,
     #[doc = "1: Generates an event when the converted data is higher than the high threshold of the window."]
-    HIGH,
+    HIGH = 1,
     #[doc = "2: Generates an event when the converted data is in the comparison window."]
-    IN,
+    IN = 2,
     #[doc = "3: Generates an event when the converted data is out of the comparison window."]
-    OUT,
+    OUT = 3,
 }
 impl From<CMPMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CMPMODE_A) -> Self {
-        match variant {
-            CMPMODE_A::LOW => 0,
-            CMPMODE_A::HIGH => 1,
-            CMPMODE_A::IN => 2,
-            CMPMODE_A::OUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CMPMODE`"]

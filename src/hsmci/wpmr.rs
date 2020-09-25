@@ -28,16 +28,15 @@ impl<'a> WPEN_W<'a> {
 }
 #[doc = "Write Protect Key"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum WPKEY_A {
     #[doc = "5063497: Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0."]
-    PASSWD,
+    PASSWD = 5063497,
 }
 impl From<WPKEY_A> for u32 {
     #[inline(always)]
     fn from(variant: WPKEY_A) -> Self {
-        match variant {
-            WPKEY_A::PASSWD => 5063497,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WPKEY`"]

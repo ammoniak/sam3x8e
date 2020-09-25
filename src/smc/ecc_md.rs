@@ -12,25 +12,21 @@ impl crate::ResetValue for super::ECC_MD {
 }
 #[doc = "ECC Page Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ECC_PAGESIZE_A {
     #[doc = "0: Main area 512 Words"]
-    PS512,
+    PS512 = 0,
     #[doc = "1: Main area 1024 Words"]
-    PS1024,
+    PS1024 = 1,
     #[doc = "2: Main area 2048 Words"]
-    PS2048,
+    PS2048 = 2,
     #[doc = "3: Main area 4096 Words"]
-    PS4096,
+    PS4096 = 3,
 }
 impl From<ECC_PAGESIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: ECC_PAGESIZE_A) -> Self {
-        match variant {
-            ECC_PAGESIZE_A::PS512 => 0,
-            ECC_PAGESIZE_A::PS1024 => 1,
-            ECC_PAGESIZE_A::PS2048 => 2,
-            ECC_PAGESIZE_A::PS4096 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ECC_PAGESIZE`"]
@@ -109,22 +105,19 @@ impl<'a> ECC_PAGESIZE_W<'a> {
 }
 #[doc = "Type of Correction\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TYPCORREC_A {
     #[doc = "0: 1 bit correction for a page of 512/1024/2048/4096 Bytes  (for 8 or 16-bit NAND Flash)"]
-    CPAGE,
+    CPAGE = 0,
     #[doc = "1: 1 bit correction for 256 Bytes of data for a page of 512/2048/4096 bytes (for 8-bit NAND Flash only)"]
-    C256B,
+    C256B = 1,
     #[doc = "2: 1 bit correction for 512 Bytes of data for a page of 512/2048/4096 bytes (for 8-bit NAND Flash only)"]
-    C512B,
+    C512B = 2,
 }
 impl From<TYPCORREC_A> for u8 {
     #[inline(always)]
     fn from(variant: TYPCORREC_A) -> Self {
-        match variant {
-            TYPCORREC_A::CPAGE => 0,
-            TYPCORREC_A::C256B => 1,
-            TYPCORREC_A::C512B => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TYPCORREC`"]

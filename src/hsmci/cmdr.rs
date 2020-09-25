@@ -14,25 +14,21 @@ impl<'a> CMDNB_W<'a> {
 }
 #[doc = "Response Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RSPTYP_AW {
     #[doc = "0: No response"]
-    NORESP,
+    NORESP = 0,
     #[doc = "1: 48-bit response"]
-    _48_BIT,
+    _48_BIT = 1,
     #[doc = "2: 136-bit response"]
-    _136_BIT,
+    _136_BIT = 2,
     #[doc = "3: R1b response type"]
-    R1B,
+    R1B = 3,
 }
 impl From<RSPTYP_AW> for u8 {
     #[inline(always)]
     fn from(variant: RSPTYP_AW) -> Self {
-        match variant {
-            RSPTYP_AW::NORESP => 0,
-            RSPTYP_AW::_48_BIT => 1,
-            RSPTYP_AW::_136_BIT => 2,
-            RSPTYP_AW::R1B => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `RSPTYP`"]
@@ -76,37 +72,29 @@ impl<'a> RSPTYP_W<'a> {
 }
 #[doc = "Special Command"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SPCMD_AW {
     #[doc = "0: Not a special CMD."]
-    STD,
+    STD = 0,
     #[doc = "1: Initialization CMD: 74 clock cycles for initialization sequence."]
-    INIT,
+    INIT = 1,
     #[doc = "2: Synchronized CMD: Wait for the end of the current data block transfer before sending the pending command."]
-    SYNC,
+    SYNC = 2,
     #[doc = "3: CE-ATA Completion Signal disable Command. The host cancels the ability for the device to return a command completion signal on the command line."]
-    CE_ATA,
+    CE_ATA = 3,
     #[doc = "4: Interrupt command: Corresponds to the Interrupt Mode (CMD40)."]
-    IT_CMD,
+    IT_CMD = 4,
     #[doc = "5: Interrupt response: Corresponds to the Interrupt Mode (CMD40)."]
-    IT_RESP,
+    IT_RESP = 5,
     #[doc = "6: Boot Operation Request. Start a boot operation mode, the host processor can read boot data from the MMC device directly."]
-    BOR,
+    BOR = 6,
     #[doc = "7: End Boot Operation. This command allows the host processor to terminate the boot operation mode."]
-    EBO,
+    EBO = 7,
 }
 impl From<SPCMD_AW> for u8 {
     #[inline(always)]
     fn from(variant: SPCMD_AW) -> Self {
-        match variant {
-            SPCMD_AW::STD => 0,
-            SPCMD_AW::INIT => 1,
-            SPCMD_AW::SYNC => 2,
-            SPCMD_AW::CE_ATA => 3,
-            SPCMD_AW::IT_CMD => 4,
-            SPCMD_AW::IT_RESP => 5,
-            SPCMD_AW::BOR => 6,
-            SPCMD_AW::EBO => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `SPCMD`"]
@@ -172,17 +160,14 @@ impl<'a> SPCMD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OPDCMD_AW {
     #[doc = "0: Push pull command."]
-    PUSHPULL,
+    PUSHPULL = 0,
     #[doc = "1: Open drain command."]
-    OPENDRAIN,
+    OPENDRAIN = 1,
 }
 impl From<OPDCMD_AW> for bool {
     #[inline(always)]
     fn from(variant: OPDCMD_AW) -> Self {
-        match variant {
-            OPDCMD_AW::PUSHPULL => false,
-            OPDCMD_AW::OPENDRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `OPDCMD`"]
@@ -228,17 +213,14 @@ impl<'a> OPDCMD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MAXLAT_AW {
     #[doc = "0: 5-cycle max latency."]
-    _5,
+    _5 = 0,
     #[doc = "1: 64-cycle max latency."]
-    _64,
+    _64 = 1,
 }
 impl From<MAXLAT_AW> for bool {
     #[inline(always)]
     fn from(variant: MAXLAT_AW) -> Self {
-        match variant {
-            MAXLAT_AW::_5 => false,
-            MAXLAT_AW::_64 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `MAXLAT`"]
@@ -282,22 +264,19 @@ impl<'a> MAXLAT_W<'a> {
 }
 #[doc = "Transfer Command"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TRCMD_AW {
     #[doc = "0: No data transfer"]
-    NO_DATA,
+    NO_DATA = 0,
     #[doc = "1: Start data transfer"]
-    START_DATA,
+    START_DATA = 1,
     #[doc = "2: Stop data transfer"]
-    STOP_DATA,
+    STOP_DATA = 2,
 }
 impl From<TRCMD_AW> for u8 {
     #[inline(always)]
     fn from(variant: TRCMD_AW) -> Self {
-        match variant {
-            TRCMD_AW::NO_DATA => 0,
-            TRCMD_AW::START_DATA => 1,
-            TRCMD_AW::STOP_DATA => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `TRCMD`"]
@@ -336,17 +315,14 @@ impl<'a> TRCMD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRDIR_AW {
     #[doc = "0: Write."]
-    WRITE,
+    WRITE = 0,
     #[doc = "1: Read."]
-    READ,
+    READ = 1,
 }
 impl From<TRDIR_AW> for bool {
     #[inline(always)]
     fn from(variant: TRDIR_AW) -> Self {
-        match variant {
-            TRDIR_AW::WRITE => false,
-            TRDIR_AW::READ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TRDIR`"]
@@ -390,28 +366,23 @@ impl<'a> TRDIR_W<'a> {
 }
 #[doc = "Transfer Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TRTYP_AW {
     #[doc = "0: MMC/SD Card Single Block"]
-    SINGLE,
+    SINGLE = 0,
     #[doc = "1: MMC/SD Card Multiple Block"]
-    MULTIPLE,
+    MULTIPLE = 1,
     #[doc = "2: MMC Stream"]
-    STREAM,
+    STREAM = 2,
     #[doc = "4: SDIO Byte"]
-    BYTE,
+    BYTE = 4,
     #[doc = "5: SDIO Block"]
-    BLOCK,
+    BLOCK = 5,
 }
 impl From<TRTYP_AW> for u8 {
     #[inline(always)]
     fn from(variant: TRTYP_AW) -> Self {
-        match variant {
-            TRTYP_AW::SINGLE => 0,
-            TRTYP_AW::MULTIPLE => 1,
-            TRTYP_AW::STREAM => 2,
-            TRTYP_AW::BYTE => 4,
-            TRTYP_AW::BLOCK => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `TRTYP`"]
@@ -458,22 +429,19 @@ impl<'a> TRTYP_W<'a> {
 }
 #[doc = "SDIO Special Command"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IOSPCMD_AW {
     #[doc = "0: Not an SDIO Special Command"]
-    STD,
+    STD = 0,
     #[doc = "1: SDIO Suspend Command"]
-    SUSPEND,
+    SUSPEND = 1,
     #[doc = "2: SDIO Resume Command"]
-    RESUME,
+    RESUME = 2,
 }
 impl From<IOSPCMD_AW> for u8 {
     #[inline(always)]
     fn from(variant: IOSPCMD_AW) -> Self {
-        match variant {
-            IOSPCMD_AW::STD => 0,
-            IOSPCMD_AW::SUSPEND => 1,
-            IOSPCMD_AW::RESUME => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `IOSPCMD`"]
@@ -512,17 +480,14 @@ impl<'a> IOSPCMD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ATACS_AW {
     #[doc = "0: Normal operation mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: This bit indicates that a completion signal is expected within a programmed amount of time (HSMCI_CSTOR)."]
-    COMPLETION,
+    COMPLETION = 1,
 }
 impl From<ATACS_AW> for bool {
     #[inline(always)]
     fn from(variant: ATACS_AW) -> Self {
-        match variant {
-            ATACS_AW::NORMAL => false,
-            ATACS_AW::COMPLETION => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `ATACS`"]

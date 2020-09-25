@@ -102,31 +102,25 @@ impl<'a> FSLEN_W<'a> {
 }
 #[doc = "Transmit Frame Sync Output Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FSOS_A {
     #[doc = "0: None, RF pin is an input"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Negative Pulse, RF pin is an output"]
-    NEGATIVE,
+    NEGATIVE = 1,
     #[doc = "2: Positive Pulse, RF pin is an output"]
-    POSITIVE,
+    POSITIVE = 2,
     #[doc = "3: Driven Low during data transfer"]
-    LOW,
+    LOW = 3,
     #[doc = "4: Driven High during data transfer"]
-    HIGH,
+    HIGH = 4,
     #[doc = "5: Toggling at each start of data transfer"]
-    TOGGLING,
+    TOGGLING = 5,
 }
 impl From<FSOS_A> for u8 {
     #[inline(always)]
     fn from(variant: FSOS_A) -> Self {
-        match variant {
-            FSOS_A::NONE => 0,
-            FSOS_A::NEGATIVE => 1,
-            FSOS_A::POSITIVE => 2,
-            FSOS_A::LOW => 3,
-            FSOS_A::HIGH => 4,
-            FSOS_A::TOGGLING => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FSOS`"]
@@ -252,17 +246,14 @@ impl<'a> FSDEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FSEDGE_A {
     #[doc = "0: Positive Edge Detection"]
-    POSITIVE,
+    POSITIVE = 0,
     #[doc = "1: Negative Edge Detection"]
-    NEGATIVE,
+    NEGATIVE = 1,
 }
 impl From<FSEDGE_A> for bool {
     #[inline(always)]
     fn from(variant: FSEDGE_A) -> Self {
-        match variant {
-            FSEDGE_A::POSITIVE => false,
-            FSEDGE_A::NEGATIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FSEDGE`"]

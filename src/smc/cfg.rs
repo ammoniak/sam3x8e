@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CFG {
 }
 #[doc = "Page Size of the NAND Flash Device\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PAGESIZE_A {
     #[doc = "0: Main area 512 Bytes"]
-    PS512,
+    PS512 = 0,
     #[doc = "1: Main area 1024 Bytes"]
-    PS1024,
+    PS1024 = 1,
     #[doc = "2: Main area 2048 Bytes"]
-    PS2048,
+    PS2048 = 2,
     #[doc = "3: Main area 4096 Bytes"]
-    PS4096,
+    PS4096 = 3,
 }
 impl From<PAGESIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: PAGESIZE_A) -> Self {
-        match variant {
-            PAGESIZE_A::PS512 => 0,
-            PAGESIZE_A::PS1024 => 1,
-            PAGESIZE_A::PS2048 => 2,
-            PAGESIZE_A::PS4096 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PAGESIZE`"]
@@ -219,37 +215,29 @@ impl<'a> DTOCYC_W<'a> {
 }
 #[doc = "Data Timeout Multiplier\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DTOMUL_A {
     #[doc = "0: DTOCYC"]
-    X1,
+    X1 = 0,
     #[doc = "1: DTOCYC x 16"]
-    X16,
+    X16 = 1,
     #[doc = "2: DTOCYC x 128"]
-    X128,
+    X128 = 2,
     #[doc = "3: DTOCYC x 256"]
-    X256,
+    X256 = 3,
     #[doc = "4: DTOCYC x 1024"]
-    X1024,
+    X1024 = 4,
     #[doc = "5: DTOCYC x 4096"]
-    X4096,
+    X4096 = 5,
     #[doc = "6: DTOCYC x 65536"]
-    X65536,
+    X65536 = 6,
     #[doc = "7: DTOCYC x 1048576"]
-    X1048576,
+    X1048576 = 7,
 }
 impl From<DTOMUL_A> for u8 {
     #[inline(always)]
     fn from(variant: DTOMUL_A) -> Self {
-        match variant {
-            DTOMUL_A::X1 => 0,
-            DTOMUL_A::X16 => 1,
-            DTOMUL_A::X128 => 2,
-            DTOMUL_A::X256 => 3,
-            DTOMUL_A::X1024 => 4,
-            DTOMUL_A::X4096 => 5,
-            DTOMUL_A::X65536 => 6,
-            DTOMUL_A::X1048576 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DTOMUL`"]

@@ -26,28 +26,23 @@ impl<'a> SMTH_W<'a> {
 }
 #[doc = "Supply Monitor Sampling Period\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SMSMPL_A {
     #[doc = "0: Supply Monitor disabled"]
-    SMD,
+    SMD = 0,
     #[doc = "1: Continuous Supply Monitor"]
-    CSM,
+    CSM = 1,
     #[doc = "2: Supply Monitor enabled one SLCK period every 32 SLCK periods"]
-    _32SLCK,
+    _32SLCK = 2,
     #[doc = "3: Supply Monitor enabled one SLCK period every 256 SLCK periods"]
-    _256SLCK,
+    _256SLCK = 3,
     #[doc = "4: Supply Monitor enabled one SLCK period every 2,048 SLCK periods"]
-    _2048SLCK,
+    _2048SLCK = 4,
 }
 impl From<SMSMPL_A> for u8 {
     #[inline(always)]
     fn from(variant: SMSMPL_A) -> Self {
-        match variant {
-            SMSMPL_A::SMD => 0,
-            SMSMPL_A::CSM => 1,
-            SMSMPL_A::_32SLCK => 2,
-            SMSMPL_A::_256SLCK => 3,
-            SMSMPL_A::_2048SLCK => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SMSMPL`"]
@@ -138,17 +133,14 @@ impl<'a> SMSMPL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMRSTEN_A {
     #[doc = "0: the core reset signal \"vddcore_nreset\" is not affected when a supply monitor detection occurs."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the core reset signal, vddcore_nreset is asserted when a supply monitor detection occurs."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SMRSTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SMRSTEN_A) -> Self {
-        match variant {
-            SMRSTEN_A::NOT_ENABLE => false,
-            SMRSTEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SMRSTEN`"]
@@ -216,17 +208,14 @@ impl<'a> SMRSTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMIEN_A {
     #[doc = "0: the SUPC interrupt signal is not affected when a supply monitor detection occurs."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the SUPC interrupt signal is asserted when a supply monitor detection occurs."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SMIEN_A> for bool {
     #[inline(always)]
     fn from(variant: SMIEN_A) -> Self {
-        match variant {
-            SMIEN_A::NOT_ENABLE => false,
-            SMIEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SMIEN`"]

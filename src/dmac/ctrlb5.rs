@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRLB5 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRC_DSCR_A {
     #[doc = "0: Source address is updated when the descriptor is fetched from the memory."]
-    FETCH_FROM_MEM,
+    FETCH_FROM_MEM = 0,
     #[doc = "1: Buffer Descriptor Fetch operation is disabled for the source."]
-    FETCH_DISABLE,
+    FETCH_DISABLE = 1,
 }
 impl From<SRC_DSCR_A> for bool {
     #[inline(always)]
     fn from(variant: SRC_DSCR_A) -> Self {
-        match variant {
-            SRC_DSCR_A::FETCH_FROM_MEM => false,
-            SRC_DSCR_A::FETCH_DISABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SRC_DSCR`"]
@@ -92,17 +89,14 @@ impl<'a> SRC_DSCR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DST_DSCR_A {
     #[doc = "0: Destination address is updated when the descriptor is fetched from the memory."]
-    FETCH_FROM_MEM,
+    FETCH_FROM_MEM = 0,
     #[doc = "1: Buffer Descriptor Fetch operation is disabled for the destination."]
-    FETCH_DISABLE,
+    FETCH_DISABLE = 1,
 }
 impl From<DST_DSCR_A> for bool {
     #[inline(always)]
     fn from(variant: DST_DSCR_A) -> Self {
-        match variant {
-            DST_DSCR_A::FETCH_FROM_MEM => false,
-            DST_DSCR_A::FETCH_DISABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DST_DSCR`"]
@@ -168,25 +162,21 @@ impl<'a> DST_DSCR_W<'a> {
 }
 #[doc = "Flow Control\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FC_A {
     #[doc = "0: Memory-to-Memory Transfer DMAC is flow controller"]
-    MEM2MEM_DMA_FC,
+    MEM2MEM_DMA_FC = 0,
     #[doc = "1: Memory-to-Peripheral Transfer DMAC is flow controller"]
-    MEM2PER_DMA_FC,
+    MEM2PER_DMA_FC = 1,
     #[doc = "2: Peripheral-to-Memory Transfer DMAC is flow controller"]
-    PER2MEM_DMA_FC,
+    PER2MEM_DMA_FC = 2,
     #[doc = "3: Peripheral-to-Peripheral Transfer DMAC is flow controller"]
-    PER2PER_DMA_FC,
+    PER2PER_DMA_FC = 3,
 }
 impl From<FC_A> for u8 {
     #[inline(always)]
     fn from(variant: FC_A) -> Self {
-        match variant {
-            FC_A::MEM2MEM_DMA_FC => 0,
-            FC_A::MEM2PER_DMA_FC => 1,
-            FC_A::PER2MEM_DMA_FC => 2,
-            FC_A::PER2PER_DMA_FC => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FC`"]
@@ -265,22 +255,19 @@ impl<'a> FC_W<'a> {
 }
 #[doc = "Incrementing, Decrementing or Fixed Address for the Source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRC_INCR_A {
     #[doc = "0: The source address is incremented"]
-    INCREMENTING,
+    INCREMENTING = 0,
     #[doc = "1: The source address is decremented"]
-    DECREMENTING,
+    DECREMENTING = 1,
     #[doc = "2: The source address remains unchanged"]
-    FIXED,
+    FIXED = 2,
 }
 impl From<SRC_INCR_A> for u8 {
     #[inline(always)]
     fn from(variant: SRC_INCR_A) -> Self {
-        match variant {
-            SRC_INCR_A::INCREMENTING => 0,
-            SRC_INCR_A::DECREMENTING => 1,
-            SRC_INCR_A::FIXED => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SRC_INCR`"]
@@ -347,22 +334,19 @@ impl<'a> SRC_INCR_W<'a> {
 }
 #[doc = "Incrementing, Decrementing or Fixed Address for the Destination\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DST_INCR_A {
     #[doc = "0: The destination address is incremented"]
-    INCREMENTING,
+    INCREMENTING = 0,
     #[doc = "1: The destination address is decremented"]
-    DECREMENTING,
+    DECREMENTING = 1,
     #[doc = "2: The destination address remains unchanged"]
-    FIXED,
+    FIXED = 2,
 }
 impl From<DST_INCR_A> for u8 {
     #[inline(always)]
     fn from(variant: DST_INCR_A) -> Self {
-        match variant {
-            DST_INCR_A::INCREMENTING => 0,
-            DST_INCR_A::DECREMENTING => 1,
-            DST_INCR_A::FIXED => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DST_INCR`"]

@@ -12,22 +12,19 @@ impl crate::ResetValue for super::BMR {
 }
 #[doc = "External Clock Signal 0 Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TC0XC0S_A {
     #[doc = "0: Signal connected to XC0: TCLK0"]
-    TCLK0,
+    TCLK0 = 0,
     #[doc = "2: Signal connected to XC0: TIOA1"]
-    TIOA1,
+    TIOA1 = 2,
     #[doc = "3: Signal connected to XC0: TIOA2"]
-    TIOA2,
+    TIOA2 = 3,
 }
 impl From<TC0XC0S_A> for u8 {
     #[inline(always)]
     fn from(variant: TC0XC0S_A) -> Self {
-        match variant {
-            TC0XC0S_A::TCLK0 => 0,
-            TC0XC0S_A::TIOA1 => 2,
-            TC0XC0S_A::TIOA2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TC0XC0S`"]
@@ -94,22 +91,19 @@ impl<'a> TC0XC0S_W<'a> {
 }
 #[doc = "External Clock Signal 1 Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TC1XC1S_A {
     #[doc = "0: Signal connected to XC1: TCLK1"]
-    TCLK1,
+    TCLK1 = 0,
     #[doc = "2: Signal connected to XC1: TIOA0"]
-    TIOA0,
+    TIOA0 = 2,
     #[doc = "3: Signal connected to XC1: TIOA2"]
-    TIOA2,
+    TIOA2 = 3,
 }
 impl From<TC1XC1S_A> for u8 {
     #[inline(always)]
     fn from(variant: TC1XC1S_A) -> Self {
-        match variant {
-            TC1XC1S_A::TCLK1 => 0,
-            TC1XC1S_A::TIOA0 => 2,
-            TC1XC1S_A::TIOA2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TC1XC1S`"]
@@ -176,22 +170,19 @@ impl<'a> TC1XC1S_W<'a> {
 }
 #[doc = "External Clock Signal 2 Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TC2XC2S_A {
     #[doc = "0: Signal connected to XC2: TCLK2"]
-    TCLK2,
+    TCLK2 = 0,
     #[doc = "2: Signal connected to XC2: TIOA1"]
-    TIOA1,
+    TIOA1 = 2,
     #[doc = "3: Signal connected to XC2: TIOA2"]
-    TIOA2,
+    TIOA2 = 3,
 }
 impl From<TC2XC2S_A> for u8 {
     #[inline(always)]
     fn from(variant: TC2XC2S_A) -> Self {
-        match variant {
-            TC2XC2S_A::TCLK2 => 0,
-            TC2XC2S_A::TIOA1 => 2,
-            TC2XC2S_A::TIOA2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TC2XC2S`"]

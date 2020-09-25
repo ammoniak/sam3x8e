@@ -4,17 +4,14 @@ pub type W = crate::W<u32, super::CR>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VROFF_AW {
     #[doc = "0: no effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: if KEY is correct, asserts the vddcore_nreset and stops the voltage regulator."]
-    STOP_VREG,
+    STOP_VREG = 1,
 }
 impl From<VROFF_AW> for bool {
     #[inline(always)]
     fn from(variant: VROFF_AW) -> Self {
-        match variant {
-            VROFF_AW::NO_EFFECT => false,
-            VROFF_AW::STOP_VREG => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `VROFF`"]
@@ -60,17 +57,14 @@ impl<'a> VROFF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum XTALSEL_AW {
     #[doc = "0: no effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: if KEY is correct, switches the slow clock on the crystal oscillator output."]
-    CRYSTAL_SEL,
+    CRYSTAL_SEL = 1,
 }
 impl From<XTALSEL_AW> for bool {
     #[inline(always)]
     fn from(variant: XTALSEL_AW) -> Self {
-        match variant {
-            XTALSEL_AW::NO_EFFECT => false,
-            XTALSEL_AW::CRYSTAL_SEL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `XTALSEL`"]
@@ -114,16 +108,15 @@ impl<'a> XTALSEL_W<'a> {
 }
 #[doc = "Password"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_AW {
     #[doc = "165: Writing any other value in this field aborts the write operation."]
-    PASSWD,
+    PASSWD = 165,
 }
 impl From<KEY_AW> for u8 {
     #[inline(always)]
     fn from(variant: KEY_AW) -> Self {
-        match variant {
-            KEY_AW::PASSWD => 165,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `KEY`"]

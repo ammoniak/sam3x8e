@@ -24,16 +24,15 @@ impl<'a> WDRSTT_W<'a> {
 }
 #[doc = "Password."]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_AW {
     #[doc = "165: Writing any other value in this field aborts the write operation."]
-    PASSWD,
+    PASSWD = 165,
 }
 impl From<KEY_AW> for u8 {
     #[inline(always)]
     fn from(variant: KEY_AW) -> Self {
-        match variant {
-            KEY_AW::PASSWD => 165,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `KEY`"]

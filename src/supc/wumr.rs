@@ -14,17 +14,14 @@ impl crate::ResetValue for super::WUMR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FWUPEN_A {
     #[doc = "0: the Force Wake-up pin has no wake-up effect."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the Force Wake-up pin low forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<FWUPEN_A> for bool {
     #[inline(always)]
     fn from(variant: FWUPEN_A) -> Self {
-        match variant {
-            FWUPEN_A::NOT_ENABLE => false,
-            FWUPEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FWUPEN`"]
@@ -92,17 +89,14 @@ impl<'a> FWUPEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMEN_A {
     #[doc = "0: the supply monitor detection has no wake-up effect."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the supply monitor detection forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SMEN_A> for bool {
     #[inline(always)]
     fn from(variant: SMEN_A) -> Self {
-        match variant {
-            SMEN_A::NOT_ENABLE => false,
-            SMEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SMEN`"]
@@ -170,17 +164,14 @@ impl<'a> SMEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RTTEN_A {
     #[doc = "0: the RTT alarm signal has no wake-up effect."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the RTT alarm signal forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<RTTEN_A> for bool {
     #[inline(always)]
     fn from(variant: RTTEN_A) -> Self {
-        match variant {
-            RTTEN_A::NOT_ENABLE => false,
-            RTTEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RTTEN`"]
@@ -248,17 +239,14 @@ impl<'a> RTTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RTCEN_A {
     #[doc = "0: the RTC alarm signal has no wake-up effect."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the RTC alarm signal forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<RTCEN_A> for bool {
     #[inline(always)]
     fn from(variant: RTCEN_A) -> Self {
-        match variant {
-            RTCEN_A::NOT_ENABLE => false,
-            RTCEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RTCEN`"]
@@ -324,31 +312,25 @@ impl<'a> RTCEN_W<'a> {
 }
 #[doc = "Force Wake-up Debouncer Period\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FWUPDBC_A {
     #[doc = "0: Immediate, no debouncing, detected active at least on one Slow Clock edge."]
-    IMMEDIATE,
+    IMMEDIATE = 0,
     #[doc = "1: FWUP shall be low for at least 3 SLCK periods"]
-    _3_SCLK,
+    _3_SCLK = 1,
     #[doc = "2: FWUP shall be low for at least 32 SLCK periods"]
-    _32_SCLK,
+    _32_SCLK = 2,
     #[doc = "3: FWUP shall be low for at least 512 SLCK periods"]
-    _512_SCLK,
+    _512_SCLK = 3,
     #[doc = "4: FWUP shall be low for at least 4,096 SLCK periods"]
-    _4096_SCLK,
+    _4096_SCLK = 4,
     #[doc = "5: FWUP shall be low for at least 32,768 SLCK periods"]
-    _32768_SCLK,
+    _32768_SCLK = 5,
 }
 impl From<FWUPDBC_A> for u8 {
     #[inline(always)]
     fn from(variant: FWUPDBC_A) -> Self {
-        match variant {
-            FWUPDBC_A::IMMEDIATE => 0,
-            FWUPDBC_A::_3_SCLK => 1,
-            FWUPDBC_A::_32_SCLK => 2,
-            FWUPDBC_A::_512_SCLK => 3,
-            FWUPDBC_A::_4096_SCLK => 4,
-            FWUPDBC_A::_32768_SCLK => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FWUPDBC`"]
@@ -448,31 +430,25 @@ impl<'a> FWUPDBC_W<'a> {
 }
 #[doc = "Wake-up Inputs Debouncer Period\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WKUPDBC_A {
     #[doc = "0: Immediate, no debouncing, detected active at least on one Slow Clock edge."]
-    IMMEDIATE,
+    IMMEDIATE = 0,
     #[doc = "1: WKUPx shall be in its active state for at least 3 SLCK periods"]
-    _3_SCLK,
+    _3_SCLK = 1,
     #[doc = "2: WKUPx shall be in its active state for at least 32 SLCK periods"]
-    _32_SCLK,
+    _32_SCLK = 2,
     #[doc = "3: WKUPx shall be in its active state for at least 512 SLCK periods"]
-    _512_SCLK,
+    _512_SCLK = 3,
     #[doc = "4: WKUPx shall be in its active state for at least 4,096 SLCK periods"]
-    _4096_SCLK,
+    _4096_SCLK = 4,
     #[doc = "5: WKUPx shall be in its active state for at least 32,768 SLCK periods"]
-    _32768_SCLK,
+    _32768_SCLK = 5,
 }
 impl From<WKUPDBC_A> for u8 {
     #[inline(always)]
     fn from(variant: WKUPDBC_A) -> Self {
-        match variant {
-            WKUPDBC_A::IMMEDIATE => 0,
-            WKUPDBC_A::_3_SCLK => 1,
-            WKUPDBC_A::_32_SCLK => 2,
-            WKUPDBC_A::_512_SCLK => 3,
-            WKUPDBC_A::_4096_SCLK => 4,
-            WKUPDBC_A::_32768_SCLK => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WKUPDBC`"]

@@ -4,28 +4,23 @@ pub type R = crate::R<u32, super::SR>;
 pub type URSTS_R = crate::R<bool, bool>;
 #[doc = "Reset Type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RSTTYP_A {
     #[doc = "0: First power-up Reset"]
-    GENERALRESET,
+    GENERALRESET = 0,
     #[doc = "1: Return from Backup Mode"]
-    BACKUPRESET,
+    BACKUPRESET = 1,
     #[doc = "2: Watchdog fault occurred"]
-    WATCHDOGRESET,
+    WATCHDOGRESET = 2,
     #[doc = "3: Processor reset required by the software"]
-    SOFTWARERESET,
+    SOFTWARERESET = 3,
     #[doc = "4: NRST pin detected low"]
-    USERRESET,
+    USERRESET = 4,
 }
 impl From<RSTTYP_A> for u8 {
     #[inline(always)]
     fn from(variant: RSTTYP_A) -> Self {
-        match variant {
-            RSTTYP_A::GENERALRESET => 0,
-            RSTTYP_A::BACKUPRESET => 1,
-            RSTTYP_A::WATCHDOGRESET => 2,
-            RSTTYP_A::SOFTWARERESET => 3,
-            RSTTYP_A::USERRESET => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RSTTYP`"]

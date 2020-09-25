@@ -12,25 +12,21 @@ impl crate::ResetValue for super::MMR {
 }
 #[doc = "Internal Device Address Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IADRSZ_A {
     #[doc = "0: No internal device address"]
-    NONE,
+    NONE = 0,
     #[doc = "1: One-byte internal device address"]
-    _1_BYTE,
+    _1_BYTE = 1,
     #[doc = "2: Two-byte internal device address"]
-    _2_BYTE,
+    _2_BYTE = 2,
     #[doc = "3: Three-byte internal device address"]
-    _3_BYTE,
+    _3_BYTE = 3,
 }
 impl From<IADRSZ_A> for u8 {
     #[inline(always)]
     fn from(variant: IADRSZ_A) -> Self {
-        match variant {
-            IADRSZ_A::NONE => 0,
-            IADRSZ_A::_1_BYTE => 1,
-            IADRSZ_A::_2_BYTE => 2,
-            IADRSZ_A::_3_BYTE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `IADRSZ`"]

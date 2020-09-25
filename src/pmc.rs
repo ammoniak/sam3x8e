@@ -61,7 +61,7 @@ pub struct RegisterBlock {
     #[doc = "0x10c - Peripheral Control Register"]
     pub pmc_pcr: PMC_PCR,
 }
-#[doc = "System Clock Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_scer](pmc_scer) module"]
+#[doc = "System Clock Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_scer](pmc_scer) module"]
 pub type PMC_SCER = crate::Reg<u32, _PMC_SCER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct _PMC_SCER;
 impl crate::Writable for PMC_SCER {}
 #[doc = "System Clock Enable Register"]
 pub mod pmc_scer;
-#[doc = "System Clock Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_scdr](pmc_scdr) module"]
+#[doc = "System Clock Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_scdr](pmc_scdr) module"]
 pub type PMC_SCDR = crate::Reg<u32, _PMC_SCDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct _PMC_SCDR;
 impl crate::Writable for PMC_SCDR {}
 #[doc = "System Clock Disable Register"]
 pub mod pmc_scdr;
-#[doc = "System Clock Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_scsr](pmc_scsr) module"]
+#[doc = "System Clock Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_scsr](pmc_scsr) module"]
 pub type PMC_SCSR = crate::Reg<u32, _PMC_SCSR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct _PMC_SCSR;
 impl crate::Readable for PMC_SCSR {}
 #[doc = "System Clock Status Register"]
 pub mod pmc_scsr;
-#[doc = "Peripheral Clock Enable Register 0\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcer0](pmc_pcer0) module"]
+#[doc = "Peripheral Clock Enable Register 0\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcer0](pmc_pcer0) module"]
 pub type PMC_PCER0 = crate::Reg<u32, _PMC_PCER0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -97,7 +97,7 @@ pub struct _PMC_PCER0;
 impl crate::Writable for PMC_PCER0 {}
 #[doc = "Peripheral Clock Enable Register 0"]
 pub mod pmc_pcer0;
-#[doc = "Peripheral Clock Disable Register 0\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcdr0](pmc_pcdr0) module"]
+#[doc = "Peripheral Clock Disable Register 0\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcdr0](pmc_pcdr0) module"]
 pub type PMC_PCDR0 = crate::Reg<u32, _PMC_PCDR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct _PMC_PCDR0;
 impl crate::Writable for PMC_PCDR0 {}
 #[doc = "Peripheral Clock Disable Register 0"]
 pub mod pmc_pcdr0;
-#[doc = "Peripheral Clock Status Register 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcsr0](pmc_pcsr0) module"]
+#[doc = "Peripheral Clock Status Register 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcsr0](pmc_pcsr0) module"]
 pub type PMC_PCSR0 = crate::Reg<u32, _PMC_PCSR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -115,7 +115,7 @@ pub struct _PMC_PCSR0;
 impl crate::Readable for PMC_PCSR0 {}
 #[doc = "Peripheral Clock Status Register 0"]
 pub mod pmc_pcsr0;
-#[doc = "UTMI Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ckgr_uckr](ckgr_uckr) module"]
+#[doc = "UTMI Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ckgr_uckr](ckgr_uckr) module"]
 pub type CKGR_UCKR = crate::Reg<u32, _CKGR_UCKR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -126,7 +126,7 @@ impl crate::Readable for CKGR_UCKR {}
 impl crate::Writable for CKGR_UCKR {}
 #[doc = "UTMI Clock Register"]
 pub mod ckgr_uckr;
-#[doc = "Main Oscillator Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ckgr_mor](ckgr_mor) module"]
+#[doc = "Main Oscillator Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ckgr_mor](ckgr_mor) module"]
 pub type CKGR_MOR = crate::Reg<u32, _CKGR_MOR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ impl crate::Readable for CKGR_MOR {}
 impl crate::Writable for CKGR_MOR {}
 #[doc = "Main Oscillator Register"]
 pub mod ckgr_mor;
-#[doc = "Main Clock Frequency Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ckgr_mcfr](ckgr_mcfr) module"]
+#[doc = "Main Clock Frequency Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ckgr_mcfr](ckgr_mcfr) module"]
 pub type CKGR_MCFR = crate::Reg<u32, _CKGR_MCFR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -146,7 +146,7 @@ pub struct _CKGR_MCFR;
 impl crate::Readable for CKGR_MCFR {}
 #[doc = "Main Clock Frequency Register"]
 pub mod ckgr_mcfr;
-#[doc = "PLLA Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ckgr_pllar](ckgr_pllar) module"]
+#[doc = "PLLA Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ckgr_pllar](ckgr_pllar) module"]
 pub type CKGR_PLLAR = crate::Reg<u32, _CKGR_PLLAR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -157,7 +157,7 @@ impl crate::Readable for CKGR_PLLAR {}
 impl crate::Writable for CKGR_PLLAR {}
 #[doc = "PLLA Register"]
 pub mod ckgr_pllar;
-#[doc = "Master Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_mckr](pmc_mckr) module"]
+#[doc = "Master Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_mckr](pmc_mckr) module"]
 pub type PMC_MCKR = crate::Reg<u32, _PMC_MCKR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ impl crate::Readable for PMC_MCKR {}
 impl crate::Writable for PMC_MCKR {}
 #[doc = "Master Clock Register"]
 pub mod pmc_mckr;
-#[doc = "USB Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_usb](pmc_usb) module"]
+#[doc = "USB Clock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_usb](pmc_usb) module"]
 pub type PMC_USB = crate::Reg<u32, _PMC_USB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -179,7 +179,7 @@ impl crate::Readable for PMC_USB {}
 impl crate::Writable for PMC_USB {}
 #[doc = "USB Clock Register"]
 pub mod pmc_usb;
-#[doc = "Programmable Clock 0 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pck](pmc_pck) module"]
+#[doc = "Programmable Clock 0 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pck](pmc_pck) module"]
 pub type PMC_PCK = crate::Reg<u32, _PMC_PCK>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -190,7 +190,7 @@ impl crate::Readable for PMC_PCK {}
 impl crate::Writable for PMC_PCK {}
 #[doc = "Programmable Clock 0 Register"]
 pub mod pmc_pck;
-#[doc = "Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_ier](pmc_ier) module"]
+#[doc = "Interrupt Enable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_ier](pmc_ier) module"]
 pub type PMC_IER = crate::Reg<u32, _PMC_IER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -199,7 +199,7 @@ pub struct _PMC_IER;
 impl crate::Writable for PMC_IER {}
 #[doc = "Interrupt Enable Register"]
 pub mod pmc_ier;
-#[doc = "Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_idr](pmc_idr) module"]
+#[doc = "Interrupt Disable Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_idr](pmc_idr) module"]
 pub type PMC_IDR = crate::Reg<u32, _PMC_IDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -208,7 +208,7 @@ pub struct _PMC_IDR;
 impl crate::Writable for PMC_IDR {}
 #[doc = "Interrupt Disable Register"]
 pub mod pmc_idr;
-#[doc = "Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_sr](pmc_sr) module"]
+#[doc = "Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_sr](pmc_sr) module"]
 pub type PMC_SR = crate::Reg<u32, _PMC_SR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -217,7 +217,7 @@ pub struct _PMC_SR;
 impl crate::Readable for PMC_SR {}
 #[doc = "Status Register"]
 pub mod pmc_sr;
-#[doc = "Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_imr](pmc_imr) module"]
+#[doc = "Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_imr](pmc_imr) module"]
 pub type PMC_IMR = crate::Reg<u32, _PMC_IMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -226,7 +226,7 @@ pub struct _PMC_IMR;
 impl crate::Readable for PMC_IMR {}
 #[doc = "Interrupt Mask Register"]
 pub mod pmc_imr;
-#[doc = "Fast Start-up Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_fsmr](pmc_fsmr) module"]
+#[doc = "Fast Start-up Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_fsmr](pmc_fsmr) module"]
 pub type PMC_FSMR = crate::Reg<u32, _PMC_FSMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -237,7 +237,7 @@ impl crate::Readable for PMC_FSMR {}
 impl crate::Writable for PMC_FSMR {}
 #[doc = "Fast Start-up Mode Register"]
 pub mod pmc_fsmr;
-#[doc = "Fast Start-up Polarity Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_fspr](pmc_fspr) module"]
+#[doc = "Fast Start-up Polarity Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_fspr](pmc_fspr) module"]
 pub type PMC_FSPR = crate::Reg<u32, _PMC_FSPR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ impl crate::Readable for PMC_FSPR {}
 impl crate::Writable for PMC_FSPR {}
 #[doc = "Fast Start-up Polarity Register"]
 pub mod pmc_fspr;
-#[doc = "Fault Output Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_focr](pmc_focr) module"]
+#[doc = "Fault Output Clear Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_focr](pmc_focr) module"]
 pub type PMC_FOCR = crate::Reg<u32, _PMC_FOCR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -257,7 +257,7 @@ pub struct _PMC_FOCR;
 impl crate::Writable for PMC_FOCR {}
 #[doc = "Fault Output Clear Register"]
 pub mod pmc_focr;
-#[doc = "Write Protect Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_wpmr](pmc_wpmr) module"]
+#[doc = "Write Protect Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_wpmr](pmc_wpmr) module"]
 pub type PMC_WPMR = crate::Reg<u32, _PMC_WPMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -268,7 +268,7 @@ impl crate::Readable for PMC_WPMR {}
 impl crate::Writable for PMC_WPMR {}
 #[doc = "Write Protect Mode Register"]
 pub mod pmc_wpmr;
-#[doc = "Write Protect Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_wpsr](pmc_wpsr) module"]
+#[doc = "Write Protect Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_wpsr](pmc_wpsr) module"]
 pub type PMC_WPSR = crate::Reg<u32, _PMC_WPSR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -277,7 +277,7 @@ pub struct _PMC_WPSR;
 impl crate::Readable for PMC_WPSR {}
 #[doc = "Write Protect Status Register"]
 pub mod pmc_wpsr;
-#[doc = "Peripheral Clock Enable Register 1\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcer1](pmc_pcer1) module"]
+#[doc = "Peripheral Clock Enable Register 1\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcer1](pmc_pcer1) module"]
 pub type PMC_PCER1 = crate::Reg<u32, _PMC_PCER1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -286,7 +286,7 @@ pub struct _PMC_PCER1;
 impl crate::Writable for PMC_PCER1 {}
 #[doc = "Peripheral Clock Enable Register 1"]
 pub mod pmc_pcer1;
-#[doc = "Peripheral Clock Disable Register 1\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcdr1](pmc_pcdr1) module"]
+#[doc = "Peripheral Clock Disable Register 1\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcdr1](pmc_pcdr1) module"]
 pub type PMC_PCDR1 = crate::Reg<u32, _PMC_PCDR1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -295,7 +295,7 @@ pub struct _PMC_PCDR1;
 impl crate::Writable for PMC_PCDR1 {}
 #[doc = "Peripheral Clock Disable Register 1"]
 pub mod pmc_pcdr1;
-#[doc = "Peripheral Clock Status Register 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcsr1](pmc_pcsr1) module"]
+#[doc = "Peripheral Clock Status Register 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcsr1](pmc_pcsr1) module"]
 pub type PMC_PCSR1 = crate::Reg<u32, _PMC_PCSR1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -304,7 +304,7 @@ pub struct _PMC_PCSR1;
 impl crate::Readable for PMC_PCSR1 {}
 #[doc = "Peripheral Clock Status Register 1"]
 pub mod pmc_pcsr1;
-#[doc = "Peripheral Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pmc_pcr](pmc_pcr) module"]
+#[doc = "Peripheral Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmc_pcr](pmc_pcr) module"]
 pub type PMC_PCR = crate::Reg<u32, _PMC_PCR>;
 #[allow(missing_docs)]
 #[doc(hidden)]

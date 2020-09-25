@@ -12,37 +12,29 @@ impl crate::ResetValue for super::CMR1 {
 }
 #[doc = "Clock Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TCCLKS_A {
     #[doc = "0: Clock selected: TCLK1"]
-    TIMER_CLOCK1,
+    TIMER_CLOCK1 = 0,
     #[doc = "1: Clock selected: TCLK2"]
-    TIMER_CLOCK2,
+    TIMER_CLOCK2 = 1,
     #[doc = "2: Clock selected: TCLK3"]
-    TIMER_CLOCK3,
+    TIMER_CLOCK3 = 2,
     #[doc = "3: Clock selected: TCLK4"]
-    TIMER_CLOCK4,
+    TIMER_CLOCK4 = 3,
     #[doc = "4: Clock selected: TCLK5"]
-    TIMER_CLOCK5,
+    TIMER_CLOCK5 = 4,
     #[doc = "5: Clock selected: XC0"]
-    XC0,
+    XC0 = 5,
     #[doc = "6: Clock selected: XC1"]
-    XC1,
+    XC1 = 6,
     #[doc = "7: Clock selected: XC2"]
-    XC2,
+    XC2 = 7,
 }
 impl From<TCCLKS_A> for u8 {
     #[inline(always)]
     fn from(variant: TCCLKS_A) -> Self {
-        match variant {
-            TCCLKS_A::TIMER_CLOCK1 => 0,
-            TCCLKS_A::TIMER_CLOCK2 => 1,
-            TCCLKS_A::TIMER_CLOCK3 => 2,
-            TCCLKS_A::TIMER_CLOCK4 => 3,
-            TCCLKS_A::TIMER_CLOCK5 => 4,
-            TCCLKS_A::XC0 => 5,
-            TCCLKS_A::XC1 => 6,
-            TCCLKS_A::XC2 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TCCLKS`"]
@@ -189,25 +181,21 @@ impl<'a> CLKI_W<'a> {
 }
 #[doc = "Burst Signal Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BURST_A {
     #[doc = "0: The clock is not gated by an external signal."]
-    NONE,
+    NONE = 0,
     #[doc = "1: XC0 is ANDed with the selected clock."]
-    XC0,
+    XC0 = 1,
     #[doc = "2: XC1 is ANDed with the selected clock."]
-    XC1,
+    XC1 = 2,
     #[doc = "3: XC2 is ANDed with the selected clock."]
-    XC2,
+    XC2 = 3,
 }
 impl From<BURST_A> for u8 {
     #[inline(always)]
     fn from(variant: BURST_A) -> Self {
-        match variant {
-            BURST_A::NONE => 0,
-            BURST_A::XC0 => 1,
-            BURST_A::XC1 => 2,
-            BURST_A::XC2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BURST`"]
@@ -334,25 +322,21 @@ impl<'a> LDBDIS_W<'a> {
 }
 #[doc = "External Trigger Edge Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ETRGEDG_A {
     #[doc = "0: The clock is not gated by an external signal."]
-    NONE,
+    NONE = 0,
     #[doc = "1: Rising edge"]
-    RISING,
+    RISING = 1,
     #[doc = "2: Falling edge"]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Each edge"]
-    EDGE,
+    EDGE = 3,
 }
 impl From<ETRGEDG_A> for u8 {
     #[inline(always)]
     fn from(variant: ETRGEDG_A) -> Self {
-        match variant {
-            ETRGEDG_A::NONE => 0,
-            ETRGEDG_A::RISING => 1,
-            ETRGEDG_A::FALLING => 2,
-            ETRGEDG_A::EDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ETRGEDG`"]
@@ -503,25 +487,21 @@ impl<'a> WAVE_W<'a> {
 }
 #[doc = "RA Loading Edge Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LDRA_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Rising edge of TIOA"]
-    RISING,
+    RISING = 1,
     #[doc = "2: Falling edge of TIOA"]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Each edge of TIOA"]
-    EDGE,
+    EDGE = 3,
 }
 impl From<LDRA_A> for u8 {
     #[inline(always)]
     fn from(variant: LDRA_A) -> Self {
-        match variant {
-            LDRA_A::NONE => 0,
-            LDRA_A::RISING => 1,
-            LDRA_A::FALLING => 2,
-            LDRA_A::EDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LDRA`"]
@@ -600,25 +580,21 @@ impl<'a> LDRA_W<'a> {
 }
 #[doc = "RB Loading Edge Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LDRB_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Rising edge of TIOA"]
-    RISING,
+    RISING = 1,
     #[doc = "2: Falling edge of TIOA"]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Each edge of TIOA"]
-    EDGE,
+    EDGE = 3,
 }
 impl From<LDRB_A> for u8 {
     #[inline(always)]
     fn from(variant: LDRB_A) -> Self {
-        match variant {
-            LDRB_A::NONE => 0,
-            LDRB_A::RISING => 1,
-            LDRB_A::FALLING => 2,
-            LDRB_A::EDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LDRB`"]

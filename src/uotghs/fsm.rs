@@ -2,61 +2,45 @@
 pub type R = crate::R<u32, super::FSM>;
 #[doc = "Dual Role Device State\n\nValue on reset: 9"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DRDSTATE_A {
     #[doc = "0: This is the start state for A-devices (when the ID pin is 0)"]
-    A_IDLESTATE,
+    A_IDLESTATE = 0,
     #[doc = "1: In this state, the A-device waits for the voltage on VBus to rise above the A-device VBus Valid threshold (4.4 V)."]
-    A_WAIT_VRISE,
+    A_WAIT_VRISE = 1,
     #[doc = "2: In this state, the A-device waits for the B-device to signal a connection."]
-    A_WAIT_BCON,
+    A_WAIT_BCON = 2,
     #[doc = "3: In this state, the A-device that operates in Host mode is operational."]
-    A_HOST,
+    A_HOST = 3,
     #[doc = "4: The A-device operating as a host is in the suspend mode."]
-    A_SUSPEND,
+    A_SUSPEND = 4,
     #[doc = "5: The A-device operates as a peripheral."]
-    A_PERIPHERAL,
+    A_PERIPHERAL = 5,
     #[doc = "6: In this state, the A-device waits for the voltage on VBus to drop below the A-device Session Valid threshold (1.4 V)."]
-    A_WAIT_VFALL,
+    A_WAIT_VFALL = 6,
     #[doc = "7: In this state, the A-device waits for recovery of the over-current condition that caused it to enter this state."]
-    A_VBUS_ERR,
+    A_VBUS_ERR = 7,
     #[doc = "8: In this state, the A-device waits for the data USB line to discharge (100 us)."]
-    A_WAIT_DISCHARGE,
+    A_WAIT_DISCHARGE = 8,
     #[doc = "9: This is the start state for B-device (when the ID pin is 1)."]
-    B_IDLE,
+    B_IDLE = 9,
     #[doc = "10: In this state, the B-device acts as the peripheral."]
-    B_PERIPHERAL,
+    B_PERIPHERAL = 10,
     #[doc = "11: In this state, the B-device is in suspend mode and waits until 3 ms before initiating the HNP protocol if requested."]
-    B_WAIT_BEGIN_HNP,
+    B_WAIT_BEGIN_HNP = 11,
     #[doc = "12: In this state, the B-device waits for the data USB line to discharge (100 us) before becoming Host."]
-    B_WAIT_DISCHARGE,
+    B_WAIT_DISCHARGE = 12,
     #[doc = "13: In this state, the B-device waits for the A-device to signal a connect before becoming B-Host."]
-    B_WAIT_ACON,
+    B_WAIT_ACON = 13,
     #[doc = "14: In this state, the B-device acts as the Host."]
-    B_HOST,
+    B_HOST = 14,
     #[doc = "15: In this state, the B-device attempts to start a session using the SRP protocol."]
-    B_SRP_INIT,
+    B_SRP_INIT = 15,
 }
 impl From<DRDSTATE_A> for u8 {
     #[inline(always)]
     fn from(variant: DRDSTATE_A) -> Self {
-        match variant {
-            DRDSTATE_A::A_IDLESTATE => 0,
-            DRDSTATE_A::A_WAIT_VRISE => 1,
-            DRDSTATE_A::A_WAIT_BCON => 2,
-            DRDSTATE_A::A_HOST => 3,
-            DRDSTATE_A::A_SUSPEND => 4,
-            DRDSTATE_A::A_PERIPHERAL => 5,
-            DRDSTATE_A::A_WAIT_VFALL => 6,
-            DRDSTATE_A::A_VBUS_ERR => 7,
-            DRDSTATE_A::A_WAIT_DISCHARGE => 8,
-            DRDSTATE_A::B_IDLE => 9,
-            DRDSTATE_A::B_PERIPHERAL => 10,
-            DRDSTATE_A::B_WAIT_BEGIN_HNP => 11,
-            DRDSTATE_A::B_WAIT_DISCHARGE => 12,
-            DRDSTATE_A::B_WAIT_ACON => 13,
-            DRDSTATE_A::B_HOST => 14,
-            DRDSTATE_A::B_SRP_INIT => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DRDSTATE`"]

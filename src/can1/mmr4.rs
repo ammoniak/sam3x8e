@@ -40,31 +40,25 @@ impl<'a> PRIOR_W<'a> {
 }
 #[doc = "Mailbox Object Type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MOT_A {
     #[doc = "0: Mailbox is disabled. This prevents receiving or transmitting any messages with this mailbox."]
-    MB_DISABLED,
+    MB_DISABLED = 0,
     #[doc = "1: Reception Mailbox. Mailbox is configured for reception. If a message is received while the mailbox data register is full, it is discarded."]
-    MB_RX,
+    MB_RX = 1,
     #[doc = "2: Reception mailbox with overwrite. Mailbox is configured for reception. If a message is received while the mailbox is full, it overwrites the previous message."]
-    MB_RX_OVERWRITE,
+    MB_RX_OVERWRITE = 2,
     #[doc = "3: Transmit mailbox. Mailbox is configured for transmission."]
-    MB_TX,
+    MB_TX = 3,
     #[doc = "4: Consumer Mailbox. Mailbox is configured in reception but behaves as a Transmit Mailbox, i.e., it sends a remote frame and waits for an answer."]
-    MB_CONSUMER,
+    MB_CONSUMER = 4,
     #[doc = "5: Producer Mailbox. Mailbox is configured in transmission but also behaves like a reception mailbox, i.e., it waits to receive a Remote Frame before sending its contents."]
-    MB_PRODUCER,
+    MB_PRODUCER = 5,
 }
 impl From<MOT_A> for u8 {
     #[inline(always)]
     fn from(variant: MOT_A) -> Self {
-        match variant {
-            MOT_A::MB_DISABLED => 0,
-            MOT_A::MB_RX => 1,
-            MOT_A::MB_RX_OVERWRITE => 2,
-            MOT_A::MB_TX => 3,
-            MOT_A::MB_CONSUMER => 4,
-            MOT_A::MB_PRODUCER => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MOT`"]

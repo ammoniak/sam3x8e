@@ -28,17 +28,14 @@ impl<'a> OFFSET_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHKSIZE_A {
     #[doc = "0: 1 data available"]
-    _1,
+    _1 = 0,
     #[doc = "1: 4 data available"]
-    _4,
+    _4 = 1,
 }
 impl From<CHKSIZE_A> for bool {
     #[inline(always)]
     fn from(variant: CHKSIZE_A) -> Self {
-        match variant {
-            CHKSIZE_A::_1 => false,
-            CHKSIZE_A::_4 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHKSIZE`"]

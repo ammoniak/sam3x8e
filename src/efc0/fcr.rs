@@ -2,58 +2,43 @@
 pub type W = crate::W<u32, super::FCR>;
 #[doc = "Flash Command"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FCMD_AW {
     #[doc = "0: Get Flash Descriptor"]
-    GETD,
+    GETD = 0,
     #[doc = "1: Write page"]
-    WP,
+    WP = 1,
     #[doc = "2: Write page and lock"]
-    WPL,
+    WPL = 2,
     #[doc = "3: Erase page and write page"]
-    EWP,
+    EWP = 3,
     #[doc = "4: Erase page and write page then lock"]
-    EWPL,
+    EWPL = 4,
     #[doc = "5: Erase all"]
-    EA,
+    EA = 5,
     #[doc = "8: Set Lock Bit"]
-    SLB,
+    SLB = 8,
     #[doc = "9: Clear Lock Bit"]
-    CLB,
+    CLB = 9,
     #[doc = "10: Get Lock Bit"]
-    GLB,
+    GLB = 10,
     #[doc = "11: Set GPNVM Bit"]
-    SGPB,
+    SGPB = 11,
     #[doc = "12: Clear GPNVM Bit"]
-    CGPB,
+    CGPB = 12,
     #[doc = "13: Get GPNVM Bit"]
-    GGPB,
+    GGPB = 13,
     #[doc = "14: Start Read Unique Identifier"]
-    STUI,
+    STUI = 14,
     #[doc = "15: Stop Read Unique Identifier"]
-    SPUI,
+    SPUI = 15,
     #[doc = "16: Get CALIB Bit"]
-    GCALB,
+    GCALB = 16,
 }
 impl From<FCMD_AW> for u8 {
     #[inline(always)]
     fn from(variant: FCMD_AW) -> Self {
-        match variant {
-            FCMD_AW::GETD => 0,
-            FCMD_AW::WP => 1,
-            FCMD_AW::WPL => 2,
-            FCMD_AW::EWP => 3,
-            FCMD_AW::EWPL => 4,
-            FCMD_AW::EA => 5,
-            FCMD_AW::SLB => 8,
-            FCMD_AW::CLB => 9,
-            FCMD_AW::GLB => 10,
-            FCMD_AW::SGPB => 11,
-            FCMD_AW::CGPB => 12,
-            FCMD_AW::GGPB => 13,
-            FCMD_AW::STUI => 14,
-            FCMD_AW::SPUI => 15,
-            FCMD_AW::GCALB => 16,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `FCMD`"]
@@ -162,16 +147,15 @@ impl<'a> FARG_W<'a> {
 }
 #[doc = "Flash Writing Protection Key"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FKEY_AW {
     #[doc = "90: The 0x5A value enables the command defined by the bits of the register. If the field is written with a different value, the write is not performed and no action is started."]
-    PASSWD,
+    PASSWD = 90,
 }
 impl From<FKEY_AW> for u8 {
     #[inline(always)]
     fn from(variant: FKEY_AW) -> Self {
-        match variant {
-            FKEY_AW::PASSWD => 90,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `FKEY`"]

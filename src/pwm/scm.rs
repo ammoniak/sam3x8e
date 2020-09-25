@@ -204,22 +204,19 @@ impl<'a> SYNC7_W<'a> {
 }
 #[doc = "Synchronous Channels Update Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum UPDM_A {
     #[doc = "0: Manual write of double buffer registers and manual update of synchronous channels"]
-    MODE0,
+    MODE0 = 0,
     #[doc = "1: Manual write of double buffer registers and automatic update of synchronous channels"]
-    MODE1,
+    MODE1 = 1,
     #[doc = "2: Automatic write of duty-cycle update registers by the PDC and automatic update of synchronous channels"]
-    MODE2,
+    MODE2 = 2,
 }
 impl From<UPDM_A> for u8 {
     #[inline(always)]
     fn from(variant: UPDM_A) -> Self {
-        match variant {
-            UPDM_A::MODE0 => 0,
-            UPDM_A::MODE1 => 1,
-            UPDM_A::MODE2 => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `UPDM`"]

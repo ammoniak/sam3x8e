@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRGEN_A {
     #[doc = "0: Hardware triggers are disabled. Starting a conversion is only possible by software."]
-    DIS,
+    DIS = 0,
     #[doc = "1: Hardware trigger selected by TRGSEL field is enabled."]
-    EN,
+    EN = 1,
 }
 impl From<TRGEN_A> for bool {
     #[inline(always)]
     fn from(variant: TRGEN_A) -> Self {
-        match variant {
-            TRGEN_A::DIS => false,
-            TRGEN_A::EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRGEN`"]
@@ -90,31 +87,25 @@ impl<'a> TRGEN_W<'a> {
 }
 #[doc = "Trigger Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TRGSEL_A {
     #[doc = "0: External : ADCTRG"]
-    ADC_TRIG0,
+    ADC_TRIG0 = 0,
     #[doc = "1: TIOA Output of the Timer Counter Channel 0"]
-    ADC_TRIG1,
+    ADC_TRIG1 = 1,
     #[doc = "2: TIOA Output of the Timer Counter Channel 1"]
-    ADC_TRIG2,
+    ADC_TRIG2 = 2,
     #[doc = "3: TIOA Output of the Timer Counter Channel 2"]
-    ADC_TRIG3,
+    ADC_TRIG3 = 3,
     #[doc = "4: PWM Event Line 0"]
-    ADC_TRIG4,
+    ADC_TRIG4 = 4,
     #[doc = "5: PWM Event Line 0"]
-    ADC_TRIG5,
+    ADC_TRIG5 = 5,
 }
 impl From<TRGSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: TRGSEL_A) -> Self {
-        match variant {
-            TRGSEL_A::ADC_TRIG0 => 0,
-            TRGSEL_A::ADC_TRIG1 => 1,
-            TRGSEL_A::ADC_TRIG2 => 2,
-            TRGSEL_A::ADC_TRIG3 => 3,
-            TRGSEL_A::ADC_TRIG4 => 4,
-            TRGSEL_A::ADC_TRIG5 => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TRGSEL`"]
@@ -216,17 +207,14 @@ impl<'a> TRGSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEP_A {
     #[doc = "0: Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
-    SLEEP,
+    SLEEP = 1,
 }
 impl From<SLEEP_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEP_A) -> Self {
-        match variant {
-            SLEEP_A::NORMAL => false,
-            SLEEP_A::SLEEP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEP`"]
@@ -294,17 +282,14 @@ impl<'a> SLEEP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FWUP_A {
     #[doc = "0: If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
-    OFF,
+    OFF = 0,
     #[doc = "1: If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
-    ON,
+    ON = 1,
 }
 impl From<FWUP_A> for bool {
     #[inline(always)]
     fn from(variant: FWUP_A) -> Self {
-        match variant {
-            FWUP_A::OFF => false,
-            FWUP_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FWUP`"]
@@ -372,17 +357,14 @@ impl<'a> FWUP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FREERUN_A {
     #[doc = "0: Normal Mode"]
-    OFF,
+    OFF = 0,
     #[doc = "1: Free Run Mode: Never wait for any trigger."]
-    ON,
+    ON = 1,
 }
 impl From<FREERUN_A> for bool {
     #[inline(always)]
     fn from(variant: FREERUN_A) -> Self {
-        match variant {
-            FREERUN_A::OFF => false,
-            FREERUN_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FREERUN`"]
@@ -462,61 +444,45 @@ impl<'a> PRESCAL_W<'a> {
 }
 #[doc = "Start Up Time\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum STARTUP_A {
     #[doc = "0: 0 periods of ADCClock"]
-    SUT0,
+    SUT0 = 0,
     #[doc = "1: 8 periods of ADCClock"]
-    SUT8,
+    SUT8 = 1,
     #[doc = "2: 16 periods of ADCClock"]
-    SUT16,
+    SUT16 = 2,
     #[doc = "3: 24 periods of ADCClock"]
-    SUT24,
+    SUT24 = 3,
     #[doc = "4: 64 periods of ADCClock"]
-    SUT64,
+    SUT64 = 4,
     #[doc = "5: 80 periods of ADCClock"]
-    SUT80,
+    SUT80 = 5,
     #[doc = "6: 96 periods of ADCClock"]
-    SUT96,
+    SUT96 = 6,
     #[doc = "7: 112 periods of ADCClock"]
-    SUT112,
+    SUT112 = 7,
     #[doc = "8: 512 periods of ADCClock"]
-    SUT512,
+    SUT512 = 8,
     #[doc = "9: 576 periods of ADCClock"]
-    SUT576,
+    SUT576 = 9,
     #[doc = "10: 640 periods of ADCClock"]
-    SUT640,
+    SUT640 = 10,
     #[doc = "11: 704 periods of ADCClock"]
-    SUT704,
+    SUT704 = 11,
     #[doc = "12: 768 periods of ADCClock"]
-    SUT768,
+    SUT768 = 12,
     #[doc = "13: 832 periods of ADCClock"]
-    SUT832,
+    SUT832 = 13,
     #[doc = "14: 896 periods of ADCClock"]
-    SUT896,
+    SUT896 = 14,
     #[doc = "15: 960 periods of ADCClock"]
-    SUT960,
+    SUT960 = 15,
 }
 impl From<STARTUP_A> for u8 {
     #[inline(always)]
     fn from(variant: STARTUP_A) -> Self {
-        match variant {
-            STARTUP_A::SUT0 => 0,
-            STARTUP_A::SUT8 => 1,
-            STARTUP_A::SUT16 => 2,
-            STARTUP_A::SUT24 => 3,
-            STARTUP_A::SUT64 => 4,
-            STARTUP_A::SUT80 => 5,
-            STARTUP_A::SUT96 => 6,
-            STARTUP_A::SUT112 => 7,
-            STARTUP_A::SUT512 => 8,
-            STARTUP_A::SUT576 => 9,
-            STARTUP_A::SUT640 => 10,
-            STARTUP_A::SUT704 => 11,
-            STARTUP_A::SUT768 => 12,
-            STARTUP_A::SUT832 => 13,
-            STARTUP_A::SUT896 => 14,
-            STARTUP_A::SUT960 => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `STARTUP`"]
@@ -727,25 +693,21 @@ impl<'a> STARTUP_W<'a> {
 }
 #[doc = "Analog Settling Time\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SETTLING_A {
     #[doc = "0: 3 periods of ADCClock"]
-    AST3,
+    AST3 = 0,
     #[doc = "1: 5 periods of ADCClock"]
-    AST5,
+    AST5 = 1,
     #[doc = "2: 9 periods of ADCClock"]
-    AST9,
+    AST9 = 2,
     #[doc = "3: 17 periods of ADCClock"]
-    AST17,
+    AST17 = 3,
 }
 impl From<SETTLING_A> for u8 {
     #[inline(always)]
     fn from(variant: SETTLING_A) -> Self {
-        match variant {
-            SETTLING_A::AST3 => 0,
-            SETTLING_A::AST5 => 1,
-            SETTLING_A::AST9 => 2,
-            SETTLING_A::AST17 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SETTLING`"]
@@ -826,17 +788,14 @@ impl<'a> SETTLING_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ANACH_A {
     #[doc = "0: No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
-    ALLOWED,
+    ALLOWED = 1,
 }
 impl From<ANACH_A> for bool {
     #[inline(always)]
     fn from(variant: ANACH_A) -> Self {
-        match variant {
-            ANACH_A::NONE => false,
-            ANACH_A::ALLOWED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ANACH`"]
@@ -932,17 +891,14 @@ impl<'a> TRANSFER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USEQ_A {
     #[doc = "0: Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
-    NUM_ORDER,
+    NUM_ORDER = 0,
     #[doc = "1: User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
-    REG_ORDER,
+    REG_ORDER = 1,
 }
 impl From<USEQ_A> for bool {
     #[inline(always)]
     fn from(variant: USEQ_A) -> Self {
-        match variant {
-            USEQ_A::NUM_ORDER => false,
-            USEQ_A::REG_ORDER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USEQ`"]

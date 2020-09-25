@@ -14,17 +14,14 @@ impl crate::ResetValue for super::GCFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ARB_CFG_A {
     #[doc = "0: Fixed priority arbiter (see \"Basic Definitions\" )"]
-    FIXED,
+    FIXED = 0,
     #[doc = "1: Modified round robin arbiter."]
-    ROUND_ROBIN,
+    ROUND_ROBIN = 1,
 }
 impl From<ARB_CFG_A> for bool {
     #[inline(always)]
     fn from(variant: ARB_CFG_A) -> Self {
-        match variant {
-            ARB_CFG_A::FIXED => false,
-            ARB_CFG_A::ROUND_ROBIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ARB_CFG`"]

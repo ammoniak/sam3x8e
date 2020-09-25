@@ -12,22 +12,19 @@ impl crate::ResetValue for super::LINMR {
 }
 #[doc = "LIN Node Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NACT_A {
     #[doc = "0: The USART transmits the response."]
-    PUBLISH,
+    PUBLISH = 0,
     #[doc = "1: The USART receives the response."]
-    SUBSCRIBE,
+    SUBSCRIBE = 1,
     #[doc = "2: The USART does not transmit and does not receive the response."]
-    IGNORE,
+    IGNORE = 2,
 }
 impl From<NACT_A> for u8 {
     #[inline(always)]
     fn from(variant: NACT_A) -> Self {
-        match variant {
-            NACT_A::PUBLISH => 0,
-            NACT_A::SUBSCRIBE => 1,
-            NACT_A::IGNORE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NACT`"]

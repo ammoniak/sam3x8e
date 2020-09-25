@@ -42,17 +42,14 @@ impl<'a> DST_PER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRC_H2SEL_A {
     #[doc = "0: Software handshaking interface is used to trigger a transfer request."]
-    SW,
+    SW = 0,
     #[doc = "1: Hardware handshaking interface is used to trigger a transfer request."]
-    HW,
+    HW = 1,
 }
 impl From<SRC_H2SEL_A> for bool {
     #[inline(always)]
     fn from(variant: SRC_H2SEL_A) -> Self {
-        match variant {
-            SRC_H2SEL_A::SW => false,
-            SRC_H2SEL_A::HW => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SRC_H2SEL`"]
@@ -120,17 +117,14 @@ impl<'a> SRC_H2SEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DST_H2SEL_A {
     #[doc = "0: Software handshaking interface is used to trigger a transfer request."]
-    SW,
+    SW = 0,
     #[doc = "1: Hardware handshaking interface is used to trigger a transfer request."]
-    HW,
+    HW = 1,
 }
 impl From<DST_H2SEL_A> for bool {
     #[inline(always)]
     fn from(variant: DST_H2SEL_A) -> Self {
-        match variant {
-            DST_H2SEL_A::SW => false,
-            DST_H2SEL_A::HW => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DST_H2SEL`"]
@@ -198,17 +192,14 @@ impl<'a> DST_H2SEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SOD_A {
     #[doc = "0: STOP ON DONE disabled, the descriptor fetch operation ignores DONE Field of CTRLA register."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: STOP ON DONE activated, the DMAC module is automatically disabled if DONE FIELD is set to 1."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SOD_A> for bool {
     #[inline(always)]
     fn from(variant: SOD_A) -> Self {
-        match variant {
-            SOD_A::DISABLE => false,
-            SOD_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SOD`"]
@@ -276,17 +267,14 @@ impl<'a> SOD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_IF_A {
     #[doc = "0: Interface Lock capability is disabled"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Interface Lock capability is enabled"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<LOCK_IF_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_IF_A) -> Self {
-        match variant {
-            LOCK_IF_A::DISABLE => false,
-            LOCK_IF_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK_IF`"]
@@ -354,14 +342,12 @@ impl<'a> LOCK_IF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_B_A {
     #[doc = "0: AHB Bus Locking capability is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<LOCK_B_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_B_A) -> Self {
-        match variant {
-            LOCK_B_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK_B`"]
@@ -420,17 +406,14 @@ impl<'a> LOCK_B_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_IF_L_A {
     #[doc = "0: The Master Interface Arbiter is locked by the channel x for a chunk transfer."]
-    CHUNK,
+    CHUNK = 0,
     #[doc = "1: The Master Interface Arbiter is locked by the channel x for a buffer transfer."]
-    BUFFER,
+    BUFFER = 1,
 }
 impl From<LOCK_IF_L_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_IF_L_A) -> Self {
-        match variant {
-            LOCK_IF_L_A::CHUNK => false,
-            LOCK_IF_L_A::BUFFER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK_IF_L`"]
@@ -510,22 +493,19 @@ impl<'a> AHB_PROT_W<'a> {
 }
 #[doc = "FIFO Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FIFOCFG_A {
     #[doc = "0: The largest defined length AHB burst is performed on the destination AHB interface."]
-    ALAP_CFG,
+    ALAP_CFG = 0,
     #[doc = "1: When half FIFO size is available/filled, a source/destination request is serviced."]
-    HALF_CFG,
+    HALF_CFG = 1,
     #[doc = "2: When there is enough space/data available to perform a single AHB access, then the request is serviced."]
-    ASAP_CFG,
+    ASAP_CFG = 2,
 }
 impl From<FIFOCFG_A> for u8 {
     #[inline(always)]
     fn from(variant: FIFOCFG_A) -> Self {
-        match variant {
-            FIFOCFG_A::ALAP_CFG => 0,
-            FIFOCFG_A::HALF_CFG => 1,
-            FIFOCFG_A::ASAP_CFG => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FIFOCFG`"]

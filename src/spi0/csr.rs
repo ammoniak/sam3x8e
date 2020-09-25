@@ -100,40 +100,31 @@ impl<'a> CSAAT_W<'a> {
 }
 #[doc = "Bits Per Transfer"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BITS_A {
     #[doc = "0: 8 bits for transfer"]
-    _8_BIT,
+    _8_BIT = 0,
     #[doc = "1: 9 bits for transfer"]
-    _9_BIT,
+    _9_BIT = 1,
     #[doc = "2: 10 bits for transfer"]
-    _10_BIT,
+    _10_BIT = 2,
     #[doc = "3: 11 bits for transfer"]
-    _11_BIT,
+    _11_BIT = 3,
     #[doc = "4: 12 bits for transfer"]
-    _12_BIT,
+    _12_BIT = 4,
     #[doc = "5: 13 bits for transfer"]
-    _13_BIT,
+    _13_BIT = 5,
     #[doc = "6: 14 bits for transfer"]
-    _14_BIT,
+    _14_BIT = 6,
     #[doc = "7: 15 bits for transfer"]
-    _15_BIT,
+    _15_BIT = 7,
     #[doc = "8: 16 bits for transfer"]
-    _16_BIT,
+    _16_BIT = 8,
 }
 impl From<BITS_A> for u8 {
     #[inline(always)]
     fn from(variant: BITS_A) -> Self {
-        match variant {
-            BITS_A::_8_BIT => 0,
-            BITS_A::_9_BIT => 1,
-            BITS_A::_10_BIT => 2,
-            BITS_A::_11_BIT => 3,
-            BITS_A::_12_BIT => 4,
-            BITS_A::_13_BIT => 5,
-            BITS_A::_14_BIT => 6,
-            BITS_A::_15_BIT => 7,
-            BITS_A::_16_BIT => 8,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BITS`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODRSTEN_A {
     #[doc = "0: the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
-    NOT_ENABLE,
+    NOT_ENABLE = 0,
     #[doc = "1: the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<BODRSTEN_A> for bool {
     #[inline(always)]
     fn from(variant: BODRSTEN_A) -> Self {
-        match variant {
-            BODRSTEN_A::NOT_ENABLE => false,
-            BODRSTEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BODRSTEN`"]
@@ -92,17 +89,14 @@ impl<'a> BODRSTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODDIS_A {
     #[doc = "0: the core brownout detector is enabled."]
-    ENABLE,
+    ENABLE = 0,
     #[doc = "1: the core brownout detector is disabled."]
-    DISABLE,
+    DISABLE = 1,
 }
 impl From<BODDIS_A> for bool {
     #[inline(always)]
     fn from(variant: BODDIS_A) -> Self {
-        match variant {
-            BODDIS_A::ENABLE => false,
-            BODDIS_A::DISABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BODDIS`"]
@@ -170,17 +164,14 @@ impl<'a> BODDIS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VDDIORDY_A {
     #[doc = "0: VDDIO is removed (used before going to backup mode when backup batteries are used)"]
-    VDDIO_REMOVED,
+    VDDIO_REMOVED = 0,
     #[doc = "1: VDDIO is present (used before going to backup mode when backup batteries are used)"]
-    VDDIO_PRESENT,
+    VDDIO_PRESENT = 1,
 }
 impl From<VDDIORDY_A> for bool {
     #[inline(always)]
     fn from(variant: VDDIORDY_A) -> Self {
-        match variant {
-            VDDIORDY_A::VDDIO_REMOVED => false,
-            VDDIORDY_A::VDDIO_PRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `VDDIORDY`"]
@@ -248,17 +239,14 @@ impl<'a> VDDIORDY_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OSCBYPASS_A {
     #[doc = "0: no effect. Clock selection depends on XTALSEL value."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
-    BYPASS,
+    BYPASS = 1,
 }
 impl From<OSCBYPASS_A> for bool {
     #[inline(always)]
     fn from(variant: OSCBYPASS_A) -> Self {
-        match variant {
-            OSCBYPASS_A::NO_EFFECT => false,
-            OSCBYPASS_A::BYPASS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OSCBYPASS`"]
@@ -324,16 +312,15 @@ impl<'a> OSCBYPASS_W<'a> {
 }
 #[doc = "Password Key\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_A {
     #[doc = "165: Writing any other value in this field aborts the write operation."]
-    PASSWD,
+    PASSWD = 165,
 }
 impl From<KEY_A> for u8 {
     #[inline(always)]
     fn from(variant: KEY_A) -> Self {
-        match variant {
-            KEY_A::PASSWD => 165,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `KEY`"]

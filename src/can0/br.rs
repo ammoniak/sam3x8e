@@ -84,17 +84,14 @@ impl<'a> BRP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SMP_A {
     #[doc = "0: The incoming bit stream is sampled once at sample point."]
-    ONCE,
+    ONCE = 0,
     #[doc = "1: The incoming bit stream is sampled three times with a period of a MCK clock period, centered on sample point."]
-    THREE,
+    THREE = 1,
 }
 impl From<SMP_A> for bool {
     #[inline(always)]
     fn from(variant: SMP_A) -> Self {
-        match variant {
-            SMP_A::ONCE => false,
-            SMP_A::THREE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SMP`"]

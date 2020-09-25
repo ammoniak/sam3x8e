@@ -4,43 +4,33 @@ pub type R = crate::R<u32, super::MR>;
 pub type W = crate::W<u32, super::MR>;
 #[doc = "USART Mode of Operation"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum USART_MODE_A {
     #[doc = "0: Normal mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: RS485"]
-    RS485,
+    RS485 = 1,
     #[doc = "2: Hardware Handshaking"]
-    HW_HANDSHAKING,
+    HW_HANDSHAKING = 2,
     #[doc = "4: IS07816 Protocol: T = 0"]
-    IS07816_T_0,
+    IS07816_T_0 = 4,
     #[doc = "6: IS07816 Protocol: T = 1"]
-    IS07816_T_1,
+    IS07816_T_1 = 6,
     #[doc = "8: IrDA"]
-    IRDA,
+    IRDA = 8,
     #[doc = "10: LIN master"]
-    LIN_MASTER,
+    LIN_MASTER = 10,
     #[doc = "11: LIN Slave"]
-    LIN_SLAVE,
+    LIN_SLAVE = 11,
     #[doc = "14: SPI master"]
-    SPI_MASTER,
+    SPI_MASTER = 14,
     #[doc = "15: SPI Slave"]
-    SPI_SLAVE,
+    SPI_SLAVE = 15,
 }
 impl From<USART_MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: USART_MODE_A) -> Self {
-        match variant {
-            USART_MODE_A::NORMAL => 0,
-            USART_MODE_A::RS485 => 1,
-            USART_MODE_A::HW_HANDSHAKING => 2,
-            USART_MODE_A::IS07816_T_0 => 4,
-            USART_MODE_A::IS07816_T_1 => 6,
-            USART_MODE_A::IRDA => 8,
-            USART_MODE_A::LIN_MASTER => 10,
-            USART_MODE_A::LIN_SLAVE => 11,
-            USART_MODE_A::SPI_MASTER => 14,
-            USART_MODE_A::SPI_SLAVE => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `USART_MODE`"]
@@ -184,22 +174,19 @@ impl<'a> USART_MODE_W<'a> {
 }
 #[doc = "Clock Selection"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum USCLKS_A {
     #[doc = "0: master Clock MCK is selected"]
-    MCK,
+    MCK = 0,
     #[doc = "1: Internal Clock Divided MCK/DIV (DIV=8) is selected"]
-    DIV,
+    DIV = 1,
     #[doc = "3: Serial Clock SLK is selected"]
-    SCK,
+    SCK = 3,
 }
 impl From<USCLKS_A> for u8 {
     #[inline(always)]
     fn from(variant: USCLKS_A) -> Self {
-        match variant {
-            USCLKS_A::MCK => 0,
-            USCLKS_A::DIV => 1,
-            USCLKS_A::SCK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `USCLKS`"]
@@ -266,25 +253,21 @@ impl<'a> USCLKS_W<'a> {
 }
 #[doc = "Character Length"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CHRL_A {
     #[doc = "0: Character length is 5 bits"]
-    _5_BIT,
+    _5_BIT = 0,
     #[doc = "1: Character length is 6 bits"]
-    _6_BIT,
+    _6_BIT = 1,
     #[doc = "2: Character length is 7 bits"]
-    _7_BIT,
+    _7_BIT = 2,
     #[doc = "3: Character length is 8 bits"]
-    _8_BIT,
+    _8_BIT = 3,
 }
 impl From<CHRL_A> for u8 {
     #[inline(always)]
     fn from(variant: CHRL_A) -> Self {
-        match variant {
-            CHRL_A::_5_BIT => 0,
-            CHRL_A::_6_BIT => 1,
-            CHRL_A::_7_BIT => 2,
-            CHRL_A::_8_BIT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CHRL`"]
@@ -387,31 +370,25 @@ impl<'a> SYNC_W<'a> {
 }
 #[doc = "Parity Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PAR_A {
     #[doc = "0: Even parity"]
-    EVEN,
+    EVEN = 0,
     #[doc = "1: Odd parity"]
-    ODD,
+    ODD = 1,
     #[doc = "2: Parity forced to 0 (Space)"]
-    SPACE,
+    SPACE = 2,
     #[doc = "3: Parity forced to 1 (Mark)"]
-    MARK,
+    MARK = 3,
     #[doc = "4: No parity"]
-    NO,
+    NO = 4,
     #[doc = "6: Multidrop mode"]
-    MULTIDROP,
+    MULTIDROP = 6,
 }
 impl From<PAR_A> for u8 {
     #[inline(always)]
     fn from(variant: PAR_A) -> Self {
-        match variant {
-            PAR_A::EVEN => 0,
-            PAR_A::ODD => 1,
-            PAR_A::SPACE => 2,
-            PAR_A::MARK => 3,
-            PAR_A::NO => 4,
-            PAR_A::MULTIDROP => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PAR`"]
@@ -511,22 +488,19 @@ impl<'a> PAR_W<'a> {
 }
 #[doc = "Number of Stop Bits"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NBSTOP_A {
     #[doc = "0: 1 stop bit"]
-    _1_BIT,
+    _1_BIT = 0,
     #[doc = "1: 1.5 stop bit (SYNC = 0) or reserved (SYNC = 1)"]
-    _1_5_BIT,
+    _1_5_BIT = 1,
     #[doc = "2: 2 stop bits"]
-    _2_BIT,
+    _2_BIT = 2,
 }
 impl From<NBSTOP_A> for u8 {
     #[inline(always)]
     fn from(variant: NBSTOP_A) -> Self {
-        match variant {
-            NBSTOP_A::_1_BIT => 0,
-            NBSTOP_A::_1_5_BIT => 1,
-            NBSTOP_A::_2_BIT => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NBSTOP`"]
@@ -593,25 +567,21 @@ impl<'a> NBSTOP_W<'a> {
 }
 #[doc = "Channel Mode"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CHMODE_A {
     #[doc = "0: Normal mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Automatic Echo. Receiver input is connected to the TXD pin."]
-    AUTOMATIC,
+    AUTOMATIC = 1,
     #[doc = "2: Local Loopback. Transmitter output is connected to the Receiver Input."]
-    LOCAL_LOOPBACK,
+    LOCAL_LOOPBACK = 2,
     #[doc = "3: Remote Loopback. RXD pin is internally connected to the TXD pin."]
-    REMOTE_LOOPBACK,
+    REMOTE_LOOPBACK = 3,
 }
 impl From<CHMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CHMODE_A) -> Self {
-        match variant {
-            CHMODE_A::NORMAL => 0,
-            CHMODE_A::AUTOMATIC => 1,
-            CHMODE_A::LOCAL_LOOPBACK => 2,
-            CHMODE_A::REMOTE_LOOPBACK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CHMODE`"]

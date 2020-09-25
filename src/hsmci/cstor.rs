@@ -26,37 +26,29 @@ impl<'a> CSTOCYC_W<'a> {
 }
 #[doc = "Completion Signal Timeout Multiplier\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CSTOMUL_A {
     #[doc = "0: CSTOCYC x 1"]
-    _1,
+    _1 = 0,
     #[doc = "1: CSTOCYC x 16"]
-    _16,
+    _16 = 1,
     #[doc = "2: CSTOCYC x 128"]
-    _128,
+    _128 = 2,
     #[doc = "3: CSTOCYC x 256"]
-    _256,
+    _256 = 3,
     #[doc = "4: CSTOCYC x 1024"]
-    _1024,
+    _1024 = 4,
     #[doc = "5: CSTOCYC x 4096"]
-    _4096,
+    _4096 = 5,
     #[doc = "6: CSTOCYC x 65536"]
-    _65536,
+    _65536 = 6,
     #[doc = "7: CSTOCYC x 1048576"]
-    _1048576,
+    _1048576 = 7,
 }
 impl From<CSTOMUL_A> for u8 {
     #[inline(always)]
     fn from(variant: CSTOMUL_A) -> Self {
-        match variant {
-            CSTOMUL_A::_1 => 0,
-            CSTOMUL_A::_16 => 1,
-            CSTOMUL_A::_128 => 2,
-            CSTOMUL_A::_256 => 3,
-            CSTOMUL_A::_1024 => 4,
-            CSTOMUL_A::_4096 => 5,
-            CSTOMUL_A::_65536 => 6,
-            CSTOMUL_A::_1048576 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CSTOMUL`"]

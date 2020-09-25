@@ -26,25 +26,21 @@ impl<'a> BTSIZE_W<'a> {
 }
 #[doc = "Source Chunk Transfer Size.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SCSIZE_A {
     #[doc = "0: 1 data transferred"]
-    CHK_1,
+    CHK_1 = 0,
     #[doc = "1: 4 data transferred"]
-    CHK_4,
+    CHK_4 = 1,
     #[doc = "2: 8 data transferred"]
-    CHK_8,
+    CHK_8 = 2,
     #[doc = "3: 16 data transferred"]
-    CHK_16,
+    CHK_16 = 3,
 }
 impl From<SCSIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: SCSIZE_A) -> Self {
-        match variant {
-            SCSIZE_A::CHK_1 => 0,
-            SCSIZE_A::CHK_4 => 1,
-            SCSIZE_A::CHK_8 => 2,
-            SCSIZE_A::CHK_16 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SCSIZE`"]
@@ -122,25 +118,21 @@ impl<'a> SCSIZE_W<'a> {
 }
 #[doc = "Destination Chunk Transfer Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DCSIZE_A {
     #[doc = "0: 1 data transferred"]
-    CHK_1,
+    CHK_1 = 0,
     #[doc = "1: 4 data transferred"]
-    CHK_4,
+    CHK_4 = 1,
     #[doc = "2: 8 data transferred"]
-    CHK_8,
+    CHK_8 = 2,
     #[doc = "3: 16 data transferred"]
-    CHK_16,
+    CHK_16 = 3,
 }
 impl From<DCSIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: DCSIZE_A) -> Self {
-        match variant {
-            DCSIZE_A::CHK_1 => 0,
-            DCSIZE_A::CHK_4 => 1,
-            DCSIZE_A::CHK_8 => 2,
-            DCSIZE_A::CHK_16 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DCSIZE`"]
@@ -218,22 +210,19 @@ impl<'a> DCSIZE_W<'a> {
 }
 #[doc = "Transfer Width for the Source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRC_WIDTH_A {
     #[doc = "0: the transfer size is set to 8-bit width"]
-    BYTE,
+    BYTE = 0,
     #[doc = "1: the transfer size is set to 16-bit width"]
-    HALF_WORD,
+    HALF_WORD = 1,
     #[doc = "2: the transfer size is set to 32-bit width"]
-    WORD,
+    WORD = 2,
 }
 impl From<SRC_WIDTH_A> for u8 {
     #[inline(always)]
     fn from(variant: SRC_WIDTH_A) -> Self {
-        match variant {
-            SRC_WIDTH_A::BYTE => 0,
-            SRC_WIDTH_A::HALF_WORD => 1,
-            SRC_WIDTH_A::WORD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SRC_WIDTH`"]
@@ -300,22 +289,19 @@ impl<'a> SRC_WIDTH_W<'a> {
 }
 #[doc = "Transfer Width for the Destination\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DST_WIDTH_A {
     #[doc = "0: the transfer size is set to 8-bit width"]
-    BYTE,
+    BYTE = 0,
     #[doc = "1: the transfer size is set to 16-bit width"]
-    HALF_WORD,
+    HALF_WORD = 1,
     #[doc = "2: the transfer size is set to 32-bit width"]
-    WORD,
+    WORD = 2,
 }
 impl From<DST_WIDTH_A> for u8 {
     #[inline(always)]
     fn from(variant: DST_WIDTH_A) -> Self {
-        match variant {
-            DST_WIDTH_A::BYTE => 0,
-            DST_WIDTH_A::HALF_WORD => 1,
-            DST_WIDTH_A::WORD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DST_WIDTH`"]

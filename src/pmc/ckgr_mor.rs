@@ -84,22 +84,19 @@ impl<'a> MOSCRCEN_W<'a> {
 }
 #[doc = "Main On-Chip RC Oscillator Frequency Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MOSCRCF_A {
     #[doc = "0: The Fast RC Oscillator Frequency is at 4 MHz (default)"]
-    _4_MHZ,
+    _4_MHZ = 0,
     #[doc = "1: The Fast RC Oscillator Frequency is at 8 MHz"]
-    _8_MHZ,
+    _8_MHZ = 1,
     #[doc = "2: The Fast RC Oscillator Frequency is at 12 MHz"]
-    _12_MHZ,
+    _12_MHZ = 2,
 }
 impl From<MOSCRCF_A> for u8 {
     #[inline(always)]
     fn from(variant: MOSCRCF_A) -> Self {
-        match variant {
-            MOSCRCF_A::_4_MHZ => 0,
-            MOSCRCF_A::_8_MHZ => 1,
-            MOSCRCF_A::_12_MHZ => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MOSCRCF`"]
@@ -180,16 +177,15 @@ impl<'a> MOSCXTST_W<'a> {
 }
 #[doc = "Write Access Password\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_A {
     #[doc = "55: Writing any other value in this field aborts the write operation.Always reads as 0."]
-    PASSWD,
+    PASSWD = 55,
 }
 impl From<KEY_A> for u8 {
     #[inline(always)]
     fn from(variant: KEY_A) -> Self {
-        match variant {
-            KEY_A::PASSWD => 55,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `KEY`"]

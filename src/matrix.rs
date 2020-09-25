@@ -45,7 +45,7 @@ pub struct RegisterBlock {
     #[doc = "0x1e8 - Write Protect Status Register"]
     pub matrix_wpsr: MATRIX_WPSR,
 }
-#[doc = "Master Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_mcfg](matrix_mcfg) module"]
+#[doc = "Master Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_mcfg](matrix_mcfg) module"]
 pub type MATRIX_MCFG = crate::Reg<u32, _MATRIX_MCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -56,7 +56,7 @@ impl crate::Readable for MATRIX_MCFG {}
 impl crate::Writable for MATRIX_MCFG {}
 #[doc = "Master Configuration Register"]
 pub mod matrix_mcfg;
-#[doc = "Slave Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_scfg](matrix_scfg) module"]
+#[doc = "Slave Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_scfg](matrix_scfg) module"]
 pub type MATRIX_SCFG = crate::Reg<u32, _MATRIX_SCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ impl crate::Readable for MATRIX_SCFG {}
 impl crate::Writable for MATRIX_SCFG {}
 #[doc = "Slave Configuration Register"]
 pub mod matrix_scfg;
-#[doc = "Priority Register A for Slave 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras0](matrix_pras0) module"]
+#[doc = "Priority Register A for Slave 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras0](matrix_pras0) module"]
 pub type MATRIX_PRAS0 = crate::Reg<u32, _MATRIX_PRAS0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -78,7 +78,7 @@ impl crate::Readable for MATRIX_PRAS0 {}
 impl crate::Writable for MATRIX_PRAS0 {}
 #[doc = "Priority Register A for Slave 0"]
 pub mod matrix_pras0;
-#[doc = "Priority Register A for Slave 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras1](matrix_pras1) module"]
+#[doc = "Priority Register A for Slave 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras1](matrix_pras1) module"]
 pub type MATRIX_PRAS1 = crate::Reg<u32, _MATRIX_PRAS1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -89,7 +89,7 @@ impl crate::Readable for MATRIX_PRAS1 {}
 impl crate::Writable for MATRIX_PRAS1 {}
 #[doc = "Priority Register A for Slave 1"]
 pub mod matrix_pras1;
-#[doc = "Priority Register A for Slave 2\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras2](matrix_pras2) module"]
+#[doc = "Priority Register A for Slave 2\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras2](matrix_pras2) module"]
 pub type MATRIX_PRAS2 = crate::Reg<u32, _MATRIX_PRAS2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -100,7 +100,7 @@ impl crate::Readable for MATRIX_PRAS2 {}
 impl crate::Writable for MATRIX_PRAS2 {}
 #[doc = "Priority Register A for Slave 2"]
 pub mod matrix_pras2;
-#[doc = "Priority Register A for Slave 3\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras3](matrix_pras3) module"]
+#[doc = "Priority Register A for Slave 3\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras3](matrix_pras3) module"]
 pub type MATRIX_PRAS3 = crate::Reg<u32, _MATRIX_PRAS3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -111,7 +111,7 @@ impl crate::Readable for MATRIX_PRAS3 {}
 impl crate::Writable for MATRIX_PRAS3 {}
 #[doc = "Priority Register A for Slave 3"]
 pub mod matrix_pras3;
-#[doc = "Priority Register A for Slave 4\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras4](matrix_pras4) module"]
+#[doc = "Priority Register A for Slave 4\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras4](matrix_pras4) module"]
 pub type MATRIX_PRAS4 = crate::Reg<u32, _MATRIX_PRAS4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -122,7 +122,7 @@ impl crate::Readable for MATRIX_PRAS4 {}
 impl crate::Writable for MATRIX_PRAS4 {}
 #[doc = "Priority Register A for Slave 4"]
 pub mod matrix_pras4;
-#[doc = "Priority Register A for Slave 5\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras5](matrix_pras5) module"]
+#[doc = "Priority Register A for Slave 5\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras5](matrix_pras5) module"]
 pub type MATRIX_PRAS5 = crate::Reg<u32, _MATRIX_PRAS5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -133,7 +133,7 @@ impl crate::Readable for MATRIX_PRAS5 {}
 impl crate::Writable for MATRIX_PRAS5 {}
 #[doc = "Priority Register A for Slave 5"]
 pub mod matrix_pras5;
-#[doc = "Priority Register A for Slave 6\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras6](matrix_pras6) module"]
+#[doc = "Priority Register A for Slave 6\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras6](matrix_pras6) module"]
 pub type MATRIX_PRAS6 = crate::Reg<u32, _MATRIX_PRAS6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -144,7 +144,7 @@ impl crate::Readable for MATRIX_PRAS6 {}
 impl crate::Writable for MATRIX_PRAS6 {}
 #[doc = "Priority Register A for Slave 6"]
 pub mod matrix_pras6;
-#[doc = "Priority Register A for Slave 7\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras7](matrix_pras7) module"]
+#[doc = "Priority Register A for Slave 7\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras7](matrix_pras7) module"]
 pub type MATRIX_PRAS7 = crate::Reg<u32, _MATRIX_PRAS7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ impl crate::Readable for MATRIX_PRAS7 {}
 impl crate::Writable for MATRIX_PRAS7 {}
 #[doc = "Priority Register A for Slave 7"]
 pub mod matrix_pras7;
-#[doc = "Priority Register A for Slave 8\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_pras8](matrix_pras8) module"]
+#[doc = "Priority Register A for Slave 8\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_pras8](matrix_pras8) module"]
 pub type MATRIX_PRAS8 = crate::Reg<u32, _MATRIX_PRAS8>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -166,7 +166,7 @@ impl crate::Readable for MATRIX_PRAS8 {}
 impl crate::Writable for MATRIX_PRAS8 {}
 #[doc = "Priority Register A for Slave 8"]
 pub mod matrix_pras8;
-#[doc = "Master Remap Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_mrcr](matrix_mrcr) module"]
+#[doc = "Master Remap Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_mrcr](matrix_mrcr) module"]
 pub type MATRIX_MRCR = crate::Reg<u32, _MATRIX_MRCR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -177,7 +177,7 @@ impl crate::Readable for MATRIX_MRCR {}
 impl crate::Writable for MATRIX_MRCR {}
 #[doc = "Master Remap Control Register"]
 pub mod matrix_mrcr;
-#[doc = "System I/O Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ccfg_sysio](ccfg_sysio) module"]
+#[doc = "System I/O Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ccfg_sysio](ccfg_sysio) module"]
 pub type CCFG_SYSIO = crate::Reg<u32, _CCFG_SYSIO>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -188,7 +188,7 @@ impl crate::Readable for CCFG_SYSIO {}
 impl crate::Writable for CCFG_SYSIO {}
 #[doc = "System I/O Configuration register"]
 pub mod ccfg_sysio;
-#[doc = "Write Protect Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_wpmr](matrix_wpmr) module"]
+#[doc = "Write Protect Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_wpmr](matrix_wpmr) module"]
 pub type MATRIX_WPMR = crate::Reg<u32, _MATRIX_WPMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -199,7 +199,7 @@ impl crate::Readable for MATRIX_WPMR {}
 impl crate::Writable for MATRIX_WPMR {}
 #[doc = "Write Protect Mode Register"]
 pub mod matrix_wpmr;
-#[doc = "Write Protect Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [matrix_wpsr](matrix_wpsr) module"]
+#[doc = "Write Protect Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [matrix_wpsr](matrix_wpsr) module"]
 pub type MATRIX_WPSR = crate::Reg<u32, _MATRIX_WPSR>;
 #[allow(missing_docs)]
 #[doc(hidden)]

@@ -18,25 +18,21 @@ pub type STALLEDI_R = crate::R<bool, bool>;
 pub type SHORTPACKET_R = crate::R<bool, bool>;
 #[doc = "Data Toggle Sequence"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DTSEQ_A {
     #[doc = "0: Data0 toggle sequence"]
-    DATA0,
+    DATA0 = 0,
     #[doc = "1: Data1 toggle sequence"]
-    DATA1,
+    DATA1 = 1,
     #[doc = "2: Reserved for high-bandwidth isochronous endpoint"]
-    DATA2,
+    DATA2 = 2,
     #[doc = "3: Reserved for high-bandwidth isochronous endpoint"]
-    MDATA,
+    MDATA = 3,
 }
 impl From<DTSEQ_A> for u8 {
     #[inline(always)]
     fn from(variant: DTSEQ_A) -> Self {
-        match variant {
-            DTSEQ_A::DATA0 => 0,
-            DTSEQ_A::DATA1 => 1,
-            DTSEQ_A::DATA2 => 2,
-            DTSEQ_A::MDATA => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DTSEQ`"]
@@ -76,25 +72,21 @@ impl DTSEQ_R {
 }
 #[doc = "Number of Busy Banks"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NBUSYBK_A {
     #[doc = "0: 0 busy bank (all banks free)"]
-    _0_BUSY,
+    _0_BUSY = 0,
     #[doc = "1: 1 busy bank"]
-    _1_BUSY,
+    _1_BUSY = 1,
     #[doc = "2: 2 busy banks"]
-    _2_BUSY,
+    _2_BUSY = 2,
     #[doc = "3: 3 busy banks"]
-    _3_BUSY,
+    _3_BUSY = 3,
 }
 impl From<NBUSYBK_A> for u8 {
     #[inline(always)]
     fn from(variant: NBUSYBK_A) -> Self {
-        match variant {
-            NBUSYBK_A::_0_BUSY => 0,
-            NBUSYBK_A::_1_BUSY => 1,
-            NBUSYBK_A::_2_BUSY => 2,
-            NBUSYBK_A::_3_BUSY => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NBUSYBK`"]
@@ -134,22 +126,19 @@ impl NBUSYBK_R {
 }
 #[doc = "Current Bank"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CURRBK_A {
     #[doc = "0: Current bank is bank0"]
-    BANK0,
+    BANK0 = 0,
     #[doc = "1: Current bank is bank1"]
-    BANK1,
+    BANK1 = 1,
     #[doc = "2: Current bank is bank2"]
-    BANK2,
+    BANK2 = 2,
 }
 impl From<CURRBK_A> for u8 {
     #[inline(always)]
     fn from(variant: CURRBK_A) -> Self {
-        match variant {
-            CURRBK_A::BANK0 => 0,
-            CURRBK_A::BANK1 => 1,
-            CURRBK_A::BANK2 => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CURRBK`"]

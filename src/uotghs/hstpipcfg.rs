@@ -28,22 +28,19 @@ impl<'a> ALLOC_W<'a> {
 }
 #[doc = "Pipe Banks"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PBK_A {
     #[doc = "0: Single-bank pipe"]
-    _1_BANK,
+    _1_BANK = 0,
     #[doc = "1: Double-bank pipe"]
-    _2_BANK,
+    _2_BANK = 1,
     #[doc = "2: Triple-bank pipe"]
-    _3_BANK,
+    _3_BANK = 2,
 }
 impl From<PBK_A> for u8 {
     #[inline(always)]
     fn from(variant: PBK_A) -> Self {
-        match variant {
-            PBK_A::_1_BANK => 0,
-            PBK_A::_2_BANK => 1,
-            PBK_A::_3_BANK => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PBK`"]
@@ -110,37 +107,29 @@ impl<'a> PBK_W<'a> {
 }
 #[doc = "Pipe Size"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PSIZE_A {
     #[doc = "0: 8 bytes"]
-    _8_BYTE,
+    _8_BYTE = 0,
     #[doc = "1: 16 bytes"]
-    _16_BYTE,
+    _16_BYTE = 1,
     #[doc = "2: 32 bytes"]
-    _32_BYTE,
+    _32_BYTE = 2,
     #[doc = "3: 64 bytes"]
-    _64_BYTE,
+    _64_BYTE = 3,
     #[doc = "4: 128 bytes"]
-    _128_BYTE,
+    _128_BYTE = 4,
     #[doc = "5: 256 bytes"]
-    _256_BYTE,
+    _256_BYTE = 5,
     #[doc = "6: 512 bytes"]
-    _512_BYTE,
+    _512_BYTE = 6,
     #[doc = "7: 1024 bytes"]
-    _1024_BYTE,
+    _1024_BYTE = 7,
 }
 impl From<PSIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: PSIZE_A) -> Self {
-        match variant {
-            PSIZE_A::_8_BYTE => 0,
-            PSIZE_A::_16_BYTE => 1,
-            PSIZE_A::_32_BYTE => 2,
-            PSIZE_A::_64_BYTE => 3,
-            PSIZE_A::_128_BYTE => 4,
-            PSIZE_A::_256_BYTE => 5,
-            PSIZE_A::_512_BYTE => 6,
-            PSIZE_A::_1024_BYTE => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PSIZE`"]
@@ -263,22 +252,19 @@ impl<'a> PSIZE_W<'a> {
 }
 #[doc = "Pipe Token"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PTOKEN_A {
     #[doc = "0: SETUP"]
-    SETUP,
+    SETUP = 0,
     #[doc = "1: IN"]
-    IN,
+    IN = 1,
     #[doc = "2: OUT"]
-    OUT,
+    OUT = 2,
 }
 impl From<PTOKEN_A> for u8 {
     #[inline(always)]
     fn from(variant: PTOKEN_A) -> Self {
-        match variant {
-            PTOKEN_A::SETUP => 0,
-            PTOKEN_A::IN => 1,
-            PTOKEN_A::OUT => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PTOKEN`"]
@@ -369,25 +355,21 @@ impl<'a> AUTOSW_W<'a> {
 }
 #[doc = "Pipe Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PTYPE_A {
     #[doc = "0: Control"]
-    CTRL,
+    CTRL = 0,
     #[doc = "1: Isochronous"]
-    ISO,
+    ISO = 1,
     #[doc = "2: Bulk"]
-    BLK,
+    BLK = 2,
     #[doc = "3: Interrupt"]
-    INTRPT,
+    INTRPT = 3,
 }
 impl From<PTYPE_A> for u8 {
     #[inline(always)]
     fn from(variant: PTYPE_A) -> Self {
-        match variant {
-            PTYPE_A::CTRL => 0,
-            PTYPE_A::ISO => 1,
-            PTYPE_A::BLK => 2,
-            PTYPE_A::INTRPT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PTYPE`"]

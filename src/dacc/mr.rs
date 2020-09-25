@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRGEN_A {
     #[doc = "0: External trigger mode disabled. DACC in free running mode."]
-    DIS,
+    DIS = 0,
     #[doc = "1: External trigger mode enabled."]
-    EN,
+    EN = 1,
 }
 impl From<TRGEN_A> for bool {
     #[inline(always)]
     fn from(variant: TRGEN_A) -> Self {
-        match variant {
-            TRGEN_A::DIS => false,
-            TRGEN_A::EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRGEN`"]
@@ -106,17 +103,14 @@ impl<'a> TRGSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WORD_A {
     #[doc = "0: Half-Word transfer"]
-    HALF,
+    HALF = 0,
     #[doc = "1: Word Transfer"]
-    WORD,
+    WORD = 1,
 }
 impl From<WORD_A> for bool {
     #[inline(always)]
     fn from(variant: WORD_A) -> Self {
-        match variant {
-            WORD_A::HALF => false,
-            WORD_A::WORD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WORD`"]
@@ -244,19 +238,17 @@ impl<'a> REFRESH_W<'a> {
 }
 #[doc = "User Channel Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum USER_SEL_A {
     #[doc = "0: Channel 0"]
-    CHANNEL0,
+    CHANNEL0 = 0,
     #[doc = "1: Channel 1"]
-    CHANNEL1,
+    CHANNEL1 = 1,
 }
 impl From<USER_SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: USER_SEL_A) -> Self {
-        match variant {
-            USER_SEL_A::CHANNEL0 => 0,
-            USER_SEL_A::CHANNEL1 => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `USER_SEL`"]
@@ -314,17 +306,14 @@ impl<'a> USER_SEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TAG_A {
     #[doc = "0: Tag selection mode disabled. Using USER_SEL to select the channel for the conversion."]
-    DIS,
+    DIS = 0,
     #[doc = "1: Tag selection mode enabled"]
-    EN,
+    EN = 1,
 }
 impl From<TAG_A> for bool {
     #[inline(always)]
     fn from(variant: TAG_A) -> Self {
-        match variant {
-            TAG_A::DIS => false,
-            TAG_A::EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TAG`"]
@@ -392,17 +381,14 @@ impl<'a> TAG_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MAXS_A {
     #[doc = "0: Normal Mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Max Speed Mode enabled"]
-    MAXIMUM,
+    MAXIMUM = 1,
 }
 impl From<MAXS_A> for bool {
     #[inline(always)]
     fn from(variant: MAXS_A) -> Self {
-        match variant {
-            MAXS_A::NORMAL => false,
-            MAXS_A::MAXIMUM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MAXS`"]
@@ -468,109 +454,77 @@ impl<'a> MAXS_W<'a> {
 }
 #[doc = "Startup Time Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum STARTUP_A {
     #[doc = "0: 0 periods of DACClock"]
-    _0,
+    _0 = 0,
     #[doc = "1: 8 periods of DACClock"]
-    _8,
+    _8 = 1,
     #[doc = "2: 16 periods of DACClock"]
-    _16,
+    _16 = 2,
     #[doc = "3: 24 periods of DACClock"]
-    _24,
+    _24 = 3,
     #[doc = "4: 64 periods of DACClock"]
-    _64,
+    _64 = 4,
     #[doc = "5: 80 periods of DACClock"]
-    _80,
+    _80 = 5,
     #[doc = "6: 96 periods of DACClock"]
-    _96,
+    _96 = 6,
     #[doc = "7: 112 periods of DACClock"]
-    _112,
+    _112 = 7,
     #[doc = "8: 512 periods of DACClock"]
-    _512,
+    _512 = 8,
     #[doc = "9: 576 periods of DACClock"]
-    _576,
+    _576 = 9,
     #[doc = "10: 640 periods of DACClock"]
-    _640,
+    _640 = 10,
     #[doc = "11: 704 periods of DACClock"]
-    _704,
+    _704 = 11,
     #[doc = "12: 768 periods of DACClock"]
-    _768,
+    _768 = 12,
     #[doc = "13: 832 periods of DACClock"]
-    _832,
+    _832 = 13,
     #[doc = "14: 896 periods of DACClock"]
-    _896,
+    _896 = 14,
     #[doc = "15: 960 periods of DACClock"]
-    _960,
+    _960 = 15,
     #[doc = "16: 1024 periods of DACClock"]
-    _1024,
+    _1024 = 16,
     #[doc = "17: 1088 periods of DACClock"]
-    _1088,
+    _1088 = 17,
     #[doc = "18: 1152 periods of DACClock"]
-    _1152,
+    _1152 = 18,
     #[doc = "19: 1216 periods of DACClock"]
-    _1216,
+    _1216 = 19,
     #[doc = "20: 1280 periods of DACClock"]
-    _1280,
+    _1280 = 20,
     #[doc = "21: 1344 periods of DACClock"]
-    _1344,
+    _1344 = 21,
     #[doc = "22: 1408 periods of DACClock"]
-    _1408,
+    _1408 = 22,
     #[doc = "23: 1472 periods of DACClock"]
-    _1472,
+    _1472 = 23,
     #[doc = "24: 1536 periods of DACClock"]
-    _1536,
+    _1536 = 24,
     #[doc = "25: 1600 periods of DACClock"]
-    _1600,
+    _1600 = 25,
     #[doc = "26: 1664 periods of DACClock"]
-    _1664,
+    _1664 = 26,
     #[doc = "27: 1728 periods of DACClock"]
-    _1728,
+    _1728 = 27,
     #[doc = "28: 1792 periods of DACClock"]
-    _1792,
+    _1792 = 28,
     #[doc = "29: 1856 periods of DACClock"]
-    _1856,
+    _1856 = 29,
     #[doc = "30: 1920 periods of DACClock"]
-    _1920,
+    _1920 = 30,
     #[doc = "31: 1984 periods of DACClock"]
-    _1984,
+    _1984 = 31,
 }
 impl From<STARTUP_A> for u8 {
     #[inline(always)]
     fn from(variant: STARTUP_A) -> Self {
-        match variant {
-            STARTUP_A::_0 => 0,
-            STARTUP_A::_8 => 1,
-            STARTUP_A::_16 => 2,
-            STARTUP_A::_24 => 3,
-            STARTUP_A::_64 => 4,
-            STARTUP_A::_80 => 5,
-            STARTUP_A::_96 => 6,
-            STARTUP_A::_112 => 7,
-            STARTUP_A::_512 => 8,
-            STARTUP_A::_576 => 9,
-            STARTUP_A::_640 => 10,
-            STARTUP_A::_704 => 11,
-            STARTUP_A::_768 => 12,
-            STARTUP_A::_832 => 13,
-            STARTUP_A::_896 => 14,
-            STARTUP_A::_960 => 15,
-            STARTUP_A::_1024 => 16,
-            STARTUP_A::_1088 => 17,
-            STARTUP_A::_1152 => 18,
-            STARTUP_A::_1216 => 19,
-            STARTUP_A::_1280 => 20,
-            STARTUP_A::_1344 => 21,
-            STARTUP_A::_1408 => 22,
-            STARTUP_A::_1472 => 23,
-            STARTUP_A::_1536 => 24,
-            STARTUP_A::_1600 => 25,
-            STARTUP_A::_1664 => 26,
-            STARTUP_A::_1728 => 27,
-            STARTUP_A::_1792 => 28,
-            STARTUP_A::_1856 => 29,
-            STARTUP_A::_1920 => 30,
-            STARTUP_A::_1984 => 31,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `STARTUP`"]

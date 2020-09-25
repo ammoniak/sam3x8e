@@ -28,22 +28,19 @@ impl<'a> ALLOC_W<'a> {
 }
 #[doc = "Endpoint Banks"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EPBK_A {
     #[doc = "0: Single-bank endpoint"]
-    _1_BANK,
+    _1_BANK = 0,
     #[doc = "1: Double-bank endpoint"]
-    _2_BANK,
+    _2_BANK = 1,
     #[doc = "2: Triple-bank endpoint"]
-    _3_BANK,
+    _3_BANK = 2,
 }
 impl From<EPBK_A> for u8 {
     #[inline(always)]
     fn from(variant: EPBK_A) -> Self {
-        match variant {
-            EPBK_A::_1_BANK => 0,
-            EPBK_A::_2_BANK => 1,
-            EPBK_A::_3_BANK => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EPBK`"]
@@ -110,37 +107,29 @@ impl<'a> EPBK_W<'a> {
 }
 #[doc = "Endpoint Size"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EPSIZE_A {
     #[doc = "0: 8 bytes"]
-    _8_BYTE,
+    _8_BYTE = 0,
     #[doc = "1: 16 bytes"]
-    _16_BYTE,
+    _16_BYTE = 1,
     #[doc = "2: 32 bytes"]
-    _32_BYTE,
+    _32_BYTE = 2,
     #[doc = "3: 64 bytes"]
-    _64_BYTE,
+    _64_BYTE = 3,
     #[doc = "4: 128 bytes"]
-    _128_BYTE,
+    _128_BYTE = 4,
     #[doc = "5: 256 bytes"]
-    _256_BYTE,
+    _256_BYTE = 5,
     #[doc = "6: 512 bytes"]
-    _512_BYTE,
+    _512_BYTE = 6,
     #[doc = "7: 1024 bytes"]
-    _1024_BYTE,
+    _1024_BYTE = 7,
 }
 impl From<EPSIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: EPSIZE_A) -> Self {
-        match variant {
-            EPSIZE_A::_8_BYTE => 0,
-            EPSIZE_A::_16_BYTE => 1,
-            EPSIZE_A::_32_BYTE => 2,
-            EPSIZE_A::_64_BYTE => 3,
-            EPSIZE_A::_128_BYTE => 4,
-            EPSIZE_A::_256_BYTE => 5,
-            EPSIZE_A::_512_BYTE => 6,
-            EPSIZE_A::_1024_BYTE => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EPSIZE`"]
@@ -265,17 +254,14 @@ impl<'a> EPSIZE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPDIR_A {
     #[doc = "0: The endpoint direction is OUT."]
-    OUT,
+    OUT = 0,
     #[doc = "1: The endpoint direction is IN (nor for control endpoints)."]
-    IN,
+    IN = 1,
 }
 impl From<EPDIR_A> for bool {
     #[inline(always)]
     fn from(variant: EPDIR_A) -> Self {
-        match variant {
-            EPDIR_A::OUT => false,
-            EPDIR_A::IN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPDIR`"]
@@ -365,25 +351,21 @@ impl<'a> AUTOSW_W<'a> {
 }
 #[doc = "Endpoint Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EPTYPE_A {
     #[doc = "0: Control"]
-    CTRL,
+    CTRL = 0,
     #[doc = "1: Isochronous"]
-    ISO,
+    ISO = 1,
     #[doc = "2: Bulk"]
-    BLK,
+    BLK = 2,
     #[doc = "3: Interrupt"]
-    INTRPT,
+    INTRPT = 3,
 }
 impl From<EPTYPE_A> for u8 {
     #[inline(always)]
     fn from(variant: EPTYPE_A) -> Self {
-        match variant {
-            EPTYPE_A::CTRL => 0,
-            EPTYPE_A::ISO => 1,
-            EPTYPE_A::BLK => 2,
-            EPTYPE_A::INTRPT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EPTYPE`"]
@@ -462,25 +444,21 @@ impl<'a> EPTYPE_W<'a> {
 }
 #[doc = "Number of transaction per microframe for isochronous endpoint"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NBTRANS_A {
     #[doc = "0: reserved to endpoint that does not have the high-bandwidth isochronous capability."]
-    _0_TRANS,
+    _0_TRANS = 0,
     #[doc = "1: default value: one transaction per micro-frame."]
-    _1_TRANS,
+    _1_TRANS = 1,
     #[doc = "2: 2 transactions per micro-frame. This endpoint should be configured as double-bank."]
-    _2_TRANS,
+    _2_TRANS = 2,
     #[doc = "3: 3 transactions per micro-frame. This endpoint should be configured as triple-bank."]
-    _3_TRANS,
+    _3_TRANS = 3,
 }
 impl From<NBTRANS_A> for u8 {
     #[inline(always)]
     fn from(variant: NBTRANS_A) -> Self {
-        match variant {
-            NBTRANS_A::_0_TRANS => 0,
-            NBTRANS_A::_1_TRANS => 1,
-            NBTRANS_A::_2_TRANS => 2,
-            NBTRANS_A::_3_TRANS => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NBTRANS`"]

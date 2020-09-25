@@ -450,17 +450,14 @@ impl<'a> UNLOCK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UIDE_A {
     #[doc = "0: The USB mode (device/host) is selected from the UIMOD bit."]
-    UIMOD,
+    UIMOD = 0,
     #[doc = "1: The USB mode (device/host) is selected from the UOTGID input pin."]
-    UOTGID,
+    UOTGID = 1,
 }
 impl From<UIDE_A> for bool {
     #[inline(always)]
     fn from(variant: UIDE_A) -> Self {
-        match variant {
-            UIDE_A::UIMOD => false,
-            UIDE_A::UOTGID => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UIDE`"]
@@ -528,17 +525,14 @@ impl<'a> UIDE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UIMOD_A {
     #[doc = "0: The module is in USB host mode."]
-    HOST,
+    HOST = 0,
     #[doc = "1: The module is in USB device mode."]
-    DEVICE,
+    DEVICE = 1,
 }
 impl From<UIMOD_A> for bool {
     #[inline(always)]
     fn from(variant: UIMOD_A) -> Self {
-        match variant {
-            UIMOD_A::HOST => false,
-            UIMOD_A::DEVICE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UIMOD`"]

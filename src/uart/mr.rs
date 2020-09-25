@@ -12,28 +12,23 @@ impl crate::ResetValue for super::MR {
 }
 #[doc = "Parity Type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PAR_A {
     #[doc = "0: Even Parity"]
-    EVEN,
+    EVEN = 0,
     #[doc = "1: Odd Parity"]
-    ODD,
+    ODD = 1,
     #[doc = "2: Space: parity forced to 0"]
-    SPACE,
+    SPACE = 2,
     #[doc = "3: Mark: parity forced to 1"]
-    MARK,
+    MARK = 3,
     #[doc = "4: No Parity"]
-    NO,
+    NO = 4,
 }
 impl From<PAR_A> for u8 {
     #[inline(always)]
     fn from(variant: PAR_A) -> Self {
-        match variant {
-            PAR_A::EVEN => 0,
-            PAR_A::ODD => 1,
-            PAR_A::SPACE => 2,
-            PAR_A::MARK => 3,
-            PAR_A::NO => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PAR`"]
@@ -122,25 +117,21 @@ impl<'a> PAR_W<'a> {
 }
 #[doc = "Channel Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CHMODE_A {
     #[doc = "0: Normal Mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Automatic Echo"]
-    AUTOMATIC,
+    AUTOMATIC = 1,
     #[doc = "2: Local Loopback"]
-    LOCAL_LOOPBACK,
+    LOCAL_LOOPBACK = 2,
     #[doc = "3: Remote Loopback"]
-    REMOTE_LOOPBACK,
+    REMOTE_LOOPBACK = 3,
 }
 impl From<CHMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CHMODE_A) -> Self {
-        match variant {
-            CHMODE_A::NORMAL => 0,
-            CHMODE_A::AUTOMATIC => 1,
-            CHMODE_A::LOCAL_LOOPBACK => 2,
-            CHMODE_A::REMOTE_LOOPBACK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CHMODE`"]

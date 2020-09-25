@@ -204,25 +204,21 @@ impl<'a> BIG_W<'a> {
 }
 #[doc = "MDC clock divider\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLK_A {
     #[doc = "0: MCK divided by 8 (MCK up to 20 MHz)."]
-    MCK_8,
+    MCK_8 = 0,
     #[doc = "1: MCK divided by 16 (MCK up to 40 MHz)."]
-    MCK_16,
+    MCK_16 = 1,
     #[doc = "2: MCK divided by 32 (MCK up to 80 MHz)."]
-    MCK_32,
+    MCK_32 = 2,
     #[doc = "3: MCK divided by 64 (MCK up to 160 MHz)."]
-    MCK_64,
+    MCK_64 = 3,
 }
 impl From<CLK_A> for u8 {
     #[inline(always)]
     fn from(variant: CLK_A) -> Self {
-        match variant {
-            CLK_A::MCK_8 => 0,
-            CLK_A::MCK_16 => 1,
-            CLK_A::MCK_32 => 2,
-            CLK_A::MCK_64 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLK`"]
@@ -349,25 +345,21 @@ impl<'a> PAE_W<'a> {
 }
 #[doc = "Receive Buffer Offset\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RBOF_A {
     #[doc = "0: No offset from start of receive buffer."]
-    OFFSET_0,
+    OFFSET_0 = 0,
     #[doc = "1: One-byte offset from start of receive buffer."]
-    OFFSET_1,
+    OFFSET_1 = 1,
     #[doc = "2: Two-byte offset from start of receive buffer."]
-    OFFSET_2,
+    OFFSET_2 = 2,
     #[doc = "3: Three-byte offset from start of receive buffer."]
-    OFFSET_3,
+    OFFSET_3 = 3,
 }
 impl From<RBOF_A> for u8 {
     #[inline(always)]
     fn from(variant: RBOF_A) -> Self {
-        match variant {
-            RBOF_A::OFFSET_0 => 0,
-            RBOF_A::OFFSET_1 => 1,
-            RBOF_A::OFFSET_2 => 2,
-            RBOF_A::OFFSET_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RBOF`"]

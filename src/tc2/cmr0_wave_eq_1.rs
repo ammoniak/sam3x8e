@@ -12,37 +12,29 @@ impl crate::ResetValue for super::CMR0_WAVE_EQ_1 {
 }
 #[doc = "Clock Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TCCLKS_A {
     #[doc = "0: Clock selected: TCLK1"]
-    TIMER_CLOCK1,
+    TIMER_CLOCK1 = 0,
     #[doc = "1: Clock selected: TCLK2"]
-    TIMER_CLOCK2,
+    TIMER_CLOCK2 = 1,
     #[doc = "2: Clock selected: TCLK3"]
-    TIMER_CLOCK3,
+    TIMER_CLOCK3 = 2,
     #[doc = "3: Clock selected: TCLK4"]
-    TIMER_CLOCK4,
+    TIMER_CLOCK4 = 3,
     #[doc = "4: Clock selected: TCLK5"]
-    TIMER_CLOCK5,
+    TIMER_CLOCK5 = 4,
     #[doc = "5: Clock selected: XC0"]
-    XC0,
+    XC0 = 5,
     #[doc = "6: Clock selected: XC1"]
-    XC1,
+    XC1 = 6,
     #[doc = "7: Clock selected: XC2"]
-    XC2,
+    XC2 = 7,
 }
 impl From<TCCLKS_A> for u8 {
     #[inline(always)]
     fn from(variant: TCCLKS_A) -> Self {
-        match variant {
-            TCCLKS_A::TIMER_CLOCK1 => 0,
-            TCCLKS_A::TIMER_CLOCK2 => 1,
-            TCCLKS_A::TIMER_CLOCK3 => 2,
-            TCCLKS_A::TIMER_CLOCK4 => 3,
-            TCCLKS_A::TIMER_CLOCK5 => 4,
-            TCCLKS_A::XC0 => 5,
-            TCCLKS_A::XC1 => 6,
-            TCCLKS_A::XC2 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TCCLKS`"]
@@ -189,25 +181,21 @@ impl<'a> CLKI_W<'a> {
 }
 #[doc = "Burst Signal Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BURST_A {
     #[doc = "0: The clock is not gated by an external signal."]
-    NONE,
+    NONE = 0,
     #[doc = "1: XC0 is ANDed with the selected clock."]
-    XC0,
+    XC0 = 1,
     #[doc = "2: XC1 is ANDed with the selected clock."]
-    XC1,
+    XC1 = 2,
     #[doc = "3: XC2 is ANDed with the selected clock."]
-    XC2,
+    XC2 = 3,
 }
 impl From<BURST_A> for u8 {
     #[inline(always)]
     fn from(variant: BURST_A) -> Self {
-        match variant {
-            BURST_A::NONE => 0,
-            BURST_A::XC0 => 1,
-            BURST_A::XC1 => 2,
-            BURST_A::XC2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BURST`"]
@@ -334,25 +322,21 @@ impl<'a> CPCDIS_W<'a> {
 }
 #[doc = "External Event Edge Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EEVTEDG_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Rising edge"]
-    RISING,
+    RISING = 1,
     #[doc = "2: Falling edge"]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Each edge"]
-    EDGE,
+    EDGE = 3,
 }
 impl From<EEVTEDG_A> for u8 {
     #[inline(always)]
     fn from(variant: EEVTEDG_A) -> Self {
-        match variant {
-            EEVTEDG_A::NONE => 0,
-            EEVTEDG_A::RISING => 1,
-            EEVTEDG_A::FALLING => 2,
-            EEVTEDG_A::EDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EEVTEDG`"]
@@ -431,25 +415,21 @@ impl<'a> EEVTEDG_W<'a> {
 }
 #[doc = "External Event Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EEVT_A {
     #[doc = "0: TIOB"]
-    TIOB,
+    TIOB = 0,
     #[doc = "1: XC0"]
-    XC0,
+    XC0 = 1,
     #[doc = "2: XC1"]
-    XC1,
+    XC1 = 2,
     #[doc = "3: XC2"]
-    XC2,
+    XC2 = 3,
 }
 impl From<EEVT_A> for u8 {
     #[inline(always)]
     fn from(variant: EEVT_A) -> Self {
-        match variant {
-            EEVT_A::TIOB => 0,
-            EEVT_A::XC0 => 1,
-            EEVT_A::XC1 => 2,
-            EEVT_A::XC2 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EEVT`"]
@@ -552,25 +532,21 @@ impl<'a> ENETRG_W<'a> {
 }
 #[doc = "Waveform Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WAVSEL_A {
     #[doc = "0: UP mode without automatic trigger on RC Compare"]
-    UP,
+    UP = 0,
     #[doc = "1: UPDOWN mode without automatic trigger on RC Compare"]
-    UPDOWN,
+    UPDOWN = 1,
     #[doc = "2: UP mode with automatic trigger on RC Compare"]
-    UP_RC,
+    UP_RC = 2,
     #[doc = "3: UPDOWN mode with automatic trigger on RC Compare"]
-    UPDOWN_RC,
+    UPDOWN_RC = 3,
 }
 impl From<WAVSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: WAVSEL_A) -> Self {
-        match variant {
-            WAVSEL_A::UP => 0,
-            WAVSEL_A::UPDOWN => 1,
-            WAVSEL_A::UP_RC => 2,
-            WAVSEL_A::UPDOWN_RC => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WAVSEL`"]
@@ -673,25 +649,21 @@ impl<'a> WAVE_W<'a> {
 }
 #[doc = "RA Compare Effect on TIOA\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ACPA_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<ACPA_A> for u8 {
     #[inline(always)]
     fn from(variant: ACPA_A) -> Self {
-        match variant {
-            ACPA_A::NONE => 0,
-            ACPA_A::SET => 1,
-            ACPA_A::CLEAR => 2,
-            ACPA_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ACPA`"]
@@ -770,25 +742,21 @@ impl<'a> ACPA_W<'a> {
 }
 #[doc = "RC Compare Effect on TIOA\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ACPC_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<ACPC_A> for u8 {
     #[inline(always)]
     fn from(variant: ACPC_A) -> Self {
-        match variant {
-            ACPC_A::NONE => 0,
-            ACPC_A::SET => 1,
-            ACPC_A::CLEAR => 2,
-            ACPC_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ACPC`"]
@@ -867,25 +835,21 @@ impl<'a> ACPC_W<'a> {
 }
 #[doc = "External Event Effect on TIOA\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum AEEVT_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<AEEVT_A> for u8 {
     #[inline(always)]
     fn from(variant: AEEVT_A) -> Self {
-        match variant {
-            AEEVT_A::NONE => 0,
-            AEEVT_A::SET => 1,
-            AEEVT_A::CLEAR => 2,
-            AEEVT_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `AEEVT`"]
@@ -964,25 +928,21 @@ impl<'a> AEEVT_W<'a> {
 }
 #[doc = "Software Trigger Effect on TIOA\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ASWTRG_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<ASWTRG_A> for u8 {
     #[inline(always)]
     fn from(variant: ASWTRG_A) -> Self {
-        match variant {
-            ASWTRG_A::NONE => 0,
-            ASWTRG_A::SET => 1,
-            ASWTRG_A::CLEAR => 2,
-            ASWTRG_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ASWTRG`"]
@@ -1061,25 +1021,21 @@ impl<'a> ASWTRG_W<'a> {
 }
 #[doc = "RB Compare Effect on TIOB\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BCPB_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<BCPB_A> for u8 {
     #[inline(always)]
     fn from(variant: BCPB_A) -> Self {
-        match variant {
-            BCPB_A::NONE => 0,
-            BCPB_A::SET => 1,
-            BCPB_A::CLEAR => 2,
-            BCPB_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BCPB`"]
@@ -1158,25 +1114,21 @@ impl<'a> BCPB_W<'a> {
 }
 #[doc = "RC Compare Effect on TIOB\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BCPC_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<BCPC_A> for u8 {
     #[inline(always)]
     fn from(variant: BCPC_A) -> Self {
-        match variant {
-            BCPC_A::NONE => 0,
-            BCPC_A::SET => 1,
-            BCPC_A::CLEAR => 2,
-            BCPC_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BCPC`"]
@@ -1255,25 +1207,21 @@ impl<'a> BCPC_W<'a> {
 }
 #[doc = "External Event Effect on TIOB\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BEEVT_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<BEEVT_A> for u8 {
     #[inline(always)]
     fn from(variant: BEEVT_A) -> Self {
-        match variant {
-            BEEVT_A::NONE => 0,
-            BEEVT_A::SET => 1,
-            BEEVT_A::CLEAR => 2,
-            BEEVT_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BEEVT`"]
@@ -1352,25 +1300,21 @@ impl<'a> BEEVT_W<'a> {
 }
 #[doc = "Software Trigger Effect on TIOB\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BSWTRG_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
     #[doc = "2: Clear"]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle"]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<BSWTRG_A> for u8 {
     #[inline(always)]
     fn from(variant: BSWTRG_A) -> Self {
-        match variant {
-            BSWTRG_A::NONE => 0,
-            BSWTRG_A::SET => 1,
-            BSWTRG_A::CLEAR => 2,
-            BSWTRG_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BSWTRG`"]

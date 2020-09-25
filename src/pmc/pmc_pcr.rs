@@ -50,22 +50,19 @@ impl<'a> CMD_W<'a> {
 }
 #[doc = "Divisor Value\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DIV_A {
     #[doc = "0: Peripheral clock is MCK"]
-    PERIPH_DIV_MCK,
+    PERIPH_DIV_MCK = 0,
     #[doc = "1: Peripheral clock is MCK/2"]
-    PERIPH_DIV2_MCK,
+    PERIPH_DIV2_MCK = 1,
     #[doc = "2: Peripheral clock is MCK/4"]
-    PERIPH_DIV4_MCK,
+    PERIPH_DIV4_MCK = 2,
 }
 impl From<DIV_A> for u8 {
     #[inline(always)]
     fn from(variant: DIV_A) -> Self {
-        match variant {
-            DIV_A::PERIPH_DIV_MCK => 0,
-            DIV_A::PERIPH_DIV2_MCK => 1,
-            DIV_A::PERIPH_DIV4_MCK => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DIV`"]

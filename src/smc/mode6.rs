@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MODE6 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READ_MODE_A {
     #[doc = "0: The Read operation is controlled by the NCS signal."]
-    NCS_CTRL,
+    NCS_CTRL = 0,
     #[doc = "1: The Read operation is controlled by the NRD signal."]
-    NRD_CTRL,
+    NRD_CTRL = 1,
 }
 impl From<READ_MODE_A> for bool {
     #[inline(always)]
     fn from(variant: READ_MODE_A) -> Self {
-        match variant {
-            READ_MODE_A::NCS_CTRL => false,
-            READ_MODE_A::NRD_CTRL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READ_MODE`"]
@@ -92,17 +89,14 @@ impl<'a> READ_MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WRITE_MODE_A {
     #[doc = "0: The Write operation is controller by the NCS signal."]
-    NCS_CTRL,
+    NCS_CTRL = 0,
     #[doc = "1: The Write operation is controlled by the NWE signal."]
-    NWE_CTRL,
+    NWE_CTRL = 1,
 }
 impl From<WRITE_MODE_A> for bool {
     #[inline(always)]
     fn from(variant: WRITE_MODE_A) -> Self {
-        match variant {
-            WRITE_MODE_A::NCS_CTRL => false,
-            WRITE_MODE_A::NWE_CTRL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WRITE_MODE`"]
@@ -168,22 +162,19 @@ impl<'a> WRITE_MODE_W<'a> {
 }
 #[doc = "NWAIT Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EXNW_MODE_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "2: Frozen Mode"]
-    FROZEN,
+    FROZEN = 2,
     #[doc = "3: Ready Mode"]
-    READY,
+    READY = 3,
 }
 impl From<EXNW_MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: EXNW_MODE_A) -> Self {
-        match variant {
-            EXNW_MODE_A::DISABLED => 0,
-            EXNW_MODE_A::FROZEN => 2,
-            EXNW_MODE_A::READY => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EXNW_MODE`"]
@@ -276,17 +267,14 @@ impl<'a> BAT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DBW_A {
     #[doc = "0: 8-bit bus"]
-    BIT_8,
+    BIT_8 = 0,
     #[doc = "1: 16-bit bus"]
-    BIT_16,
+    BIT_16 = 1,
 }
 impl From<DBW_A> for bool {
     #[inline(always)]
     fn from(variant: DBW_A) -> Self {
-        match variant {
-            DBW_A::BIT_8 => false,
-            DBW_A::BIT_16 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DBW`"]

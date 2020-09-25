@@ -204,25 +204,21 @@ impl<'a> DRPT_W<'a> {
 }
 #[doc = "Reception Synchronization Stage (not readable)\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RXSYNC_A {
     #[doc = "0: Rx Signal with Double Synchro Stages (2 Positive Edges)"]
-    DOUBLE_PP,
+    DOUBLE_PP = 0,
     #[doc = "1: Rx Signal with Double Synchro Stages (One Positive Edge and One Negative Edge)"]
-    DOUBLE_PN,
+    DOUBLE_PN = 1,
     #[doc = "2: Rx Signal with Single Synchro Stage (Positive Edge)"]
-    SINGLE_P,
+    SINGLE_P = 2,
     #[doc = "3: Rx Signal with No Synchro Stage"]
-    NONE,
+    NONE = 3,
 }
 impl From<RXSYNC_A> for u8 {
     #[inline(always)]
     fn from(variant: RXSYNC_A) -> Self {
-        match variant {
-            RXSYNC_A::DOUBLE_PP => 0,
-            RXSYNC_A::DOUBLE_PN => 1,
-            RXSYNC_A::SINGLE_P => 2,
-            RXSYNC_A::NONE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RXSYNC`"]

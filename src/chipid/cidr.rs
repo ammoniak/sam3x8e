@@ -4,34 +4,27 @@ pub type R = crate::R<u32, super::CIDR>;
 pub type VERSION_R = crate::R<u8, u8>;
 #[doc = "Embedded Processor"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EPROC_A {
     #[doc = "1: ARM946ES"]
-    ARM946ES,
+    ARM946ES = 1,
     #[doc = "2: ARM7TDMI"]
-    ARM7TDMI,
+    ARM7TDMI = 2,
     #[doc = "3: Cortex-M3"]
-    CM3,
+    CM3 = 3,
     #[doc = "4: ARM920T"]
-    ARM920T,
+    ARM920T = 4,
     #[doc = "5: ARM926EJS"]
-    ARM926EJS,
+    ARM926EJS = 5,
     #[doc = "6: Cortex-A5"]
-    CA5,
+    CA5 = 6,
     #[doc = "7: Cortex-M4"]
-    CM4,
+    CM4 = 7,
 }
 impl From<EPROC_A> for u8 {
     #[inline(always)]
     fn from(variant: EPROC_A) -> Self {
-        match variant {
-            EPROC_A::ARM946ES => 1,
-            EPROC_A::ARM7TDMI => 2,
-            EPROC_A::CM3 => 3,
-            EPROC_A::ARM920T => 4,
-            EPROC_A::ARM926EJS => 5,
-            EPROC_A::CA5 => 6,
-            EPROC_A::CM4 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EPROC`"]
@@ -90,43 +83,33 @@ impl EPROC_R {
 }
 #[doc = "Nonvolatile Program Memory Size"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NVPSIZ_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: 8 Kbytes"]
-    _8K,
+    _8K = 1,
     #[doc = "2: 16 Kbytes"]
-    _16K,
+    _16K = 2,
     #[doc = "3: 32 Kbytes"]
-    _32K,
+    _32K = 3,
     #[doc = "5: 64 Kbytes"]
-    _64K,
+    _64K = 5,
     #[doc = "7: 128 Kbytes"]
-    _128K,
+    _128K = 7,
     #[doc = "9: 256 Kbytes"]
-    _256K,
+    _256K = 9,
     #[doc = "10: 512 Kbytes"]
-    _512K,
+    _512K = 10,
     #[doc = "12: 1024 Kbytes"]
-    _1024K,
+    _1024K = 12,
     #[doc = "14: 2048 Kbytes"]
-    _2048K,
+    _2048K = 14,
 }
 impl From<NVPSIZ_A> for u8 {
     #[inline(always)]
     fn from(variant: NVPSIZ_A) -> Self {
-        match variant {
-            NVPSIZ_A::NONE => 0,
-            NVPSIZ_A::_8K => 1,
-            NVPSIZ_A::_16K => 2,
-            NVPSIZ_A::_32K => 3,
-            NVPSIZ_A::_64K => 5,
-            NVPSIZ_A::_128K => 7,
-            NVPSIZ_A::_256K => 9,
-            NVPSIZ_A::_512K => 10,
-            NVPSIZ_A::_1024K => 12,
-            NVPSIZ_A::_2048K => 14,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NVPSIZ`"]
@@ -203,43 +186,33 @@ impl NVPSIZ_R {
 }
 #[doc = "Second Nonvolatile Program Memory Size"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NVPSIZ2_A {
     #[doc = "0: None"]
-    NONE,
+    NONE = 0,
     #[doc = "1: 8 Kbytes"]
-    _8K,
+    _8K = 1,
     #[doc = "2: 16 Kbytes"]
-    _16K,
+    _16K = 2,
     #[doc = "3: 32 Kbytes"]
-    _32K,
+    _32K = 3,
     #[doc = "5: 64 Kbytes"]
-    _64K,
+    _64K = 5,
     #[doc = "7: 128 Kbytes"]
-    _128K,
+    _128K = 7,
     #[doc = "9: 256 Kbytes"]
-    _256K,
+    _256K = 9,
     #[doc = "10: 512 Kbytes"]
-    _512K,
+    _512K = 10,
     #[doc = "12: 1024 Kbytes"]
-    _1024K,
+    _1024K = 12,
     #[doc = "14: 2048 Kbytes"]
-    _2048K,
+    _2048K = 14,
 }
 impl From<NVPSIZ2_A> for u8 {
     #[inline(always)]
     fn from(variant: NVPSIZ2_A) -> Self {
-        match variant {
-            NVPSIZ2_A::NONE => 0,
-            NVPSIZ2_A::_8K => 1,
-            NVPSIZ2_A::_16K => 2,
-            NVPSIZ2_A::_32K => 3,
-            NVPSIZ2_A::_64K => 5,
-            NVPSIZ2_A::_128K => 7,
-            NVPSIZ2_A::_256K => 9,
-            NVPSIZ2_A::_512K => 10,
-            NVPSIZ2_A::_1024K => 12,
-            NVPSIZ2_A::_2048K => 14,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NVPSIZ2`"]
@@ -316,61 +289,45 @@ impl NVPSIZ2_R {
 }
 #[doc = "Internal SRAM Size"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRAMSIZ_A {
     #[doc = "0: 48 Kbytes"]
-    _48K,
+    _48K = 0,
     #[doc = "1: 192 Kbytes"]
-    _192K,
+    _192K = 1,
     #[doc = "2: 2 Kbytes"]
-    _2K,
+    _2K = 2,
     #[doc = "3: 6 Kbytes"]
-    _6K,
+    _6K = 3,
     #[doc = "4: 24 Kbytes"]
-    _24K,
+    _24K = 4,
     #[doc = "5: 4 Kbytes"]
-    _4K,
+    _4K = 5,
     #[doc = "6: 80 Kbytes"]
-    _80K,
+    _80K = 6,
     #[doc = "7: 160 Kbytes"]
-    _160K,
+    _160K = 7,
     #[doc = "8: 8 Kbytes"]
-    _8K,
+    _8K = 8,
     #[doc = "9: 16 Kbytes"]
-    _16K,
+    _16K = 9,
     #[doc = "10: 32 Kbytes"]
-    _32K,
+    _32K = 10,
     #[doc = "11: 64 Kbytes"]
-    _64K,
+    _64K = 11,
     #[doc = "12: 128 Kbytes"]
-    _128K,
+    _128K = 12,
     #[doc = "13: 256 Kbytes"]
-    _256K,
+    _256K = 13,
     #[doc = "14: 96 Kbytes"]
-    _96K,
+    _96K = 14,
     #[doc = "15: 512 Kbytes"]
-    _512K,
+    _512K = 15,
 }
 impl From<SRAMSIZ_A> for u8 {
     #[inline(always)]
     fn from(variant: SRAMSIZ_A) -> Self {
-        match variant {
-            SRAMSIZ_A::_48K => 0,
-            SRAMSIZ_A::_192K => 1,
-            SRAMSIZ_A::_2K => 2,
-            SRAMSIZ_A::_6K => 3,
-            SRAMSIZ_A::_24K => 4,
-            SRAMSIZ_A::_4K => 5,
-            SRAMSIZ_A::_80K => 6,
-            SRAMSIZ_A::_160K => 7,
-            SRAMSIZ_A::_8K => 8,
-            SRAMSIZ_A::_16K => 9,
-            SRAMSIZ_A::_32K => 10,
-            SRAMSIZ_A::_64K => 11,
-            SRAMSIZ_A::_128K => 12,
-            SRAMSIZ_A::_256K => 13,
-            SRAMSIZ_A::_96K => 14,
-            SRAMSIZ_A::_512K => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SRAMSIZ`"]
@@ -482,25 +439,21 @@ impl SRAMSIZ_R {
 }
 #[doc = "Architecture Identifier"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ARCH_A {
     #[doc = "131: SAM3AxC (100-pin version)"]
-    SAM3AXC,
+    SAM3AXC = 131,
     #[doc = "132: SAM3XxC (100-pin version)"]
-    SAM3XXC,
+    SAM3XXC = 132,
     #[doc = "133: SAM3XxE (144-pin version)"]
-    SAM3XXE,
+    SAM3XXE = 133,
     #[doc = "134: SAM3XxG (208/217-pin version)"]
-    SAM3XXG,
+    SAM3XXG = 134,
 }
 impl From<ARCH_A> for u8 {
     #[inline(always)]
     fn from(variant: ARCH_A) -> Self {
-        match variant {
-            ARCH_A::SAM3AXC => 131,
-            ARCH_A::SAM3XXC => 132,
-            ARCH_A::SAM3XXE => 133,
-            ARCH_A::SAM3XXG => 134,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ARCH`"]
@@ -541,28 +494,23 @@ impl ARCH_R {
 }
 #[doc = "Nonvolatile Program Memory Type"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NVPTYP_A {
     #[doc = "0: ROM"]
-    ROM,
+    ROM = 0,
     #[doc = "1: ROMless or on-chip Flash"]
-    ROMLESS,
+    ROMLESS = 1,
     #[doc = "2: Embedded Flash Memory"]
-    FLASH,
+    FLASH = 2,
     #[doc = "3: ROM and Embedded Flash Memory- NVPSIZ is ROM size- NVPSIZ2 is Flash size"]
-    ROM_FLASH,
+    ROM_FLASH = 3,
     #[doc = "4: SRAM emulating ROM"]
-    SRAM,
+    SRAM = 4,
 }
 impl From<NVPTYP_A> for u8 {
     #[inline(always)]
     fn from(variant: NVPTYP_A) -> Self {
-        match variant {
-            NVPTYP_A::ROM => 0,
-            NVPTYP_A::ROMLESS => 1,
-            NVPTYP_A::FLASH => 2,
-            NVPTYP_A::ROM_FLASH => 3,
-            NVPTYP_A::SRAM => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NVPTYP`"]

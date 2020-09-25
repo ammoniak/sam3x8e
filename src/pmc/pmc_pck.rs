@@ -4,28 +4,23 @@ pub type R = crate::R<u32, super::PMC_PCK>;
 pub type W = crate::W<u32, super::PMC_PCK>;
 #[doc = "Master Clock Source Selection"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CSS_A {
     #[doc = "0: Slow Clock is selected"]
-    SLOW_CLK,
+    SLOW_CLK = 0,
     #[doc = "1: Main Clock is selected"]
-    MAIN_CLK,
+    MAIN_CLK = 1,
     #[doc = "2: PLLA Clock is selected"]
-    PLLA_CLK,
+    PLLA_CLK = 2,
     #[doc = "3: UPLL Clock is selected"]
-    UPLL_CLK,
+    UPLL_CLK = 3,
     #[doc = "4: Master Clock is selected"]
-    MCK,
+    MCK = 4,
 }
 impl From<CSS_A> for u8 {
     #[inline(always)]
     fn from(variant: CSS_A) -> Self {
-        match variant {
-            CSS_A::SLOW_CLK => 0,
-            CSS_A::MAIN_CLK => 1,
-            CSS_A::PLLA_CLK => 2,
-            CSS_A::UPLL_CLK => 3,
-            CSS_A::MCK => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CSS`"]
@@ -114,34 +109,27 @@ impl<'a> CSS_W<'a> {
 }
 #[doc = "Programmable Clock Prescaler"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRES_A {
     #[doc = "0: Selected clock"]
-    CLK_1,
+    CLK_1 = 0,
     #[doc = "1: Selected clock divided by 2"]
-    CLK_2,
+    CLK_2 = 1,
     #[doc = "2: Selected clock divided by 4"]
-    CLK_4,
+    CLK_4 = 2,
     #[doc = "3: Selected clock divided by 8"]
-    CLK_8,
+    CLK_8 = 3,
     #[doc = "4: Selected clock divided by 16"]
-    CLK_16,
+    CLK_16 = 4,
     #[doc = "5: Selected clock divided by 32"]
-    CLK_32,
+    CLK_32 = 5,
     #[doc = "6: Selected clock divided by 64"]
-    CLK_64,
+    CLK_64 = 6,
 }
 impl From<PRES_A> for u8 {
     #[inline(always)]
     fn from(variant: PRES_A) -> Self {
-        match variant {
-            PRES_A::CLK_1 => 0,
-            PRES_A::CLK_2 => 1,
-            PRES_A::CLK_4 => 2,
-            PRES_A::CLK_8 => 3,
-            PRES_A::CLK_16 => 4,
-            PRES_A::CLK_32 => 5,
-            PRES_A::CLK_64 => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PRES`"]

@@ -84,25 +84,21 @@ impl<'a> RESUME_W<'a> {
 }
 #[doc = "Mode Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SPDCONF_A {
     #[doc = "0: The host starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the downstream peripheral is high-speed capable."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: For a better consumption, if high-speed is not needed."]
-    LOW_POWER,
+    LOW_POWER = 1,
     #[doc = "2: Forced high speed."]
-    HIGH_SPEED,
+    HIGH_SPEED = 2,
     #[doc = "3: The host remains to full-speed mode whatever the peripheral speed capability."]
-    FORCED_FS,
+    FORCED_FS = 3,
 }
 impl From<SPDCONF_A> for u8 {
     #[inline(always)]
     fn from(variant: SPDCONF_A) -> Self {
-        match variant {
-            SPDCONF_A::NORMAL => 0,
-            SPDCONF_A::LOW_POWER => 1,
-            SPDCONF_A::HIGH_SPEED => 2,
-            SPDCONF_A::FORCED_FS => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SPDCONF`"]

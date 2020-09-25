@@ -14,17 +14,14 @@ impl crate::ResetValue for super::WUIR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN0_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN0_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN0_A) -> Self {
-        match variant {
-            WKUPEN0_A::DISABLE => false,
-            WKUPEN0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN0`"]
@@ -92,17 +89,14 @@ impl<'a> WKUPEN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN1_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN1_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN1_A) -> Self {
-        match variant {
-            WKUPEN1_A::DISABLE => false,
-            WKUPEN1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN1`"]
@@ -170,17 +164,14 @@ impl<'a> WKUPEN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN2_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN2_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN2_A) -> Self {
-        match variant {
-            WKUPEN2_A::DISABLE => false,
-            WKUPEN2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN2`"]
@@ -248,17 +239,14 @@ impl<'a> WKUPEN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN3_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN3_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN3_A) -> Self {
-        match variant {
-            WKUPEN3_A::DISABLE => false,
-            WKUPEN3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN3`"]
@@ -326,17 +314,14 @@ impl<'a> WKUPEN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN4_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN4_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN4_A) -> Self {
-        match variant {
-            WKUPEN4_A::DISABLE => false,
-            WKUPEN4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN4`"]
@@ -404,17 +389,14 @@ impl<'a> WKUPEN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN5_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN5_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN5_A) -> Self {
-        match variant {
-            WKUPEN5_A::DISABLE => false,
-            WKUPEN5_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN5`"]
@@ -482,17 +464,14 @@ impl<'a> WKUPEN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN6_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN6_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN6_A) -> Self {
-        match variant {
-            WKUPEN6_A::DISABLE => false,
-            WKUPEN6_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN6`"]
@@ -560,17 +539,14 @@ impl<'a> WKUPEN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN7_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN7_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN7_A) -> Self {
-        match variant {
-            WKUPEN7_A::DISABLE => false,
-            WKUPEN7_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN7`"]
@@ -638,17 +614,14 @@ impl<'a> WKUPEN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN8_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN8_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN8_A) -> Self {
-        match variant {
-            WKUPEN8_A::DISABLE => false,
-            WKUPEN8_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN8`"]
@@ -716,17 +689,14 @@ impl<'a> WKUPEN8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN9_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN9_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN9_A) -> Self {
-        match variant {
-            WKUPEN9_A::DISABLE => false,
-            WKUPEN9_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN9`"]
@@ -794,17 +764,14 @@ impl<'a> WKUPEN9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN10_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN10_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN10_A) -> Self {
-        match variant {
-            WKUPEN10_A::DISABLE => false,
-            WKUPEN10_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN10`"]
@@ -872,17 +839,14 @@ impl<'a> WKUPEN10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN11_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN11_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN11_A) -> Self {
-        match variant {
-            WKUPEN11_A::DISABLE => false,
-            WKUPEN11_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN11`"]
@@ -950,17 +914,14 @@ impl<'a> WKUPEN11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN12_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN12_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN12_A) -> Self {
-        match variant {
-            WKUPEN12_A::DISABLE => false,
-            WKUPEN12_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN12`"]
@@ -1028,17 +989,14 @@ impl<'a> WKUPEN12_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN13_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN13_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN13_A) -> Self {
-        match variant {
-            WKUPEN13_A::DISABLE => false,
-            WKUPEN13_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN13`"]
@@ -1106,17 +1064,14 @@ impl<'a> WKUPEN13_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN14_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN14_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN14_A) -> Self {
-        match variant {
-            WKUPEN14_A::DISABLE => false,
-            WKUPEN14_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN14`"]
@@ -1184,17 +1139,14 @@ impl<'a> WKUPEN14_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPEN15_A {
     #[doc = "0: the corresponding wake-up input has no wake-up effect."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: the corresponding wake-up input forces the wake-up of the core power supply."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKUPEN15_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPEN15_A) -> Self {
-        match variant {
-            WKUPEN15_A::DISABLE => false,
-            WKUPEN15_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPEN15`"]
@@ -1262,17 +1214,14 @@ impl<'a> WKUPEN15_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT0_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT0_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT0_A) -> Self {
-        match variant {
-            WKUPT0_A::HIGH_TO_LOW => false,
-            WKUPT0_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT0`"]
@@ -1340,17 +1289,14 @@ impl<'a> WKUPT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT1_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT1_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT1_A) -> Self {
-        match variant {
-            WKUPT1_A::HIGH_TO_LOW => false,
-            WKUPT1_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT1`"]
@@ -1418,17 +1364,14 @@ impl<'a> WKUPT1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT2_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT2_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT2_A) -> Self {
-        match variant {
-            WKUPT2_A::HIGH_TO_LOW => false,
-            WKUPT2_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT2`"]
@@ -1496,17 +1439,14 @@ impl<'a> WKUPT2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT3_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT3_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT3_A) -> Self {
-        match variant {
-            WKUPT3_A::HIGH_TO_LOW => false,
-            WKUPT3_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT3`"]
@@ -1574,17 +1514,14 @@ impl<'a> WKUPT3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT4_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT4_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT4_A) -> Self {
-        match variant {
-            WKUPT4_A::HIGH_TO_LOW => false,
-            WKUPT4_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT4`"]
@@ -1652,17 +1589,14 @@ impl<'a> WKUPT4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT5_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT5_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT5_A) -> Self {
-        match variant {
-            WKUPT5_A::HIGH_TO_LOW => false,
-            WKUPT5_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT5`"]
@@ -1730,17 +1664,14 @@ impl<'a> WKUPT5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT6_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT6_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT6_A) -> Self {
-        match variant {
-            WKUPT6_A::HIGH_TO_LOW => false,
-            WKUPT6_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT6`"]
@@ -1808,17 +1739,14 @@ impl<'a> WKUPT6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT7_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT7_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT7_A) -> Self {
-        match variant {
-            WKUPT7_A::HIGH_TO_LOW => false,
-            WKUPT7_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT7`"]
@@ -1886,17 +1814,14 @@ impl<'a> WKUPT7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT8_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT8_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT8_A) -> Self {
-        match variant {
-            WKUPT8_A::HIGH_TO_LOW => false,
-            WKUPT8_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT8`"]
@@ -1964,17 +1889,14 @@ impl<'a> WKUPT8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT9_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT9_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT9_A) -> Self {
-        match variant {
-            WKUPT9_A::HIGH_TO_LOW => false,
-            WKUPT9_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT9`"]
@@ -2042,17 +1964,14 @@ impl<'a> WKUPT9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT10_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT10_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT10_A) -> Self {
-        match variant {
-            WKUPT10_A::HIGH_TO_LOW => false,
-            WKUPT10_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT10`"]
@@ -2120,17 +2039,14 @@ impl<'a> WKUPT10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT11_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT11_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT11_A) -> Self {
-        match variant {
-            WKUPT11_A::HIGH_TO_LOW => false,
-            WKUPT11_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT11`"]
@@ -2198,17 +2114,14 @@ impl<'a> WKUPT11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT12_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT12_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT12_A) -> Self {
-        match variant {
-            WKUPT12_A::HIGH_TO_LOW => false,
-            WKUPT12_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT12`"]
@@ -2276,17 +2189,14 @@ impl<'a> WKUPT12_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT13_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT13_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT13_A) -> Self {
-        match variant {
-            WKUPT13_A::HIGH_TO_LOW => false,
-            WKUPT13_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT13`"]
@@ -2354,17 +2264,14 @@ impl<'a> WKUPT13_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT14_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT14_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT14_A) -> Self {
-        match variant {
-            WKUPT14_A::HIGH_TO_LOW => false,
-            WKUPT14_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT14`"]
@@ -2432,17 +2339,14 @@ impl<'a> WKUPT14_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKUPT15_A {
     #[doc = "0: a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply."]
-    HIGH_TO_LOW,
+    HIGH_TO_LOW = 0,
     #[doc = "1: a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply."]
-    LOW_TO_HIGH,
+    LOW_TO_HIGH = 1,
 }
 impl From<WKUPT15_A> for bool {
     #[inline(always)]
     fn from(variant: WKUPT15_A) -> Self {
-        match variant {
-            WKUPT15_A::HIGH_TO_LOW => false,
-            WKUPT15_A::LOW_TO_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKUPT15`"]
