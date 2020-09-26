@@ -1,300 +1,177 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MMR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MMR"]
+pub type R = crate::R<u32, super::MMR>;
+#[doc = "Writer for register MMR"]
+pub type W = crate::W<u32, super::MMR>;
+#[doc = "Register MMR `reset()`'s with value 0"]
+impl crate::ResetValue for super::MMR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `IADRSZ`"]
+#[doc = "Internal Device Address Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum IADRSZR {
-    #[doc = "No internal device address"]
-    NONE,
-    #[doc = "One-byte internal device address"]
-    _1_BYTE,
-    #[doc = "Two-byte internal device address"]
-    _2_BYTE,
-    #[doc = "Three-byte internal device address"]
-    _3_BYTE,
+#[repr(u8)]
+pub enum IADRSZ_A {
+    #[doc = "0: No internal device address"]
+    NONE = 0,
+    #[doc = "1: One-byte internal device address"]
+    _1_BYTE = 1,
+    #[doc = "2: Two-byte internal device address"]
+    _2_BYTE = 2,
+    #[doc = "3: Three-byte internal device address"]
+    _3_BYTE = 3,
 }
-impl IADRSZR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            IADRSZR::NONE => 0,
-            IADRSZR::_1_BYTE => 1,
-            IADRSZR::_2_BYTE => 2,
-            IADRSZR::_3_BYTE => 3,
-        }
+impl From<IADRSZ_A> for u8 {
+    #[inline(always)]
+    fn from(variant: IADRSZ_A) -> Self {
+        variant as _
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> IADRSZR {
-        match value {
-            0 => IADRSZR::NONE,
-            1 => IADRSZR::_1_BYTE,
-            2 => IADRSZR::_2_BYTE,
-            3 => IADRSZR::_3_BYTE,
+}
+#[doc = "Reader of field `IADRSZ`"]
+pub type IADRSZ_R = crate::R<u8, IADRSZ_A>;
+impl IADRSZ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> IADRSZ_A {
+        match self.bits {
+            0 => IADRSZ_A::NONE,
+            1 => IADRSZ_A::_1_BYTE,
+            2 => IADRSZ_A::_2_BYTE,
+            3 => IADRSZ_A::_3_BYTE,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `NONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == IADRSZR::NONE
+        *self == IADRSZ_A::NONE
     }
     #[doc = "Checks if the value of the field is `_1_BYTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_1_byte(&self) -> bool {
-        *self == IADRSZR::_1_BYTE
+        *self == IADRSZ_A::_1_BYTE
     }
     #[doc = "Checks if the value of the field is `_2_BYTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_2_byte(&self) -> bool {
-        *self == IADRSZR::_2_BYTE
+        *self == IADRSZ_A::_2_BYTE
     }
     #[doc = "Checks if the value of the field is `_3_BYTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_3_byte(&self) -> bool {
-        *self == IADRSZR::_3_BYTE
+        *self == IADRSZ_A::_3_BYTE
     }
 }
-#[doc = r" Value of the field"]
-pub struct MREADR {
-    bits: bool,
-}
-impl MREADR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DADRR {
-    bits: u8,
-}
-impl DADRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `IADRSZ`"]
-pub enum IADRSZW {
-    #[doc = "No internal device address"]
-    NONE,
-    #[doc = "One-byte internal device address"]
-    _1_BYTE,
-    #[doc = "Two-byte internal device address"]
-    _2_BYTE,
-    #[doc = "Three-byte internal device address"]
-    _3_BYTE,
-}
-impl IADRSZW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            IADRSZW::NONE => 0,
-            IADRSZW::_1_BYTE => 1,
-            IADRSZW::_2_BYTE => 2,
-            IADRSZW::_3_BYTE => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _IADRSZW<'a> {
+#[doc = "Write proxy for field `IADRSZ`"]
+pub struct IADRSZ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IADRSZW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: IADRSZW) -> &'a mut W {
+impl<'a> IADRSZ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: IADRSZ_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No internal device address"]
-    #[inline]
+    #[inline(always)]
     pub fn none(self) -> &'a mut W {
-        self.variant(IADRSZW::NONE)
+        self.variant(IADRSZ_A::NONE)
     }
     #[doc = "One-byte internal device address"]
-    #[inline]
+    #[inline(always)]
     pub fn _1_byte(self) -> &'a mut W {
-        self.variant(IADRSZW::_1_BYTE)
+        self.variant(IADRSZ_A::_1_BYTE)
     }
     #[doc = "Two-byte internal device address"]
-    #[inline]
+    #[inline(always)]
     pub fn _2_byte(self) -> &'a mut W {
-        self.variant(IADRSZW::_2_BYTE)
+        self.variant(IADRSZ_A::_2_BYTE)
     }
     #[doc = "Three-byte internal device address"]
-    #[inline]
+    #[inline(always)]
     pub fn _3_byte(self) -> &'a mut W {
-        self.variant(IADRSZW::_3_BYTE)
+        self.variant(IADRSZ_A::_3_BYTE)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MREADW<'a> {
+#[doc = "Reader of field `MREAD`"]
+pub type MREAD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `MREAD`"]
+pub struct MREAD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MREADW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MREAD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DADRW<'a> {
+#[doc = "Reader of field `DADR`"]
+pub type DADR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DADR`"]
+pub struct DADR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DADRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DADR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x7f << 16)) | (((value as u32) & 0x7f) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 8:9 - Internal Device Address Size"]
-    #[inline]
-    pub fn iadrsz(&self) -> IADRSZR {
-        IADRSZR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn iadrsz(&self) -> IADRSZ_R {
+        IADRSZ_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bit 12 - Master Read Direction"]
-    #[inline]
-    pub fn mread(&self) -> MREADR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MREADR { bits }
+    #[inline(always)]
+    pub fn mread(&self) -> MREAD_R {
+        MREAD_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bits 16:22 - Device Address"]
-    #[inline]
-    pub fn dadr(&self) -> DADRR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DADRR { bits }
+    #[inline(always)]
+    pub fn dadr(&self) -> DADR_R {
+        DADR_R::new(((self.bits >> 16) & 0x7f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 8:9 - Internal Device Address Size"]
-    #[inline]
-    pub fn iadrsz(&mut self) -> _IADRSZW {
-        _IADRSZW { w: self }
+    #[inline(always)]
+    pub fn iadrsz(&mut self) -> IADRSZ_W {
+        IADRSZ_W { w: self }
     }
     #[doc = "Bit 12 - Master Read Direction"]
-    #[inline]
-    pub fn mread(&mut self) -> _MREADW {
-        _MREADW { w: self }
+    #[inline(always)]
+    pub fn mread(&mut self) -> MREAD_W {
+        MREAD_W { w: self }
     }
     #[doc = "Bits 16:22 - Device Address"]
-    #[inline]
-    pub fn dadr(&mut self) -> _DADRW {
-        _DADRW { w: self }
+    #[inline(always)]
+    pub fn dadr(&mut self) -> DADR_W {
+        DADR_W { w: self }
     }
 }

@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FPE2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FPE2"]
+pub type R = crate::R<u32, super::FPE2>;
+#[doc = "Writer for register FPE2"]
+pub type W = crate::W<u32, super::FPE2>;
+#[doc = "Register FPE2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::FPE2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct FPE4R {
-    bits: u8,
-}
-impl FPE4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPE5R {
-    bits: u8,
-}
-impl FPE5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPE6R {
-    bits: u8,
-}
-impl FPE6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPE7R {
-    bits: u8,
-}
-impl FPE7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FPE4W<'a> {
+#[doc = "Reader of field `FPE4`"]
+pub type FPE4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `FPE4`"]
+pub struct FPE4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPE4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FPE4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPE5W<'a> {
+#[doc = "Reader of field `FPE5`"]
+pub type FPE5_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `FPE5`"]
+pub struct FPE5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPE5W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FPE5_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPE6W<'a> {
+#[doc = "Reader of field `FPE6`"]
+pub type FPE6_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `FPE6`"]
+pub struct FPE6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPE6W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FPE6_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPE7W<'a> {
+#[doc = "Reader of field `FPE7`"]
+pub type FPE7_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `FPE7`"]
+pub struct FPE7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPE7W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> FPE7_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Fault Protection Enable for channel 4 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe4(&self) -> FPE4R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FPE4R { bits }
+    #[inline(always)]
+    pub fn fpe4(&self) -> FPE4_R {
+        FPE4_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Fault Protection Enable for channel 5 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe5(&self) -> FPE5R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FPE5R { bits }
+    #[inline(always)]
+    pub fn fpe5(&self) -> FPE5_R {
+        FPE5_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - Fault Protection Enable for channel 6 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe6(&self) -> FPE6R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FPE6R { bits }
+    #[inline(always)]
+    pub fn fpe6(&self) -> FPE6_R {
+        FPE6_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - Fault Protection Enable for channel 7 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe7(&self) -> FPE7R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FPE7R { bits }
+    #[inline(always)]
+    pub fn fpe7(&self) -> FPE7_R {
+        FPE7_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - Fault Protection Enable for channel 4 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe4(&mut self) -> _FPE4W {
-        _FPE4W { w: self }
+    #[inline(always)]
+    pub fn fpe4(&mut self) -> FPE4_W {
+        FPE4_W { w: self }
     }
     #[doc = "Bits 8:15 - Fault Protection Enable for channel 5 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe5(&mut self) -> _FPE5W {
-        _FPE5W { w: self }
+    #[inline(always)]
+    pub fn fpe5(&mut self) -> FPE5_W {
+        FPE5_W { w: self }
     }
     #[doc = "Bits 16:23 - Fault Protection Enable for channel 6 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe6(&mut self) -> _FPE6W {
-        _FPE6W { w: self }
+    #[inline(always)]
+    pub fn fpe6(&mut self) -> FPE6_W {
+        FPE6_W { w: self }
     }
     #[doc = "Bits 24:31 - Fault Protection Enable for channel 7 (fault input bit varies from 0 to 5)"]
-    #[inline]
-    pub fn fpe7(&mut self) -> _FPE7W {
-        _FPE7W { w: self }
+    #[inline(always)]
+    pub fn fpe7(&mut self) -> FPE7_W {
+        FPE7_W { w: self }
     }
 }

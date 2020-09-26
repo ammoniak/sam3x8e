@@ -1,299 +1,67 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::IMR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RB_RISER {
-    bits: bool,
-}
-impl RB_RISER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RB_FALLR {
-    bits: bool,
-}
-impl RB_FALLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct XFRDONER {
-    bits: bool,
-}
-impl XFRDONER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CMDDONER {
-    bits: bool,
-}
-impl CMDDONER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DTOER {
-    bits: bool,
-}
-impl DTOER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct UNDEFR {
-    bits: bool,
-}
-impl UNDEFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AWBR {
-    bits: bool,
-}
-impl AWBR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NFCASER {
-    bits: bool,
-}
-impl NFCASER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RB_EDGE0R {
-    bits: bool,
-}
-impl RB_EDGE0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register IMR"]
+pub type R = crate::R<u32, super::IMR>;
+#[doc = "Reader of field `RB_RISE`"]
+pub type RB_RISE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RB_FALL`"]
+pub type RB_FALL_R = crate::R<bool, bool>;
+#[doc = "Reader of field `XFRDONE`"]
+pub type XFRDONE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CMDDONE`"]
+pub type CMDDONE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `DTOE`"]
+pub type DTOE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `UNDEF`"]
+pub type UNDEF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AWB`"]
+pub type AWB_R = crate::R<bool, bool>;
+#[doc = "Reader of field `NFCASE`"]
+pub type NFCASE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RB_EDGE0`"]
+pub type RB_EDGE0_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 4 - Ready Busy Rising Edge Detection Interrupt Mask"]
-    #[inline]
-    pub fn rb_rise(&self) -> RB_RISER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RB_RISER { bits }
+    #[inline(always)]
+    pub fn rb_rise(&self) -> RB_RISE_R {
+        RB_RISE_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Ready Busy Falling Edge Detection Interrupt Mask"]
-    #[inline]
-    pub fn rb_fall(&self) -> RB_FALLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RB_FALLR { bits }
+    #[inline(always)]
+    pub fn rb_fall(&self) -> RB_FALL_R {
+        RB_FALL_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Transfer Done Interrupt Mask"]
-    #[inline]
-    pub fn xfrdone(&self) -> XFRDONER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        XFRDONER { bits }
+    #[inline(always)]
+    pub fn xfrdone(&self) -> XFRDONE_R {
+        XFRDONE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Command Done Interrupt Mask"]
-    #[inline]
-    pub fn cmddone(&self) -> CMDDONER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CMDDONER { bits }
+    #[inline(always)]
+    pub fn cmddone(&self) -> CMDDONE_R {
+        CMDDONE_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Data Timeout Error Interrupt Mask"]
-    #[inline]
-    pub fn dtoe(&self) -> DTOER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DTOER { bits }
+    #[inline(always)]
+    pub fn dtoe(&self) -> DTOE_R {
+        DTOE_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Undefined Area Access Interrupt Mask5"]
-    #[inline]
-    pub fn undef(&self) -> UNDEFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNDEFR { bits }
+    #[inline(always)]
+    pub fn undef(&self) -> UNDEF_R {
+        UNDEF_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Accessing While Busy Interrupt Mask"]
-    #[inline]
-    pub fn awb(&self) -> AWBR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AWBR { bits }
+    #[inline(always)]
+    pub fn awb(&self) -> AWB_R {
+        AWB_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - NFC Access Size Error Interrupt Mask"]
-    #[inline]
-    pub fn nfcase(&self) -> NFCASER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        NFCASER { bits }
+    #[inline(always)]
+    pub fn nfcase(&self) -> NFCASE_R {
+        NFCASE_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Ready/Busy Line 0 Interrupt Mask"]
-    #[inline]
-    pub fn rb_edge0(&self) -> RB_EDGE0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RB_EDGE0R { bits }
+    #[inline(always)]
+    pub fn rb_edge0(&self) -> RB_EDGE0_R {
+        RB_EDGE0_R::new(((self.bits >> 24) & 0x01) != 0)
     }
 }

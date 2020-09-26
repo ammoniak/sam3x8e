@@ -1,246 +1,122 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TIMR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register TIMR"]
+pub type R = crate::R<u32, super::TIMR>;
+#[doc = "Writer for register TIMR"]
+pub type W = crate::W<u32, super::TIMR>;
+#[doc = "Register TIMR `reset()`'s with value 0"]
+impl crate::ResetValue for super::TIMR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct SECR {
-    bits: u8,
-}
-impl SECR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MINR {
-    bits: u8,
-}
-impl MINR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HOURR {
-    bits: u8,
-}
-impl HOURR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AMPMR {
-    bits: bool,
-}
-impl AMPMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SECW<'a> {
+#[doc = "Reader of field `SEC`"]
+pub type SEC_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SEC`"]
+pub struct SEC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SECW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SEC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x7f) | ((value as u32) & 0x7f);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MINW<'a> {
+#[doc = "Reader of field `MIN`"]
+pub type MIN_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `MIN`"]
+pub struct MIN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MINW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> MIN_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x7f << 8)) | (((value as u32) & 0x7f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _HOURW<'a> {
+#[doc = "Reader of field `HOUR`"]
+pub type HOUR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `HOUR`"]
+pub struct HOUR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HOURW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> HOUR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 63;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x3f << 16)) | (((value as u32) & 0x3f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AMPMW<'a> {
+#[doc = "Reader of field `AMPM`"]
+pub type AMPM_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `AMPM`"]
+pub struct AMPM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AMPMW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> AMPM_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:6 - Current Second"]
-    #[inline]
-    pub fn sec(&self) -> SECR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SECR { bits }
+    #[inline(always)]
+    pub fn sec(&self) -> SEC_R {
+        SEC_R::new((self.bits & 0x7f) as u8)
     }
     #[doc = "Bits 8:14 - Current Minute"]
-    #[inline]
-    pub fn min(&self) -> MINR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MINR { bits }
+    #[inline(always)]
+    pub fn min(&self) -> MIN_R {
+        MIN_R::new(((self.bits >> 8) & 0x7f) as u8)
     }
     #[doc = "Bits 16:21 - Current Hour"]
-    #[inline]
-    pub fn hour(&self) -> HOURR {
-        let bits = {
-            const MASK: u8 = 63;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        HOURR { bits }
+    #[inline(always)]
+    pub fn hour(&self) -> HOUR_R {
+        HOUR_R::new(((self.bits >> 16) & 0x3f) as u8)
     }
     #[doc = "Bit 22 - Ante Meridiem Post Meridiem Indicator"]
-    #[inline]
-    pub fn ampm(&self) -> AMPMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AMPMR { bits }
+    #[inline(always)]
+    pub fn ampm(&self) -> AMPM_R {
+        AMPM_R::new(((self.bits >> 22) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:6 - Current Second"]
-    #[inline]
-    pub fn sec(&mut self) -> _SECW {
-        _SECW { w: self }
+    #[inline(always)]
+    pub fn sec(&mut self) -> SEC_W {
+        SEC_W { w: self }
     }
     #[doc = "Bits 8:14 - Current Minute"]
-    #[inline]
-    pub fn min(&mut self) -> _MINW {
-        _MINW { w: self }
+    #[inline(always)]
+    pub fn min(&mut self) -> MIN_W {
+        MIN_W { w: self }
     }
     #[doc = "Bits 16:21 - Current Hour"]
-    #[inline]
-    pub fn hour(&mut self) -> _HOURW {
-        _HOURW { w: self }
+    #[inline(always)]
+    pub fn hour(&mut self) -> HOUR_W {
+        HOUR_W { w: self }
     }
     #[doc = "Bit 22 - Ante Meridiem Post Meridiem Indicator"]
-    #[inline]
-    pub fn ampm(&mut self) -> _AMPMW {
-        _AMPMW { w: self }
+    #[inline(always)]
+    pub fn ampm(&mut self) -> AMPM_W {
+        AMPM_W { w: self }
     }
 }

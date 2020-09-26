@@ -1,215 +1,193 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::HSTPIPICR0_ISOPIPES {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let bits = self.register.get();
-        let mut w = W { bits: bits };
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXINICW<'a> {
+#[doc = "Writer for register HSTPIPICR0_ISOPIPES"]
+pub type W = crate::W<u32, super::HSTPIPICR0_ISOPIPES>;
+#[doc = "Write proxy for field `RXINIC`"]
+pub struct RXINIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXINICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXINIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXOUTICW<'a> {
+#[doc = "Write proxy for field `TXOUTIC`"]
+pub struct TXOUTIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXOUTICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXOUTIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _UNDERFICW<'a> {
+#[doc = "Write proxy for field `UNDERFIC`"]
+pub struct UNDERFIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _UNDERFICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> UNDERFIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _NAKEDICW<'a> {
+#[doc = "Write proxy for field `NAKEDIC`"]
+pub struct NAKEDIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _NAKEDICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> NAKEDIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OVERFICW<'a> {
+#[doc = "Write proxy for field `OVERFIC`"]
+pub struct OVERFIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OVERFICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> OVERFIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CRCERRICW<'a> {
+#[doc = "Write proxy for field `CRCERRIC`"]
+pub struct CRCERRIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CRCERRICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CRCERRIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SHORTPACKETICW<'a> {
+#[doc = "Write proxy for field `SHORTPACKETIC`"]
+pub struct SHORTPACKETIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SHORTPACKETICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SHORTPACKETIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
 impl W {
     #[doc = "Bit 0 - Received IN Data Interrupt Clear"]
-    #[inline]
-    pub fn rxinic(&mut self) -> _RXINICW {
-        _RXINICW { w: self }
+    #[inline(always)]
+    pub fn rxinic(&mut self) -> RXINIC_W {
+        RXINIC_W { w: self }
     }
     #[doc = "Bit 1 - Transmitted OUT Data Interrupt Clear"]
-    #[inline]
-    pub fn txoutic(&mut self) -> _TXOUTICW {
-        _TXOUTICW { w: self }
+    #[inline(always)]
+    pub fn txoutic(&mut self) -> TXOUTIC_W {
+        TXOUTIC_W { w: self }
     }
     #[doc = "Bit 2 - Underflow Interrupt Clear"]
-    #[inline]
-    pub fn underfic(&mut self) -> _UNDERFICW {
-        _UNDERFICW { w: self }
+    #[inline(always)]
+    pub fn underfic(&mut self) -> UNDERFIC_W {
+        UNDERFIC_W { w: self }
     }
     #[doc = "Bit 4 - NAKed Interrupt Clear"]
-    #[inline]
-    pub fn nakedic(&mut self) -> _NAKEDICW {
-        _NAKEDICW { w: self }
+    #[inline(always)]
+    pub fn nakedic(&mut self) -> NAKEDIC_W {
+        NAKEDIC_W { w: self }
     }
     #[doc = "Bit 5 - Overflow Interrupt Clear"]
-    #[inline]
-    pub fn overfic(&mut self) -> _OVERFICW {
-        _OVERFICW { w: self }
+    #[inline(always)]
+    pub fn overfic(&mut self) -> OVERFIC_W {
+        OVERFIC_W { w: self }
     }
     #[doc = "Bit 6 - CRC Error Interrupt Clear"]
-    #[inline]
-    pub fn crcerric(&mut self) -> _CRCERRICW {
-        _CRCERRICW { w: self }
+    #[inline(always)]
+    pub fn crcerric(&mut self) -> CRCERRIC_W {
+        CRCERRIC_W { w: self }
     }
     #[doc = "Bit 7 - Short Packet Interrupt Clear"]
-    #[inline]
-    pub fn shortpacketic(&mut self) -> _SHORTPACKETICW {
-        _SHORTPACKETICW { w: self }
+    #[inline(always)]
+    pub fn shortpacketic(&mut self) -> SHORTPACKETIC_W {
+        SHORTPACKETIC_W { w: self }
     }
 }

@@ -1,1008 +1,560 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FPV {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FPV"]
+pub type R = crate::R<u32, super::FPV>;
+#[doc = "Writer for register FPV"]
+pub type W = crate::W<u32, super::FPV>;
+#[doc = "Register FPV `reset()`'s with value 0"]
+impl crate::ResetValue for super::FPV {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct FPVH0R {
-    bits: bool,
-}
-impl FPVH0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH1R {
-    bits: bool,
-}
-impl FPVH1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH2R {
-    bits: bool,
-}
-impl FPVH2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH3R {
-    bits: bool,
-}
-impl FPVH3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH4R {
-    bits: bool,
-}
-impl FPVH4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH5R {
-    bits: bool,
-}
-impl FPVH5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH6R {
-    bits: bool,
-}
-impl FPVH6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVH7R {
-    bits: bool,
-}
-impl FPVH7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL0R {
-    bits: bool,
-}
-impl FPVL0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL1R {
-    bits: bool,
-}
-impl FPVL1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL2R {
-    bits: bool,
-}
-impl FPVL2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL3R {
-    bits: bool,
-}
-impl FPVL3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL4R {
-    bits: bool,
-}
-impl FPVL4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL5R {
-    bits: bool,
-}
-impl FPVL5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL6R {
-    bits: bool,
-}
-impl FPVL6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FPVL7R {
-    bits: bool,
-}
-impl FPVL7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FPVH0W<'a> {
+#[doc = "Reader of field `FPVH0`"]
+pub type FPVH0_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH0`"]
+pub struct FPVH0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH1W<'a> {
+#[doc = "Reader of field `FPVH1`"]
+pub type FPVH1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH1`"]
+pub struct FPVH1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH2W<'a> {
+#[doc = "Reader of field `FPVH2`"]
+pub type FPVH2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH2`"]
+pub struct FPVH2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH3W<'a> {
+#[doc = "Reader of field `FPVH3`"]
+pub type FPVH3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH3`"]
+pub struct FPVH3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH4W<'a> {
+#[doc = "Reader of field `FPVH4`"]
+pub type FPVH4_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH4`"]
+pub struct FPVH4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH5W<'a> {
+#[doc = "Reader of field `FPVH5`"]
+pub type FPVH5_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH5`"]
+pub struct FPVH5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH6W<'a> {
+#[doc = "Reader of field `FPVH6`"]
+pub type FPVH6_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH6`"]
+pub struct FPVH6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVH7W<'a> {
+#[doc = "Reader of field `FPVH7`"]
+pub type FPVH7_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVH7`"]
+pub struct FPVH7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVH7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVH7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL0W<'a> {
+#[doc = "Reader of field `FPVL0`"]
+pub type FPVL0_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL0`"]
+pub struct FPVL0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL1W<'a> {
+#[doc = "Reader of field `FPVL1`"]
+pub type FPVL1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL1`"]
+pub struct FPVL1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL2W<'a> {
+#[doc = "Reader of field `FPVL2`"]
+pub type FPVL2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL2`"]
+pub struct FPVL2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL3W<'a> {
+#[doc = "Reader of field `FPVL3`"]
+pub type FPVL3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL3`"]
+pub struct FPVL3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL4W<'a> {
+#[doc = "Reader of field `FPVL4`"]
+pub type FPVL4_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL4`"]
+pub struct FPVL4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL5W<'a> {
+#[doc = "Reader of field `FPVL5`"]
+pub type FPVL5_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL5`"]
+pub struct FPVL5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL6W<'a> {
+#[doc = "Reader of field `FPVL6`"]
+pub type FPVL6_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL6`"]
+pub struct FPVL6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _FPVL7W<'a> {
+#[doc = "Reader of field `FPVL7`"]
+pub type FPVL7_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FPVL7`"]
+pub struct FPVL7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FPVL7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FPVL7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Fault Protection Value for PWMH output on channel 0"]
-    #[inline]
-    pub fn fpvh0(&self) -> FPVH0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH0R { bits }
+    #[inline(always)]
+    pub fn fpvh0(&self) -> FPVH0_R {
+        FPVH0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Fault Protection Value for PWMH output on channel 1"]
-    #[inline]
-    pub fn fpvh1(&self) -> FPVH1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH1R { bits }
+    #[inline(always)]
+    pub fn fpvh1(&self) -> FPVH1_R {
+        FPVH1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Fault Protection Value for PWMH output on channel 2"]
-    #[inline]
-    pub fn fpvh2(&self) -> FPVH2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH2R { bits }
+    #[inline(always)]
+    pub fn fpvh2(&self) -> FPVH2_R {
+        FPVH2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Fault Protection Value for PWMH output on channel 3"]
-    #[inline]
-    pub fn fpvh3(&self) -> FPVH3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH3R { bits }
+    #[inline(always)]
+    pub fn fpvh3(&self) -> FPVH3_R {
+        FPVH3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Fault Protection Value for PWMH output on channel 4"]
-    #[inline]
-    pub fn fpvh4(&self) -> FPVH4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH4R { bits }
+    #[inline(always)]
+    pub fn fpvh4(&self) -> FPVH4_R {
+        FPVH4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Fault Protection Value for PWMH output on channel 5"]
-    #[inline]
-    pub fn fpvh5(&self) -> FPVH5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH5R { bits }
+    #[inline(always)]
+    pub fn fpvh5(&self) -> FPVH5_R {
+        FPVH5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Fault Protection Value for PWMH output on channel 6"]
-    #[inline]
-    pub fn fpvh6(&self) -> FPVH6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH6R { bits }
+    #[inline(always)]
+    pub fn fpvh6(&self) -> FPVH6_R {
+        FPVH6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Fault Protection Value for PWMH output on channel 7"]
-    #[inline]
-    pub fn fpvh7(&self) -> FPVH7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVH7R { bits }
+    #[inline(always)]
+    pub fn fpvh7(&self) -> FPVH7_R {
+        FPVH7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Fault Protection Value for PWML output on channel 0"]
-    #[inline]
-    pub fn fpvl0(&self) -> FPVL0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL0R { bits }
+    #[inline(always)]
+    pub fn fpvl0(&self) -> FPVL0_R {
+        FPVL0_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Fault Protection Value for PWML output on channel 1"]
-    #[inline]
-    pub fn fpvl1(&self) -> FPVL1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL1R { bits }
+    #[inline(always)]
+    pub fn fpvl1(&self) -> FPVL1_R {
+        FPVL1_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Fault Protection Value for PWML output on channel 2"]
-    #[inline]
-    pub fn fpvl2(&self) -> FPVL2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL2R { bits }
+    #[inline(always)]
+    pub fn fpvl2(&self) -> FPVL2_R {
+        FPVL2_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Fault Protection Value for PWML output on channel 3"]
-    #[inline]
-    pub fn fpvl3(&self) -> FPVL3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL3R { bits }
+    #[inline(always)]
+    pub fn fpvl3(&self) -> FPVL3_R {
+        FPVL3_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Fault Protection Value for PWML output on channel 4"]
-    #[inline]
-    pub fn fpvl4(&self) -> FPVL4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL4R { bits }
+    #[inline(always)]
+    pub fn fpvl4(&self) -> FPVL4_R {
+        FPVL4_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Fault Protection Value for PWML output on channel 5"]
-    #[inline]
-    pub fn fpvl5(&self) -> FPVL5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL5R { bits }
+    #[inline(always)]
+    pub fn fpvl5(&self) -> FPVL5_R {
+        FPVL5_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Fault Protection Value for PWML output on channel 6"]
-    #[inline]
-    pub fn fpvl6(&self) -> FPVL6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL6R { bits }
+    #[inline(always)]
+    pub fn fpvl6(&self) -> FPVL6_R {
+        FPVL6_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Fault Protection Value for PWML output on channel 7"]
-    #[inline]
-    pub fn fpvl7(&self) -> FPVL7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FPVL7R { bits }
+    #[inline(always)]
+    pub fn fpvl7(&self) -> FPVL7_R {
+        FPVL7_R::new(((self.bits >> 23) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Fault Protection Value for PWMH output on channel 0"]
-    #[inline]
-    pub fn fpvh0(&mut self) -> _FPVH0W {
-        _FPVH0W { w: self }
+    #[inline(always)]
+    pub fn fpvh0(&mut self) -> FPVH0_W {
+        FPVH0_W { w: self }
     }
     #[doc = "Bit 1 - Fault Protection Value for PWMH output on channel 1"]
-    #[inline]
-    pub fn fpvh1(&mut self) -> _FPVH1W {
-        _FPVH1W { w: self }
+    #[inline(always)]
+    pub fn fpvh1(&mut self) -> FPVH1_W {
+        FPVH1_W { w: self }
     }
     #[doc = "Bit 2 - Fault Protection Value for PWMH output on channel 2"]
-    #[inline]
-    pub fn fpvh2(&mut self) -> _FPVH2W {
-        _FPVH2W { w: self }
+    #[inline(always)]
+    pub fn fpvh2(&mut self) -> FPVH2_W {
+        FPVH2_W { w: self }
     }
     #[doc = "Bit 3 - Fault Protection Value for PWMH output on channel 3"]
-    #[inline]
-    pub fn fpvh3(&mut self) -> _FPVH3W {
-        _FPVH3W { w: self }
+    #[inline(always)]
+    pub fn fpvh3(&mut self) -> FPVH3_W {
+        FPVH3_W { w: self }
     }
     #[doc = "Bit 4 - Fault Protection Value for PWMH output on channel 4"]
-    #[inline]
-    pub fn fpvh4(&mut self) -> _FPVH4W {
-        _FPVH4W { w: self }
+    #[inline(always)]
+    pub fn fpvh4(&mut self) -> FPVH4_W {
+        FPVH4_W { w: self }
     }
     #[doc = "Bit 5 - Fault Protection Value for PWMH output on channel 5"]
-    #[inline]
-    pub fn fpvh5(&mut self) -> _FPVH5W {
-        _FPVH5W { w: self }
+    #[inline(always)]
+    pub fn fpvh5(&mut self) -> FPVH5_W {
+        FPVH5_W { w: self }
     }
     #[doc = "Bit 6 - Fault Protection Value for PWMH output on channel 6"]
-    #[inline]
-    pub fn fpvh6(&mut self) -> _FPVH6W {
-        _FPVH6W { w: self }
+    #[inline(always)]
+    pub fn fpvh6(&mut self) -> FPVH6_W {
+        FPVH6_W { w: self }
     }
     #[doc = "Bit 7 - Fault Protection Value for PWMH output on channel 7"]
-    #[inline]
-    pub fn fpvh7(&mut self) -> _FPVH7W {
-        _FPVH7W { w: self }
+    #[inline(always)]
+    pub fn fpvh7(&mut self) -> FPVH7_W {
+        FPVH7_W { w: self }
     }
     #[doc = "Bit 16 - Fault Protection Value for PWML output on channel 0"]
-    #[inline]
-    pub fn fpvl0(&mut self) -> _FPVL0W {
-        _FPVL0W { w: self }
+    #[inline(always)]
+    pub fn fpvl0(&mut self) -> FPVL0_W {
+        FPVL0_W { w: self }
     }
     #[doc = "Bit 17 - Fault Protection Value for PWML output on channel 1"]
-    #[inline]
-    pub fn fpvl1(&mut self) -> _FPVL1W {
-        _FPVL1W { w: self }
+    #[inline(always)]
+    pub fn fpvl1(&mut self) -> FPVL1_W {
+        FPVL1_W { w: self }
     }
     #[doc = "Bit 18 - Fault Protection Value for PWML output on channel 2"]
-    #[inline]
-    pub fn fpvl2(&mut self) -> _FPVL2W {
-        _FPVL2W { w: self }
+    #[inline(always)]
+    pub fn fpvl2(&mut self) -> FPVL2_W {
+        FPVL2_W { w: self }
     }
     #[doc = "Bit 19 - Fault Protection Value for PWML output on channel 3"]
-    #[inline]
-    pub fn fpvl3(&mut self) -> _FPVL3W {
-        _FPVL3W { w: self }
+    #[inline(always)]
+    pub fn fpvl3(&mut self) -> FPVL3_W {
+        FPVL3_W { w: self }
     }
     #[doc = "Bit 20 - Fault Protection Value for PWML output on channel 4"]
-    #[inline]
-    pub fn fpvl4(&mut self) -> _FPVL4W {
-        _FPVL4W { w: self }
+    #[inline(always)]
+    pub fn fpvl4(&mut self) -> FPVL4_W {
+        FPVL4_W { w: self }
     }
     #[doc = "Bit 21 - Fault Protection Value for PWML output on channel 5"]
-    #[inline]
-    pub fn fpvl5(&mut self) -> _FPVL5W {
-        _FPVL5W { w: self }
+    #[inline(always)]
+    pub fn fpvl5(&mut self) -> FPVL5_W {
+        FPVL5_W { w: self }
     }
     #[doc = "Bit 22 - Fault Protection Value for PWML output on channel 6"]
-    #[inline]
-    pub fn fpvl6(&mut self) -> _FPVL6W {
-        _FPVL6W { w: self }
+    #[inline(always)]
+    pub fn fpvl6(&mut self) -> FPVL6_W {
+        FPVL6_W { w: self }
     }
     #[doc = "Bit 23 - Fault Protection Value for PWML output on channel 7"]
-    #[inline]
-    pub fn fpvl7(&mut self) -> _FPVL7W {
-        _FPVL7W { w: self }
+    #[inline(always)]
+    pub fn fpvl7(&mut self) -> FPVL7_W {
+        FPVL7_W { w: self }
     }
 }

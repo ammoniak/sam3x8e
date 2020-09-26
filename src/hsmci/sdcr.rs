@@ -1,320 +1,208 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SDCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SDCR"]
+pub type R = crate::R<u32, super::SDCR>;
+#[doc = "Writer for register SDCR"]
+pub type W = crate::W<u32, super::SDCR>;
+#[doc = "Register SDCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::SDCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `SDCSEL`"]
+#[doc = "SDCard/SDIO Slot\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SDCSELR {
-    #[doc = "Slot A is selected."]
-    SLOTA,
-    #[doc = "SDCARD/SDIO Slot B selected"]
-    SLOTB,
-    #[doc = "-"]
-    SLOTC,
-    #[doc = "-"]
-    SLOTD,
+#[repr(u8)]
+pub enum SDCSEL_A {
+    #[doc = "0: Slot A is selected."]
+    SLOTA = 0,
+    #[doc = "1: SDCARD/SDIO Slot B selected"]
+    SLOTB = 1,
+    #[doc = "2: -"]
+    SLOTC = 2,
+    #[doc = "3: -"]
+    SLOTD = 3,
 }
-impl SDCSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SDCSELR::SLOTA => 0,
-            SDCSELR::SLOTB => 1,
-            SDCSELR::SLOTC => 2,
-            SDCSELR::SLOTD => 3,
-        }
+impl From<SDCSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SDCSEL_A) -> Self {
+        variant as _
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SDCSELR {
-        match value {
-            0 => SDCSELR::SLOTA,
-            1 => SDCSELR::SLOTB,
-            2 => SDCSELR::SLOTC,
-            3 => SDCSELR::SLOTD,
+}
+#[doc = "Reader of field `SDCSEL`"]
+pub type SDCSEL_R = crate::R<u8, SDCSEL_A>;
+impl SDCSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SDCSEL_A {
+        match self.bits {
+            0 => SDCSEL_A::SLOTA,
+            1 => SDCSEL_A::SLOTB,
+            2 => SDCSEL_A::SLOTC,
+            3 => SDCSEL_A::SLOTD,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `SLOTA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_slota(&self) -> bool {
-        *self == SDCSELR::SLOTA
+        *self == SDCSEL_A::SLOTA
     }
     #[doc = "Checks if the value of the field is `SLOTB`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_slotb(&self) -> bool {
-        *self == SDCSELR::SLOTB
+        *self == SDCSEL_A::SLOTB
     }
     #[doc = "Checks if the value of the field is `SLOTC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_slotc(&self) -> bool {
-        *self == SDCSELR::SLOTC
+        *self == SDCSEL_A::SLOTC
     }
     #[doc = "Checks if the value of the field is `SLOTD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_slotd(&self) -> bool {
-        *self == SDCSELR::SLOTD
+        *self == SDCSEL_A::SLOTD
     }
 }
-#[doc = "Possible values of the field `SDCBUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SDCBUSR {
-    #[doc = "1 bit"]
-    _1,
-    #[doc = "4 bits"]
-    _4,
-    #[doc = "8 bits"]
-    _8,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
-}
-impl SDCBUSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SDCBUSR::_1 => 0,
-            SDCBUSR::_4 => 2,
-            SDCBUSR::_8 => 3,
-            SDCBUSR::_Reserved(bits) => bits,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SDCBUSR {
-        match value {
-            0 => SDCBUSR::_1,
-            2 => SDCBUSR::_4,
-            3 => SDCBUSR::_8,
-            i => SDCBUSR::_Reserved(i),
-        }
-    }
-    #[doc = "Checks if the value of the field is `_1`"]
-    #[inline]
-    pub fn is_1(&self) -> bool {
-        *self == SDCBUSR::_1
-    }
-    #[doc = "Checks if the value of the field is `_4`"]
-    #[inline]
-    pub fn is_4(&self) -> bool {
-        *self == SDCBUSR::_4
-    }
-    #[doc = "Checks if the value of the field is `_8`"]
-    #[inline]
-    pub fn is_8(&self) -> bool {
-        *self == SDCBUSR::_8
-    }
-}
-#[doc = "Values that can be written to the field `SDCSEL`"]
-pub enum SDCSELW {
-    #[doc = "Slot A is selected."]
-    SLOTA,
-    #[doc = "SDCARD/SDIO Slot B selected"]
-    SLOTB,
-    #[doc = "-"]
-    SLOTC,
-    #[doc = "-"]
-    SLOTD,
-}
-impl SDCSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SDCSELW::SLOTA => 0,
-            SDCSELW::SLOTB => 1,
-            SDCSELW::SLOTC => 2,
-            SDCSELW::SLOTD => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SDCSELW<'a> {
+#[doc = "Write proxy for field `SDCSEL`"]
+pub struct SDCSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SDCSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SDCSELW) -> &'a mut W {
+impl<'a> SDCSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SDCSEL_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Slot A is selected."]
-    #[inline]
+    #[inline(always)]
     pub fn slota(self) -> &'a mut W {
-        self.variant(SDCSELW::SLOTA)
+        self.variant(SDCSEL_A::SLOTA)
     }
     #[doc = "SDCARD/SDIO Slot B selected"]
-    #[inline]
+    #[inline(always)]
     pub fn slotb(self) -> &'a mut W {
-        self.variant(SDCSELW::SLOTB)
+        self.variant(SDCSEL_A::SLOTB)
     }
     #[doc = "-"]
-    #[inline]
+    #[inline(always)]
     pub fn slotc(self) -> &'a mut W {
-        self.variant(SDCSELW::SLOTC)
+        self.variant(SDCSEL_A::SLOTC)
     }
     #[doc = "-"]
-    #[inline]
+    #[inline(always)]
     pub fn slotd(self) -> &'a mut W {
-        self.variant(SDCSELW::SLOTD)
+        self.variant(SDCSEL_A::SLOTD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `SDCBUS`"]
-pub enum SDCBUSW {
-    #[doc = "1 bit"]
-    _1,
-    #[doc = "4 bits"]
-    _4,
-    #[doc = "8 bits"]
-    _8,
+#[doc = "SDCard/SDIO Bus Width\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum SDCBUS_A {
+    #[doc = "0: 1 bit"]
+    _1 = 0,
+    #[doc = "2: 4 bits"]
+    _4 = 2,
+    #[doc = "3: 8 bits"]
+    _8 = 3,
 }
-impl SDCBUSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SDCBUSW::_1 => 0,
-            SDCBUSW::_4 => 2,
-            SDCBUSW::_8 => 3,
+impl From<SDCBUS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SDCBUS_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Reader of field `SDCBUS`"]
+pub type SDCBUS_R = crate::R<u8, SDCBUS_A>;
+impl SDCBUS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, SDCBUS_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(SDCBUS_A::_1),
+            2 => Val(SDCBUS_A::_4),
+            3 => Val(SDCBUS_A::_8),
+            i => Res(i),
         }
     }
+    #[doc = "Checks if the value of the field is `_1`"]
+    #[inline(always)]
+    pub fn is_1(&self) -> bool {
+        *self == SDCBUS_A::_1
+    }
+    #[doc = "Checks if the value of the field is `_4`"]
+    #[inline(always)]
+    pub fn is_4(&self) -> bool {
+        *self == SDCBUS_A::_4
+    }
+    #[doc = "Checks if the value of the field is `_8`"]
+    #[inline(always)]
+    pub fn is_8(&self) -> bool {
+        *self == SDCBUS_A::_8
+    }
 }
-#[doc = r" Proxy"]
-pub struct _SDCBUSW<'a> {
+#[doc = "Write proxy for field `SDCBUS`"]
+pub struct SDCBUS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SDCBUSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SDCBUSW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> SDCBUS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SDCBUS_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "1 bit"]
-    #[inline]
+    #[inline(always)]
     pub fn _1(self) -> &'a mut W {
-        self.variant(SDCBUSW::_1)
+        self.variant(SDCBUS_A::_1)
     }
     #[doc = "4 bits"]
-    #[inline]
+    #[inline(always)]
     pub fn _4(self) -> &'a mut W {
-        self.variant(SDCBUSW::_4)
+        self.variant(SDCBUS_A::_4)
     }
     #[doc = "8 bits"]
-    #[inline]
+    #[inline(always)]
     pub fn _8(self) -> &'a mut W {
-        self.variant(SDCBUSW::_8)
+        self.variant(SDCBUS_A::_8)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - SDCard/SDIO Slot"]
-    #[inline]
-    pub fn sdcsel(&self) -> SDCSELR {
-        SDCSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn sdcsel(&self) -> SDCSEL_R {
+        SDCSEL_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bits 6:7 - SDCard/SDIO Bus Width"]
-    #[inline]
-    pub fn sdcbus(&self) -> SDCBUSR {
-        SDCBUSR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn sdcbus(&self) -> SDCBUS_R {
+        SDCBUS_R::new(((self.bits >> 6) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - SDCard/SDIO Slot"]
-    #[inline]
-    pub fn sdcsel(&mut self) -> _SDCSELW {
-        _SDCSELW { w: self }
+    #[inline(always)]
+    pub fn sdcsel(&mut self) -> SDCSEL_W {
+        SDCSEL_W { w: self }
     }
     #[doc = "Bits 6:7 - SDCard/SDIO Bus Width"]
-    #[inline]
-    pub fn sdcbus(&mut self) -> _SDCBUSW {
-        _SDCBUSW { w: self }
+    #[inline(always)]
+    pub fn sdcbus(&mut self) -> SDCBUS_W {
+        SDCBUS_W { w: self }
     }
 }

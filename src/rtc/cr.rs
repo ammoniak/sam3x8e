@@ -1,438 +1,276 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CR"]
+pub type R = crate::R<u32, super::CR>;
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Register CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct UPDTIMR {
-    bits: bool,
+#[doc = "Reader of field `UPDTIM`"]
+pub type UPDTIM_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `UPDTIM`"]
+pub struct UPDTIM_W<'a> {
+    w: &'a mut W,
 }
-impl UPDTIMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> UPDTIM_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct UPDCALR {
-    bits: bool,
-}
-impl UPDCALR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
     }
 }
-#[doc = "Possible values of the field `TIMEVSEL`"]
+#[doc = "Reader of field `UPDCAL`"]
+pub type UPDCAL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `UPDCAL`"]
+pub struct UPDCAL_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> UPDCAL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Time Event Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TIMEVSELR {
-    #[doc = "Minute change"]
-    MINUTE,
-    #[doc = "Hour change"]
-    HOUR,
-    #[doc = "Every day at midnight"]
-    MIDNIGHT,
-    #[doc = "Every day at noon"]
-    NOON,
+#[repr(u8)]
+pub enum TIMEVSEL_A {
+    #[doc = "0: Minute change"]
+    MINUTE = 0,
+    #[doc = "1: Hour change"]
+    HOUR = 1,
+    #[doc = "2: Every day at midnight"]
+    MIDNIGHT = 2,
+    #[doc = "3: Every day at noon"]
+    NOON = 3,
 }
-impl TIMEVSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            TIMEVSELR::MINUTE => 0,
-            TIMEVSELR::HOUR => 1,
-            TIMEVSELR::MIDNIGHT => 2,
-            TIMEVSELR::NOON => 3,
-        }
+impl From<TIMEVSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: TIMEVSEL_A) -> Self {
+        variant as _
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> TIMEVSELR {
-        match value {
-            0 => TIMEVSELR::MINUTE,
-            1 => TIMEVSELR::HOUR,
-            2 => TIMEVSELR::MIDNIGHT,
-            3 => TIMEVSELR::NOON,
+}
+#[doc = "Reader of field `TIMEVSEL`"]
+pub type TIMEVSEL_R = crate::R<u8, TIMEVSEL_A>;
+impl TIMEVSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TIMEVSEL_A {
+        match self.bits {
+            0 => TIMEVSEL_A::MINUTE,
+            1 => TIMEVSEL_A::HOUR,
+            2 => TIMEVSEL_A::MIDNIGHT,
+            3 => TIMEVSEL_A::NOON,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `MINUTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_minute(&self) -> bool {
-        *self == TIMEVSELR::MINUTE
+        *self == TIMEVSEL_A::MINUTE
     }
     #[doc = "Checks if the value of the field is `HOUR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hour(&self) -> bool {
-        *self == TIMEVSELR::HOUR
+        *self == TIMEVSEL_A::HOUR
     }
     #[doc = "Checks if the value of the field is `MIDNIGHT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_midnight(&self) -> bool {
-        *self == TIMEVSELR::MIDNIGHT
+        *self == TIMEVSEL_A::MIDNIGHT
     }
     #[doc = "Checks if the value of the field is `NOON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_noon(&self) -> bool {
-        *self == TIMEVSELR::NOON
+        *self == TIMEVSEL_A::NOON
     }
 }
-#[doc = "Possible values of the field `CALEVSEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CALEVSELR {
-    #[doc = "Week change (every Monday at time 00:00:00)"]
-    WEEK,
-    #[doc = "Month change (every 01 of each month at time 00:00:00)"]
-    MONTH,
-    #[doc = "Year change (every January 1 at time 00:00:00)"]
-    YEAR,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `TIMEVSEL`"]
+pub struct TIMEVSEL_W<'a> {
+    w: &'a mut W,
 }
-impl CALEVSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CALEVSELR::WEEK => 0,
-            CALEVSELR::MONTH => 1,
-            CALEVSELR::YEAR => 2,
-            CALEVSELR::_Reserved(bits) => bits,
+impl<'a> TIMEVSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TIMEVSEL_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CALEVSELR {
-        match value {
-            0 => CALEVSELR::WEEK,
-            1 => CALEVSELR::MONTH,
-            2 => CALEVSELR::YEAR,
-            i => CALEVSELR::_Reserved(i),
+    #[doc = "Minute change"]
+    #[inline(always)]
+    pub fn minute(self) -> &'a mut W {
+        self.variant(TIMEVSEL_A::MINUTE)
+    }
+    #[doc = "Hour change"]
+    #[inline(always)]
+    pub fn hour(self) -> &'a mut W {
+        self.variant(TIMEVSEL_A::HOUR)
+    }
+    #[doc = "Every day at midnight"]
+    #[inline(always)]
+    pub fn midnight(self) -> &'a mut W {
+        self.variant(TIMEVSEL_A::MIDNIGHT)
+    }
+    #[doc = "Every day at noon"]
+    #[inline(always)]
+    pub fn noon(self) -> &'a mut W {
+        self.variant(TIMEVSEL_A::NOON)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w
+    }
+}
+#[doc = "Calendar Event Selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum CALEVSEL_A {
+    #[doc = "0: Week change (every Monday at time 00:00:00)"]
+    WEEK = 0,
+    #[doc = "1: Month change (every 01 of each month at time 00:00:00)"]
+    MONTH = 1,
+    #[doc = "2: Year change (every January 1 at time 00:00:00)"]
+    YEAR = 2,
+}
+impl From<CALEVSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CALEVSEL_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Reader of field `CALEVSEL`"]
+pub type CALEVSEL_R = crate::R<u8, CALEVSEL_A>;
+impl CALEVSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CALEVSEL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(CALEVSEL_A::WEEK),
+            1 => Val(CALEVSEL_A::MONTH),
+            2 => Val(CALEVSEL_A::YEAR),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `WEEK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_week(&self) -> bool {
-        *self == CALEVSELR::WEEK
+        *self == CALEVSEL_A::WEEK
     }
     #[doc = "Checks if the value of the field is `MONTH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_month(&self) -> bool {
-        *self == CALEVSELR::MONTH
+        *self == CALEVSEL_A::MONTH
     }
     #[doc = "Checks if the value of the field is `YEAR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_year(&self) -> bool {
-        *self == CALEVSELR::YEAR
+        *self == CALEVSEL_A::YEAR
     }
 }
-#[doc = r" Proxy"]
-pub struct _UPDTIMW<'a> {
+#[doc = "Write proxy for field `CALEVSEL`"]
+pub struct CALEVSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _UPDTIMW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _UPDCALW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _UPDCALW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TIMEVSEL`"]
-pub enum TIMEVSELW {
-    #[doc = "Minute change"]
-    MINUTE,
-    #[doc = "Hour change"]
-    HOUR,
-    #[doc = "Every day at midnight"]
-    MIDNIGHT,
-    #[doc = "Every day at noon"]
-    NOON,
-}
-impl TIMEVSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            TIMEVSELW::MINUTE => 0,
-            TIMEVSELW::HOUR => 1,
-            TIMEVSELW::MIDNIGHT => 2,
-            TIMEVSELW::NOON => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TIMEVSELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TIMEVSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TIMEVSELW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "Minute change"]
-    #[inline]
-    pub fn minute(self) -> &'a mut W {
-        self.variant(TIMEVSELW::MINUTE)
-    }
-    #[doc = "Hour change"]
-    #[inline]
-    pub fn hour(self) -> &'a mut W {
-        self.variant(TIMEVSELW::HOUR)
-    }
-    #[doc = "Every day at midnight"]
-    #[inline]
-    pub fn midnight(self) -> &'a mut W {
-        self.variant(TIMEVSELW::MIDNIGHT)
-    }
-    #[doc = "Every day at noon"]
-    #[inline]
-    pub fn noon(self) -> &'a mut W {
-        self.variant(TIMEVSELW::NOON)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CALEVSEL`"]
-pub enum CALEVSELW {
-    #[doc = "Week change (every Monday at time 00:00:00)"]
-    WEEK,
-    #[doc = "Month change (every 01 of each month at time 00:00:00)"]
-    MONTH,
-    #[doc = "Year change (every January 1 at time 00:00:00)"]
-    YEAR,
-}
-impl CALEVSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CALEVSELW::WEEK => 0,
-            CALEVSELW::MONTH => 1,
-            CALEVSELW::YEAR => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CALEVSELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CALEVSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CALEVSELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CALEVSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CALEVSEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Week change (every Monday at time 00:00:00)"]
-    #[inline]
+    #[inline(always)]
     pub fn week(self) -> &'a mut W {
-        self.variant(CALEVSELW::WEEK)
+        self.variant(CALEVSEL_A::WEEK)
     }
     #[doc = "Month change (every 01 of each month at time 00:00:00)"]
-    #[inline]
+    #[inline(always)]
     pub fn month(self) -> &'a mut W {
-        self.variant(CALEVSELW::MONTH)
+        self.variant(CALEVSEL_A::MONTH)
     }
     #[doc = "Year change (every January 1 at time 00:00:00)"]
-    #[inline]
+    #[inline(always)]
     pub fn year(self) -> &'a mut W {
-        self.variant(CALEVSELW::YEAR)
+        self.variant(CALEVSEL_A::YEAR)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Update Request Time Register"]
-    #[inline]
-    pub fn updtim(&self) -> UPDTIMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UPDTIMR { bits }
+    #[inline(always)]
+    pub fn updtim(&self) -> UPDTIM_R {
+        UPDTIM_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Update Request Calendar Register"]
-    #[inline]
-    pub fn updcal(&self) -> UPDCALR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UPDCALR { bits }
+    #[inline(always)]
+    pub fn updcal(&self) -> UPDCAL_R {
+        UPDCAL_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bits 8:9 - Time Event Selection"]
-    #[inline]
-    pub fn timevsel(&self) -> TIMEVSELR {
-        TIMEVSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn timevsel(&self) -> TIMEVSEL_R {
+        TIMEVSEL_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 16:17 - Calendar Event Selection"]
-    #[inline]
-    pub fn calevsel(&self) -> CALEVSELR {
-        CALEVSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn calevsel(&self) -> CALEVSEL_R {
+        CALEVSEL_R::new(((self.bits >> 16) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Update Request Time Register"]
-    #[inline]
-    pub fn updtim(&mut self) -> _UPDTIMW {
-        _UPDTIMW { w: self }
+    #[inline(always)]
+    pub fn updtim(&mut self) -> UPDTIM_W {
+        UPDTIM_W { w: self }
     }
     #[doc = "Bit 1 - Update Request Calendar Register"]
-    #[inline]
-    pub fn updcal(&mut self) -> _UPDCALW {
-        _UPDCALW { w: self }
+    #[inline(always)]
+    pub fn updcal(&mut self) -> UPDCAL_W {
+        UPDCAL_W { w: self }
     }
     #[doc = "Bits 8:9 - Time Event Selection"]
-    #[inline]
-    pub fn timevsel(&mut self) -> _TIMEVSELW {
-        _TIMEVSELW { w: self }
+    #[inline(always)]
+    pub fn timevsel(&mut self) -> TIMEVSEL_W {
+        TIMEVSEL_W { w: self }
     }
     #[doc = "Bits 16:17 - Calendar Event Selection"]
-    #[inline]
-    pub fn calevsel(&mut self) -> _CALEVSELW {
-        _CALEVSELW { w: self }
+    #[inline(always)]
+    pub fn calevsel(&mut self) -> CALEVSEL_W {
+        CALEVSEL_W { w: self }
     }
 }

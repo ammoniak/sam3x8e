@@ -1,626 +1,419 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MR"]
+pub type R = crate::R<u32, super::MR>;
+#[doc = "Writer for register MR"]
+pub type W = crate::W<u32, super::MR>;
+#[doc = "Register MR `reset()`'s with value 0x5a00"]
+impl crate::ResetValue for super::MR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x5a00
     }
 }
-#[doc = "Possible values of the field `BODRSTEN`"]
+#[doc = "Brownout Detector Reset Enable\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BODRSTENR {
-    #[doc = "the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
-    NOT_ENABLE,
-    #[doc = "the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
-    ENABLE,
+pub enum BODRSTEN_A {
+    #[doc = "0: the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
+    NOT_ENABLE = 0,
+    #[doc = "1: the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
+    ENABLE = 1,
 }
-impl BODRSTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+impl From<BODRSTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: BODRSTEN_A) -> Self {
+        variant as u8 != 0
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BODRSTENR::NOT_ENABLE => false,
-            BODRSTENR::ENABLE => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BODRSTENR {
-        match value {
-            false => BODRSTENR::NOT_ENABLE,
-            true => BODRSTENR::ENABLE,
+}
+#[doc = "Reader of field `BODRSTEN`"]
+pub type BODRSTEN_R = crate::R<bool, BODRSTEN_A>;
+impl BODRSTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BODRSTEN_A {
+        match self.bits {
+            false => BODRSTEN_A::NOT_ENABLE,
+            true => BODRSTEN_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_enable(&self) -> bool {
-        *self == BODRSTENR::NOT_ENABLE
+        *self == BODRSTEN_A::NOT_ENABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == BODRSTENR::ENABLE
+        *self == BODRSTEN_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `BODDIS`"]
+#[doc = "Write proxy for field `BODRSTEN`"]
+pub struct BODRSTEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> BODRSTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BODRSTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
+    #[inline(always)]
+    pub fn not_enable(self) -> &'a mut W {
+        self.variant(BODRSTEN_A::NOT_ENABLE)
+    }
+    #[doc = "the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(BODRSTEN_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w
+    }
+}
+#[doc = "Brownout Detector Disable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BODDISR {
-    #[doc = "the core brownout detector is enabled."]
-    ENABLE,
-    #[doc = "the core brownout detector is disabled."]
-    DISABLE,
+pub enum BODDIS_A {
+    #[doc = "0: the core brownout detector is enabled."]
+    ENABLE = 0,
+    #[doc = "1: the core brownout detector is disabled."]
+    DISABLE = 1,
 }
-impl BODDISR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+impl From<BODDIS_A> for bool {
+    #[inline(always)]
+    fn from(variant: BODDIS_A) -> Self {
+        variant as u8 != 0
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BODDISR::ENABLE => false,
-            BODDISR::DISABLE => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BODDISR {
-        match value {
-            false => BODDISR::ENABLE,
-            true => BODDISR::DISABLE,
+}
+#[doc = "Reader of field `BODDIS`"]
+pub type BODDIS_R = crate::R<bool, BODDIS_A>;
+impl BODDIS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BODDIS_A {
+        match self.bits {
+            false => BODDIS_A::ENABLE,
+            true => BODDIS_A::DISABLE,
         }
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == BODDISR::ENABLE
+        *self == BODDIS_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == BODDISR::DISABLE
+        *self == BODDIS_A::DISABLE
     }
 }
-#[doc = "Possible values of the field `VDDIORDY`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum VDDIORDYR {
-    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
-    VDDIO_REMOVED,
-    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
-    VDDIO_PRESENT,
+#[doc = "Write proxy for field `BODDIS`"]
+pub struct BODDIS_W<'a> {
+    w: &'a mut W,
 }
-impl VDDIORDYR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            VDDIORDYR::VDDIO_REMOVED => false,
-            VDDIORDYR::VDDIO_PRESENT => true,
+impl<'a> BODDIS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BODDIS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> VDDIORDYR {
-        match value {
-            false => VDDIORDYR::VDDIO_REMOVED,
-            true => VDDIORDYR::VDDIO_PRESENT,
+    #[doc = "the core brownout detector is enabled."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(BODDIS_A::ENABLE)
+    }
+    #[doc = "the core brownout detector is disabled."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(BODDIS_A::DISABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w
+    }
+}
+#[doc = "VDDIO Ready\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum VDDIORDY_A {
+    #[doc = "0: VDDIO is removed (used before going to backup mode when backup batteries are used)"]
+    VDDIO_REMOVED = 0,
+    #[doc = "1: VDDIO is present (used before going to backup mode when backup batteries are used)"]
+    VDDIO_PRESENT = 1,
+}
+impl From<VDDIORDY_A> for bool {
+    #[inline(always)]
+    fn from(variant: VDDIORDY_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `VDDIORDY`"]
+pub type VDDIORDY_R = crate::R<bool, VDDIORDY_A>;
+impl VDDIORDY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> VDDIORDY_A {
+        match self.bits {
+            false => VDDIORDY_A::VDDIO_REMOVED,
+            true => VDDIORDY_A::VDDIO_PRESENT,
         }
     }
     #[doc = "Checks if the value of the field is `VDDIO_REMOVED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_vddio_removed(&self) -> bool {
-        *self == VDDIORDYR::VDDIO_REMOVED
+        *self == VDDIORDY_A::VDDIO_REMOVED
     }
     #[doc = "Checks if the value of the field is `VDDIO_PRESENT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_vddio_present(&self) -> bool {
-        *self == VDDIORDYR::VDDIO_PRESENT
+        *self == VDDIORDY_A::VDDIO_PRESENT
     }
 }
-#[doc = "Possible values of the field `OSCBYPASS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OSCBYPASSR {
-    #[doc = "no effect. Clock selection depends on XTALSEL value."]
-    NO_EFFECT,
-    #[doc = "the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
-    BYPASS,
+#[doc = "Write proxy for field `VDDIORDY`"]
+pub struct VDDIORDY_W<'a> {
+    w: &'a mut W,
 }
-impl OSCBYPASSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OSCBYPASSR::NO_EFFECT => false,
-            OSCBYPASSR::BYPASS => true,
+impl<'a> VDDIORDY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: VDDIORDY_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OSCBYPASSR {
-        match value {
-            false => OSCBYPASSR::NO_EFFECT,
-            true => OSCBYPASSR::BYPASS,
+    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
+    #[inline(always)]
+    pub fn vddio_removed(self) -> &'a mut W {
+        self.variant(VDDIORDY_A::VDDIO_REMOVED)
+    }
+    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
+    #[inline(always)]
+    pub fn vddio_present(self) -> &'a mut W {
+        self.variant(VDDIORDY_A::VDDIO_PRESENT)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w
+    }
+}
+#[doc = "Oscillator Bypass\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OSCBYPASS_A {
+    #[doc = "0: no effect. Clock selection depends on XTALSEL value."]
+    NO_EFFECT = 0,
+    #[doc = "1: the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
+    BYPASS = 1,
+}
+impl From<OSCBYPASS_A> for bool {
+    #[inline(always)]
+    fn from(variant: OSCBYPASS_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `OSCBYPASS`"]
+pub type OSCBYPASS_R = crate::R<bool, OSCBYPASS_A>;
+impl OSCBYPASS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OSCBYPASS_A {
+        match self.bits {
+            false => OSCBYPASS_A::NO_EFFECT,
+            true => OSCBYPASS_A::BYPASS,
         }
     }
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == OSCBYPASSR::NO_EFFECT
+        *self == OSCBYPASS_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `BYPASS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bypass(&self) -> bool {
-        *self == OSCBYPASSR::BYPASS
+        *self == OSCBYPASS_A::BYPASS
     }
 }
-#[doc = "Possible values of the field `KEY`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYR {
-    #[doc = "Writing any other value in this field aborts the write operation."]
-    PASSWD,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `OSCBYPASS`"]
+pub struct OSCBYPASS_W<'a> {
+    w: &'a mut W,
 }
-impl KEYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            KEYR::PASSWD => 165,
-            KEYR::_Reserved(bits) => bits,
+impl<'a> OSCBYPASS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OSCBYPASS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> KEYR {
-        match value {
-            165 => KEYR::PASSWD,
-            i => KEYR::_Reserved(i),
+    #[doc = "no effect. Clock selection depends on XTALSEL value."]
+    #[inline(always)]
+    pub fn no_effect(self) -> &'a mut W {
+        self.variant(OSCBYPASS_A::NO_EFFECT)
+    }
+    #[doc = "the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
+    #[inline(always)]
+    pub fn bypass(self) -> &'a mut W {
+        self.variant(OSCBYPASS_A::BYPASS)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w
+    }
+}
+#[doc = "Password Key\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum KEY_A {
+    #[doc = "165: Writing any other value in this field aborts the write operation."]
+    PASSWD = 165,
+}
+impl From<KEY_A> for u8 {
+    #[inline(always)]
+    fn from(variant: KEY_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Reader of field `KEY`"]
+pub type KEY_R = crate::R<u8, KEY_A>;
+impl KEY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, KEY_A> {
+        use crate::Variant::*;
+        match self.bits {
+            165 => Val(KEY_A::PASSWD),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `PASSWD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_passwd(&self) -> bool {
-        *self == KEYR::PASSWD
+        *self == KEY_A::PASSWD
     }
 }
-#[doc = "Values that can be written to the field `BODRSTEN`"]
-pub enum BODRSTENW {
-    #[doc = "the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
-    NOT_ENABLE,
-    #[doc = "the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
-    ENABLE,
-}
-impl BODRSTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BODRSTENW::NOT_ENABLE => false,
-            BODRSTENW::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BODRSTENW<'a> {
+#[doc = "Write proxy for field `KEY`"]
+pub struct KEY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BODRSTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BODRSTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the core reset signal \"vddcore_nreset\" is not affected when a brownout detection occurs."]
-    #[inline]
-    pub fn not_enable(self) -> &'a mut W {
-        self.variant(BODRSTENW::NOT_ENABLE)
-    }
-    #[doc = "the core reset signal, vddcore_nreset is asserted when a brownout detection occurs."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(BODRSTENW::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `BODDIS`"]
-pub enum BODDISW {
-    #[doc = "the core brownout detector is enabled."]
-    ENABLE,
-    #[doc = "the core brownout detector is disabled."]
-    DISABLE,
-}
-impl BODDISW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BODDISW::ENABLE => false,
-            BODDISW::DISABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BODDISW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _BODDISW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BODDISW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "the core brownout detector is enabled."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(BODDISW::ENABLE)
-    }
-    #[doc = "the core brownout detector is disabled."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(BODDISW::DISABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `VDDIORDY`"]
-pub enum VDDIORDYW {
-    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
-    VDDIO_REMOVED,
-    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
-    VDDIO_PRESENT,
-}
-impl VDDIORDYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            VDDIORDYW::VDDIO_REMOVED => false,
-            VDDIORDYW::VDDIO_PRESENT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _VDDIORDYW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _VDDIORDYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: VDDIORDYW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "VDDIO is removed (used before going to backup mode when backup batteries are used)"]
-    #[inline]
-    pub fn vddio_removed(self) -> &'a mut W {
-        self.variant(VDDIORDYW::VDDIO_REMOVED)
-    }
-    #[doc = "VDDIO is present (used before going to backup mode when backup batteries are used)"]
-    #[inline]
-    pub fn vddio_present(self) -> &'a mut W {
-        self.variant(VDDIORDYW::VDDIO_PRESENT)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `OSCBYPASS`"]
-pub enum OSCBYPASSW {
-    #[doc = "no effect. Clock selection depends on XTALSEL value."]
-    NO_EFFECT,
-    #[doc = "the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
-    BYPASS,
-}
-impl OSCBYPASSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OSCBYPASSW::NO_EFFECT => false,
-            OSCBYPASSW::BYPASS => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OSCBYPASSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _OSCBYPASSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OSCBYPASSW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "no effect. Clock selection depends on XTALSEL value."]
-    #[inline]
-    pub fn no_effect(self) -> &'a mut W {
-        self.variant(OSCBYPASSW::NO_EFFECT)
-    }
-    #[doc = "the 32-KHz XTAL oscillator is selected and is put in bypass mode."]
-    #[inline]
-    pub fn bypass(self) -> &'a mut W {
-        self.variant(OSCBYPASSW::BYPASS)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `KEY`"]
-pub enum KEYW {
-    #[doc = "Writing any other value in this field aborts the write operation."]
-    PASSWD,
-}
-impl KEYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            KEYW::PASSWD => 165,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _KEYW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _KEYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: KEYW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> KEY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: KEY_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Writing any other value in this field aborts the write operation."]
-    #[inline]
+    #[inline(always)]
     pub fn passwd(self) -> &'a mut W {
-        self.variant(KEYW::PASSWD)
+        self.variant(KEY_A::PASSWD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 12 - Brownout Detector Reset Enable"]
-    #[inline]
-    pub fn bodrsten(&self) -> BODRSTENR {
-        BODRSTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bodrsten(&self) -> BODRSTEN_R {
+        BODRSTEN_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Brownout Detector Disable"]
-    #[inline]
-    pub fn boddis(&self) -> BODDISR {
-        BODDISR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn boddis(&self) -> BODDIS_R {
+        BODDIS_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - VDDIO Ready"]
-    #[inline]
-    pub fn vddiordy(&self) -> VDDIORDYR {
-        VDDIORDYR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn vddiordy(&self) -> VDDIORDY_R {
+        VDDIORDY_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Oscillator Bypass"]
-    #[inline]
-    pub fn oscbypass(&self) -> OSCBYPASSR {
-        OSCBYPASSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn oscbypass(&self) -> OSCBYPASS_R {
+        OSCBYPASS_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bits 24:31 - Password Key"]
-    #[inline]
-    pub fn key(&self) -> KEYR {
-        KEYR::_from({
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn key(&self) -> KEY_R {
+        KEY_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 23040 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 12 - Brownout Detector Reset Enable"]
-    #[inline]
-    pub fn bodrsten(&mut self) -> _BODRSTENW {
-        _BODRSTENW { w: self }
+    #[inline(always)]
+    pub fn bodrsten(&mut self) -> BODRSTEN_W {
+        BODRSTEN_W { w: self }
     }
     #[doc = "Bit 13 - Brownout Detector Disable"]
-    #[inline]
-    pub fn boddis(&mut self) -> _BODDISW {
-        _BODDISW { w: self }
+    #[inline(always)]
+    pub fn boddis(&mut self) -> BODDIS_W {
+        BODDIS_W { w: self }
     }
     #[doc = "Bit 14 - VDDIO Ready"]
-    #[inline]
-    pub fn vddiordy(&mut self) -> _VDDIORDYW {
-        _VDDIORDYW { w: self }
+    #[inline(always)]
+    pub fn vddiordy(&mut self) -> VDDIORDY_W {
+        VDDIORDY_W { w: self }
     }
     #[doc = "Bit 20 - Oscillator Bypass"]
-    #[inline]
-    pub fn oscbypass(&mut self) -> _OSCBYPASSW {
-        _OSCBYPASSW { w: self }
+    #[inline(always)]
+    pub fn oscbypass(&mut self) -> OSCBYPASS_W {
+        OSCBYPASS_W { w: self }
     }
     #[doc = "Bits 24:31 - Password Key"]
-    #[inline]
-    pub fn key(&mut self) -> _KEYW {
-        _KEYW { w: self }
+    #[inline(always)]
+    pub fn key(&mut self) -> KEY_W {
+        KEY_W { w: self }
     }
 }

@@ -1,1548 +1,1088 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MR"]
+pub type R = crate::R<u32, super::MR>;
+#[doc = "Writer for register MR"]
+pub type W = crate::W<u32, super::MR>;
+#[doc = "Register MR `reset()`'s with value 0"]
+impl crate::ResetValue for super::MR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `TRGEN`"]
+#[doc = "Trigger Enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TRGENR {
-    #[doc = "Hardware triggers are disabled. Starting a conversion is only possible by software."]
-    DIS,
-    #[doc = "Hardware trigger selected by TRGSEL field is enabled."]
-    EN,
+pub enum TRGEN_A {
+    #[doc = "0: Hardware triggers are disabled. Starting a conversion is only possible by software."]
+    DIS = 0,
+    #[doc = "1: Hardware trigger selected by TRGSEL field is enabled."]
+    EN = 1,
 }
-impl TRGENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+impl From<TRGEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRGEN_A) -> Self {
+        variant as u8 != 0
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TRGENR::DIS => false,
-            TRGENR::EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TRGENR {
-        match value {
-            false => TRGENR::DIS,
-            true => TRGENR::EN,
+}
+#[doc = "Reader of field `TRGEN`"]
+pub type TRGEN_R = crate::R<bool, TRGEN_A>;
+impl TRGEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TRGEN_A {
+        match self.bits {
+            false => TRGEN_A::DIS,
+            true => TRGEN_A::EN,
         }
     }
     #[doc = "Checks if the value of the field is `DIS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TRGENR::DIS
+        *self == TRGEN_A::DIS
     }
     #[doc = "Checks if the value of the field is `EN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TRGENR::EN
+        *self == TRGEN_A::EN
     }
 }
-#[doc = "Possible values of the field `TRGSEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TRGSELR {
-    #[doc = "External : ADCTRG"]
-    ADC_TRIG0,
-    #[doc = "TIOA Output of the Timer Counter Channel 0"]
-    ADC_TRIG1,
-    #[doc = "TIOA Output of the Timer Counter Channel 1"]
-    ADC_TRIG2,
-    #[doc = "TIOA Output of the Timer Counter Channel 2"]
-    ADC_TRIG3,
-    #[doc = "PWM Event Line 0"]
-    ADC_TRIG4,
-    #[doc = "PWM Event Line 0"]
-    ADC_TRIG5,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `TRGEN`"]
+pub struct TRGEN_W<'a> {
+    w: &'a mut W,
 }
-impl TRGSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            TRGSELR::ADC_TRIG0 => 0,
-            TRGSELR::ADC_TRIG1 => 1,
-            TRGSELR::ADC_TRIG2 => 2,
-            TRGSELR::ADC_TRIG3 => 3,
-            TRGSELR::ADC_TRIG4 => 4,
-            TRGSELR::ADC_TRIG5 => 5,
-            TRGSELR::_Reserved(bits) => bits,
+impl<'a> TRGEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRGEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> TRGSELR {
-        match value {
-            0 => TRGSELR::ADC_TRIG0,
-            1 => TRGSELR::ADC_TRIG1,
-            2 => TRGSELR::ADC_TRIG2,
-            3 => TRGSELR::ADC_TRIG3,
-            4 => TRGSELR::ADC_TRIG4,
-            5 => TRGSELR::ADC_TRIG5,
-            i => TRGSELR::_Reserved(i),
+    #[doc = "Hardware triggers are disabled. Starting a conversion is only possible by software."]
+    #[inline(always)]
+    pub fn dis(self) -> &'a mut W {
+        self.variant(TRGEN_A::DIS)
+    }
+    #[doc = "Hardware trigger selected by TRGSEL field is enabled."]
+    #[inline(always)]
+    pub fn en(self) -> &'a mut W {
+        self.variant(TRGEN_A::EN)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Trigger Selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum TRGSEL_A {
+    #[doc = "0: External : ADCTRG"]
+    ADC_TRIG0 = 0,
+    #[doc = "1: TIOA Output of the Timer Counter Channel 0"]
+    ADC_TRIG1 = 1,
+    #[doc = "2: TIOA Output of the Timer Counter Channel 1"]
+    ADC_TRIG2 = 2,
+    #[doc = "3: TIOA Output of the Timer Counter Channel 2"]
+    ADC_TRIG3 = 3,
+    #[doc = "4: PWM Event Line 0"]
+    ADC_TRIG4 = 4,
+    #[doc = "5: PWM Event Line 0"]
+    ADC_TRIG5 = 5,
+}
+impl From<TRGSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: TRGSEL_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Reader of field `TRGSEL`"]
+pub type TRGSEL_R = crate::R<u8, TRGSEL_A>;
+impl TRGSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, TRGSEL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(TRGSEL_A::ADC_TRIG0),
+            1 => Val(TRGSEL_A::ADC_TRIG1),
+            2 => Val(TRGSEL_A::ADC_TRIG2),
+            3 => Val(TRGSEL_A::ADC_TRIG3),
+            4 => Val(TRGSEL_A::ADC_TRIG4),
+            5 => Val(TRGSEL_A::ADC_TRIG5),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig0(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG0
+        *self == TRGSEL_A::ADC_TRIG0
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig1(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG1
+        *self == TRGSEL_A::ADC_TRIG1
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG2`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig2(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG2
+        *self == TRGSEL_A::ADC_TRIG2
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig3(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG3
+        *self == TRGSEL_A::ADC_TRIG3
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG4`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig4(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG4
+        *self == TRGSEL_A::ADC_TRIG4
     }
     #[doc = "Checks if the value of the field is `ADC_TRIG5`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_trig5(&self) -> bool {
-        *self == TRGSELR::ADC_TRIG5
+        *self == TRGSEL_A::ADC_TRIG5
     }
 }
-#[doc = "Possible values of the field `SLEEP`"]
+#[doc = "Write proxy for field `TRGSEL`"]
+pub struct TRGSEL_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> TRGSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRGSEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "External : ADCTRG"]
+    #[inline(always)]
+    pub fn adc_trig0(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG0)
+    }
+    #[doc = "TIOA Output of the Timer Counter Channel 0"]
+    #[inline(always)]
+    pub fn adc_trig1(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG1)
+    }
+    #[doc = "TIOA Output of the Timer Counter Channel 1"]
+    #[inline(always)]
+    pub fn adc_trig2(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG2)
+    }
+    #[doc = "TIOA Output of the Timer Counter Channel 2"]
+    #[inline(always)]
+    pub fn adc_trig3(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG3)
+    }
+    #[doc = "PWM Event Line 0"]
+    #[inline(always)]
+    pub fn adc_trig4(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG4)
+    }
+    #[doc = "PWM Event Line 0"]
+    #[inline(always)]
+    pub fn adc_trig5(self) -> &'a mut W {
+        self.variant(TRGSEL_A::ADC_TRIG5)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 1)) | (((value as u32) & 0x07) << 1);
+        self.w
+    }
+}
+#[doc = "Sleep Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SLEEPR {
-    #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
-    NORMAL,
-    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
-    SLEEP,
+pub enum SLEEP_A {
+    #[doc = "0: Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
+    NORMAL = 0,
+    #[doc = "1: Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
+    SLEEP = 1,
 }
-impl SLEEPR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+impl From<SLEEP_A> for bool {
+    #[inline(always)]
+    fn from(variant: SLEEP_A) -> Self {
+        variant as u8 != 0
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SLEEPR::NORMAL => false,
-            SLEEPR::SLEEP => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SLEEPR {
-        match value {
-            false => SLEEPR::NORMAL,
-            true => SLEEPR::SLEEP,
+}
+#[doc = "Reader of field `SLEEP`"]
+pub type SLEEP_R = crate::R<bool, SLEEP_A>;
+impl SLEEP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SLEEP_A {
+        match self.bits {
+            false => SLEEP_A::NORMAL,
+            true => SLEEP_A::SLEEP,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == SLEEPR::NORMAL
+        *self == SLEEP_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `SLEEP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sleep(&self) -> bool {
-        *self == SLEEPR::SLEEP
+        *self == SLEEP_A::SLEEP
     }
 }
-#[doc = "Possible values of the field `FWUP`"]
+#[doc = "Write proxy for field `SLEEP`"]
+pub struct SLEEP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SLEEP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SLEEP_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut W {
+        self.variant(SLEEP_A::NORMAL)
+    }
+    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
+    #[inline(always)]
+    pub fn sleep(self) -> &'a mut W {
+        self.variant(SLEEP_A::SLEEP)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Fast Wake Up\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FWUPR {
+pub enum FWUP_A {
+    #[doc = "0: If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
+    OFF = 0,
+    #[doc = "1: If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
+    ON = 1,
+}
+impl From<FWUP_A> for bool {
+    #[inline(always)]
+    fn from(variant: FWUP_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `FWUP`"]
+pub type FWUP_R = crate::R<bool, FWUP_A>;
+impl FWUP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FWUP_A {
+        match self.bits {
+            false => FWUP_A::OFF,
+            true => FWUP_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == FWUP_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == FWUP_A::ON
+    }
+}
+#[doc = "Write proxy for field `FWUP`"]
+pub struct FWUP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> FWUP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FWUP_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
-    OFF,
+    #[inline(always)]
+    pub fn off(self) -> &'a mut W {
+        self.variant(FWUP_A::OFF)
+    }
     #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
-    ON,
+    #[inline(always)]
+    pub fn on(self) -> &'a mut W {
+        self.variant(FWUP_A::ON)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
 }
-impl FWUPR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+#[doc = "Free Run Mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FREERUN_A {
+    #[doc = "0: Normal Mode"]
+    OFF = 0,
+    #[doc = "1: Free Run Mode: Never wait for any trigger."]
+    ON = 1,
+}
+impl From<FREERUN_A> for bool {
+    #[inline(always)]
+    fn from(variant: FREERUN_A) -> Self {
+        variant as u8 != 0
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FWUPR::OFF => false,
-            FWUPR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FWUPR {
-        match value {
-            false => FWUPR::OFF,
-            true => FWUPR::ON,
+}
+#[doc = "Reader of field `FREERUN`"]
+pub type FREERUN_R = crate::R<bool, FREERUN_A>;
+impl FREERUN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FREERUN_A {
+        match self.bits {
+            false => FREERUN_A::OFF,
+            true => FREERUN_A::ON,
         }
     }
     #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_off(&self) -> bool {
-        *self == FWUPR::OFF
+        *self == FREERUN_A::OFF
     }
     #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_on(&self) -> bool {
-        *self == FWUPR::ON
+        *self == FREERUN_A::ON
     }
 }
-#[doc = "Possible values of the field `FREERUN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FREERUNR {
+#[doc = "Write proxy for field `FREERUN`"]
+pub struct FREERUN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> FREERUN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FREERUN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Normal Mode"]
-    OFF,
+    #[inline(always)]
+    pub fn off(self) -> &'a mut W {
+        self.variant(FREERUN_A::OFF)
+    }
     #[doc = "Free Run Mode: Never wait for any trigger."]
-    ON,
-}
-impl FREERUNR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn on(self) -> &'a mut W {
+        self.variant(FREERUN_A::ON)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FREERUNR::OFF => false,
-            FREERUNR::ON => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FREERUNR {
-        match value {
-            false => FREERUNR::OFF,
-            true => FREERUNR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == FREERUNR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == FREERUNR::ON
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct PRESCALR {
-    bits: u8,
+#[doc = "Reader of field `PRESCAL`"]
+pub type PRESCAL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PRESCAL`"]
+pub struct PRESCAL_W<'a> {
+    w: &'a mut W,
 }
-impl PRESCALR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> PRESCAL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w
     }
 }
-#[doc = "Possible values of the field `STARTUP`"]
+#[doc = "Start Up Time\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STARTUPR {
-    #[doc = "0 periods of ADCClock"]
-    SUT0,
-    #[doc = "8 periods of ADCClock"]
-    SUT8,
-    #[doc = "16 periods of ADCClock"]
-    SUT16,
-    #[doc = "24 periods of ADCClock"]
-    SUT24,
-    #[doc = "64 periods of ADCClock"]
-    SUT64,
-    #[doc = "80 periods of ADCClock"]
-    SUT80,
-    #[doc = "96 periods of ADCClock"]
-    SUT96,
-    #[doc = "112 periods of ADCClock"]
-    SUT112,
-    #[doc = "512 periods of ADCClock"]
-    SUT512,
-    #[doc = "576 periods of ADCClock"]
-    SUT576,
-    #[doc = "640 periods of ADCClock"]
-    SUT640,
-    #[doc = "704 periods of ADCClock"]
-    SUT704,
-    #[doc = "768 periods of ADCClock"]
-    SUT768,
-    #[doc = "832 periods of ADCClock"]
-    SUT832,
-    #[doc = "896 periods of ADCClock"]
-    SUT896,
-    #[doc = "960 periods of ADCClock"]
-    SUT960,
+#[repr(u8)]
+pub enum STARTUP_A {
+    #[doc = "0: 0 periods of ADCClock"]
+    SUT0 = 0,
+    #[doc = "1: 8 periods of ADCClock"]
+    SUT8 = 1,
+    #[doc = "2: 16 periods of ADCClock"]
+    SUT16 = 2,
+    #[doc = "3: 24 periods of ADCClock"]
+    SUT24 = 3,
+    #[doc = "4: 64 periods of ADCClock"]
+    SUT64 = 4,
+    #[doc = "5: 80 periods of ADCClock"]
+    SUT80 = 5,
+    #[doc = "6: 96 periods of ADCClock"]
+    SUT96 = 6,
+    #[doc = "7: 112 periods of ADCClock"]
+    SUT112 = 7,
+    #[doc = "8: 512 periods of ADCClock"]
+    SUT512 = 8,
+    #[doc = "9: 576 periods of ADCClock"]
+    SUT576 = 9,
+    #[doc = "10: 640 periods of ADCClock"]
+    SUT640 = 10,
+    #[doc = "11: 704 periods of ADCClock"]
+    SUT704 = 11,
+    #[doc = "12: 768 periods of ADCClock"]
+    SUT768 = 12,
+    #[doc = "13: 832 periods of ADCClock"]
+    SUT832 = 13,
+    #[doc = "14: 896 periods of ADCClock"]
+    SUT896 = 14,
+    #[doc = "15: 960 periods of ADCClock"]
+    SUT960 = 15,
 }
-impl STARTUPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            STARTUPR::SUT0 => 0,
-            STARTUPR::SUT8 => 1,
-            STARTUPR::SUT16 => 2,
-            STARTUPR::SUT24 => 3,
-            STARTUPR::SUT64 => 4,
-            STARTUPR::SUT80 => 5,
-            STARTUPR::SUT96 => 6,
-            STARTUPR::SUT112 => 7,
-            STARTUPR::SUT512 => 8,
-            STARTUPR::SUT576 => 9,
-            STARTUPR::SUT640 => 10,
-            STARTUPR::SUT704 => 11,
-            STARTUPR::SUT768 => 12,
-            STARTUPR::SUT832 => 13,
-            STARTUPR::SUT896 => 14,
-            STARTUPR::SUT960 => 15,
-        }
+impl From<STARTUP_A> for u8 {
+    #[inline(always)]
+    fn from(variant: STARTUP_A) -> Self {
+        variant as _
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> STARTUPR {
-        match value {
-            0 => STARTUPR::SUT0,
-            1 => STARTUPR::SUT8,
-            2 => STARTUPR::SUT16,
-            3 => STARTUPR::SUT24,
-            4 => STARTUPR::SUT64,
-            5 => STARTUPR::SUT80,
-            6 => STARTUPR::SUT96,
-            7 => STARTUPR::SUT112,
-            8 => STARTUPR::SUT512,
-            9 => STARTUPR::SUT576,
-            10 => STARTUPR::SUT640,
-            11 => STARTUPR::SUT704,
-            12 => STARTUPR::SUT768,
-            13 => STARTUPR::SUT832,
-            14 => STARTUPR::SUT896,
-            15 => STARTUPR::SUT960,
+}
+#[doc = "Reader of field `STARTUP`"]
+pub type STARTUP_R = crate::R<u8, STARTUP_A>;
+impl STARTUP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> STARTUP_A {
+        match self.bits {
+            0 => STARTUP_A::SUT0,
+            1 => STARTUP_A::SUT8,
+            2 => STARTUP_A::SUT16,
+            3 => STARTUP_A::SUT24,
+            4 => STARTUP_A::SUT64,
+            5 => STARTUP_A::SUT80,
+            6 => STARTUP_A::SUT96,
+            7 => STARTUP_A::SUT112,
+            8 => STARTUP_A::SUT512,
+            9 => STARTUP_A::SUT576,
+            10 => STARTUP_A::SUT640,
+            11 => STARTUP_A::SUT704,
+            12 => STARTUP_A::SUT768,
+            13 => STARTUP_A::SUT832,
+            14 => STARTUP_A::SUT896,
+            15 => STARTUP_A::SUT960,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `SUT0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut0(&self) -> bool {
-        *self == STARTUPR::SUT0
+        *self == STARTUP_A::SUT0
     }
     #[doc = "Checks if the value of the field is `SUT8`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut8(&self) -> bool {
-        *self == STARTUPR::SUT8
+        *self == STARTUP_A::SUT8
     }
     #[doc = "Checks if the value of the field is `SUT16`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut16(&self) -> bool {
-        *self == STARTUPR::SUT16
+        *self == STARTUP_A::SUT16
     }
     #[doc = "Checks if the value of the field is `SUT24`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut24(&self) -> bool {
-        *self == STARTUPR::SUT24
+        *self == STARTUP_A::SUT24
     }
     #[doc = "Checks if the value of the field is `SUT64`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut64(&self) -> bool {
-        *self == STARTUPR::SUT64
+        *self == STARTUP_A::SUT64
     }
     #[doc = "Checks if the value of the field is `SUT80`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut80(&self) -> bool {
-        *self == STARTUPR::SUT80
+        *self == STARTUP_A::SUT80
     }
     #[doc = "Checks if the value of the field is `SUT96`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut96(&self) -> bool {
-        *self == STARTUPR::SUT96
+        *self == STARTUP_A::SUT96
     }
     #[doc = "Checks if the value of the field is `SUT112`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut112(&self) -> bool {
-        *self == STARTUPR::SUT112
+        *self == STARTUP_A::SUT112
     }
     #[doc = "Checks if the value of the field is `SUT512`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut512(&self) -> bool {
-        *self == STARTUPR::SUT512
+        *self == STARTUP_A::SUT512
     }
     #[doc = "Checks if the value of the field is `SUT576`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut576(&self) -> bool {
-        *self == STARTUPR::SUT576
+        *self == STARTUP_A::SUT576
     }
     #[doc = "Checks if the value of the field is `SUT640`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut640(&self) -> bool {
-        *self == STARTUPR::SUT640
+        *self == STARTUP_A::SUT640
     }
     #[doc = "Checks if the value of the field is `SUT704`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut704(&self) -> bool {
-        *self == STARTUPR::SUT704
+        *self == STARTUP_A::SUT704
     }
     #[doc = "Checks if the value of the field is `SUT768`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut768(&self) -> bool {
-        *self == STARTUPR::SUT768
+        *self == STARTUP_A::SUT768
     }
     #[doc = "Checks if the value of the field is `SUT832`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut832(&self) -> bool {
-        *self == STARTUPR::SUT832
+        *self == STARTUP_A::SUT832
     }
     #[doc = "Checks if the value of the field is `SUT896`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut896(&self) -> bool {
-        *self == STARTUPR::SUT896
+        *self == STARTUP_A::SUT896
     }
     #[doc = "Checks if the value of the field is `SUT960`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sut960(&self) -> bool {
-        *self == STARTUPR::SUT960
+        *self == STARTUP_A::SUT960
     }
 }
-#[doc = "Possible values of the field `SETTLING`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SETTLINGR {
-    #[doc = "3 periods of ADCClock"]
-    AST3,
-    #[doc = "5 periods of ADCClock"]
-    AST5,
-    #[doc = "9 periods of ADCClock"]
-    AST9,
-    #[doc = "17 periods of ADCClock"]
-    AST17,
+#[doc = "Write proxy for field `STARTUP`"]
+pub struct STARTUP_W<'a> {
+    w: &'a mut W,
 }
-impl SETTLINGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SETTLINGR::AST3 => 0,
-            SETTLINGR::AST5 => 1,
-            SETTLINGR::AST9 => 2,
-            SETTLINGR::AST17 => 3,
+impl<'a> STARTUP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STARTUP_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SETTLINGR {
-        match value {
-            0 => SETTLINGR::AST3,
-            1 => SETTLINGR::AST5,
-            2 => SETTLINGR::AST9,
-            3 => SETTLINGR::AST17,
+    #[doc = "0 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut0(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT0)
+    }
+    #[doc = "8 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut8(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT8)
+    }
+    #[doc = "16 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut16(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT16)
+    }
+    #[doc = "24 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut24(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT24)
+    }
+    #[doc = "64 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut64(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT64)
+    }
+    #[doc = "80 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut80(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT80)
+    }
+    #[doc = "96 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut96(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT96)
+    }
+    #[doc = "112 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut112(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT112)
+    }
+    #[doc = "512 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut512(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT512)
+    }
+    #[doc = "576 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut576(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT576)
+    }
+    #[doc = "640 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut640(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT640)
+    }
+    #[doc = "704 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut704(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT704)
+    }
+    #[doc = "768 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut768(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT768)
+    }
+    #[doc = "832 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut832(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT832)
+    }
+    #[doc = "896 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut896(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT896)
+    }
+    #[doc = "960 periods of ADCClock"]
+    #[inline(always)]
+    pub fn sut960(self) -> &'a mut W {
+        self.variant(STARTUP_A::SUT960)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
+        self.w
+    }
+}
+#[doc = "Analog Settling Time\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum SETTLING_A {
+    #[doc = "0: 3 periods of ADCClock"]
+    AST3 = 0,
+    #[doc = "1: 5 periods of ADCClock"]
+    AST5 = 1,
+    #[doc = "2: 9 periods of ADCClock"]
+    AST9 = 2,
+    #[doc = "3: 17 periods of ADCClock"]
+    AST17 = 3,
+}
+impl From<SETTLING_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SETTLING_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Reader of field `SETTLING`"]
+pub type SETTLING_R = crate::R<u8, SETTLING_A>;
+impl SETTLING_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SETTLING_A {
+        match self.bits {
+            0 => SETTLING_A::AST3,
+            1 => SETTLING_A::AST5,
+            2 => SETTLING_A::AST9,
+            3 => SETTLING_A::AST17,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `AST3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ast3(&self) -> bool {
-        *self == SETTLINGR::AST3
+        *self == SETTLING_A::AST3
     }
     #[doc = "Checks if the value of the field is `AST5`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ast5(&self) -> bool {
-        *self == SETTLINGR::AST5
+        *self == SETTLING_A::AST5
     }
     #[doc = "Checks if the value of the field is `AST9`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ast9(&self) -> bool {
-        *self == SETTLINGR::AST9
+        *self == SETTLING_A::AST9
     }
     #[doc = "Checks if the value of the field is `AST17`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ast17(&self) -> bool {
-        *self == SETTLINGR::AST17
+        *self == SETTLING_A::AST17
     }
 }
-#[doc = "Possible values of the field `ANACH`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ANACHR {
-    #[doc = "No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
-    NONE,
-    #[doc = "Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
-    ALLOWED,
+#[doc = "Write proxy for field `SETTLING`"]
+pub struct SETTLING_W<'a> {
+    w: &'a mut W,
 }
-impl ANACHR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ANACHR::NONE => false,
-            ANACHR::ALLOWED => true,
+impl<'a> SETTLING_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SETTLING_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ANACHR {
-        match value {
-            false => ANACHR::NONE,
-            true => ANACHR::ALLOWED,
+    #[doc = "3 periods of ADCClock"]
+    #[inline(always)]
+    pub fn ast3(self) -> &'a mut W {
+        self.variant(SETTLING_A::AST3)
+    }
+    #[doc = "5 periods of ADCClock"]
+    #[inline(always)]
+    pub fn ast5(self) -> &'a mut W {
+        self.variant(SETTLING_A::AST5)
+    }
+    #[doc = "9 periods of ADCClock"]
+    #[inline(always)]
+    pub fn ast9(self) -> &'a mut W {
+        self.variant(SETTLING_A::AST9)
+    }
+    #[doc = "17 periods of ADCClock"]
+    #[inline(always)]
+    pub fn ast17(self) -> &'a mut W {
+        self.variant(SETTLING_A::AST17)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
+        self.w
+    }
+}
+#[doc = "Analog Change\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ANACH_A {
+    #[doc = "0: No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
+    NONE = 0,
+    #[doc = "1: Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
+    ALLOWED = 1,
+}
+impl From<ANACH_A> for bool {
+    #[inline(always)]
+    fn from(variant: ANACH_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `ANACH`"]
+pub type ANACH_R = crate::R<bool, ANACH_A>;
+impl ANACH_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ANACH_A {
+        match self.bits {
+            false => ANACH_A::NONE,
+            true => ANACH_A::ALLOWED,
         }
     }
     #[doc = "Checks if the value of the field is `NONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == ANACHR::NONE
+        *self == ANACH_A::NONE
     }
     #[doc = "Checks if the value of the field is `ALLOWED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_allowed(&self) -> bool {
-        *self == ANACHR::ALLOWED
+        *self == ANACH_A::ALLOWED
     }
 }
-#[doc = r" Value of the field"]
-pub struct TRACKTIMR {
-    bits: u8,
+#[doc = "Write proxy for field `ANACH`"]
+pub struct ANACH_W<'a> {
+    w: &'a mut W,
 }
-impl TRACKTIMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TRANSFERR {
-    bits: u8,
-}
-impl TRANSFERR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `USEQ`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum USEQR {
-    #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
-    NUM_ORDER,
-    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
-    REG_ORDER,
-}
-impl USEQR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            USEQR::NUM_ORDER => false,
-            USEQR::REG_ORDER => true,
+impl<'a> ANACH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ANACH_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> USEQR {
-        match value {
-            false => USEQR::NUM_ORDER,
-            true => USEQR::REG_ORDER,
+    #[doc = "No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
+    #[inline(always)]
+    pub fn none(self) -> &'a mut W {
+        self.variant(ANACH_A::NONE)
+    }
+    #[doc = "Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
+    #[inline(always)]
+    pub fn allowed(self) -> &'a mut W {
+        self.variant(ANACH_A::ALLOWED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w
+    }
+}
+#[doc = "Reader of field `TRACKTIM`"]
+pub type TRACKTIM_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TRACKTIM`"]
+pub struct TRACKTIM_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> TRACKTIM_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x0f << 24)) | (((value as u32) & 0x0f) << 24);
+        self.w
+    }
+}
+#[doc = "Reader of field `TRANSFER`"]
+pub type TRANSFER_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TRANSFER`"]
+pub struct TRANSFER_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> TRANSFER_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 28)) | (((value as u32) & 0x03) << 28);
+        self.w
+    }
+}
+#[doc = "Use Sequence Enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum USEQ_A {
+    #[doc = "0: Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
+    NUM_ORDER = 0,
+    #[doc = "1: User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
+    REG_ORDER = 1,
+}
+impl From<USEQ_A> for bool {
+    #[inline(always)]
+    fn from(variant: USEQ_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `USEQ`"]
+pub type USEQ_R = crate::R<bool, USEQ_A>;
+impl USEQ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> USEQ_A {
+        match self.bits {
+            false => USEQ_A::NUM_ORDER,
+            true => USEQ_A::REG_ORDER,
         }
     }
     #[doc = "Checks if the value of the field is `NUM_ORDER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_num_order(&self) -> bool {
-        *self == USEQR::NUM_ORDER
+        *self == USEQ_A::NUM_ORDER
     }
     #[doc = "Checks if the value of the field is `REG_ORDER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reg_order(&self) -> bool {
-        *self == USEQR::REG_ORDER
+        *self == USEQ_A::REG_ORDER
     }
 }
-#[doc = "Values that can be written to the field `TRGEN`"]
-pub enum TRGENW {
-    #[doc = "Hardware triggers are disabled. Starting a conversion is only possible by software."]
-    DIS,
-    #[doc = "Hardware trigger selected by TRGSEL field is enabled."]
-    EN,
-}
-impl TRGENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TRGENW::DIS => false,
-            TRGENW::EN => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRGENW<'a> {
+#[doc = "Write proxy for field `USEQ`"]
+pub struct USEQ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TRGENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TRGENW) -> &'a mut W {
+impl<'a> USEQ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: USEQ_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Hardware triggers are disabled. Starting a conversion is only possible by software."]
-    #[inline]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TRGENW::DIS)
-    }
-    #[doc = "Hardware trigger selected by TRGSEL field is enabled."]
-    #[inline]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TRGENW::EN)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TRGSEL`"]
-pub enum TRGSELW {
-    #[doc = "External : ADCTRG"]
-    ADC_TRIG0,
-    #[doc = "TIOA Output of the Timer Counter Channel 0"]
-    ADC_TRIG1,
-    #[doc = "TIOA Output of the Timer Counter Channel 1"]
-    ADC_TRIG2,
-    #[doc = "TIOA Output of the Timer Counter Channel 2"]
-    ADC_TRIG3,
-    #[doc = "PWM Event Line 0"]
-    ADC_TRIG4,
-    #[doc = "PWM Event Line 0"]
-    ADC_TRIG5,
-}
-impl TRGSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            TRGSELW::ADC_TRIG0 => 0,
-            TRGSELW::ADC_TRIG1 => 1,
-            TRGSELW::ADC_TRIG2 => 2,
-            TRGSELW::ADC_TRIG3 => 3,
-            TRGSELW::ADC_TRIG4 => 4,
-            TRGSELW::ADC_TRIG5 => 5,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRGSELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TRGSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TRGSELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "External : ADCTRG"]
-    #[inline]
-    pub fn adc_trig0(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG0)
-    }
-    #[doc = "TIOA Output of the Timer Counter Channel 0"]
-    #[inline]
-    pub fn adc_trig1(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG1)
-    }
-    #[doc = "TIOA Output of the Timer Counter Channel 1"]
-    #[inline]
-    pub fn adc_trig2(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG2)
-    }
-    #[doc = "TIOA Output of the Timer Counter Channel 2"]
-    #[inline]
-    pub fn adc_trig3(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG3)
-    }
-    #[doc = "PWM Event Line 0"]
-    #[inline]
-    pub fn adc_trig4(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG4)
-    }
-    #[doc = "PWM Event Line 0"]
-    #[inline]
-    pub fn adc_trig5(self) -> &'a mut W {
-        self.variant(TRGSELW::ADC_TRIG5)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SLEEP`"]
-pub enum SLEEPW {
-    #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
-    NORMAL,
-    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
-    SLEEP,
-}
-impl SLEEPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SLEEPW::NORMAL => false,
-            SLEEPW::SLEEP => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SLEEPW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SLEEPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SLEEPW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions"]
-    #[inline]
-    pub fn normal(self) -> &'a mut W {
-        self.variant(SLEEPW::NORMAL)
-    }
-    #[doc = "Sleep Mode: The wake-up time can be modified by programming FWUP bit"]
-    #[inline]
-    pub fn sleep(self) -> &'a mut W {
-        self.variant(SLEEPW::SLEEP)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `FWUP`"]
-pub enum FWUPW {
-    #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
-    OFF,
-    #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
-    ON,
-}
-impl FWUPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FWUPW::OFF => false,
-            FWUPW::ON => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FWUPW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _FWUPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FWUPW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "If SLEEP is 1 then both ADC Core and reference voltage circuitry are OFF between conversions"]
-    #[inline]
-    pub fn off(self) -> &'a mut W {
-        self.variant(FWUPW::OFF)
-    }
-    #[doc = "If SLEEP is 1 then Fast Wake-up Sleep Mode: The Voltage reference is ON between conversions and ADC Core is OFF"]
-    #[inline]
-    pub fn on(self) -> &'a mut W {
-        self.variant(FWUPW::ON)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `FREERUN`"]
-pub enum FREERUNW {
-    #[doc = "Normal Mode"]
-    OFF,
-    #[doc = "Free Run Mode: Never wait for any trigger."]
-    ON,
-}
-impl FREERUNW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FREERUNW::OFF => false,
-            FREERUNW::ON => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FREERUNW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _FREERUNW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FREERUNW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Normal Mode"]
-    #[inline]
-    pub fn off(self) -> &'a mut W {
-        self.variant(FREERUNW::OFF)
-    }
-    #[doc = "Free Run Mode: Never wait for any trigger."]
-    #[inline]
-    pub fn on(self) -> &'a mut W {
-        self.variant(FREERUNW::ON)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PRESCALW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PRESCALW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `STARTUP`"]
-pub enum STARTUPW {
-    #[doc = "0 periods of ADCClock"]
-    SUT0,
-    #[doc = "8 periods of ADCClock"]
-    SUT8,
-    #[doc = "16 periods of ADCClock"]
-    SUT16,
-    #[doc = "24 periods of ADCClock"]
-    SUT24,
-    #[doc = "64 periods of ADCClock"]
-    SUT64,
-    #[doc = "80 periods of ADCClock"]
-    SUT80,
-    #[doc = "96 periods of ADCClock"]
-    SUT96,
-    #[doc = "112 periods of ADCClock"]
-    SUT112,
-    #[doc = "512 periods of ADCClock"]
-    SUT512,
-    #[doc = "576 periods of ADCClock"]
-    SUT576,
-    #[doc = "640 periods of ADCClock"]
-    SUT640,
-    #[doc = "704 periods of ADCClock"]
-    SUT704,
-    #[doc = "768 periods of ADCClock"]
-    SUT768,
-    #[doc = "832 periods of ADCClock"]
-    SUT832,
-    #[doc = "896 periods of ADCClock"]
-    SUT896,
-    #[doc = "960 periods of ADCClock"]
-    SUT960,
-}
-impl STARTUPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            STARTUPW::SUT0 => 0,
-            STARTUPW::SUT8 => 1,
-            STARTUPW::SUT16 => 2,
-            STARTUPW::SUT24 => 3,
-            STARTUPW::SUT64 => 4,
-            STARTUPW::SUT80 => 5,
-            STARTUPW::SUT96 => 6,
-            STARTUPW::SUT112 => 7,
-            STARTUPW::SUT512 => 8,
-            STARTUPW::SUT576 => 9,
-            STARTUPW::SUT640 => 10,
-            STARTUPW::SUT704 => 11,
-            STARTUPW::SUT768 => 12,
-            STARTUPW::SUT832 => 13,
-            STARTUPW::SUT896 => 14,
-            STARTUPW::SUT960 => 15,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STARTUPW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _STARTUPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STARTUPW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "0 periods of ADCClock"]
-    #[inline]
-    pub fn sut0(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT0)
-    }
-    #[doc = "8 periods of ADCClock"]
-    #[inline]
-    pub fn sut8(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT8)
-    }
-    #[doc = "16 periods of ADCClock"]
-    #[inline]
-    pub fn sut16(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT16)
-    }
-    #[doc = "24 periods of ADCClock"]
-    #[inline]
-    pub fn sut24(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT24)
-    }
-    #[doc = "64 periods of ADCClock"]
-    #[inline]
-    pub fn sut64(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT64)
-    }
-    #[doc = "80 periods of ADCClock"]
-    #[inline]
-    pub fn sut80(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT80)
-    }
-    #[doc = "96 periods of ADCClock"]
-    #[inline]
-    pub fn sut96(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT96)
-    }
-    #[doc = "112 periods of ADCClock"]
-    #[inline]
-    pub fn sut112(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT112)
-    }
-    #[doc = "512 periods of ADCClock"]
-    #[inline]
-    pub fn sut512(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT512)
-    }
-    #[doc = "576 periods of ADCClock"]
-    #[inline]
-    pub fn sut576(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT576)
-    }
-    #[doc = "640 periods of ADCClock"]
-    #[inline]
-    pub fn sut640(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT640)
-    }
-    #[doc = "704 periods of ADCClock"]
-    #[inline]
-    pub fn sut704(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT704)
-    }
-    #[doc = "768 periods of ADCClock"]
-    #[inline]
-    pub fn sut768(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT768)
-    }
-    #[doc = "832 periods of ADCClock"]
-    #[inline]
-    pub fn sut832(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT832)
-    }
-    #[doc = "896 periods of ADCClock"]
-    #[inline]
-    pub fn sut896(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT896)
-    }
-    #[doc = "960 periods of ADCClock"]
-    #[inline]
-    pub fn sut960(self) -> &'a mut W {
-        self.variant(STARTUPW::SUT960)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SETTLING`"]
-pub enum SETTLINGW {
-    #[doc = "3 periods of ADCClock"]
-    AST3,
-    #[doc = "5 periods of ADCClock"]
-    AST5,
-    #[doc = "9 periods of ADCClock"]
-    AST9,
-    #[doc = "17 periods of ADCClock"]
-    AST17,
-}
-impl SETTLINGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SETTLINGW::AST3 => 0,
-            SETTLINGW::AST5 => 1,
-            SETTLINGW::AST9 => 2,
-            SETTLINGW::AST17 => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SETTLINGW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SETTLINGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SETTLINGW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "3 periods of ADCClock"]
-    #[inline]
-    pub fn ast3(self) -> &'a mut W {
-        self.variant(SETTLINGW::AST3)
-    }
-    #[doc = "5 periods of ADCClock"]
-    #[inline]
-    pub fn ast5(self) -> &'a mut W {
-        self.variant(SETTLINGW::AST5)
-    }
-    #[doc = "9 periods of ADCClock"]
-    #[inline]
-    pub fn ast9(self) -> &'a mut W {
-        self.variant(SETTLINGW::AST9)
-    }
-    #[doc = "17 periods of ADCClock"]
-    #[inline]
-    pub fn ast17(self) -> &'a mut W {
-        self.variant(SETTLINGW::AST17)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ANACH`"]
-pub enum ANACHW {
-    #[doc = "No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
-    NONE,
-    #[doc = "Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
-    ALLOWED,
-}
-impl ANACHW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ANACHW::NONE => false,
-            ANACHW::ALLOWED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ANACHW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ANACHW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ANACHW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No analog change on channel switching: DIFF0, GAIN0 and OFF0 are used for all channels"]
-    #[inline]
-    pub fn none(self) -> &'a mut W {
-        self.variant(ANACHW::NONE)
-    }
-    #[doc = "Allows different analog settings for each channel. See ADC_CGR and ADC_COR Registers"]
-    #[inline]
-    pub fn allowed(self) -> &'a mut W {
-        self.variant(ANACHW::ALLOWED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRACKTIMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TRACKTIMW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRANSFERW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TRANSFERW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `USEQ`"]
-pub enum USEQW {
-    #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
-    NUM_ORDER,
-    #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
-    REG_ORDER,
-}
-impl USEQW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            USEQW::NUM_ORDER => false,
-            USEQW::REG_ORDER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _USEQW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _USEQW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: USEQW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Normal Mode: The controller converts channels in a simple numeric order depending only on the channel index."]
-    #[inline]
+    #[inline(always)]
     pub fn num_order(self) -> &'a mut W {
-        self.variant(USEQW::NUM_ORDER)
+        self.variant(USEQ_A::NUM_ORDER)
     }
     #[doc = "User Sequence Mode: The sequence respects what is defined in ADC_SEQR1 and ADC_SEQR2 registers and can be used to convert several times the same channel."]
-    #[inline]
+    #[inline(always)]
     pub fn reg_order(self) -> &'a mut W {
-        self.variant(USEQW::REG_ORDER)
+        self.variant(USEQ_A::REG_ORDER)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Trigger Enable"]
-    #[inline]
-    pub fn trgen(&self) -> TRGENR {
-        TRGENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn trgen(&self) -> TRGEN_R {
+        TRGEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bits 1:3 - Trigger Selection"]
-    #[inline]
-    pub fn trgsel(&self) -> TRGSELR {
-        TRGSELR::_from({
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn trgsel(&self) -> TRGSEL_R {
+        TRGSEL_R::new(((self.bits >> 1) & 0x07) as u8)
     }
     #[doc = "Bit 5 - Sleep Mode"]
-    #[inline]
-    pub fn sleep(&self) -> SLEEPR {
-        SLEEPR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sleep(&self) -> SLEEP_R {
+        SLEEP_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Fast Wake Up"]
-    #[inline]
-    pub fn fwup(&self) -> FWUPR {
-        FWUPR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn fwup(&self) -> FWUP_R {
+        FWUP_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Free Run Mode"]
-    #[inline]
-    pub fn freerun(&self) -> FREERUNR {
-        FREERUNR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn freerun(&self) -> FREERUN_R {
+        FREERUN_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bits 8:15 - Prescaler Rate Selection"]
-    #[inline]
-    pub fn prescal(&self) -> PRESCALR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PRESCALR { bits }
+    #[inline(always)]
+    pub fn prescal(&self) -> PRESCAL_R {
+        PRESCAL_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:19 - Start Up Time"]
-    #[inline]
-    pub fn startup(&self) -> STARTUPR {
-        STARTUPR::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn startup(&self) -> STARTUP_R {
+        STARTUP_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:21 - Analog Settling Time"]
-    #[inline]
-    pub fn settling(&self) -> SETTLINGR {
-        SETTLINGR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn settling(&self) -> SETTLING_R {
+        SETTLING_R::new(((self.bits >> 20) & 0x03) as u8)
     }
     #[doc = "Bit 23 - Analog Change"]
-    #[inline]
-    pub fn anach(&self) -> ANACHR {
-        ANACHR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn anach(&self) -> ANACH_R {
+        ANACH_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bits 24:27 - Tracking Time"]
-    #[inline]
-    pub fn tracktim(&self) -> TRACKTIMR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TRACKTIMR { bits }
+    #[inline(always)]
+    pub fn tracktim(&self) -> TRACKTIM_R {
+        TRACKTIM_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
     #[doc = "Bits 28:29 - Transfer Period"]
-    #[inline]
-    pub fn transfer(&self) -> TRANSFERR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TRANSFERR { bits }
+    #[inline(always)]
+    pub fn transfer(&self) -> TRANSFER_R {
+        TRANSFER_R::new(((self.bits >> 28) & 0x03) as u8)
     }
     #[doc = "Bit 31 - Use Sequence Enable"]
-    #[inline]
-    pub fn useq(&self) -> USEQR {
-        USEQR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn useq(&self) -> USEQ_R {
+        USEQ_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Trigger Enable"]
-    #[inline]
-    pub fn trgen(&mut self) -> _TRGENW {
-        _TRGENW { w: self }
+    #[inline(always)]
+    pub fn trgen(&mut self) -> TRGEN_W {
+        TRGEN_W { w: self }
     }
     #[doc = "Bits 1:3 - Trigger Selection"]
-    #[inline]
-    pub fn trgsel(&mut self) -> _TRGSELW {
-        _TRGSELW { w: self }
+    #[inline(always)]
+    pub fn trgsel(&mut self) -> TRGSEL_W {
+        TRGSEL_W { w: self }
     }
     #[doc = "Bit 5 - Sleep Mode"]
-    #[inline]
-    pub fn sleep(&mut self) -> _SLEEPW {
-        _SLEEPW { w: self }
+    #[inline(always)]
+    pub fn sleep(&mut self) -> SLEEP_W {
+        SLEEP_W { w: self }
     }
     #[doc = "Bit 6 - Fast Wake Up"]
-    #[inline]
-    pub fn fwup(&mut self) -> _FWUPW {
-        _FWUPW { w: self }
+    #[inline(always)]
+    pub fn fwup(&mut self) -> FWUP_W {
+        FWUP_W { w: self }
     }
     #[doc = "Bit 7 - Free Run Mode"]
-    #[inline]
-    pub fn freerun(&mut self) -> _FREERUNW {
-        _FREERUNW { w: self }
+    #[inline(always)]
+    pub fn freerun(&mut self) -> FREERUN_W {
+        FREERUN_W { w: self }
     }
     #[doc = "Bits 8:15 - Prescaler Rate Selection"]
-    #[inline]
-    pub fn prescal(&mut self) -> _PRESCALW {
-        _PRESCALW { w: self }
+    #[inline(always)]
+    pub fn prescal(&mut self) -> PRESCAL_W {
+        PRESCAL_W { w: self }
     }
     #[doc = "Bits 16:19 - Start Up Time"]
-    #[inline]
-    pub fn startup(&mut self) -> _STARTUPW {
-        _STARTUPW { w: self }
+    #[inline(always)]
+    pub fn startup(&mut self) -> STARTUP_W {
+        STARTUP_W { w: self }
     }
     #[doc = "Bits 20:21 - Analog Settling Time"]
-    #[inline]
-    pub fn settling(&mut self) -> _SETTLINGW {
-        _SETTLINGW { w: self }
+    #[inline(always)]
+    pub fn settling(&mut self) -> SETTLING_W {
+        SETTLING_W { w: self }
     }
     #[doc = "Bit 23 - Analog Change"]
-    #[inline]
-    pub fn anach(&mut self) -> _ANACHW {
-        _ANACHW { w: self }
+    #[inline(always)]
+    pub fn anach(&mut self) -> ANACH_W {
+        ANACH_W { w: self }
     }
     #[doc = "Bits 24:27 - Tracking Time"]
-    #[inline]
-    pub fn tracktim(&mut self) -> _TRACKTIMW {
-        _TRACKTIMW { w: self }
+    #[inline(always)]
+    pub fn tracktim(&mut self) -> TRACKTIM_W {
+        TRACKTIM_W { w: self }
     }
     #[doc = "Bits 28:29 - Transfer Period"]
-    #[inline]
-    pub fn transfer(&mut self) -> _TRANSFERW {
-        _TRANSFERW { w: self }
+    #[inline(always)]
+    pub fn transfer(&mut self) -> TRANSFER_W {
+        TRANSFER_W { w: self }
     }
     #[doc = "Bit 31 - Use Sequence Enable"]
-    #[inline]
-    pub fn useq(&mut self) -> _USEQW {
-        _USEQW { w: self }
+    #[inline(always)]
+    pub fn useq(&mut self) -> USEQ_W {
+        USEQ_W { w: self }
     }
 }

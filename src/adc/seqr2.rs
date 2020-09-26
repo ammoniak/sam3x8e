@@ -1,351 +1,184 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SEQR2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SEQR2"]
+pub type R = crate::R<u32, super::SEQR2>;
+#[doc = "Writer for register SEQR2"]
+pub type W = crate::W<u32, super::SEQR2>;
+#[doc = "Register SEQR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::SEQR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct USCH9R {
-    bits: u8,
-}
-impl USCH9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH10R {
-    bits: u8,
-}
-impl USCH10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH11R {
-    bits: u8,
-}
-impl USCH11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH12R {
-    bits: u8,
-}
-impl USCH12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH13R {
-    bits: u8,
-}
-impl USCH13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH14R {
-    bits: u8,
-}
-impl USCH14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct USCH15R {
-    bits: u8,
-}
-impl USCH15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _USCH9W<'a> {
+#[doc = "Reader of field `USCH9`"]
+pub type USCH9_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH9`"]
+pub struct USCH9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH9W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH9_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH10W<'a> {
+#[doc = "Reader of field `USCH10`"]
+pub type USCH10_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH10`"]
+pub struct USCH10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH10W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH10_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH11W<'a> {
+#[doc = "Reader of field `USCH11`"]
+pub type USCH11_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH11`"]
+pub struct USCH11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH11W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH11_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH12W<'a> {
+#[doc = "Reader of field `USCH12`"]
+pub type USCH12_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH12`"]
+pub struct USCH12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH12W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH12_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 12)) | (((value as u32) & 0x0f) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH13W<'a> {
+#[doc = "Reader of field `USCH13`"]
+pub type USCH13_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH13`"]
+pub struct USCH13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH13W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH13_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH14W<'a> {
+#[doc = "Reader of field `USCH14`"]
+pub type USCH14_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH14`"]
+pub struct USCH14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH14W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH14_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 20)) | (((value as u32) & 0x0f) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _USCH15W<'a> {
+#[doc = "Reader of field `USCH15`"]
+pub type USCH15_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `USCH15`"]
+pub struct USCH15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USCH15W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> USCH15_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 24)) | (((value as u32) & 0x0f) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:3 - User Sequence Number 9"]
-    #[inline]
-    pub fn usch9(&self) -> USCH9R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH9R { bits }
+    #[inline(always)]
+    pub fn usch9(&self) -> USCH9_R {
+        USCH9_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:7 - User Sequence Number 10"]
-    #[inline]
-    pub fn usch10(&self) -> USCH10R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH10R { bits }
+    #[inline(always)]
+    pub fn usch10(&self) -> USCH10_R {
+        USCH10_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 8:11 - User Sequence Number 11"]
-    #[inline]
-    pub fn usch11(&self) -> USCH11R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH11R { bits }
+    #[inline(always)]
+    pub fn usch11(&self) -> USCH11_R {
+        USCH11_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 12:15 - User Sequence Number 12"]
-    #[inline]
-    pub fn usch12(&self) -> USCH12R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH12R { bits }
+    #[inline(always)]
+    pub fn usch12(&self) -> USCH12_R {
+        USCH12_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:19 - User Sequence Number 13"]
-    #[inline]
-    pub fn usch13(&self) -> USCH13R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH13R { bits }
+    #[inline(always)]
+    pub fn usch13(&self) -> USCH13_R {
+        USCH13_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - User Sequence Number 14"]
-    #[inline]
-    pub fn usch14(&self) -> USCH14R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH14R { bits }
+    #[inline(always)]
+    pub fn usch14(&self) -> USCH14_R {
+        USCH14_R::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 24:27 - User Sequence Number 15"]
-    #[inline]
-    pub fn usch15(&self) -> USCH15R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        USCH15R { bits }
+    #[inline(always)]
+    pub fn usch15(&self) -> USCH15_R {
+        USCH15_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:3 - User Sequence Number 9"]
-    #[inline]
-    pub fn usch9(&mut self) -> _USCH9W {
-        _USCH9W { w: self }
+    #[inline(always)]
+    pub fn usch9(&mut self) -> USCH9_W {
+        USCH9_W { w: self }
     }
     #[doc = "Bits 4:7 - User Sequence Number 10"]
-    #[inline]
-    pub fn usch10(&mut self) -> _USCH10W {
-        _USCH10W { w: self }
+    #[inline(always)]
+    pub fn usch10(&mut self) -> USCH10_W {
+        USCH10_W { w: self }
     }
     #[doc = "Bits 8:11 - User Sequence Number 11"]
-    #[inline]
-    pub fn usch11(&mut self) -> _USCH11W {
-        _USCH11W { w: self }
+    #[inline(always)]
+    pub fn usch11(&mut self) -> USCH11_W {
+        USCH11_W { w: self }
     }
     #[doc = "Bits 12:15 - User Sequence Number 12"]
-    #[inline]
-    pub fn usch12(&mut self) -> _USCH12W {
-        _USCH12W { w: self }
+    #[inline(always)]
+    pub fn usch12(&mut self) -> USCH12_W {
+        USCH12_W { w: self }
     }
     #[doc = "Bits 16:19 - User Sequence Number 13"]
-    #[inline]
-    pub fn usch13(&mut self) -> _USCH13W {
-        _USCH13W { w: self }
+    #[inline(always)]
+    pub fn usch13(&mut self) -> USCH13_W {
+        USCH13_W { w: self }
     }
     #[doc = "Bits 20:23 - User Sequence Number 14"]
-    #[inline]
-    pub fn usch14(&mut self) -> _USCH14W {
-        _USCH14W { w: self }
+    #[inline(always)]
+    pub fn usch14(&mut self) -> USCH14_W {
+        USCH14_W { w: self }
     }
     #[doc = "Bits 24:27 - User Sequence Number 15"]
-    #[inline]
-    pub fn usch15(&mut self) -> _USCH15W {
-        _USCH15W { w: self }
+    #[inline(always)]
+    pub fn usch15(&mut self) -> USCH15_W {
+        USCH15_W { w: self }
     }
 }
